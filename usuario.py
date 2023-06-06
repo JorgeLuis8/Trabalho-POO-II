@@ -26,3 +26,4 @@ class Usuairo:
     @get_senha.setter
     def set_senha(self, senha):
         self._senha = senha
+

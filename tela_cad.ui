@@ -61,87 +61,11 @@ background-color:blue;</string>
      <string> &lt;-- Voltar</string>
     </property>
    </widget>
-   <widget class="QWidget" name="layoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>210</x>
-      <y>120</y>
-      <width>401</width>
-      <height>131</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout_2">
-     <item>
-      <widget class="QLineEdit" name="lineEdit_3"/>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="lineEdit_4"/>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="lineEdit"/>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="lineEdit_2"/>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="layoutWidget_2">
-    <property name="geometry">
-     <rect>
-      <x>130</x>
-      <y>120</y>
-      <width>57</width>
-      <height>131</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout">
-     <item>
-      <widget class="QLabel" name="label_2">
-       <property name="styleSheet">
-        <string notr="true">color:white;</string>
-       </property>
-       <property name="text">
-        <string>Nome</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="label_4">
-       <property name="styleSheet">
-        <string notr="true">color:white;</string>
-       </property>
-       <property name="text">
-        <string>Endereço</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="label_3">
-       <property name="styleSheet">
-        <string notr="true">color:white;</string>
-       </property>
-       <property name="text">
-        <string>CPF</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="label_5">
-       <property name="styleSheet">
-        <string notr="true">color:white;</string>
-       </property>
-       <property name="text">
-        <string>Nascimento</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
    <widget class="QPushButton" name="Botao_cadastrar">
     <property name="geometry">
      <rect>
-      <x>360</x>
-      <y>270</y>
+      <x>330</x>
+      <y>260</y>
       <width>75</width>
       <height>23</height>
      </rect>
@@ -153,6 +77,119 @@ color:white;</string>
     <property name="text">
      <string>Cadastrar</string>
     </property>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>120</y>
+      <width>461</width>
+      <height>130</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout">
+         <item>
+          <widget class="QLabel" name="label_2">
+           <property name="styleSheet">
+            <string notr="true">color:white;</string>
+           </property>
+           <property name="text">
+            <string>Nome</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_6">
+           <property name="styleSheet">
+            <string notr="true">color: white</string>
+           </property>
+           <property name="text">
+            <string>Email</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_4">
+           <property name="styleSheet">
+            <string notr="true">color:white;</string>
+           </property>
+           <property name="text">
+            <string>Endereço</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_3">
+           <property name="styleSheet">
+            <string notr="true">color:white;</string>
+           </property>
+           <property name="text">
+            <string>CPF</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_5">
+           <property name="styleSheet">
+            <string notr="true">color:white;</string>
+           </property>
+           <property name="text">
+            <string>Senha</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <item>
+          <widget class="QLineEdit" name="lineEdit_3">
+           <property name="styleSheet">
+            <string notr="true">color:white</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEdit_4">
+           <property name="styleSheet">
+            <string notr="true">color:white</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEdit">
+           <property name="styleSheet">
+            <string notr="true">color:white</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEdit_2">
+           <property name="styleSheet">
+            <string notr="true">color:white</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="lineEdit_5">
+         <property name="styleSheet">
+          <string notr="true">color:white</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

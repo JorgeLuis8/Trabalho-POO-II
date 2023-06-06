@@ -8,8 +8,8 @@ from PyQt5.QtCore import QCoreApplication
 from telaInicio import  Tela_inical
 from tela_cad import Tela_cad
 from telaAbout import About_us
-#from pessoa import Pessoa
-#from cadastro import Cadastro
+from usuario import Usuairo
+from cadastro import cadastro
 
 
 class Ui_main(QtWidgets.QWidget):
@@ -42,13 +42,13 @@ class Main(QMainWindow, Ui_main):
         super(Main, self).__init__(parent)
         self.setupUi(self)
 
-        #self.cad = Cadastro()
+        self.cad = cadastro()
         self.tela_inical.Botao_sair.clicked.connect(self.sair)
         self.tela_inical.Botao_sobre.clicked.connect(self.Tela_sobre)
         self.tela_inical.botaoCadastro.clicked.connect(self.Tela_cad)
         #self.tela_inical.botaoLogin.connect(self.Tela_login)
         self.tela_cadastro.Botao_voltar.clicked.connect(self.voltar)
-        #self.tela_cadastro.Botao_cadastrar.clicked.connect(self.cadastrar)
+        self.tela_cadastro.Botao_cadastrar.clicked.connect(self.cadastrar)
         self.tela_about.pushButton.clicked.connect(self.voltar)
     '''
         self.tela_inical.Botao_buscar.clicked.connect(
@@ -134,6 +134,17 @@ class Main(QMainWindow, Ui_main):
             QMessageBox.information(None,'Funcionou','Pessoa não econtrada')
 
     '''
+    def cadastrar(self):
+        nome = self.tela_cadastro.lineEdit_3.text()
+        email = self.tela_cadastro.lineEdit_4.text()
+        endereco = self.tela_cadastro.lineEdit.text()
+        cpf = self.tela_cadastro.lineEdit_2.text()
+        senha = self.tela_cadastro.lineEdit_5.text()
+        u = Usuairo(nome,email,endereco,cpf,senha)
+        if not (nome == nome  or email == None or endereco == None or cpf == None
+                or senha == None or nome == '' or email == '' or endereco == '' or cpf == ''):
+            if self.cadastrar(u):
+                QMessageBox.information(None,'Sucesso','Cadastro realizado com sucesso')
     def voltar(self):
         self.Qstack.setCurrentIndex(0)
     def Tela_cad(self):
