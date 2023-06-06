@@ -9,7 +9,7 @@ from telaInicio import  Tela_inical
 from tela_cad import Tela_cad
 from telaAbout import About_us
 from usuario import Usuairo
-from cadastro import cadastro
+from cadastro import metodos
 
 
 class Ui_main(QtWidgets.QWidget):
@@ -42,7 +42,7 @@ class Main(QMainWindow, Ui_main):
         super(Main, self).__init__(parent)
         self.setupUi(self)
 
-        self.cad = cadastro()
+        self.metodos = metodos()
         self.tela_inical.Botao_sair.clicked.connect(self.sair)
         self.tela_inical.Botao_sobre.clicked.connect(self.Tela_sobre)
         self.tela_inical.botaoCadastro.clicked.connect(self.Tela_cad)
@@ -141,10 +141,21 @@ class Main(QMainWindow, Ui_main):
         cpf = self.tela_cadastro.lineEdit_2.text()
         senha = self.tela_cadastro.lineEdit_5.text()
         u = Usuairo(nome,email,endereco,cpf,senha)
-        if not (nome == nome  or email == None or endereco == None or cpf == None
+        if not (nome == None  or email == None or endereco == None or cpf == None
                 or senha == None or nome == '' or email == '' or endereco == '' or cpf == ''):
-            if self.cadastrar(u):
+            if self.metodos.verifica_cadastro(cpf):
+                QMessageBox.information(None,'Atenção','O CPF informado já foi cadastrado na base de dados!')
+            else:
+                self.metodos.cadastrar(u)
                 QMessageBox.information(None,'Sucesso','Cadastro realizado com sucesso')
+                self.tela_cadastro.lineEdit_3.clear()
+                self.tela_cadastro.lineEdit_4.clear()
+                self.tela_cadastro.lineEdit_2.clear()
+                self.tela_cadastro.lineEdit.clear()
+                self.tela_cadastro.lineEdit_5.clear()
+                metodos.exibir()
+        else:
+            QMessageBox.information(None,'Atenção','Todos os valores devem ser preenchidos!')
     def voltar(self):
         self.Qstack.setCurrentIndex(0)
     def Tela_cad(self):
@@ -152,7 +163,6 @@ class Main(QMainWindow, Ui_main):
     def Tela_sobre(self):
         self.Qstack.setCurrentIndex(2)
     def sair(self):
-        #self.cad._del()
         exit()    
 if __name__ =='__main__':
     app = QApplication(sys.argv)

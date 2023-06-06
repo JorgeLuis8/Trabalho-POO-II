@@ -1,18 +1,17 @@
 import mysql.connector
 
-bd = mysql.connector.connect(
+conexao = mysql.connector.connect(
     host="localhost",
     user="root",
-    password="1234"
-)
+    password="1234",
+     database="mydb" )
+cursor = conexao.cursor()
 
-cursor = bd.cursor()
-class cadastro:
-    def __init__(self):
-        cursor.execute("CREATE SCHEMA IF NOT EXISTS mydb DEFAULT CHARACTER SET utf8")
+class metodos:
+    def __init__(self) -> None:
+        cursor.execute(
+            "CREATE SCHEMA IF NOT EXISTS mydb DEFAULT CHARACTER SET utf8")
         cursor.execute("USE mydb")
-
-        # Criando a tabela se não existir
         cursor.execute("""
             CREATE TABLE IF NOT EXISTS Usuarios (
                 idUsuarios INT NOT NULL AUTO_INCREMENT,
@@ -21,14 +20,26 @@ class cadastro:
                 endereco VARCHAR(45) NOT NULL,
                 cpf VARCHAR(45) NOT NULL,
                 senha VARCHAR(45) NOT NULL,
-                PRIMARY KEY (idUsuarios)
+                PRIMARY KEY (cpf)
             ) ENGINE = InnoDB;
         """)
-    def cadastro(self,parameters):
-        cursor.execute
+        conexao.commit()
 
-cursor.close()
-bd.close()
-
-
-cursor = bd.cursor()
+    def cadastrar(self,p):
+        cursor.execute("INSERT INTO Usuarios (nome,email,endereco,cpf,senha) VALUES (%s,%s,%s,%s,%s)",(p._nome,p._email,p._endereco,p._cpf,p._senha))
+        conexao.commit()
+        return True
+    def verifica_cadastro(self,cpf):
+        cursor.execute('SELECT * FROM usuarios WHERE cpf = %s',(cpf,))
+        resultado = cursor.fetchone()
+        if resultado is not  None:
+            return True
+        else:
+            return False
+    def exibir(self):
+        cursor.execute("SELECT * FROM Usuarios")
+        resultado = cursor.fetchall()
+        for i in resultado:
+            print(i)
+conexao.commit()
+metodos.exibir(metodos)
