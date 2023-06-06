@@ -122,7 +122,11 @@ background-color: blue;</string>
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="campoUsuario"/>
+      <widget class="QLineEdit" name="campoUsuario">
+       <property name="styleSheet">
+        <string notr="true">color: white;</string>
+       </property>
+      </widget>
      </item>
      <item>
       <widget class="QLabel" name="label_2">
@@ -138,7 +142,11 @@ background-color: blue;</string>
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="campoSenha"/>
+      <widget class="QLineEdit" name="campoSenha">
+       <property name="styleSheet">
+        <string notr="true">color: white</string>
+       </property>
+      </widget>
      </item>
     </layout>
    </widget>
@@ -192,7 +200,7 @@ background-color: blue;</string>
      <string>Sair!</string>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>510</x>

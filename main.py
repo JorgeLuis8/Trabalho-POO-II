@@ -10,6 +10,7 @@ from tela_cad import Tela_cad
 from telaAbout import About_us
 from usuario import Usuairo
 from cadastro import metodos
+from home import Tela_home
 
 
 class Ui_main(QtWidgets.QWidget):
@@ -22,6 +23,7 @@ class Ui_main(QtWidgets.QWidget):
         self.stack0 = QtWidgets.QMainWindow()
         self.stack1 = QtWidgets.QMainWindow()
         self.stack2 = QtWidgets.QMainWindow()
+        self.stack3 = QtWidgets.QMainWindow()
 
         self.tela_inical = Tela_inical()
         self.tela_inical.setupUi(self.stack0)
@@ -32,9 +34,13 @@ class Ui_main(QtWidgets.QWidget):
         self.tela_about = About_us()
         self.tela_about.setupUi(self.stack2)
 
+        self.tela_home = Tela_home()
+        self.tela_home.setupUi(self.stack3)
+
         self.Qstack.addWidget(self.stack0)
         self.Qstack.addWidget(self.stack1)
         self.Qstack.addWidget(self.stack2)
+        self.Qstack.addWidget(self.stack3)
 
 
 class Main(QMainWindow, Ui_main):
@@ -46,7 +52,7 @@ class Main(QMainWindow, Ui_main):
         self.tela_inical.Botao_sair.clicked.connect(self.sair)
         self.tela_inical.Botao_sobre.clicked.connect(self.Tela_sobre)
         self.tela_inical.botaoCadastro.clicked.connect(self.Tela_cad)
-        #self.tela_inical.botaoLogin.connect(self.Tela_login)
+        self.tela_inical.botaoLogin.clicked.connect(self.login)
         self.tela_cadastro.Botao_voltar.clicked.connect(self.voltar)
         self.tela_cadastro.Botao_cadastrar.clicked.connect(self.cadastrar)
         self.tela_about.pushButton.clicked.connect(self.voltar)
@@ -140,22 +146,34 @@ class Main(QMainWindow, Ui_main):
         endereco = self.tela_cadastro.lineEdit.text()
         cpf = self.tela_cadastro.lineEdit_2.text()
         senha = self.tela_cadastro.lineEdit_5.text()
-        u = Usuairo(nome,email,endereco,cpf,senha)
-        if not (nome == None  or email == None or endereco == None or cpf == None
-                or senha == None or nome == '' or email == '' or endereco == '' or cpf == ''):
+        u = Usuairo(nome, email, endereco, cpf, senha)
+        if not (nome == None or email == None or endereco == None or cpf == None or senha == None
+                or nome == '' or email == '' or endereco == '' or cpf == ''):
             if self.metodos.verifica_cadastro(cpf):
-                QMessageBox.information(None,'Atenção','O CPF informado já foi cadastrado na base de dados!')
+                QMessageBox.information(None, 'Atenção', 'O CPF informado já foi cadastrado na base de dados!')
             else:
                 self.metodos.cadastrar(u)
-                QMessageBox.information(None,'Sucesso','Cadastro realizado com sucesso')
+                QMessageBox.information(None, 'Sucesso', 'Cadastro realizado com sucesso')
                 self.tela_cadastro.lineEdit_3.clear()
                 self.tela_cadastro.lineEdit_4.clear()
                 self.tela_cadastro.lineEdit_2.clear()
                 self.tela_cadastro.lineEdit.clear()
                 self.tela_cadastro.lineEdit_5.clear()
-                metodos.exibir()
         else:
-            QMessageBox.information(None,'Atenção','Todos os valores devem ser preenchidos!')
+            QMessageBox.information(None, 'Atenção', 'Todos os valores devem ser preenchidos!')
+
+    def login(self):
+        email = self.tela_inical.campoUsuario.text()  # Obtém o email digitado
+        senha = self.tela_inical.campoSenha.text()  # Obtém a senha digitada
+        if not (email == None or senha == None or email == '' or senha == ''):
+            if self.metodos.login(email, senha):
+                self.Qstack.setCurrentIndex(3)
+                QMessageBox.information(None, 'Sucesso', 'Login realizado com sucesso')
+            else:
+                QMessageBox.information(None, 'Atenção', 'Login ou senha incorretos')
+        else:
+            QMessageBox.information(None, 'Atenção', 'Todos os valores devem ser preenchidos!')
+
     def voltar(self):
         self.Qstack.setCurrentIndex(0)
     def Tela_cad(self):
