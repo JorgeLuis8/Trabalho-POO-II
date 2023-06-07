@@ -27,11 +27,6 @@ class metodos:
     def cadastrar(self,p):
         cursor.execute("INSERT INTO Usuarios (idUsuarios, nome, email, endereco, cpf, senha) VALUES (%s, %s, %s, %s, %s, %s)", (1, p._nome, p._email, p._endereco, p._cpf, p._senha))
 
-
-        conexao.commit()
-        return True
-
-
         conexao.commit()
         return True
     def verifica_cadastro(self,cpf):
@@ -41,6 +36,7 @@ class metodos:
             return True
         else:
             return False
+
     def login(self, email, senha):
         cursor.execute('SELECT * FROM usuarios WHERE email = %s AND senha = %s', (email, senha))
         resultado = cursor.fetchall()
