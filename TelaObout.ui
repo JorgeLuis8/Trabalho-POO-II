@@ -14,7 +14,8 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: black;</string>
+   <string notr="true">background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 white, stop: 1 #D3D3D3);
+</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="label">
@@ -34,7 +35,10 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color:white;</string>
+     <string notr="true">color: black;
+background-color: transparent;
+border: none;
+</string>
     </property>
     <property name="text">
      <string>SOBRE NÓS:</string>
@@ -55,12 +59,12 @@
     <property name="font">
      <font>
       <family>Arial</family>
-      <pointsize>-1</pointsize>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">font-size: 12px;
-color: white;
+     <string notr="true">color: black;
+background-color: transparent;
+border: none;
 </string>
     </property>
     <property name="frameShape">
@@ -92,8 +96,15 @@ color: white;
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: white;
-background-color: blue;</string>
+     <string notr="true">QPushButton {
+    background-color:  #add8e6;
+    border-radius: 10px;
+}
+
+QPushButton:hover {
+    background-color:#AABAF2 ;
+}
+</string>
     </property>
     <property name="text">
      <string>&lt;-- Voltar</string>
