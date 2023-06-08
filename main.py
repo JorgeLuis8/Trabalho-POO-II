@@ -8,9 +8,9 @@ from PyQt5.QtCore import QCoreApplication
 from telaInicio import  Tela_inical
 from tela_cad import Tela_cad
 from telaAbout import About_us
+from home import Tela_home
 from usuario import Usuairo
 from cadastro import metodos
-from home import Tela_home
 
 
 class Ui_main(QtWidgets.QWidget):
@@ -84,6 +84,8 @@ class Main(QMainWindow, Ui_main):
         senha = self.tela_inical.campoSenha.text()  # Obtém a senha digitada
         if not (email == None or senha == None or email == '' or senha == ''):
             if self.metodos.login(email, senha):
+                self.tela_inical.campoUsuario.clear() 
+                self.tela_inical.campoSenha.clear()
                 self.Qstack.setCurrentIndex(3)
                 QMessageBox.information(None, 'Sucesso', 'Login realizado com sucesso')
             else:

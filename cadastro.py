@@ -11,21 +11,22 @@ conexao.commit()
 
 class metodos:
     def __init__(self) -> None:
+    
         cursor.execute("""
         CREATE TABLE IF NOT EXISTS Usuarios (
-        idUsuarios INT AUTO_INCREMENT PRIMARY KEY,
-        nome VARCHAR(45) NOT NULL,
-        email VARCHAR(45) NOT NULL,
-        endereco VARCHAR(45) NOT NULL,
-        cpf VARCHAR(45) NOT NULL,
-        senha VARCHAR(45) NOT NULL
-        ) ENGINE = InnoDB;
-        """)
+            idUsuarios INT AUTO_INCREMENT PRIMARY KEY,
+            nome VARCHAR(45) NOT NULL,
+            email VARCHAR(45) NOT NULL,
+            endereco VARCHAR(45) NOT NULL,
+            cpf VARCHAR(45) NOT NULL,
+            senha VARCHAR(45) NOT NULL
+        ) ENGINE=InnoDB
+    """)
 
-    conexao.commit()
+        conexao.commit()
 
     def cadastrar(self,p):
-        cursor.execute("INSERT INTO Usuarios (idUsuarios, nome, email, endereco, cpf, senha) VALUES (%s, %s, %s, %s, %s, %s)", (1, p._nome, p._email, p._endereco, p._cpf, p._senha))
+        cursor.execute("INSERT INTO Usuarios (nome, email, endereco, cpf, senha) VALUES (%s, %s, %s, %s, %s)", (p._nome, p._email, p._endereco, p._cpf, p._senha))
 
         conexao.commit()
         return True
@@ -44,6 +45,13 @@ class metodos:
             return False
         else:
             return True
-
+    '''
+    def exibir():
+        cursor.execute('SELECT * FROM Usuarios')
+        a = cursor.fetchall()
+        for row in a:
+            print(row)
+'''
 conexao.commit()
 
+#a = metodos.exibir()

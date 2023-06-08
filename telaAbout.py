@@ -14,8 +14,9 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class About_us(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(662, 474)
-        MainWindow.setStyleSheet("background-color: black;")
+        MainWindow.resize(662, 486)
+        MainWindow.setStyleSheet("background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 white, stop: 1 #D3D3D3);\n"
+"")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.label = QtWidgets.QLabel(self.centralwidget)
@@ -25,17 +26,20 @@ class About_us(object):
         font.setBold(True)
         font.setWeight(75)
         self.label.setFont(font)
-        self.label.setStyleSheet("color:white;")
+        self.label.setStyleSheet("color: black;\n"
+"background-color: transparent;\n"
+"border: none;\n"
+"")
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
         self.label_2.setGeometry(QtCore.QRect(0, 50, 661, 301))
         font = QtGui.QFont()
         font.setFamily("Arial")
-        font.setPointSize(-1)
         self.label_2.setFont(font)
-        self.label_2.setStyleSheet("font-size: 12px;\n"
-"color: white;\n"
+        self.label_2.setStyleSheet("color: black;\n"
+"background-color: transparent;\n"
+"border: none;\n"
 "")
         self.label_2.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.label_2.setFrameShadow(QtWidgets.QFrame.Sunken)
@@ -45,14 +49,17 @@ class About_us(object):
         self.label_2.setObjectName("label_2")
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton.setGeometry(QtCore.QRect(0, 410, 75, 23))
-        self.pushButton.setStyleSheet("color: white;\n"
-"background-color: blue;")
+        self.pushButton.setStyleSheet("QPushButton {\n"
+"    background-color:  #add8e6;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color:#AABAF2 ;\n"
+"}\n"
+"")
         self.pushButton.setObjectName("pushButton")
         MainWindow.setCentralWidget(self.centralwidget)
-        self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 662, 21))
-        self.menubar.setObjectName("menubar")
-        MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)

@@ -15,7 +15,8 @@ class Tela_cad(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 600)
-        MainWindow.setStyleSheet("background-color:black;")
+        MainWindow.setStyleSheet("background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 white, stop: 1 #D3D3D3);\n"
+"")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.label = QtWidgets.QLabel(self.centralwidget)
@@ -26,82 +27,105 @@ class Tela_cad(object):
         font.setBold(True)
         font.setWeight(75)
         self.label.setFont(font)
-        self.label.setStyleSheet("color:white;")
+        self.label.setStyleSheet("color: black;\n"
+"background-color: transparent;\n"
+"border: none;\n"
+"")
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
         self.Botao_voltar = QtWidgets.QPushButton(self.centralwidget)
         self.Botao_voltar.setGeometry(QtCore.QRect(0, 530, 75, 23))
-        self.Botao_voltar.setStyleSheet("color:white;\n"
-"background-color:blue;")
+        self.Botao_voltar.setStyleSheet("QPushButton {\n"
+"    background-color:  #add8e6;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color:#AABAF2 ;\n"
+"}\n"
+"")
         self.Botao_voltar.setObjectName("Botao_voltar")
         self.Botao_cadastrar = QtWidgets.QPushButton(self.centralwidget)
-        self.Botao_cadastrar.setGeometry(QtCore.QRect(330, 260, 75, 23))
-        self.Botao_cadastrar.setStyleSheet("background-color:blue;\n"
-"color:white;")
+        self.Botao_cadastrar.setGeometry(QtCore.QRect(340, 270, 75, 23))
+        self.Botao_cadastrar.setStyleSheet("QPushButton {\n"
+"    background-color:  #add8e6;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color:#AABAF2 ;\n"
+"}\n"
+"")
         self.Botao_cadastrar.setObjectName("Botao_cadastrar")
-        self.layoutWidget = QtWidgets.QWidget(self.centralwidget)
-        self.layoutWidget.setGeometry(QtCore.QRect(140, 120, 461, 130))
-        self.layoutWidget.setObjectName("layoutWidget")
-        self.horizontalLayout = QtWidgets.QHBoxLayout(self.layoutWidget)
-        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
-        self.horizontalLayout.setObjectName("horizontalLayout")
-        self.verticalLayout_3 = QtWidgets.QVBoxLayout()
-        self.verticalLayout_3.setObjectName("verticalLayout_3")
-        self.verticalLayout = QtWidgets.QVBoxLayout()
-        self.verticalLayout.setObjectName("verticalLayout")
-        self.label_2 = QtWidgets.QLabel(self.layoutWidget)
-        self.label_2.setStyleSheet("color:white;")
-        self.label_2.setObjectName("label_2")
-        self.verticalLayout.addWidget(self.label_2)
-        self.label_6 = QtWidgets.QLabel(self.layoutWidget)
-        self.label_6.setStyleSheet("color: white")
-        self.label_6.setObjectName("label_6")
-        self.verticalLayout.addWidget(self.label_6)
-        self.label_4 = QtWidgets.QLabel(self.layoutWidget)
-        self.label_4.setStyleSheet("color:white;")
-        self.label_4.setObjectName("label_4")
-        self.verticalLayout.addWidget(self.label_4)
-        self.label_3 = QtWidgets.QLabel(self.layoutWidget)
-        self.label_3.setStyleSheet("color:white;")
-        self.label_3.setObjectName("label_3")
-        self.verticalLayout.addWidget(self.label_3)
-        self.label_5 = QtWidgets.QLabel(self.layoutWidget)
-        self.label_5.setStyleSheet("color:white;")
-        self.label_5.setObjectName("label_5")
-        self.verticalLayout.addWidget(self.label_5)
-        self.verticalLayout_3.addLayout(self.verticalLayout)
-        self.horizontalLayout.addLayout(self.verticalLayout_3)
-        self.verticalLayout_4 = QtWidgets.QVBoxLayout()
-        self.verticalLayout_4.setObjectName("verticalLayout_4")
-        self.verticalLayout_2 = QtWidgets.QVBoxLayout()
-        self.verticalLayout_2.setObjectName("verticalLayout_2")
-        self.lineEdit_3 = QtWidgets.QLineEdit(self.layoutWidget)
-        self.lineEdit_3.setStyleSheet("color:white")
+        self.lineEdit_3 = QtWidgets.QLineEdit(self.centralwidget)
+        self.lineEdit_3.setGeometry(QtCore.QRect(200, 90, 400, 20))
+        self.lineEdit_3.setStyleSheet("color: black;\n"
+"background-color: transparent;\n"
+"\n"
+"")
         self.lineEdit_3.setObjectName("lineEdit_3")
-        self.verticalLayout_2.addWidget(self.lineEdit_3)
-        self.lineEdit_4 = QtWidgets.QLineEdit(self.layoutWidget)
-        self.lineEdit_4.setStyleSheet("color:white")
+        self.label_2 = QtWidgets.QLabel(self.centralwidget)
+        self.label_2.setGeometry(QtCore.QRect(170, 90, 31, 20))
+        self.label_2.setStyleSheet("color: black;\n"
+"background-color: transparent;\n"
+"border: none;\n"
+"")
+        self.label_2.setObjectName("label_2")
+        self.lineEdit_4 = QtWidgets.QLineEdit(self.centralwidget)
+        self.lineEdit_4.setGeometry(QtCore.QRect(200, 110, 400, 20))
+        self.lineEdit_4.setStyleSheet("color: black;\n"
+"background-color: transparent;\n"
+"")
         self.lineEdit_4.setObjectName("lineEdit_4")
-        self.verticalLayout_2.addWidget(self.lineEdit_4)
-        self.lineEdit = QtWidgets.QLineEdit(self.layoutWidget)
-        self.lineEdit.setStyleSheet("color:white")
+        self.label_6 = QtWidgets.QLabel(self.centralwidget)
+        self.label_6.setGeometry(QtCore.QRect(170, 110, 31, 27))
+        self.label_6.setStyleSheet("color: black;\n"
+"background-color: transparent;\n"
+"border: none;\n"
+"")
+        self.label_6.setObjectName("label_6")
+        self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
+        self.lineEdit.setGeometry(QtCore.QRect(200, 130, 401, 20))
+        self.lineEdit.setStyleSheet("color: black;\n"
+"background-color: transparent;\n"
+"")
         self.lineEdit.setObjectName("lineEdit")
-        self.verticalLayout_2.addWidget(self.lineEdit)
-        self.lineEdit_2 = QtWidgets.QLineEdit(self.layoutWidget)
-        self.lineEdit_2.setStyleSheet("color:white")
+        self.label_4 = QtWidgets.QLabel(self.centralwidget)
+        self.label_4.setGeometry(QtCore.QRect(150, 130, 51, 20))
+        self.label_4.setStyleSheet("color: black;\n"
+"background-color: transparent;\n"
+"border: none;\n"
+"")
+        self.label_4.setObjectName("label_4")
+        self.lineEdit_2 = QtWidgets.QLineEdit(self.centralwidget)
+        self.lineEdit_2.setGeometry(QtCore.QRect(200, 150, 401, 20))
+        self.lineEdit_2.setStyleSheet("color: black;\n"
+"background-color: transparent;\n"
+"\n"
+"")
         self.lineEdit_2.setObjectName("lineEdit_2")
-        self.verticalLayout_2.addWidget(self.lineEdit_2)
-        self.verticalLayout_4.addLayout(self.verticalLayout_2)
-        self.lineEdit_5 = QtWidgets.QLineEdit(self.layoutWidget)
-        self.lineEdit_5.setStyleSheet("color:white")
+        self.label_3 = QtWidgets.QLabel(self.centralwidget)
+        self.label_3.setGeometry(QtCore.QRect(180, 150, 21, 20))
+        self.label_3.setStyleSheet("color: black;\n"
+"background-color: transparent;\n"
+"border: none;\n"
+"")
+        self.label_3.setObjectName("label_3")
+        self.label_5 = QtWidgets.QLabel(self.centralwidget)
+        self.label_5.setGeometry(QtCore.QRect(170, 170, 31, 21))
+        self.label_5.setStyleSheet("color: black;\n"
+"background-color: transparent;\n"
+"border: none;\n"
+"")
+        self.label_5.setObjectName("label_5")
+        self.lineEdit_5 = QtWidgets.QLineEdit(self.centralwidget)
+        self.lineEdit_5.setGeometry(QtCore.QRect(200, 170, 401, 20))
+        self.lineEdit_5.setStyleSheet("color: black;\n"
+"background-color: transparent;\n"
+"")
+        self.lineEdit_5.setEchoMode(QtWidgets.QLineEdit.Password)
         self.lineEdit_5.setObjectName("lineEdit_5")
-        self.verticalLayout_4.addWidget(self.lineEdit_5)
-        self.horizontalLayout.addLayout(self.verticalLayout_4)
         MainWindow.setCentralWidget(self.centralwidget)
-        self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 21))
-        self.menubar.setObjectName("menubar")
-        MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
