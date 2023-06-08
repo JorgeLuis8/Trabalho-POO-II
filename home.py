@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'home.ui'
+# Form implementation generated from reading ui file 'untitled.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.9
 #
@@ -28,6 +28,9 @@ class Tela_home(object):
         self.label.setFont(font)
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
+        self.voltar = QtWidgets.QPushButton(self.centralwidget)
+        self.voltar.setGeometry(QtCore.QRect(0, 380, 75, 23))
+        self.voltar.setObjectName("voltar")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 615, 21))
@@ -44,6 +47,7 @@ class Tela_home(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.label.setText(_translate("MainWindow", "HOME PAGE"))
+        self.voltar.setText(_translate("MainWindow", "<--- Voltar"))
 
 
 if __name__ == "__main__":

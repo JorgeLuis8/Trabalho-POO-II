@@ -14,15 +14,19 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Tela_inical(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(800, 563)
-        MainWindow.setStyleSheet("background-color: black;")
+        MainWindow.resize(800, 565)
+        MainWindow.setStyleSheet("background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 white, stop: 1 #D3D3D3);\n"
+"")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.label_3 = QtWidgets.QLabel(self.centralwidget)
-        self.label_3.setGeometry(QtCore.QRect(340, 70, 101, 31))
+        self.label_3.setGeometry(QtCore.QRect(350, 60, 101, 31))
         font = QtGui.QFont()
         font.setPointSize(16)
         self.label_3.setFont(font)
+        self.label_3.setStyleSheet("background-color: transparent;\n"
+"border: none;\n"
+"")
         self.label_3.setAlignment(QtCore.Qt.AlignCenter)
         self.label_3.setObjectName("label_3")
         self.label_4 = QtWidgets.QLabel(self.centralwidget)
@@ -33,73 +37,120 @@ class Tela_inical(object):
         font.setBold(True)
         font.setWeight(75)
         self.label_4.setFont(font)
-        self.label_4.setStyleSheet("color: white;")
+        self.label_4.setStyleSheet("color: black;\n"
+"background-color: transparent;\n"
+"border: none;\n"
+"")
         self.label_4.setAlignment(QtCore.Qt.AlignCenter)
         self.label_4.setObjectName("label_4")
-        self.line = QtWidgets.QFrame(self.centralwidget)
-        self.line.setGeometry(QtCore.QRect(0, 60, 801, 20))
-        self.line.setStyleSheet("background-color:color;")
-        self.line.setFrameShape(QtWidgets.QFrame.HLine)
-        self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
-        self.line.setObjectName("line")
         self.botaoLogin = QtWidgets.QPushButton(self.centralwidget)
         self.botaoLogin.setGeometry(QtCore.QRect(360, 200, 75, 23))
-        self.botaoLogin.setStyleSheet("color: white;\n"
-"background-color: blue;")
+        self.botaoLogin.setStyleSheet("QPushButton {\n"
+"    background-color:  #add8e6;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color:#AABAF2 ;\n"
+"}\n"
+"")
         self.botaoLogin.setObjectName("botaoLogin")
-        self.layoutWidget = QtWidgets.QWidget(self.centralwidget)
-        self.layoutWidget.setGeometry(QtCore.QRect(160, 110, 461, 86))
-        self.layoutWidget.setObjectName("layoutWidget")
-        self.verticalLayout = QtWidgets.QVBoxLayout(self.layoutWidget)
-        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout.setObjectName("verticalLayout")
-        self.label = QtWidgets.QLabel(self.layoutWidget)
-        self.label.setStyleSheet("color:white;")
-        self.label.setAlignment(QtCore.Qt.AlignCenter)
-        self.label.setObjectName("label")
-        self.verticalLayout.addWidget(self.label)
-        self.campoUsuario = QtWidgets.QLineEdit(self.layoutWidget)
-        self.campoUsuario.setStyleSheet("color: white;")
-        self.campoUsuario.setObjectName("campoUsuario")
-        self.verticalLayout.addWidget(self.campoUsuario)
-        self.label_2 = QtWidgets.QLabel(self.layoutWidget)
-        self.label_2.setStyleSheet("color: white;")
-        self.label_2.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_2.setObjectName("label_2")
-        self.verticalLayout.addWidget(self.label_2)
-        self.campoSenha = QtWidgets.QLineEdit(self.layoutWidget)
-        self.campoSenha.setStyleSheet("color: white")
-        self.campoSenha.setObjectName("campoSenha")
-        self.verticalLayout.addWidget(self.campoSenha)
         self.botaoCadastro = QtWidgets.QPushButton(self.centralwidget)
         self.botaoCadastro.setGeometry(QtCore.QRect(360, 250, 75, 23))
-        self.botaoCadastro.setStyleSheet("background-color:blue;\n"
-"color: white;")
+        self.botaoCadastro.setMouseTracking(True)
+        self.botaoCadastro.setTabletTracking(True)
+        self.botaoCadastro.setStyleSheet("QPushButton {\n"
+"    background-color:  #add8e6;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color:#AABAF2 ;\n"
+"}\n"
+"")
+        self.botaoCadastro.setAutoDefault(False)
+        self.botaoCadastro.setDefault(False)
+        self.botaoCadastro.setFlat(False)
         self.botaoCadastro.setObjectName("botaoCadastro")
         self.label_5 = QtWidgets.QLabel(self.centralwidget)
         self.label_5.setGeometry(QtCore.QRect(250, 230, 271, 20))
-        self.label_5.setStyleSheet("color:white;")
+        self.label_5.setFocusPolicy(QtCore.Qt.NoFocus)
+        self.label_5.setContextMenuPolicy(QtCore.Qt.DefaultContextMenu)
+        self.label_5.setAcceptDrops(False)
+        self.label_5.setToolTipDuration(-1)
+        self.label_5.setAutoFillBackground(False)
+        self.label_5.setStyleSheet("color:black;\n"
+"background-color: transparent;\n"
+"border: none;\n"
+"")
+        self.label_5.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.label_5.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.label_5.setLineWidth(1)
+        self.label_5.setText("Ainda não possui uma conta? Cadastre-se clicando aqui:")
+        self.label_5.setTextFormat(QtCore.Qt.RichText)
         self.label_5.setObjectName("label_5")
         self.Botao_sair = QtWidgets.QPushButton(self.centralwidget)
         self.Botao_sair.setGeometry(QtCore.QRect(10, 500, 75, 23))
-        self.Botao_sair.setStyleSheet("color: white;\n"
-"background-color: blue;")
+        self.Botao_sair.setStyleSheet("QPushButton {\n"
+"    background-color:  #add8e6;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color:#AABAF2 ;\n"
+"}\n"
+"")
         self.Botao_sair.setObjectName("Botao_sair")
-        self.layoutWidget1 = QtWidgets.QWidget(self.centralwidget)
-        self.layoutWidget1.setGeometry(QtCore.QRect(510, 500, 287, 25))
-        self.layoutWidget1.setObjectName("layoutWidget1")
-        self.horizontalLayout = QtWidgets.QHBoxLayout(self.layoutWidget1)
-        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
-        self.horizontalLayout.setObjectName("horizontalLayout")
-        self.label_6 = QtWidgets.QLabel(self.layoutWidget1)
-        self.label_6.setStyleSheet("color: white;")
+        self.label = QtWidgets.QLabel(self.centralwidget)
+        self.label.setGeometry(QtCore.QRect(170, 100, 459, 13))
+        self.label.setStyleSheet("color:black;\n"
+"background-color: transparent;\n"
+"border: none;\n"
+"")
+        self.label.setAlignment(QtCore.Qt.AlignCenter)
+        self.label.setObjectName("label")
+        self.campoUsuario = QtWidgets.QLineEdit(self.centralwidget)
+        self.campoUsuario.setGeometry(QtCore.QRect(170, 120, 459, 20))
+        self.campoUsuario.setStyleSheet("color: black;\n"
+"background-color: transparent;\n"
+"\n"
+"")
+        self.campoUsuario.setObjectName("campoUsuario")
+        self.label_2 = QtWidgets.QLabel(self.centralwidget)
+        self.label_2.setGeometry(QtCore.QRect(340, 140, 121, 21))
+        self.label_2.setStyleSheet("color: black;\n"
+"background-color: transparent;\n"
+"border: none;\n"
+"")
+        self.label_2.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_2.setObjectName("label_2")
+        self.campoSenha = QtWidgets.QLineEdit(self.centralwidget)
+        self.campoSenha.setGeometry(QtCore.QRect(170, 160, 459, 20))
+        self.campoSenha.setStyleSheet("color: black;\n"
+"background-color: transparent;\n"
+"\n"
+"")
+        self.campoSenha.setEchoMode(QtWidgets.QLineEdit.Password)
+        self.campoSenha.setObjectName("campoSenha")
+        self.label_6 = QtWidgets.QLabel(self.centralwidget)
+        self.label_6.setGeometry(QtCore.QRect(520, 490, 204, 23))
+        self.label_6.setStyleSheet("color: black;\n"
+"background-color: transparent;\n"
+"border: none;\n"
+"")
         self.label_6.setObjectName("label_6")
-        self.horizontalLayout.addWidget(self.label_6)
-        self.Botao_sobre = QtWidgets.QPushButton(self.layoutWidget1)
-        self.Botao_sobre.setStyleSheet("color: white;\n"
-"background-color: blue;")
+        self.Botao_sobre = QtWidgets.QPushButton(self.centralwidget)
+        self.Botao_sobre.setGeometry(QtCore.QRect(720, 490, 81, 23))
+        self.Botao_sobre.setStyleSheet("QPushButton {\n"
+"    background-color:  #add8e6;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color:#AABAF2 ;\n"
+"}\n"
+"")
         self.Botao_sobre.setObjectName("Botao_sobre")
-        self.horizontalLayout.addWidget(self.Botao_sobre)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 21))
@@ -118,11 +169,10 @@ class Tela_inical(object):
         self.label_3.setText(_translate("MainWindow", "Login"))
         self.label_4.setText(_translate("MainWindow", "Tela Inicial"))
         self.botaoLogin.setText(_translate("MainWindow", "Login"))
+        self.botaoCadastro.setText(_translate("MainWindow", "Cadastro"))
+        self.Botao_sair.setText(_translate("MainWindow", "Sair!"))
         self.label.setText(_translate("MainWindow", "Usuário/Email"))
         self.label_2.setText(_translate("MainWindow", "Senha"))
-        self.botaoCadastro.setText(_translate("MainWindow", "Cadastro"))
-        self.label_5.setText(_translate("MainWindow", "Ainda não possui uma conta? Cadastre-se clicando aqui:"))
-        self.Botao_sair.setText(_translate("MainWindow", "Sair!"))
         self.label_6.setText(_translate("MainWindow", "Deseja saber mais sobre nós? Clique aqui: "))
         self.Botao_sobre.setText(_translate("MainWindow", "Sobre nós"))
 

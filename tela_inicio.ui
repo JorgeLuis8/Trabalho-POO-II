@@ -7,21 +7,22 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>563</height>
+    <height>565</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: black;</string>
+   <string notr="true">background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 white, stop: 1 #D3D3D3);
+</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>340</x>
-      <y>70</y>
+      <x>350</x>
+      <y>60</y>
       <width>101</width>
       <height>31</height>
      </rect>
@@ -30,6 +31,11 @@
      <font>
       <pointsize>16</pointsize>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: transparent;
+border: none;
+</string>
     </property>
     <property name="text">
      <string>Login</string>
@@ -56,29 +62,16 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: white;</string>
+     <string notr="true">color: black;
+background-color: transparent;
+border: none;
+</string>
     </property>
     <property name="text">
      <string>Tela Inicial</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="Line" name="line">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>60</y>
-      <width>801</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color:color;</string>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Horizontal</enum>
     </property>
    </widget>
    <widget class="QPushButton" name="botaoLogin">
@@ -91,64 +84,19 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: white;
-background-color: blue;</string>
+     <string notr="true">QPushButton {
+    background-color:  #add8e6;
+    border-radius: 10px;
+}
+
+QPushButton:hover {
+    background-color:#AABAF2 ;
+}
+</string>
     </property>
     <property name="text">
      <string>Login</string>
     </property>
-   </widget>
-   <widget class="QWidget" name="layoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>160</x>
-      <y>110</y>
-      <width>461</width>
-      <height>86</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout">
-     <item>
-      <widget class="QLabel" name="label">
-       <property name="styleSheet">
-        <string notr="true">color:white;</string>
-       </property>
-       <property name="text">
-        <string>Usuário/Email</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="campoUsuario">
-       <property name="styleSheet">
-        <string notr="true">color: white;</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="label_2">
-       <property name="styleSheet">
-        <string notr="true">color: white;</string>
-       </property>
-       <property name="text">
-        <string>Senha</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="campoSenha">
-       <property name="styleSheet">
-        <string notr="true">color: white</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
    </widget>
    <widget class="QPushButton" name="botaoCadastro">
     <property name="geometry">
@@ -159,12 +107,34 @@ background-color: blue;</string>
       <height>23</height>
      </rect>
     </property>
+    <property name="mouseTracking">
+     <bool>true</bool>
+    </property>
+    <property name="tabletTracking">
+     <bool>true</bool>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color:blue;
-color: white;</string>
+     <string notr="true">QPushButton {
+    background-color:  #add8e6;
+    border-radius: 10px;
+}
+
+QPushButton:hover {
+    background-color:#AABAF2 ;
+}
+</string>
     </property>
     <property name="text">
      <string>Cadastro</string>
+    </property>
+    <property name="autoDefault">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QLabel" name="label_5">
@@ -176,11 +146,41 @@ color: white;</string>
       <height>20</height>
      </rect>
     </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="contextMenuPolicy">
+     <enum>Qt::DefaultContextMenu</enum>
+    </property>
+    <property name="acceptDrops">
+     <bool>false</bool>
+    </property>
+    <property name="toolTipDuration">
+     <number>-1</number>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
     <property name="styleSheet">
-     <string notr="true">color:white;</string>
+     <string notr="true">color:black;
+background-color: transparent;
+border: none;
+</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::NoFrame</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="lineWidth">
+     <number>1</number>
     </property>
     <property name="text">
-     <string>Ainda não possui uma conta? Cadastre-se clicando aqui:</string>
+     <string notr="true">Ainda não possui uma conta? Cadastre-se clicando aqui:</string>
+    </property>
+    <property name="textFormat">
+     <enum>Qt::RichText</enum>
     </property>
    </widget>
    <widget class="QPushButton" name="Botao_sair">
@@ -193,45 +193,141 @@ color: white;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: white;
-background-color: blue;</string>
+     <string notr="true">QPushButton {
+    background-color:  #add8e6;
+    border-radius: 10px;
+}
+
+QPushButton:hover {
+    background-color:#AABAF2 ;
+}
+</string>
     </property>
     <property name="text">
      <string>Sair!</string>
     </property>
    </widget>
-   <widget class="QWidget" name="layoutWidget">
+   <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>510</x>
-      <y>500</y>
-      <width>287</width>
-      <height>25</height>
+      <x>170</x>
+      <y>100</y>
+      <width>459</width>
+      <height>13</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="horizontalLayout">
-     <item>
-      <widget class="QLabel" name="label_6">
-       <property name="styleSheet">
-        <string notr="true">color: white;</string>
-       </property>
-       <property name="text">
-        <string>Deseja saber mais sobre nós? Clique aqui: </string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="Botao_sobre">
-       <property name="styleSheet">
-        <string notr="true">color: white;
-background-color: blue;</string>
-       </property>
-       <property name="text">
-        <string>Sobre nós</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
+    <property name="styleSheet">
+     <string notr="true">color:black;
+background-color: transparent;
+border: none;
+</string>
+    </property>
+    <property name="text">
+     <string>Usuário/Email</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="campoUsuario">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>120</y>
+      <width>459</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: black;
+background-color: transparent;
+
+</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>140</y>
+      <width>121</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: black;
+background-color: transparent;
+border: none;
+</string>
+    </property>
+    <property name="text">
+     <string>Senha</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="campoSenha">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>160</y>
+      <width>459</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: black;
+background-color: transparent;
+
+</string>
+    </property>
+    <property name="echoMode">
+     <enum>QLineEdit::Password</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>490</y>
+      <width>204</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: black;
+background-color: transparent;
+border: none;
+</string>
+    </property>
+    <property name="text">
+     <string>Deseja saber mais sobre nós? Clique aqui: </string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Botao_sobre">
+    <property name="geometry">
+     <rect>
+      <x>720</x>
+      <y>490</y>
+      <width>81</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color:  #add8e6;
+    border-radius: 10px;
+}
+
+QPushButton:hover {
+    background-color:#AABAF2 ;
+}
+</string>
+    </property>
+    <property name="text">
+     <string>Sobre nós</string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
