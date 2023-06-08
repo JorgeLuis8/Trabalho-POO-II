@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>615</width>
+    <width>638</width>
     <height>449</height>
    </rect>
   </property>
@@ -14,8 +14,8 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: black;
-color: white;</string>
+   <string notr="true">background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 white, stop: 1 #D3D3D3);
+</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="label">
@@ -34,6 +34,12 @@ color: white;</string>
       <bold>true</bold>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color: black;
+background-color: transparent;
+border: none;
+</string>
+    </property>
     <property name="text">
      <string>HOME PAGE</string>
     </property>
@@ -49,6 +55,17 @@ color: white;</string>
       <width>75</width>
       <height>23</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color:  #add8e6;
+    border-radius: 10px;
+}
+
+QPushButton:hover {
+    background-color:#AABAF2 ;
+}
+</string>
     </property>
     <property name="text">
      <string>&lt;--- Voltar</string>
