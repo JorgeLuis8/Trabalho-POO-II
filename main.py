@@ -5,12 +5,12 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMainWindow, QApplication, QFileDialog, QMessageBox
 from PyQt5.QtCore import QCoreApplication
 
-from telaInicio import  Tela_inical
+from telaInicio import Tela_inical
 from tela_cad import Tela_cad
 from telaAbout import About_us
 from home import Tela_home
 from usuario import Usuairo
-from cadastro import metodos
+from cadastro import Metodos
 
 
 class Ui_main(QtWidgets.QWidget):
@@ -48,7 +48,7 @@ class Main(QMainWindow, Ui_main):
         super(Main, self).__init__(parent)
         self.setupUi(self)
 
-        self.metodos = metodos()
+        self.metodos = Metodos()
         self.tela_inical.Botao_sair.clicked.connect(self.sair)
         self.tela_inical.Botao_sobre.clicked.connect(self.Tela_sobre)
         self.tela_inical.botaoCadastro.clicked.connect(self.Tela_cad)
@@ -57,51 +57,64 @@ class Main(QMainWindow, Ui_main):
         self.tela_cadastro.Botao_cadastrar.clicked.connect(self.cadastrar)
         self.tela_about.pushButton.clicked.connect(self.voltar)
         self.tela_home.voltar.clicked.connect(self.voltar)
+
     def cadastrar(self):
         nome = self.tela_cadastro.lineEdit_3.text()
         email = self.tela_cadastro.lineEdit_4.text()
         endereco = self.tela_cadastro.lineEdit.text()
         cpf = self.tela_cadastro.lineEdit_2.text()
         senha = self.tela_cadastro.lineEdit_5.text()
+
         u = Usuairo(nome, email, endereco, cpf, senha)
         if not (nome == None or email == None or endereco == None or cpf == None or senha == None
                 or nome == '' or email == '' or endereco == '' or cpf == ''):
-            if self.metodos.verifica_cadastro(cpf):
-                QMessageBox.information(None, 'Atenção', 'O CPF informado já foi cadastrado na base de dados!')
+            if self.metodos.verifica_cadastro(cpf, email):
+                QMessageBox.information(
+                    None, 'Atenção', 'O CPF informado já foi cadastrado na base de dados!')
             else:
                 self.metodos.cadastrar(u)
-                QMessageBox.information(None, 'Sucesso', 'Cadastro realizado com sucesso')
+                QMessageBox.information(
+                    None, 'Sucesso', 'Cadastro realizado com sucesso')
                 self.tela_cadastro.lineEdit_3.clear()
                 self.tela_cadastro.lineEdit_4.clear()
                 self.tela_cadastro.lineEdit_2.clear()
                 self.tela_cadastro.lineEdit.clear()
                 self.tela_cadastro.lineEdit_5.clear()
         else:
-            QMessageBox.information(None, 'Atenção', 'Todos os valores devem ser preenchidos!')
+            QMessageBox.information(
+                None, 'Atenção', 'Todos os valores devem ser preenchidos!')
 
     def login(self):
         email = self.tela_inical.campoUsuario.text()  # Obtém o email digitado
         senha = self.tela_inical.campoSenha.text()  # Obtém a senha digitada
         if not (email == None or senha == None or email == '' or senha == ''):
             if self.metodos.login(email, senha):
-                self.tela_inical.campoUsuario.clear() 
+                self.tela_inical.campoUsuario.clear()
                 self.tela_inical.campoSenha.clear()
                 self.Qstack.setCurrentIndex(3)
-                QMessageBox.information(None, 'Sucesso', 'Login realizado com sucesso')
+                QMessageBox.information(
+                    None, 'Sucesso', 'Login realizado com sucesso')
             else:
-                QMessageBox.information(None, 'Atenção', 'Login ou senha incorretos')
+                QMessageBox.information(
+                    None, 'Atenção', 'Login ou senha incorretos')
         else:
-            QMessageBox.information(None, 'Atenção', 'Todos os valores devem ser preenchidos!')
+            QMessageBox.information(
+                None, 'Atenção', 'Todos os valores devem ser preenchidos!')
 
     def voltar(self):
         self.Qstack.setCurrentIndex(0)
+
     def Tela_cad(self):
         self.Qstack.setCurrentIndex(1)
+
     def Tela_sobre(self):
         self.Qstack.setCurrentIndex(2)
+
     def sair(self):
-        exit()    
-if __name__ =='__main__':
+        exit()
+
+
+if __name__ == '__main__':
     app = QApplication(sys.argv)
     show_main = Main()
     sys.exit(app.exec_())
