@@ -1,29 +1,35 @@
 class Usuairo:
-    def __init__(self,nome,email,endereco,cpf,senha):
+    def __init__(self,nome,email,endereco,userName,senha):
         self._nome = nome
         self._email = email
         self._endereco = endereco
-        self._cpf = cpf
+        self._user = userName
         self._senha = senha
     @property
-    def get_nome(self):
+    def nome(self):
         return self._nome
     @property
-    def get_email(self):
+    def email(self):
         return self._email
-    @property	
-    def get_endereco(self):
+    @property
+    def endereco(self):
         return self._endereco
     @property
-    def get_cpf(self):
-        return self._cpf
+    def userName(self):
+        return self._UserName
     @property
-    def get_senha(self):
+    def senha(self):
         return self._senha
-    @get_nome.setter
-    def set_email(self, email):
-        self._nome = email
-    @get_senha.setter
-    def set_senha(self, senha):
+    @email.setter
+    def email(self,email):
+        self._email = email
+    @endereco.setter
+    def endereco(self,endereco):
+        self._endereco = endereco
+    @userName.setter
+    def userName(self,userName):
+        self._UserName = userName
+    @senha.setter
+    def senha(self,senha):
         self._senha = senha
-
+    

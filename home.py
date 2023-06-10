@@ -56,7 +56,7 @@ class Tela_home(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.label.setText(_translate("MainWindow", "HOME PAGE"))
-        self.voltar.setText(_translate("MainWindow", "<--- Voltar"))
+        self.voltar.setText(_translate("MainWindow", "Desconectar"))
 
 
 if __name__ == "__main__":

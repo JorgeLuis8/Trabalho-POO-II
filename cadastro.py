@@ -19,7 +19,7 @@ class Metodos:
         nome VARCHAR(45) NOT NULL,
         email VARCHAR(45) NOT NULL,
         endereco VARCHAR(45) NOT NULL,
-        cpf VARCHAR(45) NOT NULL,
+        user VARCHAR(45) NOT NULL,
         senha VARCHAR(45) NOT NULL
     ) ENGINE=InnoDB
         """)
@@ -27,23 +27,23 @@ class Metodos:
         conexao.commit()
 
     def cadastrar(self, p):
-        cursor.execute("INSERT INTO Usuarios (nome, email, endereco, cpf, senha) VALUES (%s, %s, %s, %s, %s)",
-                       (p._nome, p._email, p._endereco, p._cpf, p._senha))
+        cursor.execute("INSERT INTO Usuarios (nome, email, endereco, user, senha) VALUES (%s, %s, %s, %s, %s)",
+                       (p._nome, p._email, p._endereco, p._user, p._senha))
         conexao.commit()
         return True
 
-    def verifica_cadastro(self, cpf, email):
+    def verifica_cadastro(self, user, email):
         cursor.execute(
-            'SELECT * FROM Usuarios WHERE cpf = %s OR email = %s', (cpf, email))
+            'SELECT * FROM Usuarios WHERE user = %s OR email = %s', (user, email))
         resultado = cursor.fetchone()
         if resultado is not None:
             return True
         else:
             return False
 
-    def login(self, email, senha):
+    def login(self, email, senha,user):
         cursor.execute(
-            'SELECT * FROM Usuarios WHERE email = %s AND senha = %s', (email, senha))
+            'SELECT * FROM Usuarios WHERE email = %s AND senha = %s OR user = %s', (email, senha,user))
         resultado = cursor.fetchall()
         if len(resultado) == 0:
             return False
