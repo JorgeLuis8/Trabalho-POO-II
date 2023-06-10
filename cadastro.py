@@ -41,9 +41,9 @@ class Metodos:
         else:
             return False
 
-    def login(self, email, senha,user):
+    def login(self, email, senha, user):
         cursor.execute(
-            'SELECT * FROM Usuarios WHERE email = %s AND senha = %s OR user = %s', (email, senha,user))
+            'SELECT * FROM Usuarios WHERE email = %s AND senha = %s OR user = %s', (email, senha, user))
         resultado = cursor.fetchall()
         if len(resultado) == 0:
             return False
