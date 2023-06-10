@@ -101,6 +101,8 @@ class Main(QMainWindow, Ui_main):
             else:
                 QMessageBox.information(
                     None, 'Atenção', 'Login ou senha incorretos')
+                self.tela_inical.campoUsuario.clear()
+                self.tela_inical.campoSenha.clear()
         else:
             QMessageBox.information(
                 None, 'Atenção', 'Todos os valores devem ser preenchidos!')
