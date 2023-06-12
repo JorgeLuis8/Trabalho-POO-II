@@ -68,10 +68,10 @@ class Main(QMainWindow, Ui_main):
         u = Usuairo(nome, email, endereco, user, senha)
         if  (self.metodos.verifica_tamsenha(senha)):
             if not nome == '' or email == '' or endereco == '' or user == '':
-                    if self.metodos.verifica_cadastro(user, email):
+                if self.metodos.verifica_cadastro(user, email):
                         QMessageBox.information(
                             None, 'Atenção', 'O seu Email ou o user name informado já foi cadastrado na base de dados!')
-                    else:
+                else:
                         self.metodos.cadastrar(u)
                         QMessageBox.information(
                             None, 'Sucesso', 'Cadastro realizado com sucesso')

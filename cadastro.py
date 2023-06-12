@@ -62,7 +62,6 @@ class Metodos:
         for row in a:
             print(row)
 
-
 conexao.commit()
 
 a = Metodos().exibir()
