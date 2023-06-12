@@ -6,9 +6,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>662</width>
-    <height>486</height>
+    <width>803</width>
+    <height>530</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>803</width>
+    <height>530</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>799</width>
+    <height>527</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
@@ -21,8 +33,8 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>226</x>
-      <y>10</y>
+      <x>300</x>
+      <y>0</y>
       <width>221</width>
       <height>41</height>
      </rect>
@@ -51,10 +63,22 @@ border: none;
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>50</y>
-      <width>661</width>
-      <height>301</height>
+      <y>-100</y>
+      <width>803</width>
+      <height>530</height>
      </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>803</width>
+      <height>530</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>803</width>
+      <height>530</height>
+     </size>
     </property>
     <property name="font">
      <font>
@@ -90,7 +114,7 @@ border: none;
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>410</y>
+      <y>500</y>
       <width>75</width>
       <height>23</height>
      </rect>
@@ -111,7 +135,6 @@ QPushButton:hover {
     </property>
    </widget>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
  <connections/>

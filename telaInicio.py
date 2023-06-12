@@ -14,7 +14,10 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Tela_inical(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(800, 565)
+        MainWindow.setEnabled(True)
+        MainWindow.resize(803, 530)
+        MainWindow.setMinimumSize(QtCore.QSize(803, 530))
+        MainWindow.setMaximumSize(QtCore.QSize(803, 530))
         MainWindow.setStyleSheet("background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 white, stop: 1 #D3D3D3);\n"
 "")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -133,14 +136,14 @@ class Tela_inical(object):
         self.campoSenha.setEchoMode(QtWidgets.QLineEdit.Password)
         self.campoSenha.setObjectName("campoSenha")
         self.label_6 = QtWidgets.QLabel(self.centralwidget)
-        self.label_6.setGeometry(QtCore.QRect(520, 490, 204, 23))
+        self.label_6.setGeometry(QtCore.QRect(510, 500, 204, 23))
         self.label_6.setStyleSheet("color: black;\n"
 "background-color: transparent;\n"
 "border: none;\n"
 "")
         self.label_6.setObjectName("label_6")
         self.Botao_sobre = QtWidgets.QPushButton(self.centralwidget)
-        self.Botao_sobre.setGeometry(QtCore.QRect(720, 490, 81, 23))
+        self.Botao_sobre.setGeometry(QtCore.QRect(710, 500, 81, 23))
         self.Botao_sobre.setStyleSheet("QPushButton {\n"
 "    background-color:  #add8e6;\n"
 "    border-radius: 10px;\n"
@@ -152,9 +155,6 @@ class Tela_inical(object):
 "")
         self.Botao_sobre.setObjectName("Botao_sobre")
         MainWindow.setCentralWidget(self.centralwidget)
-        self.statusbar = QtWidgets.QStatusBar(MainWindow)
-        self.statusbar.setObjectName("statusbar")
-        MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)

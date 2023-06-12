@@ -14,13 +14,13 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Tela_home(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(638, 449)
+        MainWindow.resize(763, 508)
         MainWindow.setStyleSheet("background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 white, stop: 1 #D3D3D3);\n"
 "")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(150, 0, 291, 21))
+        self.label.setGeometry(QtCore.QRect(250, 0, 291, 21))
         font = QtGui.QFont()
         font.setPointSize(16)
         font.setBold(True)
@@ -33,7 +33,7 @@ class Tela_home(object):
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
         self.voltar = QtWidgets.QPushButton(self.centralwidget)
-        self.voltar.setGeometry(QtCore.QRect(0, 380, 75, 23))
+        self.voltar.setGeometry(QtCore.QRect(0, 480, 75, 23))
         self.voltar.setStyleSheet("QPushButton {\n"
 "    background-color:  #add8e6;\n"
 "    border-radius: 10px;\n"
@@ -45,9 +45,6 @@ class Tela_home(object):
 "")
         self.voltar.setObjectName("voltar")
         MainWindow.setCentralWidget(self.centralwidget)
-        self.statusbar = QtWidgets.QStatusBar(MainWindow)
-        self.statusbar.setObjectName("statusbar")
-        MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -56,7 +53,7 @@ class Tela_home(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.label.setText(_translate("MainWindow", "HOME PAGE"))
-        self.voltar.setText(_translate("MainWindow", "Desconectar"))
+        self.voltar.setText(_translate("MainWindow", "<--- Voltar"))
 
 
 if __name__ == "__main__":

@@ -14,13 +14,15 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class About_us(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(662, 486)
+        MainWindow.resize(803, 530)
+        MainWindow.setMinimumSize(QtCore.QSize(803, 530))
+        MainWindow.setMaximumSize(QtCore.QSize(799, 527))
         MainWindow.setStyleSheet("background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 white, stop: 1 #D3D3D3);\n"
 "")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(226, 10, 221, 41))
+        self.label.setGeometry(QtCore.QRect(300, 0, 221, 41))
         font = QtGui.QFont()
         font.setPointSize(20)
         font.setBold(True)
@@ -33,7 +35,9 @@ class About_us(object):
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_2.setGeometry(QtCore.QRect(0, 50, 661, 301))
+        self.label_2.setGeometry(QtCore.QRect(0, -100, 803, 530))
+        self.label_2.setMinimumSize(QtCore.QSize(803, 530))
+        self.label_2.setMaximumSize(QtCore.QSize(803, 530))
         font = QtGui.QFont()
         font.setFamily("Arial")
         self.label_2.setFont(font)
@@ -48,7 +52,7 @@ class About_us(object):
         self.label_2.setWordWrap(True)
         self.label_2.setObjectName("label_2")
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton.setGeometry(QtCore.QRect(0, 410, 75, 23))
+        self.pushButton.setGeometry(QtCore.QRect(0, 500, 75, 23))
         self.pushButton.setStyleSheet("QPushButton {\n"
 "    background-color:  #add8e6;\n"
 "    border-radius: 10px;\n"
@@ -60,9 +64,6 @@ class About_us(object):
 "")
         self.pushButton.setObjectName("pushButton")
         MainWindow.setCentralWidget(self.centralwidget)
-        self.statusbar = QtWidgets.QStatusBar(MainWindow)
-        self.statusbar.setObjectName("statusbar")
-        MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)

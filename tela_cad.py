@@ -14,7 +14,9 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Tela_cad(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(800, 600)
+        MainWindow.resize(803, 557)
+        MainWindow.setMinimumSize(QtCore.QSize(803, 557))
+        MainWindow.setMaximumSize(QtCore.QSize(803, 557))
         MainWindow.setStyleSheet("background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 white, stop: 1 #D3D3D3);\n"
 "")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -126,9 +128,6 @@ class Tela_cad(object):
         self.lineEdit_5.setEchoMode(QtWidgets.QLineEdit.Password)
         self.lineEdit_5.setObjectName("lineEdit_5")
         MainWindow.setCentralWidget(self.centralwidget)
-        self.statusbar = QtWidgets.QStatusBar(MainWindow)
-        self.statusbar.setObjectName("statusbar")
-        MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -142,7 +141,7 @@ class Tela_cad(object):
         self.label_2.setText(_translate("MainWindow", "Nome"))
         self.label_6.setText(_translate("MainWindow", "Email"))
         self.label_4.setText(_translate("MainWindow", "Endereço"))
-        self.label_3.setText(_translate("MainWindow", "User"))
+        self.label_3.setText(_translate("MainWindow", "CPF"))
         self.label_5.setText(_translate("MainWindow", "Senha"))
 
 
