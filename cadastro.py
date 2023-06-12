@@ -52,9 +52,15 @@ class Metodos:
 
     def verifica_tamsenha(self, senha):
         if len(senha) < 8:
-            return False
-        else:
             return True
+        else:
+            return False 
+
+    def verifica_tamuser(self,user):
+        if len(user) <= 6:
+            return True
+        else :
+            return False
 
     def exibir(self):
         cursor.execute('SELECT * FROM Usuarios')

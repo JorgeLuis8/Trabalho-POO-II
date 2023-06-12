@@ -66,25 +66,27 @@ class Main(QMainWindow, Ui_main):
         senha = self.tela_cadastro.lineEdit_5.text()
        
         u = Usuairo(nome, email, endereco, user, senha)
-        if  (self.metodos.verifica_tamsenha(senha)):
-            if not nome == '' or email == '' or endereco == '' or user == '':
-                if self.metodos.verifica_cadastro(user, email):
-                        QMessageBox.information(
-                            None, 'Atenção', 'O seu Email ou o user name informado já foi cadastrado na base de dados!')
+        if not (nome == None or email == None or senha == None or endereco == None or nome == '' or email == '' or senha == '' or endereco == ''):
+            if not (self.metodos.verifica_tamsenha(senha)):
+                if not (self.metodos.verifica_tamuser(user)):
+                    if self.metodos.verifica_cadastro(user, email):
+                            QMessageBox.information(
+                                None, 'Atenção', 'O seu Email ou o user name informado já foi cadastrado na base de dados!')
+                    else:
+                            self.metodos.cadastrar(u)
+                            QMessageBox.information(
+                                None, 'Sucesso', 'Cadastro realizado com sucesso')
+                            self.tela_cadastro.lineEdit_3.clear()
+                            self.tela_cadastro.lineEdit_4.clear()
+                            self.tela_cadastro.lineEdit_2.clear()
+                            self.tela_cadastro.lineEdit.clear()
+                            self.tela_cadastro.lineEdit_5.clear()
                 else:
-                        self.metodos.cadastrar(u)
-                        QMessageBox.information(
-                            None, 'Sucesso', 'Cadastro realizado com sucesso')
-                        self.tela_cadastro.lineEdit_3.clear()
-                        self.tela_cadastro.lineEdit_4.clear()
-                        self.tela_cadastro.lineEdit_2.clear()
-                        self.tela_cadastro.lineEdit.clear()
-                        self.tela_cadastro.lineEdit_5.clear()
+                    QMessageBox.information(None, "error", "O nome de usuario deve ser maior que 6 digitos")
             else:
-                QMessageBox.information(
-                    None, 'Atenção', 'Todos os valores devem ser preenchidos!')
+                QMessageBox.information(None,'error', 'Sua senha deve ser maior que 8 digitos')
         else:
-            QMessageBox.information(None,'error', 'Sua senha deve ser maior que 8 digitos')
+             QMessageBox.information(None, 'Atenção', 'Todos os valores devem ser preenchidos!')
     def login(self):
         email = self.tela_inical.campoUsuario.text()  
         senha = self.tela_inical.campoSenha.text()
