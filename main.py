@@ -64,32 +64,30 @@ class Main(QMainWindow, Ui_main):
         endereco = self.tela_cadastro.lineEdit.text()
         user = self.tela_cadastro.lineEdit_2.text()
         senha = self.tela_cadastro.lineEdit_5.text()
-        if  not (self.metodos.verifica_tamsenha(senha)):
-            QMessageBox.information(
-                None, 'Atenção', 'A senha deve ter no mínimo 8 caracteres!')
-        else:
-            u = Usuairo(nome, email, endereco, user, senha)
-            if not (nome == None or email == None or endereco == None or user == None or senha == None
-                    or nome == '' or email == '' or endereco == '' or user == ''):
-                if self.metodos.verifica_cadastro(user, email):
-                    QMessageBox.information(
-                        None, 'Atenção', 'O seu Email ou o user name informado já foi cadastrado na base de dados!')
-                else:
-                    self.metodos.cadastrar(u)
-                    QMessageBox.information(
-                        None, 'Sucesso', 'Cadastro realizado com sucesso')
-                    self.tela_cadastro.lineEdit_3.clear()
-                    self.tela_cadastro.lineEdit_4.clear()
-                    self.tela_cadastro.lineEdit_2.clear()
-                    self.tela_cadastro.lineEdit.clear()
-                    self.tela_cadastro.lineEdit_5.clear()
+       
+        u = Usuairo(nome, email, endereco, user, senha)
+        if  (self.metodos.verifica_tamsenha(senha)):
+            if not nome == '' or email == '' or endereco == '' or user == '':
+                    if self.metodos.verifica_cadastro(user, email):
+                        QMessageBox.information(
+                            None, 'Atenção', 'O seu Email ou o user name informado já foi cadastrado na base de dados!')
+                    else:
+                        self.metodos.cadastrar(u)
+                        QMessageBox.information(
+                            None, 'Sucesso', 'Cadastro realizado com sucesso')
+                        self.tela_cadastro.lineEdit_3.clear()
+                        self.tela_cadastro.lineEdit_4.clear()
+                        self.tela_cadastro.lineEdit_2.clear()
+                        self.tela_cadastro.lineEdit.clear()
+                        self.tela_cadastro.lineEdit_5.clear()
             else:
                 QMessageBox.information(
                     None, 'Atenção', 'Todos os valores devem ser preenchidos!')
-
+        else:
+            QMessageBox.information(None,'error', 'Sua senha deve ser maior que 8 digitos')
     def login(self):
-        email = self.tela_inical.campoUsuario.text()  # Obtém o email digitado
-        senha = self.tela_inical.campoSenha.text()  # Obtém a senha digitada
+        email = self.tela_inical.campoUsuario.text()  
+        senha = self.tela_inical.campoSenha.text()
         user = self.tela_inical.campoUsuario.text()
         if not (email == None or senha == None or email == '' or senha == '' or user == None or user == ''):
             if self.metodos.login(email, senha,user):
