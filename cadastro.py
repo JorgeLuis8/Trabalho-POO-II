@@ -49,13 +49,13 @@ class Metodos:
             return False
         else:
             return True
-
+    #verifica se o tamanho da senha é maior que 8
     def verifica_tamsenha(self, senha):
         if len(senha) < 8:
             return True
         else:
             return False 
-
+    #Verfica se o tamanho do usario é maior que 6
     def verifica_tamuser(self,user):
         if len(user) <= 6:
             return True
