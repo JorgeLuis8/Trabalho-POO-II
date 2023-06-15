@@ -45,7 +45,7 @@ class Metodos:
         cursor.execute(
             'SELECT * FROM Usuarios WHERE email = %s AND senha = %s OR user = %s', (email, senha, user))
         resultado = cursor.fetchall()
-        if len(resultado) == 0:
+        if resultado :
             return False
         else:
             return True
@@ -57,7 +57,7 @@ class Metodos:
             return False 
     #Verfica se o tamanho do usario é maior que 6
     def verifica_tamuser(self,user):
-        if len(user) <= 6:
+        if len(user) < 6:
             return True
         else :
             return False
