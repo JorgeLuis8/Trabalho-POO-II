@@ -20,69 +20,138 @@ class Tela_jogos(object):
         font.setBold(True)
         font.setWeight(75)
         MainWindow.setFont(font)
+        MainWindow.setStyleSheet("background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 white, stop: 1 #D3D3D3);\n"
+"")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(260, 10, 281, 20))
+        font = QtGui.QFont()
+        font.setPointSize(16)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label.setFont(font)
+        self.label.setStyleSheet("color: black;\n"
+"background-color: transparent;\n"
+"border: none;\n"
+"")
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_2.setGeometry(QtCore.QRect(150, 120, 81, 16))
+        self.label_2.setGeometry(QtCore.QRect(150, 120, 41, 16))
         font = QtGui.QFont()
         font.setPointSize(12)
         font.setBold(False)
         font.setWeight(50)
         self.label_2.setFont(font)
+        self.label_2.setStyleSheet("color: black;\n"
+"background-color: transparent;\n"
+"border: none;\n"
+"")
         self.label_2.setObjectName("label_2")
         self.label_3 = QtWidgets.QLabel(self.centralwidget)
-        self.label_3.setGeometry(QtCore.QRect(150, 190, 81, 16))
+        self.label_3.setGeometry(QtCore.QRect(130, 180, 71, 16))
         font = QtGui.QFont()
         font.setPointSize(12)
         font.setBold(False)
         font.setWeight(50)
         self.label_3.setFont(font)
+        self.label_3.setStyleSheet("color: black;\n"
+"background-color: transparent;\n"
+"border: none;\n"
+"")
         self.label_3.setObjectName("label_3")
         self.label_4 = QtWidgets.QLabel(self.centralwidget)
-        self.label_4.setGeometry(QtCore.QRect(150, 220, 81, 16))
+        self.label_4.setGeometry(QtCore.QRect(160, 210, 31, 16))
         font = QtGui.QFont()
         font.setPointSize(12)
         font.setBold(False)
         font.setWeight(50)
         self.label_4.setFont(font)
+        self.label_4.setStyleSheet("color: black;\n"
+"background-color: transparent;\n"
+"border: none;\n"
+"")
         self.label_4.setObjectName("label_4")
         self.label_5 = QtWidgets.QLabel(self.centralwidget)
-        self.label_5.setGeometry(QtCore.QRect(80, 160, 151, 20))
+        self.label_5.setGeometry(QtCore.QRect(60, 150, 141, 20))
         font = QtGui.QFont()
         font.setPointSize(12)
         font.setBold(False)
         font.setWeight(50)
         self.label_5.setFont(font)
+        self.label_5.setStyleSheet("color: black;\n"
+"background-color: transparent;\n"
+"border: none;\n"
+"")
         self.label_5.setObjectName("label_5")
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton.setGeometry(QtCore.QRect(340, 300, 75, 23))
+        self.pushButton.setGeometry(QtCore.QRect(340, 300, 101, 23))
+        font = QtGui.QFont()
+        font.setPointSize(8)
+        font.setBold(False)
+        font.setWeight(50)
+        self.pushButton.setFont(font)
+        self.pushButton.setStyleSheet("QPushButton {\n"
+"    background-color:  #add8e6;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color:#AABAF2 ;\n"
+"}\n"
+"")
         self.pushButton.setObjectName("pushButton")
         self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit.setGeometry(QtCore.QRect(230, 120, 391, 20))
+        self.lineEdit.setGeometry(QtCore.QRect(200, 120, 391, 20))
+        font = QtGui.QFont()
+        font.setPointSize(8)
+        font.setBold(False)
+        font.setWeight(50)
+        self.lineEdit.setFont(font)
+        self.lineEdit.setStyleSheet("color: black;\n"
+"background-color: transparent;\n"
+"\n"
+"")
         self.lineEdit.setObjectName("lineEdit")
         self.lineEdit_2 = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_2.setGeometry(QtCore.QRect(230, 160, 391, 20))
+        self.lineEdit_2.setGeometry(QtCore.QRect(200, 150, 391, 20))
         font = QtGui.QFont()
-        font.setPointSize(7)
+        font.setPointSize(8)
         font.setBold(False)
         font.setWeight(50)
         self.lineEdit_2.setFont(font)
+        self.lineEdit_2.setStyleSheet("color: black;\n"
+"background-color: transparent;\n"
+"\n"
+"")
         self.lineEdit_2.setAlignment(QtCore.Qt.AlignCenter)
         self.lineEdit_2.setObjectName("lineEdit_2")
         self.lineEdit_3 = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_3.setGeometry(QtCore.QRect(230, 190, 391, 20))
+        self.lineEdit_3.setGeometry(QtCore.QRect(200, 180, 391, 20))
+        font = QtGui.QFont()
+        font.setPointSize(8)
+        font.setBold(False)
+        font.setWeight(50)
+        self.lineEdit_3.setFont(font)
+        self.lineEdit_3.setStyleSheet("color: black;\n"
+"background-color: transparent;\n"
+"\n"
+"")
         self.lineEdit_3.setObjectName("lineEdit_3")
         self.lineEdit_4 = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_4.setGeometry(QtCore.QRect(230, 220, 391, 20))
+        self.lineEdit_4.setGeometry(QtCore.QRect(200, 210, 391, 20))
+        font = QtGui.QFont()
+        font.setPointSize(8)
+        font.setBold(False)
+        font.setWeight(50)
+        self.lineEdit_4.setFont(font)
+        self.lineEdit_4.setStyleSheet("color: black;\n"
+"background-color: transparent;\n"
+"\n"
+"")
         self.lineEdit_4.setObjectName("lineEdit_4")
         MainWindow.setCentralWidget(self.centralwidget)
-        self.statusbar = QtWidgets.QStatusBar(MainWindow)
-        self.statusbar.setObjectName("statusbar")
-        MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -95,8 +164,8 @@ class Tela_jogos(object):
         self.label_3.setText(_translate("MainWindow", "Descrição"))
         self.label_4.setText(_translate("MainWindow", "Dica"))
         self.label_5.setText(_translate("MainWindow", "Data de lançamento"))
-        self.pushButton.setText(_translate("MainWindow", "PushButton"))
-        self.lineEdit_2.setText(_translate("MainWindow", "mês/dia/ano"))
+        self.pushButton.setText(_translate("MainWindow", "Cadastrar Dica"))
+        self.lineEdit_2.setText(_translate("MainWindow", "ano/mes/dia"))
 
 
 if __name__ == "__main__":
