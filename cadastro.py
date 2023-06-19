@@ -21,7 +21,17 @@ class Metodos:
         endereco VARCHAR(45) NOT NULL,
         user VARCHAR(45) NOT NULL,
         senha VARCHAR(45) NOT NULL
-    ) ENGINE=InnoDB
+    )   ENGINE=InnoDB
+        """)
+
+        conexao.commit()
+        cursor.execute(""" CREATE TABLE IF NOT EXISTS Jogos (
+        idJogos INT NOT NULL AUTO_INCREMENT,
+        nome VARCHAR(45) NOT NULL,
+        ano_lancamento DATE NOT NULL,
+        descri VARCHAR(500) NOT NULL,
+        PRIMARY KEY (idJogos))
+        ENGINE = InnoDB;
         """)
 
         conexao.commit()
@@ -67,7 +77,10 @@ class Metodos:
         a = cursor.fetchall()
         for row in a:
             print(row)
-
+    def cad_jogos(self,j):
+        cursor.execute("""INSERT INTO jogos VALUES (%s, %s,%s)""",(j._nome,j._ano_lancamento,j._desc))
+        conexao.commit()
+        return True
 conexao.commit()
 
 a = Metodos().exibir()
