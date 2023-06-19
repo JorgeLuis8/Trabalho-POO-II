@@ -44,6 +44,9 @@ class Tela_home(object):
 "}\n"
 "")
         self.voltar.setObjectName("voltar")
+        self.pushButton = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton.setGeometry(QtCore.QRect(680, 480, 75, 23))
+        self.pushButton.setObjectName("pushButton")
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -54,6 +57,7 @@ class Tela_home(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.label.setText(_translate("MainWindow", "HOME PAGE"))
         self.voltar.setText(_translate("MainWindow", "<--- Voltar"))
+        self.pushButton.setText(_translate("MainWindow", "cad_dicas"))
 
 
 if __name__ == "__main__":

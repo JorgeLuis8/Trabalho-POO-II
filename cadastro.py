@@ -51,11 +51,11 @@ class Metodos:
         else:
             return False
 
-    def login(self, email, senha, user):
+    def login(self, email, senha):
         cursor.execute(
-            'SELECT * FROM Usuarios WHERE email = %s AND senha = %s OR user = %s', (email, senha, user))
+            'SELECT * FROM Usuarios WHERE email = %s AND senha = %s ', (email, senha))
         resultado = cursor.fetchall()
-        if resultado :
+        if len(resultado) == 0 :
             return False
         else:
             return True
@@ -77,6 +77,11 @@ class Metodos:
         a = cursor.fetchall()
         for row in a:
             print(row)
+    def exibirj(self):
+        cursor.execute('SELECT * FROM jogos')
+        a = cursor.fetchall()
+        for row in a:
+            print(row)
     def cad_jogos(self,j):
         cursor.execute("""INSERT INTO jogos VALUES (%s, %s,%s)""",(j._nome,j._ano_lancamento,j._desc))
         conexao.commit()
@@ -84,3 +89,4 @@ class Metodos:
 conexao.commit()
 
 a = Metodos().exibir()
+b = Metodos().exibirj()

@@ -11,7 +11,8 @@ from telaAbout import About_us
 from home import Tela_home
 from usuario import Usuairo
 from cadastro import Metodos
-
+from jogos import Jogos
+from cad_jogos import Tela_jogos
 
 class Ui_main(QtWidgets.QWidget):
     def setupUi(self, Main):
@@ -24,6 +25,7 @@ class Ui_main(QtWidgets.QWidget):
         self.stack1 = QtWidgets.QMainWindow()
         self.stack2 = QtWidgets.QMainWindow()
         self.stack3 = QtWidgets.QMainWindow()
+        self.stack4 = QtWidgets.QMainWindow()
 
         self.tela_inical = Tela_inical()
         self.tela_inical.setupUi(self.stack0)
@@ -37,10 +39,14 @@ class Ui_main(QtWidgets.QWidget):
         self.tela_home = Tela_home()
         self.tela_home.setupUi(self.stack3)
 
+        self.tela_jogos = Tela_jogos()
+        self.tela_jogos.setupUi(self.stack4)
+
         self.Qstack.addWidget(self.stack0)
         self.Qstack.addWidget(self.stack1)
         self.Qstack.addWidget(self.stack2)
         self.Qstack.addWidget(self.stack3)
+        self.Qstack.addWidget(self.stack4)
 
 
 class Main(QMainWindow, Ui_main):
@@ -57,6 +63,8 @@ class Main(QMainWindow, Ui_main):
         self.tela_cadastro.Botao_cadastrar.clicked.connect(self.cadastrar)
         self.tela_about.pushButton.clicked.connect(self.voltar)
         self.tela_home.voltar.clicked.connect(self.voltar)
+        self.tela_home.pushButton.clicked.connect(self.ir_jogos)
+        self.tela_jogos.pushButton.clicked.connect(self.cadastrar_jogos)
 
     def cadastrar(self):
         nome = self.tela_cadastro.lineEdit_3.text()
@@ -91,8 +99,8 @@ class Main(QMainWindow, Ui_main):
         email = self.tela_inical.campoUsuario.text()  
         senha = self.tela_inical.campoSenha.text()
         user = self.tela_inical.campoUsuario.text()
-        if not (email == None or senha == None or email == '' or senha == '' or user == None or user == ''):
-            if self.metodos.login(email, senha,user):
+        if not (email == None or senha == None or email == '' or senha == ''):
+            if self.metodos.login(email, senha):
                 self.tela_inical.campoUsuario.clear()
                 self.tela_inical.campoSenha.clear()
                 self.Qstack.setCurrentIndex(3)
@@ -106,7 +114,15 @@ class Main(QMainWindow, Ui_main):
         else:
             QMessageBox.information(
                 None, 'Atenção', 'Todos os valores devem ser preenchidos!')
+    def cadastrar_jogos(self,j):
+        nome = self.tela_jogos.lineEdit.text()
+        data = self.tela_jogos.lineEdit_2.text()
+        descricao = self.tela_jogos.lineEdit_3.text()
+        dica = self.tela_jogos.lineEdit_4.text()
+        j = Jogos(nome, descricao, data,dica)
+        self.metodos.cad_jogos(j)
 
+    
     def voltar(self):
         self.Qstack.setCurrentIndex(0)
 
@@ -119,7 +135,8 @@ class Main(QMainWindow, Ui_main):
     def sair(self):
         exit()
 
-
+    def ir_jogos(self):
+        self.Qstack.setCurrentIndex(4)
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     show_main = Main()
