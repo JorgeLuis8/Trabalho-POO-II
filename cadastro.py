@@ -8,8 +8,6 @@ conexao = mysql.connector.connect(
 )
 cursor = conexao.cursor()
 
-conexao.commit()
-
 
 class Metodos:
     def __init__(self) -> None:
@@ -24,17 +22,15 @@ class Metodos:
     )   ENGINE=InnoDB
         """)
 
-        conexao.commit()
         cursor.execute(""" CREATE TABLE IF NOT EXISTS Jogos (
         idJogos INT NOT NULL AUTO_INCREMENT,
         nome VARCHAR(45) NOT NULL,
         ano_lancamento DATE NOT NULL,
         descri VARCHAR(500) NOT NULL,
+        dica LONGTEXT NOT NULL,
         PRIMARY KEY (idJogos))
         ENGINE = InnoDB;
         """)
-
-        conexao.commit()
 
     def cadastrar(self, p):
         cursor.execute("INSERT INTO Usuarios (nome, email, endereco, user, senha) VALUES (%s, %s, %s, %s, %s)",
@@ -59,34 +55,38 @@ class Metodos:
             return False
         else:
             return True
-    #verifica se o tamanho da senha é maior que 8
+
     def verifica_tamsenha(self, senha):
         if len(senha) < 8:
             return True
         else:
-            return False 
-    #Verfica se o tamanho do usario é maior que 6
-    def verifica_tamuser(self,user):
+            return False
+
+    def verifica_tamuser(self, user):
         if len(user) < 6:
             return True
-        else :
-            return False
+        else:
+            return False 
 
     def exibir(self):
         cursor.execute('SELECT * FROM Usuarios')
         a = cursor.fetchall()
         for row in a:
             print(row)
+
     def exibirj(self):
-        cursor.execute('SELECT * FROM jogos')
+        cursor.execute('SELECT * FROM Jogos')
         a = cursor.fetchall()
         for row in a:
             print(row)
-    def cad_jogos(self,j):
-        cursor.execute("""INSERT INTO jogos VALUES (%s, %s,%s)""",(j._nome,j._ano_lancamento,j._desc))
+
+    def cad_jogos(self, j):
+        cursor.execute("""INSERT INTO Jogos (nome, ano_lancamento, descri, dica) VALUES (%s, %s, %s, %s)""",
+                       (j._nome, j._ano_lancamento, j._desc, j.dica))
         conexao.commit()
         return True
-conexao.commit()
 
-a = Metodos().exibir()
-b = Metodos().exibirj()
+
+a = Metodos()
+a.exibir()
+a.exibirj()

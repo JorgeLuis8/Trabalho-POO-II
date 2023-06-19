@@ -109,7 +109,6 @@ class Main(QMainWindow, Ui_main):
             else:
                 QMessageBox.information(
                     None, 'Atenção', 'Login ou senha incorretos')
-                self.tela_inical.campoUsuario.clear()
                 self.tela_inical.campoSenha.clear()
         else:
             QMessageBox.information(
@@ -119,8 +118,14 @@ class Main(QMainWindow, Ui_main):
         data = self.tela_jogos.lineEdit_2.text()
         descricao = self.tela_jogos.lineEdit_3.text()
         dica = self.tela_jogos.lineEdit_4.text()
-        j = Jogos(nome, descricao, data,dica)
+        j = Jogos(nome, data, descricao,dica)
         self.metodos.cad_jogos(j)
+        QMessageBox.information(None,"Alerta","Dica cadastrada com sucesso!")
+        self.tela_jogos.lineEdit.clear()
+        self.tela_jogos.lineEdit_2.clear()
+        self.tela_jogos.lineEdit_3.clear()
+        self.tela_jogos.lineEdit_4.clear()
+    
 
     
     def voltar(self):
