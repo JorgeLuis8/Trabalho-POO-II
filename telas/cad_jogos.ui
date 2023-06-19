@@ -70,6 +70,12 @@ border: none;
       <bold>false</bold>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color: black;
+background-color: transparent;
+border: none;
+</string>
+    </property>
     <property name="text">
      <string>Nome</string>
     </property>
@@ -89,6 +95,12 @@ border: none;
       <weight>50</weight>
       <bold>false</bold>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: black;
+background-color: transparent;
+border: none;
+</string>
     </property>
     <property name="text">
      <string>Descrição</string>
@@ -110,6 +122,12 @@ border: none;
       <bold>false</bold>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color: black;
+background-color: transparent;
+border: none;
+</string>
+    </property>
     <property name="text">
      <string>Dica</string>
     </property>
@@ -129,6 +147,12 @@ border: none;
       <weight>50</weight>
       <bold>false</bold>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: black;
+background-color: transparent;
+border: none;
+</string>
     </property>
     <property name="text">
      <string>Data de lançamento</string>
@@ -211,7 +235,7 @@ background-color: transparent;
 </string>
     </property>
     <property name="text">
-     <string>mês/dia/ano</string>
+     <string>ano/mes/dia</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
