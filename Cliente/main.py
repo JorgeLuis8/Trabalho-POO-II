@@ -10,7 +10,7 @@ from tela_cad import Tela_cad
 from telaAbout import About_us
 from home import Tela_home
 from usuario import Usuairo
-from cadastro import Metodos
+from Servidor import Metodos
 from jogos import Jogos
 from cad_jogos import Tela_jogos
 
@@ -113,7 +113,7 @@ class Main(QMainWindow, Ui_main):
         else:
             QMessageBox.information(
                 None, 'Atenção', 'Todos os valores devem ser preenchidos!')
-    def cadastrar_jogos(self,j):
+    def cadastrar_jogos(self):
         nome = self.tela_jogos.lineEdit.text()
         data = self.tela_jogos.lineEdit_2.text()
         descricao = self.tela_jogos.lineEdit_3.text()
