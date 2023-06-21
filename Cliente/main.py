@@ -120,7 +120,7 @@ class Main(QMainWindow, Ui_main):
         dica = self.tela_jogos.lineEdit_4.text()
         j = Jogos(nome, data, descricao,dica)
         self.metodos.cad_jogos(j)
-        QMessageBox.information(None,"Alerta","Dica cadastrada com sucesso!")
+        QMessageBox.information(None,"Alerta","Sua dica foi cadastrada!")
         self.tela_jogos.lineEdit.clear()
         self.tela_jogos.lineEdit_2.clear()
         self.tela_jogos.lineEdit_3.clear()
