@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>763</width>
+    <width>767</width>
     <height>508</height>
    </rect>
   </property>
@@ -21,7 +21,7 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>250</x>
+      <x>230</x>
       <y>0</y>
       <width>291</width>
       <height>21</height>
@@ -71,6 +71,7 @@ QPushButton:hover {
      <string>&lt;--- Voltar</string>
     </property>
    </widget>
+<<<<<<< Updated upstream
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
@@ -109,6 +110,19 @@ QPushButton:hover {
     </property>
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
+=======
+   <widget class="QPushButton" name="Ir_cadastro">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>120</y>
+      <width>111</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Cadastrar_dicas</string>
+>>>>>>> Stashed changes
     </property>
    </widget>
   </widget>

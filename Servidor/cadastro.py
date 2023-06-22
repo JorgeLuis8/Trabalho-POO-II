@@ -1,4 +1,5 @@
 import mysql.connector
+from pessoa import Usuario
 
 conexao = mysql.connector.connect(
     host="localhost",
@@ -33,23 +34,24 @@ class Metodos:
         """)
 
     def cadastrar(self, p):
-        cursor.execute("INSERT INTO Usuarios (nome, email, endereco, user, senha) VALUES (%s, %s, %s, %s, %s)",
-                       (p._nome, p._email, p._endereco, p._user, p._senha))
-        conexao.commit()
-        return True
+        if self.verifica_cadastro(p._user, p._email):
+            cursor.execute("INSERT INTO Usuarios (nome, email, endereco, user, senha) VALUES (%s, %s, %s, %s, %s)",(p._nome, p._email, p._endereco, p._user, p._senha))
+            conexao.commit()
+            return True
 
     def verifica_cadastro(self, user, email):
         cursor.execute(
-            'SELECT * FROM Usuarios WHERE user = %s OR email = %s', (user, email))
+        'SELECT * FROM Usuarios WHERE user = %s OR email = %s', (user, email))
         resultado = cursor.fetchone()
-        if resultado is not None:
+        if resultado == None:
             return True
         else:
             return False
 
+
     def login(self, email, senha):
         cursor.execute(
-            'SELECT * FROM Usuarios WHERE email = %s AND senha = %s ', (email, senha))
+            'SELECT * FROM Usuarios WHERE email = %s AND senha = %s', (email, senha))
         resultado = cursor.fetchall()
         if len(resultado) == 0 :
             return False
@@ -87,6 +89,44 @@ class Metodos:
         return True
 
 
-a = Metodos()
-a.exibir()
-a.exibirj()
+if __name__ == '__main__':
+    import socket
+    metodos = Metodos()
+    ip = 'localhost'
+    port = 8089
+    addr = (ip, port)
+    serv_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    serv_socket.bind(addr)
+    serv_socket.listen(10)
+    con, _ = serv_socket.accept()
+    while True:
+        try:
+            msgLogin = con.recv(1024)
+            mensagemStr = msgLogin.decode().split(',')
+            enviar = ''
+            if mensagemStr[0] == '1':
+                email = mensagemStr[1]
+                senha = mensagemStr[2]
+                print('connectado1')
+                if metodos.login(email, senha):
+                    enviar = '1'
+                else:
+                    enviar = '0'
+            elif mensagemStr[0] == '2':
+                nome = mensagemStr[1]
+                email = mensagemStr[2]
+                endereco = mensagemStr[3]
+                user = mensagemStr[4]
+                senha = mensagemStr[5]
+                print('connectado2')
+                p = Usuario(nome, email, endereco, user, senha)
+                if metodos.cadastrar(p):
+                
+                    enviar = '1'
+                else:
+                    enviar = '0'
+            con.send(enviar.encode())
+        except Exception as e:
+            print('Email ou senha incorretos', str(e))
+            con.close()
+            break

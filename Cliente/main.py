@@ -1,5 +1,6 @@
 import sys
 import os
+import socket
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMainWindow, QApplication, QFileDialog, QMessageBox
@@ -9,9 +10,6 @@ from telaInicio import Tela_inical
 from tela_cad import Tela_cad
 from telaAbout import About_us
 from home import Tela_home
-from usuario import Usuairo
-from Servidor import Metodos
-from jogos import Jogos
 from cad_jogos import Tela_jogos
 
 class Ui_main(QtWidgets.QWidget):
@@ -54,78 +52,86 @@ class Main(QMainWindow, Ui_main):
         super(Main, self).__init__(parent)
         self.setupUi(self)
 
-        self.metodos = Metodos()
+
+        ip = 'localhost'
+        port = 8089
+        addr = ((ip, port))
+        self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.client_socket.connect(addr) 
+
         self.tela_inical.Botao_sair.clicked.connect(self.sair)
         self.tela_inical.Botao_sobre.clicked.connect(self.Tela_sobre)
         self.tela_inical.botaoCadastro.clicked.connect(self.Tela_cad)
         self.tela_inical.botaoLogin.clicked.connect(self.login)
         self.tela_cadastro.Botao_voltar.clicked.connect(self.voltar)
-        self.tela_cadastro.Botao_cadastrar.clicked.connect(self.cadastrar)
+        self.tela_cadastro.Botao_cadastrar.clicked.connect(self.cadastro)
         self.tela_about.pushButton.clicked.connect(self.voltar)
         self.tela_home.voltar.clicked.connect(self.voltar)
         self.tela_home.pushButton.clicked.connect(self.ir_jogos)
         self.tela_jogos.pushButton.clicked.connect(self.cadastrar_jogos)
+    def serverCadastro(self, msgCad):
+        if msgCad.split(',')[0] == '2':
+            self.client_socket.send(msgCad.encode())
+            msg = self.client_socket.recv(1024).decode()
 
-    def cadastrar(self):
+            if msg and msg == '1' :
+                return True
+        return False
+           
+    def cadastro(self):
         nome = self.tela_cadastro.lineEdit_3.text()
         email = self.tela_cadastro.lineEdit_4.text()
         endereco = self.tela_cadastro.lineEdit.text()
         user = self.tela_cadastro.lineEdit_2.text()
         senha = self.tela_cadastro.lineEdit_5.text()
-       
-        u = Usuairo(nome, email, endereco, user, senha)
-        if not (nome == None or email == None or senha == None or endereco == None or nome == '' or email == '' or senha == '' or endereco == ''):
-            if not (self.metodos.verifica_tamsenha(senha)):
-                if not (self.metodos.verifica_tamuser(user)):
-                    if self.metodos.verifica_cadastro(user, email):
-                            QMessageBox.information(
-                                None, 'Atenção', 'O seu Email ou o user name informado já foi cadastrado na base de dados!')
-                    else:
-                            self.metodos.cadastrar(u)
-                            QMessageBox.information(
-                                None, 'Sucesso', 'Cadastro realizado com sucesso')
-                            self.tela_cadastro.lineEdit_3.clear()
-                            self.tela_cadastro.lineEdit_4.clear()
-                            self.tela_cadastro.lineEdit_2.clear()
-                            self.tela_cadastro.lineEdit.clear()
-                            self.tela_cadastro.lineEdit_5.clear()
-                else:
-                    QMessageBox.information(None, "error", "O nome de usuario deve ser maior que 6 digitos")
+        msgCad = f'2,{nome},{email},{endereco},{user},{senha}'
+        if not (nome == None and email == None and senha == None and endereco == None and nome == '' and email == '' and senha == '' and endereco == '' and user == '' and user == None):
+            if self.serverCadastro(msgCad):
+                self.tela_cadastro.lineEdit.clear()
+                self.tela_cadastro.lineEdit_2.clear()
+                self.tela_cadastro.lineEdit_3.clear()
+                self.tela_cadastro.lineEdit_4.clear()
+                self.tela_cadastro.lineEdit_5.clear()
+                QMessageBox.information(None, 'Sucesso', 'Cadastro realizado com sucesso')
             else:
-                QMessageBox.information(None,'error', 'Sua senha deve ser maior que 8 digitos')
+                QMessageBox.information(None, 'Atenção', 'Email ou usuário já cadastrados')
+    def serverLogin(self, msgLogin):
+        if msgLogin.split(',')[0] == '1':
+            self.client_socket.send(msgLogin.encode())
+            msg = self.client_socket.recv(1024).decode()
+
+            if msg and msg == '1' :
+                return True
         else:
-             QMessageBox.information(None, 'Atenção', 'Todos os valores devem ser preenchidos!')
+            return False
+           
     def login(self):
         email = self.tela_inical.campoUsuario.text()  
         senha = self.tela_inical.campoSenha.text()
-        user = self.tela_inical.campoUsuario.text()
+        msgLogin = f'1,{email},{senha}'
         if not (email == None or senha == None or email == '' or senha == ''):
-            if self.metodos.login(email, senha):
+            if self.serverLogin(msgLogin):
                 self.tela_inical.campoUsuario.clear()
                 self.tela_inical.campoSenha.clear()
                 self.Qstack.setCurrentIndex(3)
-                QMessageBox.information(
-                    None, 'Sucesso', 'Login realizado com sucesso')
+                QMessageBox.information(None, 'Sucesso', 'Login realizado com sucesso')
             else:
-                QMessageBox.information(
-                    None, 'Atenção', 'Login ou senha incorretos')
-                self.tela_inical.campoSenha.clear()
-        else:
-            QMessageBox.information(
-                None, 'Atenção', 'Todos os valores devem ser preenchidos!')
+                QMessageBox.information(None, 'Atenção', 'Email ou senha incorretos')
+          
+         
     def cadastrar_jogos(self):
         nome = self.tela_jogos.lineEdit.text()
         data = self.tela_jogos.lineEdit_2.text()
         descricao = self.tela_jogos.lineEdit_3.text()
         dica = self.tela_jogos.lineEdit_4.text()
-        j = Jogos(nome, data, descricao,dica)
-        self.metodos.cad_jogos(j)
+        #j = Jogos(nome, data, descricao,dica)
+        #self.metodos.cad_jogos(j)
         QMessageBox.information(None,"Alerta","Dica cadastrada com sucesso!")
         self.tela_jogos.lineEdit.clear()
         self.tela_jogos.lineEdit_2.clear()
         self.tela_jogos.lineEdit_3.clear()
         self.tela_jogos.lineEdit_4.clear()
-    
+
 
     
     def voltar(self):
