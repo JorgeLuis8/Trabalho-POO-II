@@ -95,6 +95,8 @@ class Main(QMainWindow, Ui_main):
                 QMessageBox.information(None, 'Sucesso', 'Cadastro realizado com sucesso')
             else:
                 QMessageBox.information(None, 'Atenção', 'Email ou usuário já cadastrados')
+        else:
+            QMessageBox.information(None, 'Atenção', 'Preencha todos os campos')
     def serverLogin(self, msgLogin):
         if msgLogin.split(',')[0] == '1':
             self.client_socket.send(msgLogin.encode())
@@ -117,20 +119,36 @@ class Main(QMainWindow, Ui_main):
                 QMessageBox.information(None, 'Sucesso', 'Login realizado com sucesso')
             else:
                 QMessageBox.information(None, 'Atenção', 'Email ou senha incorretos')
+        else:
+            QMessageBox.information(None, 'Atenção', 'Preencha todos os campos')
           
-         
+    def serverCadjogos(self, msgCadJogos):
+        if msgCadJogos.split(',')[0] == '3':
+            self.client_socket.send(msgCadJogos.encode())
+            msg = self.client_socket.recv(1024).decode()
+
+            if msg and msg == '1' :
+                return True
+        else:
+            return False
     def cadastrar_jogos(self):
         nome = self.tela_jogos.lineEdit.text()
         data = self.tela_jogos.lineEdit_2.text()
         descricao = self.tela_jogos.lineEdit_3.text()
         dica = self.tela_jogos.lineEdit_4.text()
-        j = Jogos(nome, data, descricao,dica)
-        self.metodos.cad_jogos(j)
-        QMessageBox.information(None,"Alerta","Sua dica foi cadastrada!")
-        self.tela_jogos.lineEdit.clear()
-        self.tela_jogos.lineEdit_2.clear()
-        self.tela_jogos.lineEdit_3.clear()
-        self.tela_jogos.lineEdit_4.clear()
+        msgCad = f'3,{nome},{data},{descricao},{dica}'
+        if not (nome == None and data == None and descricao == None and dica == None and nome == '' and data == '' and descricao == '' and dica == ''):
+            if self.serverCadjogos(msgCad):
+                self.tela_jogos.lineEdit.clear()
+                self.tela_jogos.lineEdit_2.clear()
+                self.tela_jogos.lineEdit_3.clear()
+                self.tela_jogos.lineEdit_4.clear()
+                QMessageBox.information(None, 'Sucesso', 'Cadastro realizado com sucesso')
+            else:
+                QMessageBox.information(None, 'Atenção', 'Jogo já cadastrado')
+        else:
+            QMessageBox.information(None, 'Atenção', 'Preencha todos os campos')
+        
 
 
     
