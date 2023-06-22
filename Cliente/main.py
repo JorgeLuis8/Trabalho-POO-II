@@ -144,8 +144,6 @@ class Main(QMainWindow, Ui_main):
                 self.tela_jogos.lineEdit_3.clear()
                 self.tela_jogos.lineEdit_4.clear()
                 QMessageBox.information(None, 'Sucesso', 'Cadastro realizado com sucesso')
-            else:
-                QMessageBox.information(None, 'Atenção', 'Jogo já cadastrado')
         else:
             QMessageBox.information(None, 'Atenção', 'Preencha todos os campos')
         

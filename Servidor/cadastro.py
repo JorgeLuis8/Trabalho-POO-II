@@ -33,6 +33,28 @@ class Metodos:
         PRIMARY KEY (idJogos))
         ENGINE = InnoDB;
         """)
+        cursor.execute("""
+    CREATE TABLE IF NOT EXISTS `cadastro`.`dicas` (
+    iddicas INT NOT NULL AUTO_INCREMENT,
+    dica LONGTEXT NOT NULL,
+    jogos_idJogos INT NOT NULL,
+    usuarios_idUsuarios INT NOT NULL,
+    PRIMARY KEY (iddicas),
+    INDEX fk_dicas_jogos_idx (jogos_idJogos ASC) VISIBLE,
+    INDEX fk_dicas_usuarios1_idx (usuarios_idUsuarios ASC) VISIBLE,
+    CONSTRAINT fk_dicas_jogos
+        FOREIGN KEY (jogos_idJogos)
+        REFERENCES `cadastro`.`jogos` (idJogos)
+        ON DELETE NO ACTION
+        ON UPDATE NO ACTION,
+    CONSTRAINT fk_dicas_usuarios1
+        FOREIGN KEY (usuarios_idUsuarios)
+        REFERENCES `cadastro`.`usuarios` (idUsuarios)
+        ON DELETE NO ACTION
+        ON UPDATE NO ACTION
+    )
+    ENGINE = InnoDB;
+    """)
 
     def cadastrar(self, p):
         if self.verifica_cadastro(p._user, p._email):
