@@ -1,6 +1,7 @@
 import mysql.connector
 from pessoa import Usuario
 from jogos import Jogos
+from dica import Dica
 
 conexao = mysql.connector.connect(
     host="localhost",
@@ -106,11 +107,13 @@ class Metodos:
             print(row)
 
     def cad_jogos(self, j):
-        cursor.execute("""INSERT INTO Jogos (nome, ano_lancamento, descri, dica) VALUES (%s, %s, %s, %s)""",
-                       (j._nome, j._ano_lancamento, j._desc, j.dica))
+        cursor.execute("""INSERT INTO Jogos (nome, ano_lancamento, descri) VALUES (%s, %s, %s)""",
+                       (j._nome, j._ano_lancamento, j._desc,))
         conexao.commit()
         return True
-
+    def cadDica(self,d):
+        cursor.execute(""" INSERT INTO dicas VALUES (%s)""",d.dicas)
+        return True
 
 if __name__ == '__main__':
     import socket
@@ -159,6 +162,13 @@ if __name__ == '__main__':
                     enviar = '1'
                 else:
                     enviar = '0'
+            elif mensagemStr[0] == '4':
+                dica = mensagemStr[1]
+                print('conectado4')
+                d = Dica(dica)
+                metodos.cadDica(d)
+                
+        
             con.send(enviar.encode())
 
         except Exception as e:

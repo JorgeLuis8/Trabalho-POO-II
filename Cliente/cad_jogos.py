@@ -151,6 +151,9 @@ class Tela_jogos(object):
 "\n"
 "")
         self.lineEdit_4.setObjectName("lineEdit_4")
+        self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_2.setGeometry(QtCore.QRect(350, 260, 75, 23))
+        self.pushButton_2.setObjectName("pushButton_2")
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -166,6 +169,7 @@ class Tela_jogos(object):
         self.label_5.setText(_translate("MainWindow", "Data de lançamento"))
         self.pushButton.setText(_translate("MainWindow", "Cadastrar Dica"))
         self.lineEdit_2.setText(_translate("MainWindow", "ano/mes/dia"))
+        self.pushButton_2.setText(_translate("MainWindow", "Teste"))
 
 
 if __name__ == "__main__":
