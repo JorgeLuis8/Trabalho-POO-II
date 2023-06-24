@@ -141,7 +141,7 @@ class Tela_cad(object):
         self.label_2.setText(_translate("MainWindow", "Nome"))
         self.label_6.setText(_translate("MainWindow", "Email"))
         self.label_4.setText(_translate("MainWindow", "Endereço"))
-        self.label_3.setText(_translate("MainWindow", "CPF"))
+        self.label_3.setText(_translate("MainWindow", "User"))
         self.label_5.setText(_translate("MainWindow", "Senha"))
 
 

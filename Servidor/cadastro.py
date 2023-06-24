@@ -34,28 +34,6 @@ class Metodos:
         PRIMARY KEY (idJogos))
         ENGINE = InnoDB;
         """)
-        cursor.execute("""
-    CREATE TABLE IF NOT EXISTS `cadastro`.`dicas` (
-    iddicas INT NOT NULL AUTO_INCREMENT,
-    dica LONGTEXT NOT NULL,
-    jogos_idJogos INT NOT NULL,
-    usuarios_idUsuarios INT NOT NULL,
-    PRIMARY KEY (iddicas),
-    INDEX fk_dicas_jogos_idx (jogos_idJogos ASC) VISIBLE,
-    INDEX fk_dicas_usuarios1_idx (usuarios_idUsuarios ASC) VISIBLE,
-    CONSTRAINT fk_dicas_jogos
-        FOREIGN KEY (jogos_idJogos)
-        REFERENCES `cadastro`.`jogos` (idJogos)
-        ON DELETE NO ACTION
-        ON UPDATE NO ACTION,
-    CONSTRAINT fk_dicas_usuarios1
-        FOREIGN KEY (usuarios_idUsuarios)
-        REFERENCES `cadastro`.`usuarios` (idUsuarios)
-        ON DELETE NO ACTION
-        ON UPDATE NO ACTION
-    )
-    ENGINE = InnoDB;
-    """)
 
     def cadastrar(self, p):
         if self.verifica_cadastro(p._user, p._email):
@@ -107,12 +85,9 @@ class Metodos:
             print(row)
 
     def cad_jogos(self, j):
-        cursor.execute("""INSERT INTO Jogos (nome, ano_lancamento, descri) VALUES (%s, %s, %s)""",
-                       (j._nome, j._ano_lancamento, j._desc,))
+        cursor.execute("""INSERT INTO Jogos (nome, ano_lancamento, descri) VALUES (%s, %s, %s, %s)""",
+                       (j._nome, j._ano_lancamento, j._desc, j._dica))
         conexao.commit()
-        return True
-    def cadDica(self,d):
-        cursor.execute(""" INSERT INTO dicas VALUES (%s)""",d.dicas)
         return True
 
 if __name__ == '__main__':
@@ -161,14 +136,7 @@ if __name__ == '__main__':
                 if metodos.cad_jogos(j):
                     enviar = '1'
                 else:
-                    enviar = '0'
-            elif mensagemStr[0] == '4':
-                dica = mensagemStr[1]
-                print('conectado4')
-                d = Dica(dica)
-                metodos.cadDica(d)
-                
-        
+                    enviar = '0'       
             con.send(enviar.encode())
 
         except Exception as e:

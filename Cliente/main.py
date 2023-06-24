@@ -69,13 +69,12 @@ class Main(QMainWindow, Ui_main):
         self.tela_home.voltar.clicked.connect(self.voltar)
         self.tela_home.pushButton.clicked.connect(self.ir_jogos)
         self.tela_jogos.pushButton.clicked.connect(self.cadastrar_jogos)
-        self.tela_jogos.pushButton_2.clicked.connect(self.cadastrar_dica)
     def serverCadastro(self, msgCad):
         if msgCad.split(',')[0] == '2':
             self.client_socket.send(msgCad.encode())
             msg = self.client_socket.recv(1024).decode()
 
-            if msg and msg == '1' :
+            if msg and msg == '2' :
                 return True
         return False
            
@@ -86,7 +85,7 @@ class Main(QMainWindow, Ui_main):
         user = self.tela_cadastro.lineEdit_2.text()
         senha = self.tela_cadastro.lineEdit_5.text()
         msgCad = f'2,{nome},{email},{endereco},{user},{senha}'
-        if not (nome == None and email == None and senha == None and endereco == None and nome == '' and email == '' and senha == '' and endereco == '' and user == '' and user == None):
+        if  (nome == None and email == None and senha == None and endereco == None and nome == '' and email == '' and senha == '' and endereco == '' and user == '' and user == None):
             if self.serverCadastro(msgCad):
                 self.tela_cadastro.lineEdit.clear()
                 self.tela_cadastro.lineEdit_2.clear()
@@ -128,7 +127,7 @@ class Main(QMainWindow, Ui_main):
             self.client_socket.send(msgCadJogos.encode())
             msg = self.client_socket.recv(1024).decode()
 
-            if msg and msg == '1' :
+            if msg and msg == '3' :
                 return True
         else:
             return False
@@ -146,25 +145,7 @@ class Main(QMainWindow, Ui_main):
                 self.tela_jogos.lineEdit_4.clear()
                 QMessageBox.information(None, 'Sucesso', 'Cadastro realizado com sucesso')
         else:
-            QMessageBox.information(None, 'Atenção', 'Preencha todos os campos')
-    def serverDica(self, msgCadDIca):
-        if msgCadDIca.split(',')[0] == '4':
-            self.client_socket.send(msgCadDIca.encode())
-            msg = self.client_socket.recv(1024).decode()
-
-            if msg and msg == '1' :
-                return True
-        else:
-            return False
-    def cadastrar_dica(self,msgCadDica):
-         dica = self.tela_jogos.lineEdit_4.text()
-         msgCadDica = f'4,{dica}'
-         self.serverDica(msgCadDica)
-         QMessageBox.information(None,'passou','Dica cadastrada com sucesso')
-        
-
-
-    
+            QMessageBox.information(None, 'Atenção', 'Preencha todos os campos')  
     def voltar(self):
         self.Qstack.setCurrentIndex(0)
 
