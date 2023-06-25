@@ -37,21 +37,22 @@ class Metodos:
 
     def verifica_cadastro(self, user, email):
         cursor.execute(
-        'SELECT * FROM Usuarios WHERE user = %s OR email = %s', (user, email))
-        resultado = cursor.fetchone()
-        if resultado == None:
-            return True
-        else:
+            'SELECT * FROM Usuarios WHERE user = %s OR email = %s', (user, email))
+        resultado = cursor.fetchall()
+        if len(resultado) == 0:
             return False
-        
-    def cadastrar(self, p):
-        if self.verifica_cadastro(p._user, p._email):
-            cursor.execute("INSERT INTO Usuarios (nome, email, endereco, user, senha) VALUES (%s, %s, %s, %s, %s)",(p._nome, p._email, p._endereco, p._user, p._senha))
-            conexao.commit()
+        else:
             return True
 
+    def cadastrar(self, p):
+        cursor.execute("INSERT INTO Usuarios (nome, email, endereco, user, senha) VALUES (%s, %s, %s, %s, %s)",
+        (p._nome, p._email, p._endereco, p._user, p._senha))
+        conexao.commit()
+        return True
+
     def logar(self, email, senha):
-        cursor.execute('SELECT * FROM Usuarios WHERE email = %s AND senha = %s', (email, senha))
+        cursor.execute(
+            'SELECT * FROM Usuarios WHERE email = %s AND senha = %s', (email, senha))
         resultado = cursor.fetchone()
         if resultado == None:
             return False
@@ -63,9 +64,11 @@ class Metodos:
                        (j._nome, j._ano_lancamento, j._desc,))
         conexao.commit()
         return True
-    def cadDica(self,d):
-        cursor.execute(""" INSERT INTO dicas VALUES (%s)""",d.dicas)
+
+    def cadDica(self, d):
+        cursor.execute(""" INSERT INTO dicas VALUES (%s)""", d.dicas)
         return True
+
 
 if __name__ == '__main__':
     import socket
@@ -98,11 +101,11 @@ if __name__ == '__main__':
                 senha = mensagemStr[5]
                 print('connectado2')
                 p = Usuario(nome, email, endereco, user, senha)
-                if metodos.cadastrar(p):
-                
+                if metodos.cadastrar(p) and metodos.verifica_cadastro(user, email):
                     enviar = '1'
                 else:
                     enviar = '0'
+
             elif mensagemStr[0] == '3':
                 nome = mensagemStr[1]
                 ano_lancamento = mensagemStr[2]
@@ -114,8 +117,7 @@ if __name__ == '__main__':
                     enviar = '1'
                 else:
                     enviar = '0'
-                
-        
+
             con.send(enviar.encode())
 
         except Exception as e:
