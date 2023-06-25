@@ -50,11 +50,10 @@ class Metodos:
             conexao.commit()
             return True
 
-    def login(self, email, senha):
-        cursor.execute(
-            'SELECT * FROM Usuarios WHERE email = %s AND senha = %s', (email, senha))
-        resultado = cursor.fetchall()
-        if len(resultado) == 0 :
+    def logar(self, email, senha):
+        cursor.execute('SELECT * FROM Usuarios WHERE email = %s AND senha = %s', (email, senha))
+        resultado = cursor.fetchone()
+        if resultado == None:
             return False
         else:
             return True
@@ -72,7 +71,7 @@ if __name__ == '__main__':
     import socket
     metodos = Metodos()
     ip = 'localhost'
-    port = 8089
+    port = 8088
     addr = (ip, port)
     serv_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     serv_socket.bind(addr)
@@ -87,7 +86,7 @@ if __name__ == '__main__':
                 email = mensagemStr[1]
                 senha = mensagemStr[2]
                 print('connectado1')
-                if metodos.login(email, senha):
+                if not metodos.logar(email, senha):
                     enviar = '1'
                 else:
                     enviar = '0'

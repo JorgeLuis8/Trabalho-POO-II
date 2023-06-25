@@ -54,7 +54,7 @@ class Main(QMainWindow, Ui_main):
 
 
         ip = 'localhost'
-        port = 8089
+        port = 8088
         addr = ((ip, port))
         self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.client_socket.connect(addr) 
@@ -114,6 +114,7 @@ class Main(QMainWindow, Ui_main):
         senha = self.tela_inical.campoSenha.text()
         msgLogin = f'1,{email},{senha}'
         if not (email == None or senha == None or email == '' or senha == ''):
+            print('entrou aqui')
             if not self.serverLogin(msgLogin):
                 self.tela_inical.campoUsuario.clear()
                 self.tela_inical.campoSenha.clear()
