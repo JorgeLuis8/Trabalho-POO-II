@@ -46,8 +46,7 @@ class Metodos:
 
     def cadastrar(self, p):
         cursor.execute("INSERT INTO Usuarios (nome, email, endereco, user, senha) VALUES (%s, %s, %s, %s, %s)",
-        (p._nome, p._email, p._endereco, p._user, p._senha))
-        conexao.commit()
+                           (p._nome, p._email, p._endereco, p._user, p._senha))
         return True
 
     def logar(self, email, senha):

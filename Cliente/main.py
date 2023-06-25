@@ -78,7 +78,6 @@ class Main(QMainWindow, Ui_main):
                 return True
             else:
                 return False
-   
     def cadastro(self):
         nome = self.tela_cadastro.lineEdit_3.text()
         email = self.tela_cadastro.lineEdit_4.text()
