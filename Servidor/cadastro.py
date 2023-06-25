@@ -35,12 +35,6 @@ class Metodos:
         ENGINE = InnoDB;
         """)
 
-    def cadastrar(self, p):
-        if self.verifica_cadastro(p._user, p._email):
-            cursor.execute("INSERT INTO Usuarios (nome, email, endereco, user, senha) VALUES (%s, %s, %s, %s, %s)",(p._nome, p._email, p._endereco, p._user, p._senha))
-            conexao.commit()
-            return True
-
     def verifica_cadastro(self, user, email):
         cursor.execute(
         'SELECT * FROM Usuarios WHERE user = %s OR email = %s', (user, email))
@@ -49,7 +43,12 @@ class Metodos:
             return True
         else:
             return False
-
+        
+    def cadastrar(self, p):
+        if self.verifica_cadastro(p._user, p._email):
+            cursor.execute("INSERT INTO Usuarios (nome, email, endereco, user, senha) VALUES (%s, %s, %s, %s, %s)",(p._nome, p._email, p._endereco, p._user, p._senha))
+            conexao.commit()
+            return True
 
     def login(self, email, senha):
         cursor.execute(
@@ -60,34 +59,13 @@ class Metodos:
         else:
             return True
 
-    def verifica_tamsenha(self, senha):
-        if len(senha) < 8:
-            return True
-        else:
-            return False
-
-    def verifica_tamuser(self, user):
-        if len(user) < 6:
-            return True
-        else:
-            return False 
-
-    def exibir(self):
-        cursor.execute('SELECT * FROM Usuarios')
-        a = cursor.fetchall()
-        for row in a:
-            print(row)
-
-    def exibirj(self):
-        cursor.execute('SELECT * FROM Jogos')
-        a = cursor.fetchall()
-        for row in a:
-            print(row)
-
     def cad_jogos(self, j):
-        cursor.execute("""INSERT INTO Jogos (nome, ano_lancamento, descri) VALUES (%s, %s, %s, %s)""",
-                       (j._nome, j._ano_lancamento, j._desc, j._dica))
+        cursor.execute("""INSERT INTO Jogos (nome, ano_lancamento, descri) VALUES (%s, %s, %s)""",
+                       (j._nome, j._ano_lancamento, j._desc,))
         conexao.commit()
+        return True
+    def cadDica(self,d):
+        cursor.execute(""" INSERT INTO dicas VALUES (%s)""",d.dicas)
         return True
 
 if __name__ == '__main__':
@@ -136,7 +114,9 @@ if __name__ == '__main__':
                 if metodos.cad_jogos(j):
                     enviar = '1'
                 else:
-                    enviar = '0'       
+                    enviar = '0'
+                
+        
             con.send(enviar.encode())
 
         except Exception as e:

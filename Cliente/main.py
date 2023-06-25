@@ -74,18 +74,19 @@ class Main(QMainWindow, Ui_main):
             self.client_socket.send(msgCad.encode())
             msg = self.client_socket.recv(1024).decode()
 
-            if msg and msg == '2' :
+            if msg == '1':
                 return True
         return False
-           
+
     def cadastro(self):
         nome = self.tela_cadastro.lineEdit_3.text()
         email = self.tela_cadastro.lineEdit_4.text()
         endereco = self.tela_cadastro.lineEdit.text()
         user = self.tela_cadastro.lineEdit_2.text()
         senha = self.tela_cadastro.lineEdit_5.text()
-        msgCad = f'2,{nome},{email},{endereco},{user},{senha}'
-        if  (nome == None and email == None and senha == None and endereco == None and nome == '' and email == '' and senha == '' and endereco == '' and user == '' and user == None):
+
+        if nome and email and senha and endereco and user:
+            msgCad = f'2,{nome},{email},{endereco},{user},{senha}'
             if self.serverCadastro(msgCad):
                 self.tela_cadastro.lineEdit.clear()
                 self.tela_cadastro.lineEdit_2.clear()
@@ -97,6 +98,7 @@ class Main(QMainWindow, Ui_main):
                 QMessageBox.information(None, 'Atenção', 'Email ou usuário já cadastrados')
         else:
             QMessageBox.information(None, 'Atenção', 'Preencha todos os campos')
+
     def serverLogin(self, msgLogin):
         if msgLogin.split(',')[0] == '1':
             self.client_socket.send(msgLogin.encode())
@@ -104,15 +106,15 @@ class Main(QMainWindow, Ui_main):
 
             if msg and msg == '1' :
                 return True
-        else:
-            return False
+            else:
+                return False
            
     def login(self):
         email = self.tela_inical.campoUsuario.text()  
         senha = self.tela_inical.campoSenha.text()
         msgLogin = f'1,{email},{senha}'
         if not (email == None or senha == None or email == '' or senha == ''):
-            if self.serverLogin(msgLogin):
+            if not self.serverLogin(msgLogin):
                 self.tela_inical.campoUsuario.clear()
                 self.tela_inical.campoSenha.clear()
                 self.Qstack.setCurrentIndex(3)
@@ -127,7 +129,7 @@ class Main(QMainWindow, Ui_main):
             self.client_socket.send(msgCadJogos.encode())
             msg = self.client_socket.recv(1024).decode()
 
-            if msg and msg == '3' :
+            if msg and msg == '1' :
                 return True
         else:
             return False
@@ -145,7 +147,8 @@ class Main(QMainWindow, Ui_main):
                 self.tela_jogos.lineEdit_4.clear()
                 QMessageBox.information(None, 'Sucesso', 'Cadastro realizado com sucesso')
         else:
-            QMessageBox.information(None, 'Atenção', 'Preencha todos os campos')  
+            QMessageBox.information(None, 'Atenção', 'Preencha todos os campos')
+          
     def voltar(self):
         self.Qstack.setCurrentIndex(0)
 
