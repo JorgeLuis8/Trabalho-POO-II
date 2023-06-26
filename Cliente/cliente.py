@@ -69,7 +69,7 @@ class Main(QMainWindow, Ui_main):
         self.tela_home.voltar.clicked.connect(self.voltar)
         self.tela_home.pushButton.clicked.connect(self.ir_jogos)
         self.tela_jogos.pushButton.clicked.connect(self.cadastrar_jogos)
-        self.tela_jogos.pushButton_3.clicked.connect(self.voltar)
+        self.tela_jogos.pushButton_3.clicked.connect(self.voltar2)
     def serverCadastro(self, msgCad):
         if msgCad.split(',')[0] == '2':
             self.client_socket.send(msgCad.encode())
@@ -168,6 +168,8 @@ class Main(QMainWindow, Ui_main):
 
     def ir_jogos(self):
         self.Qstack.setCurrentIndex(4)
+    def voltar2(self):
+        self.Qstack.setCurrentIndex(3)
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     show_main = Main()

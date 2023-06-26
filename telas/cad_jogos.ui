@@ -110,7 +110,7 @@ border: none;
     <property name="geometry">
      <rect>
       <x>160</x>
-      <y>210</y>
+      <y>240</y>
       <width>31</width>
       <height>16</height>
      </rect>
@@ -161,8 +161,8 @@ border: none;
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>340</x>
-      <y>300</y>
+      <x>350</x>
+      <y>340</y>
       <width>101</width>
       <height>23</height>
      </rect>
@@ -253,7 +253,7 @@ background-color: transparent;
       <x>200</x>
       <y>180</y>
       <width>391</width>
-      <height>20</height>
+      <height>61</height>
      </rect>
     </property>
     <property name="font">
@@ -274,9 +274,9 @@ background-color: transparent;
     <property name="geometry">
      <rect>
       <x>200</x>
-      <y>210</y>
+      <y>250</y>
       <width>391</width>
-      <height>20</height>
+      <height>81</height>
      </rect>
     </property>
     <property name="font">
