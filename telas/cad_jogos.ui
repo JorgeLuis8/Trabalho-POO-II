@@ -211,6 +211,9 @@ background-color: transparent;
 
 </string>
     </property>
+    <property name="placeholderText">
+     <string/>
+    </property>
    </widget>
    <widget class="QLineEdit" name="lineEdit_2">
     <property name="geometry">
@@ -235,10 +238,13 @@ background-color: transparent;
 </string>
     </property>
     <property name="text">
-     <string>ano/mes/dia</string>
+     <string/>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
+    </property>
+    <property name="placeholderText">
+     <string>ano/mes/dia</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="lineEdit_3">

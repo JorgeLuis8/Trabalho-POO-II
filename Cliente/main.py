@@ -134,6 +134,8 @@ class Main(QMainWindow, Ui_main):
 
             if msg and msg == '1' :
                 return True
+            else:
+                return False
         else:
             return False
     def cadastrar_jogos(self):
@@ -143,8 +145,8 @@ class Main(QMainWindow, Ui_main):
         dica = self.tela_jogos.lineEdit_4.text()
         msgCad = f'3,{nome},{data},{descricao},{dica}'
         if not (nome == None and data == None and descricao == None and dica == None and nome == '' and data == '' and descricao == '' and dica == ''):
-            if self.serverCadjogos(msgCad):
-                self.cadastrar_dica()
+            print('entrou no cad')
+            if  self.serverCadjogos(msgCad):
                 self.tela_jogos.lineEdit.clear()
                 self.tela_jogos.lineEdit_2.clear()
                 self.tela_jogos.lineEdit_3.clear()

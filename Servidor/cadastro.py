@@ -1,7 +1,6 @@
 import mysql.connector
 from pessoa import Usuario
-from jogos import Jogos
-from dica import Dica
+
 
 conexao = mysql.connector.connect(
     host="localhost",
@@ -39,7 +38,6 @@ class Metodos:
         cursor.execute(
             'SELECT * FROM Usuarios WHERE user = %s OR email = %s', (user, email))
         resultado = cursor.fetchall()
-        print(resultado)
         if len(resultado) == 0:
             return True
         else:
@@ -62,6 +60,9 @@ class Metodos:
             return False
         else:
             return True
+    def cad_jogo(self,nome,ano,descri,dica):
+        cursor.execute('''INSERT INTO Jogos (nome,ano_lancamento,descri,dica) VALUES (%s, %s, %s, %s)''', (nome, ano, descri, dica))
+        conexao.commit()
 
 
 if __name__ == '__main__':
@@ -99,24 +100,16 @@ if __name__ == '__main__':
                     enviar = '1'
                 else:
                     enviar = '0'
-<<<<<<< Updated upstream
-
-
-=======
             elif mensagemStr[0] == '3':
                 nome = mensagemStr[1]
                 ano_lancamento = mensagemStr[2]
-                desc = mensagemStr[3]
+                descri = mensagemStr[3]
                 dica = mensagemStr[4]
                 print('connectado3')
-                j = Jogos(nome, ano_lancamento, desc, dica)
-                metodos.cadDica(dica)
-                if metodos.cad_jogos(j):
-                    enviar = '1'
-                else:
-                    enviar = '0'
+                metodos.cad_jogo(nome,ano_lancamento,descri,dica)
+                enviar = '1'
         
->>>>>>> Stashed changes
+
             con.send(enviar.encode())
 
         except Exception as e:
