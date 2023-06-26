@@ -144,6 +144,7 @@ class Main(QMainWindow, Ui_main):
         msgCad = f'3,{nome},{data},{descricao},{dica}'
         if not (nome == None and data == None and descricao == None and dica == None and nome == '' and data == '' and descricao == '' and dica == ''):
             if self.serverCadjogos(msgCad):
+                self.cadastrar_dica()
                 self.tela_jogos.lineEdit.clear()
                 self.tela_jogos.lineEdit_2.clear()
                 self.tela_jogos.lineEdit_3.clear()

@@ -99,11 +99,28 @@ if __name__ == '__main__':
                     enviar = '1'
                 else:
                     enviar = '0'
+<<<<<<< Updated upstream
 
 
+=======
+            elif mensagemStr[0] == '3':
+                nome = mensagemStr[1]
+                ano_lancamento = mensagemStr[2]
+                desc = mensagemStr[3]
+                dica = mensagemStr[4]
+                print('connectado3')
+                j = Jogos(nome, ano_lancamento, desc, dica)
+                metodos.cadDica(dica)
+                if metodos.cad_jogos(j):
+                    enviar = '1'
+                else:
+                    enviar = '0'
+        
+>>>>>>> Stashed changes
             con.send(enviar.encode())
 
         except Exception as e:
             print('Email ou senha incorretos', str(e))
             con.close()
             break
+        
