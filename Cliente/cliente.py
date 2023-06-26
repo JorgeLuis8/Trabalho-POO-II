@@ -69,6 +69,7 @@ class Main(QMainWindow, Ui_main):
         self.tela_home.voltar.clicked.connect(self.voltar)
         self.tela_home.pushButton.clicked.connect(self.ir_jogos)
         self.tela_jogos.pushButton.clicked.connect(self.cadastrar_jogos)
+        self.tela_jogos.pushButton_3.clicked.connect(self.voltar)
     def serverCadastro(self, msgCad):
         if msgCad.split(',')[0] == '2':
             self.client_socket.send(msgCad.encode())
@@ -120,7 +121,7 @@ class Main(QMainWindow, Ui_main):
                 self.tela_inical.campoUsuario.clear()
                 self.tela_inical.campoSenha.clear()
                 self.Qstack.setCurrentIndex(3)
-                QMessageBox.information(None, 'Sucesso', 'Login realizado com sucesso')
+                #QMessageBox.information(None, 'Sucesso', 'Login realizado com sucesso')
             else:
                 QMessageBox.information(None, 'Atenção', 'Email ou senha incorretos')
         else:
@@ -140,8 +141,8 @@ class Main(QMainWindow, Ui_main):
     def cadastrar_jogos(self):
         nome = self.tela_jogos.lineEdit.text()
         data = self.tela_jogos.lineEdit_2.text()
-        descricao = self.tela_jogos.lineEdit_4.text()
-        dica = self.tela_jogos.lineEdit_3.text()
+        descricao = self.tela_jogos.lineEdit_3.text()
+        dica = self.tela_jogos.lineEdit_4.text()
         msgCad = f'3,{nome},{data},{descricao},{dica}'
         print(msgCad)
         if not (nome == None and data == None and descricao == None and dica == None and nome == '' and data == '' and descricao == '' and dica == ''):
