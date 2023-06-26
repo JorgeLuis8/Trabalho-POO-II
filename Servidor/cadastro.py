@@ -39,15 +39,20 @@ class Metodos:
         cursor.execute(
             'SELECT * FROM Usuarios WHERE user = %s OR email = %s', (user, email))
         resultado = cursor.fetchall()
+        print(resultado)
         if len(resultado) == 0:
-            return False
-        else:
             return True
+        else:
+            return False
 
     def cadastrar(self, p):
-        cursor.execute("INSERT INTO Usuarios (nome, email, endereco, user, senha) VALUES (%s, %s, %s, %s, %s)",
+        if self.verifica_cadastro(p._user, p._email) == True:
+            cursor.execute("INSERT INTO Usuarios (nome, email, endereco, user, senha) VALUES (%s, %s, %s, %s, %s)",
                            (p._nome, p._email, p._endereco, p._user, p._senha))
-        return True
+            conexao.commit()
+            return True
+        else:
+            return False
 
     def logar(self, email, senha):
         cursor.execute(
@@ -57,16 +62,6 @@ class Metodos:
             return False
         else:
             return True
-
-    def cad_jogos(self, j):
-        cursor.execute("""INSERT INTO Jogos (nome, ano_lancamento, descri) VALUES (%s, %s, %s)""",
-                       (j._nome, j._ano_lancamento, j._desc,))
-        conexao.commit()
-        return True
-
-    def cadDica(self, d):
-        cursor.execute(""" INSERT INTO dicas VALUES (%s)""", d.dicas)
-        return True
 
 
 if __name__ == '__main__':
@@ -100,22 +95,11 @@ if __name__ == '__main__':
                 senha = mensagemStr[5]
                 print('connectado2')
                 p = Usuario(nome, email, endereco, user, senha)
-                if metodos.cadastrar(p) and metodos.verifica_cadastro(user, email):
+                if metodos.cadastrar(p):
                     enviar = '1'
                 else:
                     enviar = '0'
 
-            elif mensagemStr[0] == '3':
-                nome = mensagemStr[1]
-                ano_lancamento = mensagemStr[2]
-                desc = mensagemStr[3]
-                dica = mensagemStr[4]
-                print('connectado3')
-                j = Jogos(nome, ano_lancamento, desc, dica)
-                if metodos.cad_jogos(j):
-                    enviar = '1'
-                else:
-                    enviar = '0'
 
             con.send(enviar.encode())
 
