@@ -79,6 +79,7 @@ if __name__ == '__main__':
         try:
             msgLogin = con.recv(1024)
             mensagemStr = msgLogin.decode().split(',')
+        
             enviar = ''
             if mensagemStr[0] == '1':
                 email = mensagemStr[1]

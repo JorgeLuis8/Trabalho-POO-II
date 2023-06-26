@@ -87,9 +87,7 @@ class Main(QMainWindow, Ui_main):
         senha = self.tela_cadastro.lineEdit_5.text()
         if not (nome == None or email == None or endereco == None or user == None or senha == None or nome == '' or email == '' or endereco == '' or user == '' or senha == ''):
             msgCad = f'2,{nome},{email},{endereco},{user},{senha}'
-            print("entrou aqui")
             if self.serverCadastro(msgCad):
-                print('entrou aqui2')
                 self.tela_cadastro.lineEdit.clear()
                 self.tela_cadastro.lineEdit_2.clear()
                 self.tela_cadastro.lineEdit_3.clear()
