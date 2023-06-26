@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>767</width>
+    <width>763</width>
     <height>508</height>
    </rect>
   </property>
@@ -21,7 +21,7 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>230</x>
+      <x>250</x>
       <y>0</y>
       <width>291</width>
       <height>21</height>
@@ -47,53 +47,22 @@ border: none;
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QPushButton" name="voltar">
+   <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>480</y>
-      <width>75</width>
-      <height>23</height>
+      <x>350</x>
+      <y>40</y>
+      <width>91</width>
+      <height>20</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">QPushButton {
-    background-color:  #add8e6;
-    border-radius: 10px;
-}
-
-QPushButton:hover {
-    background-color:#AABAF2 ;
-}
+     <string notr="true">background-color: transparent;
+border: none;
 </string>
     </property>
     <property name="text">
-     <string>&lt;--- Voltar</string>
-    </property>
-   </widget>
-<<<<<<< Updated upstream
-   <widget class="QPushButton" name="pushButton">
-    <property name="geometry">
-     <rect>
-      <x>680</x>
-      <y>480</y>
-      <width>75</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton {
-    background-color:  #add8e6;
-    border-radius: 10px;
-}
-
-QPushButton:hover {
-    background-color:#AABAF2 ;
-}
-</string>
-    </property>
-    <property name="text">
-     <string>cad_dicas</string>
+     <string>Barra de pesquisa</string>
     </property>
    </widget>
    <widget class="QFrame" name="frame">
@@ -101,8 +70,8 @@ QPushButton:hover {
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>271</width>
-      <height>471</height>
+      <width>120</width>
+      <height>511</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -110,20 +79,55 @@ QPushButton:hover {
     </property>
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
-=======
-   <widget class="QPushButton" name="Ir_cadastro">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>120</y>
-      <width>111</width>
-      <height>23</height>
-     </rect>
     </property>
-    <property name="text">
-     <string>Cadastrar_dicas</string>
->>>>>>> Stashed changes
-    </property>
+    <widget class="QPushButton" name="pushButton">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>10</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    background-color:  #add8e6;
+    border-radius: 10px;
+}
+
+QPushButton:hover {
+    background-color:#AABAF2 ;
+}
+</string>
+     </property>
+     <property name="text">
+      <string>cad_dicas</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="voltar">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>480</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    background-color:  #add8e6;
+    border-radius: 10px;
+}
+
+QPushButton:hover {
+    background-color:#AABAF2 ;
+}
+</string>
+     </property>
+     <property name="text">
+      <string>&lt;--- Voltar</string>
+     </property>
+    </widget>
    </widget>
   </widget>
  </widget>
