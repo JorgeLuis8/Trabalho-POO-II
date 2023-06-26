@@ -113,6 +113,7 @@ class Tela_jogos(object):
 "background-color: transparent;\n"
 "\n"
 "")
+        self.lineEdit.setPlaceholderText("")
         self.lineEdit.setObjectName("lineEdit")
         self.lineEdit_2 = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit_2.setGeometry(QtCore.QRect(200, 150, 391, 20))
@@ -125,6 +126,7 @@ class Tela_jogos(object):
 "background-color: transparent;\n"
 "\n"
 "")
+        self.lineEdit_2.setText("")
         self.lineEdit_2.setAlignment(QtCore.Qt.AlignCenter)
         self.lineEdit_2.setObjectName("lineEdit_2")
         self.lineEdit_3 = QtWidgets.QLineEdit(self.centralwidget)
@@ -151,9 +153,18 @@ class Tela_jogos(object):
 "\n"
 "")
         self.lineEdit_4.setObjectName("lineEdit_4")
-        self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_2.setGeometry(QtCore.QRect(350, 260, 75, 23))
-        self.pushButton_2.setObjectName("pushButton_2")
+        self.pushButton_3 = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_3.setGeometry(QtCore.QRect(0, 570, 75, 23))
+        self.pushButton_3.setStyleSheet("QPushButton {\n"
+"    background-color:  #add8e6;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color:#AABAF2 ;\n"
+"}\n"
+"")
+        self.pushButton_3.setObjectName("pushButton_3")
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -168,8 +179,8 @@ class Tela_jogos(object):
         self.label_4.setText(_translate("MainWindow", "Dica"))
         self.label_5.setText(_translate("MainWindow", "Data de lançamento"))
         self.pushButton.setText(_translate("MainWindow", "Cadastrar Dica"))
-        self.lineEdit_2.setText(_translate("MainWindow", "ano/mes/dia"))
-        self.pushButton_2.setText(_translate("MainWindow", "Teste"))
+        self.lineEdit_2.setPlaceholderText(_translate("MainWindow", "ano/mes/dia"))
+        self.pushButton_3.setText(_translate("MainWindow", "<-- Voltar"))
 
 
 if __name__ == "__main__":

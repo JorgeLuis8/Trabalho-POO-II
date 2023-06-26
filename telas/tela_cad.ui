@@ -191,13 +191,19 @@ border: none;
 background-color: transparent;
 </string>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="placeholderText">
+     <string>ano/mes/dia</string>
+    </property>
    </widget>
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>150</x>
+      <x>100</x>
       <y>130</y>
-      <width>51</width>
+      <width>101</width>
       <height>20</height>
      </rect>
     </property>
@@ -208,7 +214,7 @@ border: none;
 </string>
     </property>
     <property name="text">
-     <string>Endereço</string>
+     <string>Data de nascimento</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="lineEdit_2">
@@ -230,9 +236,9 @@ background-color: transparent;
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>180</x>
+      <x>170</x>
       <y>150</y>
-      <width>21</width>
+      <width>31</width>
       <height>20</height>
      </rect>
     </property>
@@ -243,7 +249,7 @@ border: none;
 </string>
     </property>
     <property name="text">
-     <string>CPF</string>
+     <string>User</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_5">

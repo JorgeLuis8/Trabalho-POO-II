@@ -91,9 +91,10 @@ class Tela_cad(object):
         self.lineEdit.setStyleSheet("color: black;\n"
 "background-color: transparent;\n"
 "")
+        self.lineEdit.setAlignment(QtCore.Qt.AlignCenter)
         self.lineEdit.setObjectName("lineEdit")
         self.label_4 = QtWidgets.QLabel(self.centralwidget)
-        self.label_4.setGeometry(QtCore.QRect(150, 130, 51, 20))
+        self.label_4.setGeometry(QtCore.QRect(100, 130, 101, 20))
         self.label_4.setStyleSheet("color: black;\n"
 "background-color: transparent;\n"
 "border: none;\n"
@@ -140,7 +141,8 @@ class Tela_cad(object):
         self.Botao_cadastrar.setText(_translate("MainWindow", "Cadastrar"))
         self.label_2.setText(_translate("MainWindow", "Nome"))
         self.label_6.setText(_translate("MainWindow", "Email"))
-        self.label_4.setText(_translate("MainWindow", "Endereço"))
+        self.lineEdit.setPlaceholderText(_translate("MainWindow", "ano/mes/dia"))
+        self.label_4.setText(_translate("MainWindow", "Data de nascimento"))
         self.label_3.setText(_translate("MainWindow", "User"))
         self.label_5.setText(_translate("MainWindow", "Senha"))
 
