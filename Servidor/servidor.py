@@ -107,10 +107,9 @@ if __name__ == '__main__':
                 descri = mensagemStr[3]
                 dica = mensagemStr[4]
                 print('connectado3')
-                if metodos.cad_jogo(nome,ano_lancamento,descri,dica):
-                    enviar = '1'
-                else:
-                    enviar = '0'
+                metodos.cad_jogo(nome,ano_lancamento,descri,dica)
+                enviar = '1'
+                
         
 
             con.send(enviar.encode())

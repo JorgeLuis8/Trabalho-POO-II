@@ -6,9 +6,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>763</width>
-    <height>508</height>
+    <width>800</width>
+    <height>600</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>800</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>800</width>
+    <height>600</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
@@ -47,24 +59,6 @@ border: none;
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>350</x>
-      <y>40</y>
-      <width>91</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: transparent;
-border: none;
-</string>
-    </property>
-    <property name="text">
-     <string>Barra de pesquisa</string>
-    </property>
-   </widget>
    <widget class="QFrame" name="frame">
     <property name="geometry">
      <rect>
@@ -73,6 +67,10 @@ border: none;
       <width>120</width>
       <height>511</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 white, stop: 1 #D3D3D3);
+</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -84,8 +82,8 @@ border: none;
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>10</y>
-       <width>75</width>
+       <y>120</y>
+       <width>81</width>
        <height>23</height>
       </rect>
      </property>
@@ -101,7 +99,7 @@ QPushButton:hover {
 </string>
      </property>
      <property name="text">
-      <string>cad_dicas</string>
+      <string>Cadastrar Dicas</string>
      </property>
     </widget>
     <widget class="QPushButton" name="voltar">
@@ -125,7 +123,55 @@ QPushButton:hover {
 </string>
      </property>
      <property name="text">
-      <string>&lt;--- Voltar</string>
+      <string>Deslogar</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_2">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>30</y>
+       <width>81</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    background-color:  #add8e6;
+    border-radius: 10px;
+}
+
+QPushButton:hover {
+    background-color:#AABAF2 ;
+}
+</string>
+     </property>
+     <property name="text">
+      <string>Perfil</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_3">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>80</y>
+       <width>81</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    background-color:  #add8e6;
+    border-radius: 10px;
+}
+
+QPushButton:hover {
+    background-color:#AABAF2 ;
+}
+</string>
+     </property>
+     <property name="text">
+      <string>Pesquisar Dicas</string>
      </property>
     </widget>
    </widget>
