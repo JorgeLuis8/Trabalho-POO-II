@@ -97,9 +97,14 @@ class Main(QMainWindow, Ui_main):
                 QMessageBox.information(None, 'Sucesso', 'Cadastro realizado com sucesso')
             else:
                     QMessageBox.information(None, 'Atenção', 'Email ou usuário já cadastrados')
+                    self.tela_cadastro.lineEdit.clear()
+                    self.tela_cadastro.lineEdit_2.clear()
+                    self.tela_cadastro.lineEdit_3.clear()
+                    self.tela_cadastro.lineEdit_4.clear()
+                    self.tela_cadastro.lineEdit_5.clear()
         else:
                 QMessageBox.information(None, 'Atenção', 'Preencha todos os campos')
-
+                
     def serverLogin(self, msgLogin):
         if msgLogin.split(',')[0] == '1':
             self.client_socket.send(msgLogin.encode())
