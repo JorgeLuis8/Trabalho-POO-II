@@ -24,7 +24,7 @@ class Metodos:
     )   ENGINE=InnoDB
         """)
 
-        cursor.execute(""" CREATE TABLE IF NOT EXISTS Jogos (
+    cursor.execute(""" CREATE TABLE IF NOT EXISTS Jogos (
         idJogos INT NOT NULL AUTO_INCREMENT,
         nome VARCHAR(45) NOT NULL,
         ano_lancamento DATE NOT NULL,

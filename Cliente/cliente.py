@@ -70,6 +70,7 @@ class Main(QMainWindow, Ui_main):
         self.tela_home.pushButton.clicked.connect(self.ir_jogos)
         self.tela_jogos.pushButton.clicked.connect(self.cadastrar_jogos)
         self.tela_jogos.pushButton_3.clicked.connect(self.voltar2)
+
     def serverCadastro(self, msgCad):
         if msgCad.split(',')[0] == '2':
             self.client_socket.send(msgCad.encode())
@@ -119,7 +120,6 @@ class Main(QMainWindow, Ui_main):
                 self.tela_inical.campoUsuario.clear()
                 self.tela_inical.campoSenha.clear()
                 self.Qstack.setCurrentIndex(3)
-                #QMessageBox.information(None, 'Sucesso', 'Login realizado com sucesso')
             else:
                 QMessageBox.information(None, 'Atenção', 'Email ou senha incorretos')
         else:

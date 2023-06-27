@@ -269,6 +269,9 @@ background-color: transparent;
 
 </string>
     </property>
+    <property name="maxLength">
+     <number>2000000000</number>
+    </property>
    </widget>
    <widget class="QLineEdit" name="lineEdit_4">
     <property name="geometry">
@@ -291,6 +294,9 @@ background-color: transparent;
 background-color: transparent;
 
 </string>
+    </property>
+    <property name="maxLength">
+     <number>2000000000</number>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_3">
