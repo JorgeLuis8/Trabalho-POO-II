@@ -140,6 +140,7 @@ class Tela_jogos(object):
 "background-color: transparent;\n"
 "\n"
 "")
+        self.lineEdit_3.setMaxLength(2000000000)
         self.lineEdit_3.setObjectName("lineEdit_3")
         self.lineEdit_4 = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit_4.setGeometry(QtCore.QRect(200, 250, 391, 81))
@@ -152,6 +153,7 @@ class Tela_jogos(object):
 "background-color: transparent;\n"
 "\n"
 "")
+        self.lineEdit_4.setMaxLength(2000000000)
         self.lineEdit_4.setObjectName("lineEdit_4")
         self.pushButton_3 = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_3.setGeometry(QtCore.QRect(0, 570, 75, 23))
