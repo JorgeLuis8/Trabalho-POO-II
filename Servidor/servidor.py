@@ -69,7 +69,7 @@ if __name__ == '__main__':
     import socket
     metodos = Metodos()
     ip = 'localhost'
-    port = 8088
+    port = 4000
     addr = (ip, port)
     serv_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     serv_socket.bind(addr)
@@ -107,8 +107,10 @@ if __name__ == '__main__':
                 descri = mensagemStr[3]
                 dica = mensagemStr[4]
                 print('connectado3')
-                metodos.cad_jogo(nome,ano_lancamento,descri,dica)
-                enviar = '1'
+                if metodos.cad_jogo(nome,ano_lancamento,descri,dica):
+                    enviar = '1'
+                else:
+                    enviar = '0'
         
 
             con.send(enviar.encode())

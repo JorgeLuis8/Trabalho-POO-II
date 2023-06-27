@@ -295,9 +295,6 @@ background-color: transparent;
 
 </string>
     </property>
-    <property name="maxLength">
-     <number>2000000000</number>
-    </property>
    </widget>
    <widget class="QPushButton" name="pushButton_3">
     <property name="geometry">

@@ -54,7 +54,7 @@ class Main(QMainWindow, Ui_main):
 
 
         ip = 'localhost'
-        port = 8088
+        port = 4000
         addr = ((ip, port))
         self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.client_socket.connect(addr) 
@@ -134,8 +134,6 @@ class Main(QMainWindow, Ui_main):
                 return True
             else:
                 return False
-        else:
-            return False
     def cadastrar_jogos(self):
         nome = self.tela_jogos.lineEdit.text()
         data = self.tela_jogos.lineEdit_2.text()
@@ -168,8 +166,10 @@ class Main(QMainWindow, Ui_main):
 
     def ir_jogos(self):
         self.Qstack.setCurrentIndex(4)
+
     def voltar2(self):
         self.Qstack.setCurrentIndex(3)
+
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     show_main = Main()
