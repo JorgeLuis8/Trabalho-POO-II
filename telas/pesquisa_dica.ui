@@ -192,7 +192,7 @@ QPushButton:hover {
    <widget class="QLineEdit" name="lineEdit">
     <property name="geometry">
      <rect>
-      <x>290</x>
+      <x>300</x>
       <y>50</y>
       <width>311</width>
       <height>20</height>
