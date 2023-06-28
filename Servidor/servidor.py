@@ -63,6 +63,7 @@ class Metodos:
     def cad_jogo(self,nome,ano,descri,dica):
         cursor.execute('''INSERT INTO Jogos (nome,ano_lancamento,descri,dica) VALUES (%s, %s, %s, %s)''', (nome, ano, descri, dica))
         conexao.commit()
+        return True
     def pesquisa(self,nome):
         cursor.execute('SELECT FROM Jogos WHERE nome = %s',nome)
         resultado = cursor.fetchall()
