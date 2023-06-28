@@ -25,47 +25,14 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <property name="styleSheet">
-   <string notr="true">background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 white, stop: 1 #D3D3D3);
-</string>
-  </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>280</x>
-      <y>0</y>
-      <width>291</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>16</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: black;
-background-color: transparent;
-border: none;
-</string>
-    </property>
-    <property name="text">
-     <string>HOME PAGE</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
    <widget class="QFrame" name="frame">
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>-10</y>
+      <y>0</y>
       <width>120</width>
-      <height>611</height>
+      <height>601</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -105,7 +72,7 @@ QPushButton:hover {
     <widget class="QPushButton" name="voltar">
      <property name="geometry">
       <rect>
-       <x>20</x>
+       <x>10</x>
        <y>560</y>
        <width>75</width>
        <height>23</height>
@@ -137,7 +104,7 @@ QPushButton:hover {
      </property>
      <property name="styleSheet">
       <string notr="true">QPushButton {
-    background-color:  #AABAF2 ;
+    background-color:  #add8e6;
     border-radius: 10px;
 }
 
@@ -161,7 +128,7 @@ QPushButton:hover {
      </property>
      <property name="styleSheet">
       <string notr="true">QPushButton {
-    background-color:  #add8e6 ;
+    background-color:  #AABAF2 ;
     border-radius: 10px;
 }
 
@@ -175,12 +142,59 @@ QPushButton:hover {
      </property>
     </widget>
    </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>10</y>
+      <width>441</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>ENCONTRE A DICA QUE DESEJA</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_4">
+    <property name="geometry">
+     <rect>
+      <x>410</x>
+      <y>80</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color:  #add8e6;
+    border-radius: 10px;
+}
+
+QPushButton:hover {
+    background-color:#AABAF2 ;
+}
+</string>
+    </property>
+    <property name="text">
+     <string>Pesquisar</string>
+    </property>
+   </widget>
    <widget class="QLineEdit" name="lineEdit">
     <property name="geometry">
      <rect>
-      <x>290</x>
-      <y>130</y>
-      <width>281</width>
+      <x>300</x>
+      <y>50</y>
+      <width>311</width>
       <height>20</height>
      </rect>
     </property>
@@ -190,47 +204,28 @@ background-color: transparent;
 
 </string>
     </property>
-   </widget>
-   <widget class="QLineEdit" name="lineEdit_2">
-    <property name="geometry">
-     <rect>
-      <x>290</x>
-      <y>160</y>
-      <width>281</width>
-      <height>20</height>
-     </rect>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
-    <property name="styleSheet">
-     <string notr="true">color: black;
-background-color: transparent;
-
-</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="lineEdit_3">
-    <property name="geometry">
-     <rect>
-      <x>290</x>
-      <y>180</y>
-      <width>281</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: black;
-background-color: transparent;
-
-</string>
+    <property name="placeholderText">
+     <string>Digite o nome do jogo.</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>236</x>
-      <y>130</y>
-      <width>81</width>
-      <height>20</height>
+      <x>220</x>
+      <y>170</y>
+      <width>51</width>
+      <height>16</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
     </property>
     <property name="styleSheet">
      <string notr="true">color: black;
@@ -241,40 +236,54 @@ border: none;
     <property name="text">
      <string>Nome</string>
     </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
    </widget>
-   <widget class="QLabel" name="label_3">
+   <widget class="QLineEdit" name="lineEdit_2">
     <property name="geometry">
      <rect>
-      <x>250</x>
-      <y>160</y>
-      <width>47</width>
-      <height>13</height>
+      <x>270</x>
+      <y>170</y>
+      <width>391</width>
+      <height>20</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
     </property>
     <property name="styleSheet">
      <string notr="true">color: black;
 background-color: transparent;
-border: none;
+
 </string>
     </property>
-    <property name="text">
-     <string>User</string>
-    </property>
     <property name="alignment">
-     <set>Qt::AlignCenter</set>
+     <set>Qt::AlignJustify|Qt::AlignVCenter</set>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+    <property name="placeholderText">
+     <string/>
     </property>
    </widget>
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>250</x>
-      <y>180</y>
-      <width>47</width>
-      <height>13</height>
+      <x>210</x>
+      <y>240</y>
+      <width>31</width>
+      <height>16</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
     </property>
     <property name="styleSheet">
      <string notr="true">color: black;
@@ -283,20 +292,85 @@ border: none;
 </string>
     </property>
     <property name="text">
-     <string>Email</string>
+     <string>Dica</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_4">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>230</y>
+      <width>391</width>
+      <height>271</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: black;
+background-color: transparent;
+
+</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignJustify|Qt::AlignVCenter</set>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_3">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>200</y>
+      <width>391</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: black;
+background-color: transparent;
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
+    </property>
+    <property name="placeholderText">
+     <string>ano/mes/dia</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_5">
     <property name="geometry">
      <rect>
-      <x>370</x>
-      <y>80</y>
-      <width>111</width>
+      <x>130</x>
+      <y>200</y>
+      <width>141</width>
       <height>20</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
     </property>
     <property name="styleSheet">
      <string notr="true">color: black;
@@ -305,7 +379,7 @@ border: none;
 </string>
     </property>
     <property name="text">
-     <string>Suas Informações: </string>
+     <string>Data de lançamento</string>
     </property>
    </widget>
   </widget>

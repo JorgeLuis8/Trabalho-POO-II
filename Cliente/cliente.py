@@ -97,9 +97,14 @@ class Main(QMainWindow, Ui_main):
                 QMessageBox.information(None, 'Sucesso', 'Cadastro realizado com sucesso')
             else:
                     QMessageBox.information(None, 'Atenção', 'Email ou usuário já cadastrados')
+                    self.tela_cadastro.lineEdit.clear()
+                    self.tela_cadastro.lineEdit_2.clear()
+                    self.tela_cadastro.lineEdit_3.clear()
+                    self.tela_cadastro.lineEdit_4.clear()
+                    self.tela_cadastro.lineEdit_5.clear()
         else:
                 QMessageBox.information(None, 'Atenção', 'Preencha todos os campos')
-
+                
     def serverLogin(self, msgLogin):
         if msgLogin.split(',')[0] == '1':
             self.client_socket.send(msgLogin.encode())
@@ -134,6 +139,7 @@ class Main(QMainWindow, Ui_main):
                 return True
             else:
                 return False
+
     def cadastrar_jogos(self):
         nome = self.tela_jogos.lineEdit.text()
         data = self.tela_jogos.lineEdit_2.text()
@@ -141,14 +147,16 @@ class Main(QMainWindow, Ui_main):
         dica = self.tela_jogos.lineEdit_4.text()
         msgCad = f'3,{nome},{data},{descricao},{dica}'
         print(msgCad)
-        if not (nome == None and data == None and descricao == None and dica == None and nome == '' and data == '' and descricao == '' and dica == ''):
+        if not (nome == None or data == None or descricao == None or dica == None or nome == '' or data == '' or descricao == '' or dica == ''):
             print('entrou no cad')
-            if  self.serverCadjogos(msgCad):
+            if self.serverCadjogos(msgCad):
                 self.tela_jogos.lineEdit.clear()
                 self.tela_jogos.lineEdit_2.clear()
                 self.tela_jogos.lineEdit_3.clear()
                 self.tela_jogos.lineEdit_4.clear()
                 QMessageBox.information(None, 'Sucesso', 'Cadastro realizado com sucesso')
+            else:
+                QMessageBox.information(None, 'Atenção', 'Erro ao cadastrar')
         else:
             QMessageBox.information(None, 'Atenção', 'Preencha todos os campos')
           
