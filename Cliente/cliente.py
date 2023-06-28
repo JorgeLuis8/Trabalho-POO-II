@@ -11,6 +11,7 @@ from tela_cad import Tela_cad
 from telaAbout import About_us
 from home import Tela_home
 from cad_jogos import Tela_jogos
+from pesquisa_dica import Pesquisa_dica
 
 class Ui_main(QtWidgets.QWidget):
     def setupUi(self, Main):
@@ -24,6 +25,7 @@ class Ui_main(QtWidgets.QWidget):
         self.stack2 = QtWidgets.QMainWindow()
         self.stack3 = QtWidgets.QMainWindow()
         self.stack4 = QtWidgets.QMainWindow()
+        self.stack5 = QtWidgets.QMainWindow()
 
         self.tela_inical = Tela_inical()
         self.tela_inical.setupUi(self.stack0)
@@ -40,11 +42,15 @@ class Ui_main(QtWidgets.QWidget):
         self.tela_jogos = Tela_jogos()
         self.tela_jogos.setupUi(self.stack4)
 
+        self.tela_dica = Pesquisa_dica()
+        self.tela_dica.setupUi(self.stack5)
+
         self.Qstack.addWidget(self.stack0)
         self.Qstack.addWidget(self.stack1)
         self.Qstack.addWidget(self.stack2)
         self.Qstack.addWidget(self.stack3)
         self.Qstack.addWidget(self.stack4)
+        self.Qstack.addWidget(self.stack5)
 
 
 class Main(QMainWindow, Ui_main):
@@ -63,13 +69,25 @@ class Main(QMainWindow, Ui_main):
         self.tela_inical.Botao_sobre.clicked.connect(self.Tela_sobre)
         self.tela_inical.botaoCadastro.clicked.connect(self.Tela_cad)
         self.tela_inical.botaoLogin.clicked.connect(self.login)
+
         self.tela_cadastro.Botao_voltar.clicked.connect(self.voltar)
         self.tela_cadastro.Botao_cadastrar.clicked.connect(self.cadastro)
+
         self.tela_about.pushButton.clicked.connect(self.voltar)
+
         self.tela_home.voltar.clicked.connect(self.voltar)
         self.tela_home.pushButton.clicked.connect(self.ir_jogos)
+        self.tela_home.pushButton_3.clicked.connect(self.dica)
+
         self.tela_jogos.pushButton.clicked.connect(self.cadastrar_jogos)
         self.tela_jogos.pushButton_3.clicked.connect(self.voltar2)
+        self.tela_jogos.pushButton_4.clicked.connect(self.voltar2)
+        self.tela_jogos.pushButton_5.clicked.connect(self.dica)
+        
+
+        self.tela_dica.pushButton_2.clicked.connect(self.voltar2)
+        self.tela_dica.voltar.clicked.connect(self.voltar2)
+        self.tela_dica.pushButton.clicked.connect(self.ir_jogos)
 
     def serverCadastro(self, msgCad):
         if msgCad.split(',')[0] == '2':
@@ -177,6 +195,9 @@ class Main(QMainWindow, Ui_main):
 
     def voltar2(self):
         self.Qstack.setCurrentIndex(3)
+
+    def dica(self):
+        self.Qstack.setCurrentIndex(5)
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

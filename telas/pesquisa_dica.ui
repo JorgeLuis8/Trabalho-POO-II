@@ -69,30 +69,6 @@ QPushButton:hover {
       <string>Cadastrar Dicas</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="voltar">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>560</y>
-       <width>75</width>
-       <height>23</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton {
-    background-color:  #add8e6;
-    border-radius: 10px;
-}
-
-QPushButton:hover {
-    background-color:#AABAF2 ;
-}
-</string>
-     </property>
-     <property name="text">
-      <string>Deslogar</string>
-     </property>
-    </widget>
     <widget class="QPushButton" name="pushButton_2">
      <property name="geometry">
       <rect>

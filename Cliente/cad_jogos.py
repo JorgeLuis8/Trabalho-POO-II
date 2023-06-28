@@ -38,7 +38,7 @@ class Tela_jogos(object):
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_2.setGeometry(QtCore.QRect(150, 120, 41, 16))
+        self.label_2.setGeometry(QtCore.QRect(220, 120, 51, 16))
         font = QtGui.QFont()
         font.setPointSize(12)
         font.setBold(False)
@@ -50,7 +50,7 @@ class Tela_jogos(object):
 "")
         self.label_2.setObjectName("label_2")
         self.label_3 = QtWidgets.QLabel(self.centralwidget)
-        self.label_3.setGeometry(QtCore.QRect(130, 180, 71, 16))
+        self.label_3.setGeometry(QtCore.QRect(190, 190, 71, 16))
         font = QtGui.QFont()
         font.setPointSize(12)
         font.setBold(False)
@@ -62,7 +62,7 @@ class Tela_jogos(object):
 "")
         self.label_3.setObjectName("label_3")
         self.label_4 = QtWidgets.QLabel(self.centralwidget)
-        self.label_4.setGeometry(QtCore.QRect(160, 240, 31, 16))
+        self.label_4.setGeometry(QtCore.QRect(230, 250, 31, 16))
         font = QtGui.QFont()
         font.setPointSize(12)
         font.setBold(False)
@@ -74,7 +74,7 @@ class Tela_jogos(object):
 "")
         self.label_4.setObjectName("label_4")
         self.label_5 = QtWidgets.QLabel(self.centralwidget)
-        self.label_5.setGeometry(QtCore.QRect(60, 150, 141, 20))
+        self.label_5.setGeometry(QtCore.QRect(130, 150, 141, 20))
         font = QtGui.QFont()
         font.setPointSize(12)
         font.setBold(False)
@@ -86,7 +86,7 @@ class Tela_jogos(object):
 "")
         self.label_5.setObjectName("label_5")
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton.setGeometry(QtCore.QRect(350, 340, 101, 23))
+        self.pushButton.setGeometry(QtCore.QRect(420, 330, 101, 23))
         font = QtGui.QFont()
         font.setPointSize(8)
         font.setBold(False)
@@ -103,7 +103,7 @@ class Tela_jogos(object):
 "")
         self.pushButton.setObjectName("pushButton")
         self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit.setGeometry(QtCore.QRect(200, 120, 391, 20))
+        self.lineEdit.setGeometry(QtCore.QRect(270, 120, 391, 20))
         font = QtGui.QFont()
         font.setPointSize(8)
         font.setBold(False)
@@ -116,7 +116,7 @@ class Tela_jogos(object):
         self.lineEdit.setPlaceholderText("")
         self.lineEdit.setObjectName("lineEdit")
         self.lineEdit_2 = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_2.setGeometry(QtCore.QRect(200, 150, 391, 20))
+        self.lineEdit_2.setGeometry(QtCore.QRect(270, 150, 391, 20))
         font = QtGui.QFont()
         font.setPointSize(8)
         font.setBold(False)
@@ -130,7 +130,7 @@ class Tela_jogos(object):
         self.lineEdit_2.setAlignment(QtCore.Qt.AlignCenter)
         self.lineEdit_2.setObjectName("lineEdit_2")
         self.lineEdit_3 = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_3.setGeometry(QtCore.QRect(200, 180, 391, 61))
+        self.lineEdit_3.setGeometry(QtCore.QRect(270, 170, 391, 61))
         font = QtGui.QFont()
         font.setPointSize(8)
         font.setBold(False)
@@ -143,7 +143,7 @@ class Tela_jogos(object):
         self.lineEdit_3.setMaxLength(2000000000)
         self.lineEdit_3.setObjectName("lineEdit_3")
         self.lineEdit_4 = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_4.setGeometry(QtCore.QRect(200, 250, 391, 81))
+        self.lineEdit_4.setGeometry(QtCore.QRect(270, 240, 391, 81))
         font = QtGui.QFont()
         font.setPointSize(8)
         font.setBold(False)
@@ -153,10 +153,52 @@ class Tela_jogos(object):
 "background-color: transparent;\n"
 "\n"
 "")
-        self.lineEdit_4.setMaxLength(2000000000)
         self.lineEdit_4.setObjectName("lineEdit_4")
-        self.pushButton_3 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_3.setGeometry(QtCore.QRect(0, 570, 75, 23))
+        self.frame = QtWidgets.QFrame(self.centralwidget)
+        self.frame.setGeometry(QtCore.QRect(0, 0, 120, 601))
+        self.frame.setStyleSheet("background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 white, stop: 1 #D3D3D3);\n"
+"")
+        self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame.setObjectName("frame")
+        self.pushButton_2 = QtWidgets.QPushButton(self.frame)
+        self.pushButton_2.setGeometry(QtCore.QRect(20, 120, 81, 23))
+        self.pushButton_2.setStyleSheet("QPushButton {\n"
+"    background-color:  #AABAF2;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color:#AABAF2 ;\n"
+"}\n"
+"")
+        self.pushButton_2.setObjectName("pushButton_2")
+        self.pushButton_4 = QtWidgets.QPushButton(self.frame)
+        self.pushButton_4.setGeometry(QtCore.QRect(20, 30, 81, 23))
+        self.pushButton_4.setStyleSheet("QPushButton {\n"
+"    background-color:  #add8e6;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color:#AABAF2 ;\n"
+"}\n"
+"")
+        self.pushButton_4.setObjectName("pushButton_4")
+        self.pushButton_5 = QtWidgets.QPushButton(self.frame)
+        self.pushButton_5.setGeometry(QtCore.QRect(20, 70, 81, 23))
+        self.pushButton_5.setStyleSheet("QPushButton {\n"
+"    background-color:  #add8e6 ;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color:#AABAF2 ;\n"
+"}\n"
+"")
+        self.pushButton_5.setObjectName("pushButton_5")
+        self.pushButton_3 = QtWidgets.QPushButton(self.frame)
+        self.pushButton_3.setGeometry(QtCore.QRect(20, 570, 75, 23))
         self.pushButton_3.setStyleSheet("QPushButton {\n"
 "    background-color:  #add8e6;\n"
 "    border-radius: 10px;\n"
@@ -182,7 +224,11 @@ class Tela_jogos(object):
         self.label_5.setText(_translate("MainWindow", "Data de lançamento"))
         self.pushButton.setText(_translate("MainWindow", "Cadastrar Dica"))
         self.lineEdit_2.setPlaceholderText(_translate("MainWindow", "ano/mes/dia"))
+        self.pushButton_2.setText(_translate("MainWindow", "Cadastrar Dicas"))
+        self.pushButton_4.setText(_translate("MainWindow", "Perfil"))
+        self.pushButton_5.setText(_translate("MainWindow", "Pesquisar Dicas"))
         self.pushButton_3.setText(_translate("MainWindow", "<-- Voltar"))
+
 
 
 if __name__ == "__main__":
