@@ -217,7 +217,7 @@ border: none;
     <property name="geometry">
      <rect>
       <x>270</x>
-      <y>170</y>
+      <y>180</y>
       <width>391</width>
       <height>20</height>
      </rect>
@@ -357,6 +357,42 @@ border: none;
     <property name="text">
      <string>Data de lançamento</string>
     </property>
+   </widget>
+   <widget class="QScrollArea" name="scrollArea">
+    <property name="geometry">
+     <rect>
+      <x>269</x>
+      <y>229</y>
+      <width>391</width>
+      <height>271</height>
+     </rect>
+    </property>
+    <property name="widgetResizable">
+     <bool>true</bool>
+    </property>
+    <widget class="QWidget" name="scrollAreaWidgetContents">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>389</width>
+       <height>269</height>
+      </rect>
+     </property>
+     <widget class="QScrollBar" name="verticalScrollBar">
+      <property name="geometry">
+       <rect>
+        <x>370</x>
+        <y>0</y>
+        <width>16</width>
+        <height>271</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+    </widget>
    </widget>
   </widget>
  </widget>

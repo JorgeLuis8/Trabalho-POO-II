@@ -60,7 +60,7 @@ class Main(QMainWindow, Ui_main):
 
 
         ip = 'localhost'
-        port = 4000
+        port = 4003
         addr = ((ip, port))
         self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.client_socket.connect(addr) 
@@ -128,12 +128,18 @@ class Main(QMainWindow, Ui_main):
         if msgLogin.split(',')[0] == '1':
             self.client_socket.send(msgLogin.encode())
             msg = self.client_socket.recv(1024).decode()
-
             if msg and msg == '1' :
                 return True
             else:
                 return False
-           
+        return msg
+    
+    def serverinfo(self,msgInfo):
+        if msgInfo.split(',')[0] == '5':
+            self.client_socket.send(msgInfo.encode())
+            msg = self.client_socket.recv(1024).decode().split(',')
+            return msg
+        
     def login(self):
         email = self.tela_inical.campoUsuario.text()  
         senha = self.tela_inical.campoSenha.text()
@@ -144,6 +150,13 @@ class Main(QMainWindow, Ui_main):
                 self.tela_inical.campoUsuario.clear()
                 self.tela_inical.campoSenha.clear()
                 self.Qstack.setCurrentIndex(3)
+                msgInfo = f'5,{email}'
+                self.serverinfo (msgInfo)
+                resultado = self.serverinfo(msgInfo)
+                self.tela_home.lineEdit.setText(resultado[1].replace("'", " "))
+                self.tela_home.lineEdit_2.setText(resultado[6].replace("'", " "))
+                self.tela_home.lineEdit_3.setText(resultado[2].replace("'", " "))
+
             else:
                 QMessageBox.information(None, 'Atenção', 'Email ou senha incorretos')
         else:
@@ -190,7 +203,7 @@ class Main(QMainWindow, Ui_main):
         msgDica = f'4,{nome}'
         self.serverDica(msgDica)
         novo_resultado = self.serverDica(msgDica)
-        self.tela_dica.lineEdit_2.setText(novo_resultado[1].replace("'", ' '))
+        self.tela_dica.lineEdit_2.setText(novo_resultado[1])
         self.tela_dica.lineEdit_3.setText(novo_resultado[2])
         self.tela_dica.lineEdit_4.setText(novo_resultado[3])
 

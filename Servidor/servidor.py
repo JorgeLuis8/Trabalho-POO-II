@@ -68,12 +68,15 @@ class Metodos:
         cursor.execute('SELECT * FROM Jogos WHERE nome = %s', (nome,))
         resultado = cursor.fetchone()
         return resultado
-
+    def listar_clientes(self,email):
+        cursor.execute('SELECT * FROM Usuarios WHERE email = %s', (email,))
+        resultado = cursor.fetchone()
+        return resultado
 if __name__ == '__main__':
     import socket
     metodos = Metodos()
     ip = 'localhost'
-    port = 4000
+    port = 4003
     addr = (ip, port)
     serv_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     serv_socket.bind(addr)
@@ -91,6 +94,7 @@ if __name__ == '__main__':
                 print('connectado1')
                 if not metodos.logar(email, senha):
                     enviar = '1'
+
                 else:
                     enviar = '0'
             elif mensagemStr[0] == '2':
@@ -120,7 +124,11 @@ if __name__ == '__main__':
                 resul = f'{resultado}'
                 print(resul)
                 con.send(resul.encode())
-
+            elif mensagemStr[0] == '5':
+                email = mensagemStr[1]
+                resultado = metodos.listar_clientes(email)
+                result = f'{resultado}'
+                con.send(result.encode())
             con.send(enviar.encode())
         except Exception as e:
             print('Email ou senha incorretos', str(e))
