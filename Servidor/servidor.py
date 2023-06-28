@@ -27,7 +27,7 @@ class Metodos:
     cursor.execute(""" CREATE TABLE IF NOT EXISTS Jogos (
         idJogos INT NOT NULL AUTO_INCREMENT,
         nome VARCHAR(45) NOT NULL,
-        ano_lancamento DATE NOT NULL,
+        ano_lancamento VARCHAR(100) NOT NULL,
         descri TEXT NOT NULL,
         dica TEXT NOT NULL,
         PRIMARY KEY (idJogos))
@@ -64,9 +64,9 @@ class Metodos:
         cursor.execute('''INSERT INTO Jogos (nome,ano_lancamento,descri,dica) VALUES (%s, %s, %s, %s)''', (nome, ano, descri, dica))
         conexao.commit()
         return True
-    def pesquisa(self,nome):
-        cursor.execute('SELECT FROM Jogos WHERE nome = %s',nome)
-        resultado = cursor.fetchall()
+    def listar_jogos(self,nome):
+        cursor.execute('SELECT * FROM Jogos WHERE nome = %s', (nome,))
+        resultado = cursor.fetchone()
         return resultado
 
 if __name__ == '__main__':
@@ -112,12 +112,16 @@ if __name__ == '__main__':
                 dica = mensagemStr[4]
                 print('connectado3')
                 metodos.cad_jogo(nome,ano_lancamento,descri,dica)
-                enviar = '1'
-                
-        
+                enviar = '1' 
+            elif mensagemStr[0] == '4':
+                nome = mensagemStr[1]
+                print('connectado4')
+                resultado = metodos.listar_jogos(nome)
+                resul = f'{resultado}'
+                print(resul)
+                con.send(resul.encode())
 
             con.send(enviar.encode())
-
         except Exception as e:
             print('Email ou senha incorretos', str(e))
             con.close()

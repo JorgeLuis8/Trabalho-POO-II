@@ -179,7 +179,7 @@ QPushButton:hover {
     <property name="geometry">
      <rect>
       <x>290</x>
-      <y>130</y>
+      <y>140</y>
       <width>281</width>
       <height>20</height>
      </rect>
@@ -206,6 +206,9 @@ background-color: transparent;
 
 </string>
     </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
    </widget>
    <widget class="QLineEdit" name="lineEdit_3">
     <property name="geometry">
@@ -222,13 +225,19 @@ background-color: transparent;
 
 </string>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignJustify|Qt::AlignVCenter</set>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
    </widget>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>236</x>
-      <y>130</y>
-      <width>81</width>
+      <x>250</x>
+      <y>140</y>
+      <width>41</width>
       <height>20</height>
      </rect>
     </property>

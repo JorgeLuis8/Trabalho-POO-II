@@ -80,14 +80,15 @@ class Main(QMainWindow, Ui_main):
         self.tela_home.pushButton_3.clicked.connect(self.dica)
 
         self.tela_jogos.pushButton.clicked.connect(self.cadastrar_jogos)
-        self.tela_jogos.pushButton_3.clicked.connect(self.voltar2)
+        self.tela_jogos.pushButton_3.clicked.connect(self.voltar)
         self.tela_jogos.pushButton_4.clicked.connect(self.voltar2)
         self.tela_jogos.pushButton_5.clicked.connect(self.dica)
         
 
         self.tela_dica.pushButton_2.clicked.connect(self.voltar2)
-        self.tela_dica.voltar.clicked.connect(self.voltar2)
+        self.tela_dica.voltar.clicked.connect(self.voltar)
         self.tela_dica.pushButton.clicked.connect(self.ir_jogos)
+        self.tela_dica.pushButton_4.clicked.connect(self.dicas)
 
     def serverCadastro(self, msgCad):
         if msgCad.split(',')[0] == '2':
@@ -177,7 +178,25 @@ class Main(QMainWindow, Ui_main):
                 QMessageBox.information(None, 'Atenção', 'Erro ao cadastrar')
         else:
             QMessageBox.information(None, 'Atenção', 'Preencha todos os campos')
-          
+
+    def serverDica(self,msgDica):
+        if msgDica.split(',')[0] == '4':
+            self.client_socket.send(msgDica.encode())
+            msg = self.client_socket.recv(1024).decode().split(',')
+            return msg
+
+    def dicas(self):
+        nome = self.tela_dica.lineEdit.text()
+        msgDica = f'4,{nome}'
+        self.serverDica(msgDica)
+        novo_resultado = self.serverDica(msgDica)
+        self.tela_dica.lineEdit_2.setText(novo_resultado[1].replace("'", ' '))
+        self.tela_dica.lineEdit_3.setText(novo_resultado[2])
+        self.tela_dica.lineEdit_4.setText(novo_resultado[3])
+
+
+        
+
     def voltar(self):
         self.Qstack.setCurrentIndex(0)
 

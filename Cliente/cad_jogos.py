@@ -227,7 +227,7 @@ class Tela_jogos(object):
         self.pushButton_2.setText(_translate("MainWindow", "Cadastrar Dicas"))
         self.pushButton_4.setText(_translate("MainWindow", "Perfil"))
         self.pushButton_5.setText(_translate("MainWindow", "Pesquisar Dicas"))
-        self.pushButton_3.setText(_translate("MainWindow", "<-- Voltar"))
+        self.pushButton_3.setText(_translate("MainWindow", "Deslogar"))
 
 
 
