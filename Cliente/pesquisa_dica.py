@@ -38,18 +38,6 @@ class Pesquisa_dica(object):
 "}\n"
 "")
         self.pushButton.setObjectName("pushButton")
-        self.voltar = QtWidgets.QPushButton(self.frame)
-        self.voltar.setGeometry(QtCore.QRect(10, 560, 75, 23))
-        self.voltar.setStyleSheet("QPushButton {\n"
-"    background-color:  #add8e6;\n"
-"    border-radius: 10px;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color:#AABAF2 ;\n"
-"}\n"
-"")
-        self.voltar.setObjectName("voltar")
         self.pushButton_2 = QtWidgets.QPushButton(self.frame)
         self.pushButton_2.setGeometry(QtCore.QRect(20, 30, 81, 23))
         self.pushButton_2.setStyleSheet("QPushButton {\n"
@@ -104,9 +92,9 @@ class Pesquisa_dica(object):
         self.lineEdit.setAlignment(QtCore.Qt.AlignCenter)
         self.lineEdit.setObjectName("lineEdit")
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_2.setGeometry(QtCore.QRect(220, 170, 51, 16))
+        self.label_2.setGeometry(QtCore.QRect(220, 180, 41, 16))
         font = QtGui.QFont()
-        font.setPointSize(12)
+        font.setPointSize(11)
         font.setBold(False)
         font.setWeight(50)
         self.label_2.setFont(font)
@@ -115,25 +103,10 @@ class Pesquisa_dica(object):
 "border: none;\n"
 "")
         self.label_2.setObjectName("label_2")
-        self.lineEdit_2 = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_2.setGeometry(QtCore.QRect(270, 170, 391, 20))
-        font = QtGui.QFont()
-        font.setPointSize(8)
-        font.setBold(False)
-        font.setWeight(50)
-        self.lineEdit_2.setFont(font)
-        self.lineEdit_2.setStyleSheet("color: black;\n"
-"background-color: transparent;\n"
-"\n"
-"")
-        self.lineEdit_2.setAlignment(QtCore.Qt.AlignJustify|QtCore.Qt.AlignVCenter)
-        self.lineEdit_2.setReadOnly(True)
-        self.lineEdit_2.setPlaceholderText("")
-        self.lineEdit_2.setObjectName("lineEdit_2")
         self.label_4 = QtWidgets.QLabel(self.centralwidget)
-        self.label_4.setGeometry(QtCore.QRect(210, 240, 31, 16))
+        self.label_4.setGeometry(QtCore.QRect(220, 330, 31, 16))
         font = QtGui.QFont()
-        font.setPointSize(12)
+        font.setPointSize(11)
         font.setBold(False)
         font.setWeight(50)
         self.label_4.setFont(font)
@@ -142,38 +115,10 @@ class Pesquisa_dica(object):
 "border: none;\n"
 "")
         self.label_4.setObjectName("label_4")
-        self.lineEdit_4 = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_4.setGeometry(QtCore.QRect(270, 230, 391, 271))
-        font = QtGui.QFont()
-        font.setPointSize(8)
-        font.setBold(False)
-        font.setWeight(50)
-        self.lineEdit_4.setFont(font)
-        self.lineEdit_4.setStyleSheet("color: black;\n"
-"background-color: transparent;\n"
-"\n"
-"")
-        self.lineEdit_4.setAlignment(QtCore.Qt.AlignJustify|QtCore.Qt.AlignVCenter)
-        self.lineEdit_4.setReadOnly(True)
-        self.lineEdit_4.setObjectName("lineEdit_4")
-        self.lineEdit_3 = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_3.setGeometry(QtCore.QRect(270, 200, 391, 20))
-        font = QtGui.QFont()
-        font.setPointSize(8)
-        font.setBold(False)
-        font.setWeight(50)
-        self.lineEdit_3.setFont(font)
-        self.lineEdit_3.setStyleSheet("color: black;\n"
-"background-color: transparent;\n"
-"\n"
-"")
-        self.lineEdit_3.setText("")
-        self.lineEdit_3.setAlignment(QtCore.Qt.AlignCenter)
-        self.lineEdit_3.setObjectName("lineEdit_3")
         self.label_5 = QtWidgets.QLabel(self.centralwidget)
-        self.label_5.setGeometry(QtCore.QRect(130, 200, 141, 20))
+        self.label_5.setGeometry(QtCore.QRect(120, 210, 131, 20))
         font = QtGui.QFont()
-        font.setPointSize(12)
+        font.setPointSize(11)
         font.setBold(False)
         font.setWeight(50)
         self.label_5.setFont(font)
@@ -182,6 +127,46 @@ class Pesquisa_dica(object):
 "border: none;\n"
 "")
         self.label_5.setObjectName("label_5")
+        self.label_3 = QtWidgets.QLabel(self.centralwidget)
+        self.label_3.setGeometry(QtCore.QRect(190, 250, 61, 20))
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        self.label_3.setFont(font)
+        self.label_3.setObjectName("label_3")
+        self.plainTextEdit = QtWidgets.QPlainTextEdit(self.centralwidget)
+        self.plainTextEdit.setGeometry(QtCore.QRect(260, 170, 401, 31))
+        self.plainTextEdit.setStyleSheet("color: black;\n"
+"background-color: transparent;\n"
+"\n"
+"")
+        self.plainTextEdit.setReadOnly(True)
+        self.plainTextEdit.setOverwriteMode(False)
+        self.plainTextEdit.setObjectName("plainTextEdit")
+        self.plainTextEdit_2 = QtWidgets.QPlainTextEdit(self.centralwidget)
+        self.plainTextEdit_2.setGeometry(QtCore.QRect(260, 210, 401, 31))
+        self.plainTextEdit_2.setStyleSheet("color: black;\n"
+"background-color: transparent;\n"
+"\n"
+"")
+        self.plainTextEdit_2.setReadOnly(True)
+        self.plainTextEdit_2.setObjectName("plainTextEdit_2")
+        self.plainTextEdit_3 = QtWidgets.QPlainTextEdit(self.centralwidget)
+        self.plainTextEdit_3.setGeometry(QtCore.QRect(260, 250, 401, 61))
+        self.plainTextEdit_3.setStyleSheet("color: black;\n"
+"background-color: transparent;\n"
+"\n"
+"\n"
+"")
+        self.plainTextEdit_3.setReadOnly(True)
+        self.plainTextEdit_3.setObjectName("plainTextEdit_3")
+        self.plainTextEdit_4 = QtWidgets.QPlainTextEdit(self.centralwidget)
+        self.plainTextEdit_4.setGeometry(QtCore.QRect(260, 320, 401, 71))
+        self.plainTextEdit_4.setStyleSheet("color: black;\n"
+"background-color: transparent;\n"
+"\n"
+"")
+        self.plainTextEdit_4.setReadOnly(True)
+        self.plainTextEdit_4.setObjectName("plainTextEdit_4")
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -191,7 +176,6 @@ class Pesquisa_dica(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.pushButton.setText(_translate("MainWindow", "Cadastrar Dicas"))
-        self.voltar.setText(_translate("MainWindow", "Deslogar"))
         self.pushButton_2.setText(_translate("MainWindow", "Perfil"))
         self.pushButton_3.setText(_translate("MainWindow", "Pesquisar Dicas"))
         self.label.setText(_translate("MainWindow", "ENCONTRE A DICA QUE DESEJA"))
@@ -199,8 +183,10 @@ class Pesquisa_dica(object):
         self.lineEdit.setPlaceholderText(_translate("MainWindow", "Digite o nome do jogo."))
         self.label_2.setText(_translate("MainWindow", "Nome"))
         self.label_4.setText(_translate("MainWindow", "Dica"))
-        self.lineEdit_3.setPlaceholderText(_translate("MainWindow", "ano/mes/dia"))
         self.label_5.setText(_translate("MainWindow", "Data de lançamento"))
+        self.label_3.setText(_translate("MainWindow", "Descrição"))
+
+
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)

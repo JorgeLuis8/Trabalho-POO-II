@@ -64,9 +64,10 @@ class Metodos:
         cursor.execute('''INSERT INTO Jogos (nome,ano_lancamento,descri,dica) VALUES (%s, %s, %s, %s)''', (nome, ano, descri, dica))
         conexao.commit()
         return True
+
     def listar_jogos(self,nome):
         cursor.execute('SELECT * FROM Jogos WHERE nome = %s', (nome,))
-        resultado = cursor.fetchone()
+        resultado = cursor.fetchall()
         return resultado
     def listar_clientes(self,email):
         cursor.execute('SELECT * FROM Usuarios WHERE email = %s', (email,))
@@ -120,10 +121,13 @@ if __name__ == '__main__':
             elif mensagemStr[0] == '4':
                 nome = mensagemStr[1]
                 print('connectado4')
-                resultado = metodos.listar_jogos(nome)
-                resul = f'{resultado}'
-                print(resul)
-                con.send(resul.encode())
+                if metodos.listar_jogos(nome):
+                    resultado = metodos.listar_jogos(nome)
+                    resul = f'{resultado}'
+                    print(resul)
+                    con.send(resul.encode())
+                else:
+                    enviar = '0'
             elif mensagemStr[0] == '5':
                 email = mensagemStr[1]
                 resultado = metodos.listar_clientes(email)

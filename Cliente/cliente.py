@@ -75,7 +75,6 @@ class Main(QMainWindow, Ui_main):
 
         self.tela_about.pushButton.clicked.connect(self.voltar)
 
-        self.tela_home.voltar.clicked.connect(self.voltar)
         self.tela_home.pushButton.clicked.connect(self.ir_jogos)
         self.tela_home.pushButton_3.clicked.connect(self.dica)
 
@@ -86,7 +85,6 @@ class Main(QMainWindow, Ui_main):
         
 
         self.tela_dica.pushButton_2.clicked.connect(self.voltar2)
-        self.tela_dica.voltar.clicked.connect(self.voltar)
         self.tela_dica.pushButton.clicked.connect(self.ir_jogos)
         self.tela_dica.pushButton_4.clicked.connect(self.dicas)
 
@@ -200,12 +198,20 @@ class Main(QMainWindow, Ui_main):
 
     def dicas(self):
         nome = self.tela_dica.lineEdit.text()
-        msgDica = f'4,{nome}'
-        self.serverDica(msgDica)
-        novo_resultado = self.serverDica(msgDica)
-        self.tela_dica.lineEdit_2.setText(novo_resultado[1])
-        self.tela_dica.lineEdit_3.setText(novo_resultado[2])
-        self.tela_dica.lineEdit_4.setText(novo_resultado[3])
+        if not (nome == None or nome == ''):
+            if not self.serverDica(nome):
+                msgDica = f'4,{nome}'
+                self.serverDica(msgDica)
+                novo_resultado = self.serverDica(msgDica)
+                self.tela_dica.plainTextEdit.setPlainText(novo_resultado[1].replace("'", " "))
+                self.tela_dica.plainTextEdit_2.setPlainText(novo_resultado[2].replace("'", " "))
+                self.tela_dica.plainTextEdit_3.setPlainText(novo_resultado[3].replace("'", " "))
+                self.tela_dica.plainTextEdit_4.setPlainText(novo_resultado[4].replace("'", " ",))
+            else:
+                QMessageBox.information(None, 'Atenção', 'Erro ao buscar')
+        else:
+            QMessageBox.information(None, 'Atenção', 'Preencha todos os campos')
+
 
 
         

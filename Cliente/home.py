@@ -90,11 +90,12 @@ class Tela_home(object):
 "")
         self.pushButton_3.setObjectName("pushButton_3")
         self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit.setGeometry(QtCore.QRect(290, 130, 281, 20))
+        self.lineEdit.setGeometry(QtCore.QRect(290, 140, 281, 20))
         self.lineEdit.setStyleSheet("color: black;\n"
 "background-color: transparent;\n"
 "\n"
 "")
+        self.lineEdit.setReadOnly(True)
         self.lineEdit.setObjectName("lineEdit")
         self.lineEdit_2 = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit_2.setGeometry(QtCore.QRect(290, 160, 281, 20))
@@ -102,6 +103,7 @@ class Tela_home(object):
 "background-color: transparent;\n"
 "\n"
 "")
+        self.lineEdit_2.setReadOnly(True)
         self.lineEdit_2.setObjectName("lineEdit_2")
         self.lineEdit_3 = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit_3.setGeometry(QtCore.QRect(290, 180, 281, 20))
@@ -109,9 +111,11 @@ class Tela_home(object):
 "background-color: transparent;\n"
 "\n"
 "")
+        self.lineEdit_3.setAlignment(QtCore.Qt.AlignJustify|QtCore.Qt.AlignVCenter)
+        self.lineEdit_3.setReadOnly(True)
         self.lineEdit_3.setObjectName("lineEdit_3")
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_2.setGeometry(QtCore.QRect(236, 130, 81, 20))
+        self.label_2.setGeometry(QtCore.QRect(250, 140, 41, 20))
         self.label_2.setStyleSheet("color: black;\n"
 "background-color: transparent;\n"
 "border: none;\n"
