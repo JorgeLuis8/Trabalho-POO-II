@@ -189,7 +189,7 @@ class Main(QMainWindow, Ui_main):
                 QMessageBox.information(None, 'Atenção', 'Erro ao cadastrar')
         else:
             QMessageBox.information(None, 'Atenção', 'Preencha todos os campos')
-
+    '''
     def serverDica(self,msgDica):
         if msgDica.split(',')[0] == '4':
             self.client_socket.send(msgDica.encode())
@@ -211,7 +211,7 @@ class Main(QMainWindow, Ui_main):
                 QMessageBox.information(None, 'Atenção', 'Erro ao buscar')
         else:
             QMessageBox.information(None, 'Atenção', 'Preencha todos os campos')
-
+            '''
 
 
         
