@@ -62,6 +62,18 @@ class Pesquisa_dica(object):
 "}\n"
 "")
         self.pushButton_3.setObjectName("pushButton_3")
+        self.voltar = QtWidgets.QPushButton(self.frame)
+        self.voltar.setGeometry(QtCore.QRect(20, 570, 75, 23))
+        self.voltar.setStyleSheet("QPushButton {\n"
+"    background-color:  #add8e6;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color:#AABAF2 ;\n"
+"}\n"
+"")
+        self.voltar.setObjectName("voltar")
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(220, 10, 441, 31))
         font = QtGui.QFont()
@@ -72,7 +84,7 @@ class Pesquisa_dica(object):
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
         self.pushButton_4 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_4.setGeometry(QtCore.QRect(410, 80, 75, 23))
+        self.pushButton_4.setGeometry(QtCore.QRect(420, 110, 75, 23))
         self.pushButton_4.setStyleSheet("QPushButton {\n"
 "    background-color:  #add8e6;\n"
 "    border-radius: 10px;\n"
@@ -83,14 +95,6 @@ class Pesquisa_dica(object):
 "}\n"
 "")
         self.pushButton_4.setObjectName("pushButton_4")
-        self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit.setGeometry(QtCore.QRect(300, 50, 311, 20))
-        self.lineEdit.setStyleSheet("color: black;\n"
-"background-color: transparent;\n"
-"\n"
-"")
-        self.lineEdit.setAlignment(QtCore.Qt.AlignCenter)
-        self.lineEdit.setObjectName("lineEdit")
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
         self.label_2.setGeometry(QtCore.QRect(220, 180, 41, 16))
         font = QtGui.QFont()
@@ -167,6 +171,9 @@ class Pesquisa_dica(object):
 "")
         self.plainTextEdit_4.setReadOnly(True)
         self.plainTextEdit_4.setObjectName("plainTextEdit_4")
+        self.comboBox = QtWidgets.QComboBox(self.centralwidget)
+        self.comboBox.setGeometry(QtCore.QRect(240, 60, 421, 22))
+        self.comboBox.setObjectName("comboBox")
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -178,20 +185,10 @@ class Pesquisa_dica(object):
         self.pushButton.setText(_translate("MainWindow", "Cadastrar Dicas"))
         self.pushButton_2.setText(_translate("MainWindow", "Perfil"))
         self.pushButton_3.setText(_translate("MainWindow", "Pesquisar Dicas"))
+        self.voltar.setText(_translate("MainWindow", "Deslogar"))
         self.label.setText(_translate("MainWindow", "ENCONTRE A DICA QUE DESEJA"))
         self.pushButton_4.setText(_translate("MainWindow", "Pesquisar"))
-        self.lineEdit.setPlaceholderText(_translate("MainWindow", "Digite o nome do jogo."))
-        self.label_2.setText(_translate("MainWindow", "Nome"))
+        self.label_2.setText(_translate("MainWindow", "Jogo"))
         self.label_4.setText(_translate("MainWindow", "Dica"))
         self.label_5.setText(_translate("MainWindow", "Data de lançamento"))
         self.label_3.setText(_translate("MainWindow", "Descrição"))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Pesquisa_dica()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec_())

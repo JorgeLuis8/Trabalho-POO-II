@@ -117,6 +117,30 @@ QPushButton:hover {
       <string>Pesquisar Dicas</string>
      </property>
     </widget>
+    <widget class="QPushButton" name="voltar">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>570</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    background-color:  #add8e6;
+    border-radius: 10px;
+}
+
+QPushButton:hover {
+    background-color:#AABAF2 ;
+}
+</string>
+     </property>
+     <property name="text">
+      <string>Deslogar</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QLabel" name="label">
     <property name="geometry">
@@ -144,8 +168,8 @@ QPushButton:hover {
    <widget class="QPushButton" name="pushButton_4">
     <property name="geometry">
      <rect>
-      <x>410</x>
-      <y>80</y>
+      <x>420</x>
+      <y>110</y>
       <width>75</width>
       <height>23</height>
      </rect>
@@ -163,28 +187,6 @@ QPushButton:hover {
     </property>
     <property name="text">
      <string>Pesquisar</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="lineEdit">
-    <property name="geometry">
-     <rect>
-      <x>300</x>
-      <y>50</y>
-      <width>311</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: black;
-background-color: transparent;
-
-</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-    <property name="placeholderText">
-     <string>Digite o nome do jogo.</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
@@ -210,7 +212,7 @@ border: none;
 </string>
     </property>
     <property name="text">
-     <string>Nome</string>
+     <string>Jogo</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_4">
@@ -361,6 +363,16 @@ background-color: transparent;
     </property>
     <property name="readOnly">
      <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBox">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>60</y>
+      <width>421</width>
+      <height>22</height>
+     </rect>
     </property>
    </widget>
   </widget>

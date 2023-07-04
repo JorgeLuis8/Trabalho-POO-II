@@ -77,6 +77,8 @@ class Main(QMainWindow, Ui_main):
 
         self.tela_home.pushButton.clicked.connect(self.ir_jogos)
         self.tela_home.pushButton_3.clicked.connect(self.dica)
+        self.tela_home.voltar.clicked.connect(self.voltar)
+        
 
         self.tela_jogos.pushButton.clicked.connect(self.cadastrar_jogos)
         self.tela_jogos.pushButton_3.clicked.connect(self.voltar)
@@ -84,9 +86,12 @@ class Main(QMainWindow, Ui_main):
         self.tela_jogos.pushButton_5.clicked.connect(self.dica)
         
 
-        self.tela_dica.pushButton_2.clicked.connect(self.voltar2)
+        self.tela_dica.pushButton_3.clicked.connect(self.voltar2)
         self.tela_dica.pushButton.clicked.connect(self.ir_jogos)
         self.tela_dica.pushButton_4.clicked.connect(self.dicas)
+        self.tela_dica.voltar.clicked.connect(self.voltar)
+        self.tela_dica.comboBox.activated.connect(self.add)
+
 
     def serverCadastro(self, msgCad):
         if msgCad.split(',')[0] == '2':
@@ -189,7 +194,7 @@ class Main(QMainWindow, Ui_main):
                 QMessageBox.information(None, 'Atenção', 'Erro ao cadastrar')
         else:
             QMessageBox.information(None, 'Atenção', 'Preencha todos os campos')
-    '''
+
     def serverDica(self,msgDica):
         if msgDica.split(',')[0] == '4':
             self.client_socket.send(msgDica.encode())
@@ -211,9 +216,18 @@ class Main(QMainWindow, Ui_main):
                 QMessageBox.information(None, 'Atenção', 'Erro ao buscar')
         else:
             QMessageBox.information(None, 'Atenção', 'Preencha todos os campos')
-            '''
 
-
+    def add(self):
+        self.tela_dica.comboBox.addItem('League of Legends')
+        self.tela_dica.comboBox.addItem('Valorant')
+        self.tela_dica.comboBox.addItem('CS:GO')
+        self.tela_dica.comboBox.addItem('Fortnite')
+        self.tela_dica.comboBox.addItem('Minecraft')
+        self.tela_dica.comboBox.addItem('GTA V')
+        self.tela_dica.comboBox.addItem('FIFA 21')
+        self.tela_dica.comboBox.addItem('PUBG')
+        self.tela_dica.comboBox.addItem('Free Fire')
+        self.tela_dica.comboBox.addItem('Call of Duty: Warzone')
         
 
     def voltar(self):
