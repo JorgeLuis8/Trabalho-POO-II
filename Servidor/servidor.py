@@ -151,7 +151,8 @@ class MyThread(threading.Thread):
             
 if __name__ == '__main__':
     metodos = Metodos()
-    ip = '192.168.18.170'
+    #ip = '192.168.18.170' ip pc
+    ip = '10.180.46.243'
     port = 8003
     addr = ((ip, port))
     serv_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
