@@ -57,11 +57,11 @@ class Metodos:
     def logar(self, email, senha):
         cursor.execute(
             'SELECT * FROM Usuarios WHERE email = %s AND senha = %s', (email, senha))
-        resultado = cursor.fetchall()
+        resultado = cursor.fetchone()
         if resultado == None:
-            return False
-        else:
             return True
+        else:
+            return False
     def cad_jogo(self,nome,ano,descri,dica):
         cursor.execute('''INSERT INTO Jogos (nome,ano_lancamento,descri,dica) VALUES (%s, %s, %s, %s)''', (nome, ano, descri, dica))
         conexao.commit()
