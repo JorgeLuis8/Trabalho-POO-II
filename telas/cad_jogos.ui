@@ -30,7 +30,7 @@
      <rect>
       <x>260</x>
       <y>10</y>
-      <width>281</width>
+      <width>351</width>
       <height>20</height>
      </rect>
     </property>
@@ -189,32 +189,6 @@ QPushButton:hover {
      <string>Cadastrar Dica</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit">
-    <property name="geometry">
-     <rect>
-      <x>270</x>
-      <y>120</y>
-      <width>391</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>8</pointsize>
-      <weight>50</weight>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: black;
-background-color: transparent;
-
-</string>
-    </property>
-    <property name="placeholderText">
-     <string/>
-    </property>
-   </widget>
    <widget class="QLineEdit" name="lineEdit_2">
     <property name="geometry">
      <rect>
@@ -242,6 +216,9 @@ background-color: transparent;
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
     </property>
     <property name="placeholderText">
      <string>ano/mes/dia</string>
@@ -271,6 +248,9 @@ background-color: transparent;
     </property>
     <property name="maxLength">
      <number>2000000000</number>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QLineEdit" name="lineEdit_4">
@@ -411,6 +391,20 @@ QPushButton:hover {
       <string>Deslogar</string>
      </property>
     </widget>
+   </widget>
+   <widget class="QComboBox" name="comboBox">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>120</y>
+      <width>391</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: transparent;
+border: 1px solid black;</string>
+    </property>
    </widget>
   </widget>
  </widget>

@@ -173,6 +173,8 @@ class Pesquisa_dica(object):
         self.plainTextEdit_4.setObjectName("plainTextEdit_4")
         self.comboBox = QtWidgets.QComboBox(self.centralwidget)
         self.comboBox.setGeometry(QtCore.QRect(240, 60, 421, 22))
+        self.comboBox.setStyleSheet("background-color: transparent;\n"
+"border: 1px solid black;")
         self.comboBox.setObjectName("comboBox")
         MainWindow.setCentralWidget(self.centralwidget)
 

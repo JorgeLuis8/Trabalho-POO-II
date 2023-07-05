@@ -90,7 +90,7 @@ class Main(QMainWindow, Ui_main):
         self.tela_dica.pushButton.clicked.connect(self.ir_jogos)
         self.tela_dica.pushButton_4.clicked.connect(self.dicas)
         self.tela_dica.voltar.clicked.connect(self.voltar)
-        self.tela_dica.comboBox.activated.connect(self.add)
+        #self.tela_dica.comboBox.activated.connect(self.add)
 
 
     def serverCadastro(self, msgCad):
@@ -218,17 +218,6 @@ class Main(QMainWindow, Ui_main):
         else:
             QMessageBox.information(None, 'Atenção', 'Preencha todos os campos')
 
-    def add(self):
-        self.tela_dica.comboBox.addItem('League of Legends')
-        self.tela_dica.comboBox.addItem('Valorant')
-        self.tela_dica.comboBox.addItem('CS:GO')
-        self.tela_dica.comboBox.addItem('Fortnite')
-        self.tela_dica.comboBox.addItem('Minecraft')
-        self.tela_dica.comboBox.addItem('GTA V')
-        self.tela_dica.comboBox.addItem('FIFA 21')
-        self.tela_dica.comboBox.addItem('PUBG')
-        self.tela_dica.comboBox.addItem('Free Fire')
-        self.tela_dica.comboBox.addItem('Call of Duty: Warzone')
         
 
     def voltar(self):
@@ -251,6 +240,10 @@ class Main(QMainWindow, Ui_main):
 
     def dica(self):
         self.Qstack.setCurrentIndex(5)
+        self.tela_dica.comboBox.addItem('League of Legends')
+        self.tela_dica.comboBox.addItem('Valorant')
+        self.tela_dica.comboBox.addItem('CS:GO')
+  
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

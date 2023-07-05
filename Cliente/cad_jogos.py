@@ -25,7 +25,7 @@ class Tela_jogos(object):
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(260, 10, 281, 20))
+        self.label.setGeometry(QtCore.QRect(260, 10, 351, 20))
         font = QtGui.QFont()
         font.setPointSize(16)
         font.setBold(True)
@@ -102,19 +102,6 @@ class Tela_jogos(object):
 "}\n"
 "")
         self.pushButton.setObjectName("pushButton")
-        self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit.setGeometry(QtCore.QRect(270, 120, 391, 20))
-        font = QtGui.QFont()
-        font.setPointSize(8)
-        font.setBold(False)
-        font.setWeight(50)
-        self.lineEdit.setFont(font)
-        self.lineEdit.setStyleSheet("color: black;\n"
-"background-color: transparent;\n"
-"\n"
-"")
-        self.lineEdit.setPlaceholderText("")
-        self.lineEdit.setObjectName("lineEdit")
         self.lineEdit_2 = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit_2.setGeometry(QtCore.QRect(270, 150, 391, 20))
         font = QtGui.QFont()
@@ -128,6 +115,7 @@ class Tela_jogos(object):
 "")
         self.lineEdit_2.setText("")
         self.lineEdit_2.setAlignment(QtCore.Qt.AlignCenter)
+        self.lineEdit_2.setReadOnly(True)
         self.lineEdit_2.setObjectName("lineEdit_2")
         self.lineEdit_3 = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit_3.setGeometry(QtCore.QRect(270, 170, 391, 61))
@@ -141,6 +129,7 @@ class Tela_jogos(object):
 "\n"
 "")
         self.lineEdit_3.setMaxLength(2000000000)
+        self.lineEdit_3.setReadOnly(True)
         self.lineEdit_3.setObjectName("lineEdit_3")
         self.lineEdit_4 = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit_4.setGeometry(QtCore.QRect(270, 240, 391, 81))
@@ -209,6 +198,11 @@ class Tela_jogos(object):
 "}\n"
 "")
         self.pushButton_3.setObjectName("pushButton_3")
+        self.comboBox = QtWidgets.QComboBox(self.centralwidget)
+        self.comboBox.setGeometry(QtCore.QRect(270, 120, 391, 22))
+        self.comboBox.setStyleSheet("background-color: transparent;\n"
+"border: 1px solid black;")
+        self.comboBox.setObjectName("comboBox")
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
