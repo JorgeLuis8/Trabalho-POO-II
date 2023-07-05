@@ -149,13 +149,14 @@ class Main(QMainWindow, Ui_main):
         msgLogin = f'1,{email},{senha}'
         if not (email == None or senha == None or email == '' or senha == ''):
             print('entrou aqui')
-            if not self.serverLogin(msgLogin):
+            if  self.serverLogin(msgLogin):
                 self.tela_inical.campoUsuario.clear()
                 self.tela_inical.campoSenha.clear()
                 self.Qstack.setCurrentIndex(3)
                 msgInfo = f'5,{email}'
                 self.serverinfo (msgInfo)
                 resultado = self.serverinfo(msgInfo)
+
                 self.tela_home.lineEdit.setText(resultado[1].replace("'", " "))
                 self.tela_home.lineEdit_2.setText(resultado[6].replace("'", " "))
                 self.tela_home.lineEdit_3.setText(resultado[2].replace("'", " "))
