@@ -1,5 +1,7 @@
 import mysql.connector
 from pessoa import Usuario
+import socket
+import threading
 
 
 conexao = mysql.connector.connect(
@@ -55,7 +57,7 @@ class Metodos:
     def logar(self, email, senha):
         cursor.execute(
             'SELECT * FROM Usuarios WHERE email = %s AND senha = %s', (email, senha))
-        resultado = cursor.fetchone()
+        resultado = cursor.fetchall()
         if resultado == None:
             return False
         else:
@@ -73,15 +75,96 @@ class Metodos:
         cursor.execute('SELECT * FROM Usuarios WHERE email = %s', (email,))
         resultado = cursor.fetchone()
         return resultado
+class MyThread(threading.Thread):
+    def __init__(self, client_address, client_socket):
+        threading.Thread.__init__(self)
+        self.name = ''
+        self.client_socket = client_socket
+        print('Nova conexão, endereço: ', client_address)
+    
+    def run(self):
+        con = self.client_socket
+        metodos = Metodos()
+        while True:
+            try:
+                msgLogin = con.recv(1024)
+                mensagemStr = msgLogin.decode().split(',')
+                
+                enviar = ''
+                if mensagemStr[0] == '1':
+                    email = mensagemStr[1]
+                    senha = mensagemStr[2]
+                    print('Conectado 1')
+                    if not metodos.logar(email, senha):
+                        enviar = '1'
+                    else:
+                        enviar = '0'
+                elif mensagemStr[0] == '2':
+                    nome = mensagemStr[1]
+                    email = mensagemStr[2]
+                    data_nas = mensagemStr[3]
+                    user = mensagemStr[4]
+                    senha = mensagemStr[5]
+                    print('Conectado 2')
+                    p = Usuario(nome, email, data_nas, user, senha)
+                    if metodos.cadastrar(p):
+                        enviar = '1'
+                    else:
+                        enviar = '0'
+                elif mensagemStr[0] == '3':
+                    nome = mensagemStr[1]
+                    ano_lancamento = mensagemStr[2]
+                    descri = mensagemStr[3]
+                    dica = mensagemStr[4]
+                    print('Conectado 3')
+                    metodos.cad_jogo(nome, ano_lancamento, descri, dica)
+                    enviar = '1' 
+                elif mensagemStr[0] == '4':
+                    nome = mensagemStr[1]
+                    print('Conectado 4')
+                    resultado = metodos.listar_jogos(nome)
+                    if resultado:
+                        resul = f'{resultado}'
+                        print(resul)
+                        con.send(resul.encode())
+                    else:
+                        enviar = '0'
+                elif mensagemStr[0] == '5':
+                    email = mensagemStr[1]
+                    print('Conectado 5')
+                    resultado = metodos.listar_clientes(email)
+                    if resultado:
+                        result = f'{resultado}'
+                        con.send(result.encode())
+                    else:
+                        enviar = '0'
+                con.send(enviar.encode())
+            except ConnectionResetError:
+                print('A conexão foi redefinida pelo cliente.')
+                con.close()
+                break
+            except Exception as e:
+                print('Erro ao processar a mensagem:', str(e))
+                con.close()
+                break
+
+            
 if __name__ == '__main__':
-    import socket
     metodos = Metodos()
-    ip = 'localhost'
-    port = 4003
-    addr = (ip, port)
+    ip = '192.168.18.170'
+    port = 8003
+    addr = ((ip, port))
     serv_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     serv_socket.bind(addr)
-    serv_socket.listen(10)
+    print('Aguardando conexão...')
+    while True:
+        print('teste')
+        serv_socket.listen(10)
+        client_socket, addr = serv_socket.accept()
+        my_thread = MyThread(addr, client_socket)
+        my_thread.start()
+    
+'''
     con, _ = serv_socket.accept()
     while True:
         try:
@@ -139,3 +222,4 @@ if __name__ == '__main__':
             con.close()
             break
         
+'''

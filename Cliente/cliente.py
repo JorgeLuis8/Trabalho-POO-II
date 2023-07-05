@@ -59,8 +59,8 @@ class Main(QMainWindow, Ui_main):
         self.setupUi(self)
 
 
-        ip = 'localhost'
-        port = 4003
+        ip = '192.168.18.170'
+        port = 8003
         addr = ((ip, port))
         self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.client_socket.connect(addr) 
