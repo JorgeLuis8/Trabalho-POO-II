@@ -59,7 +59,7 @@ class Main(QMainWindow, Ui_main):
         self.setupUi(self)
 
 
-        ip = '10.180.46.243'
+        ip = '192.168.18.145'
         port = 8004
         addr = ((ip, port))
         self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
