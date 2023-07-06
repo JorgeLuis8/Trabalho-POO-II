@@ -376,8 +376,19 @@ background-color: transparent;
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: transparent;
-border: 1px solid black;</string>
+border: 1px solid black;
+background: white;</string>
     </property>
+    <item>
+     <property name="text">
+      <string>League of Legends</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Valorant</string>
+     </property>
+    </item>
    </widget>
   </widget>
  </widget>

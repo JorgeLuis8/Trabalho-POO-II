@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Tela_jogos(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(800, 600)
+        MainWindow.resize(800, 592)
         font = QtGui.QFont()
         font.setPointSize(16)
         font.setBold(True)
@@ -201,8 +201,11 @@ class Tela_jogos(object):
         self.comboBox = QtWidgets.QComboBox(self.centralwidget)
         self.comboBox.setGeometry(QtCore.QRect(270, 120, 391, 22))
         self.comboBox.setStyleSheet("background-color: transparent;\n"
-"border: 1px solid black;")
+"border: 1px solid black;\n"
+"background: white;")
         self.comboBox.setObjectName("comboBox")
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -222,3 +225,5 @@ class Tela_jogos(object):
         self.pushButton_4.setText(_translate("MainWindow", "Perfil"))
         self.pushButton_5.setText(_translate("MainWindow", "Pesquisar Dicas"))
         self.pushButton_3.setText(_translate("MainWindow", "Deslogar"))
+        self.comboBox.setItemText(0, _translate("MainWindow", "League of Legends"))
+        self.comboBox.setItemText(1, _translate("MainWindow", "Valorant"))

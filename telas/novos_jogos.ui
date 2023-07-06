@@ -221,7 +221,7 @@ border: none;
       <x>220</x>
       <y>90</y>
       <width>51</width>
-      <height>16</height>
+      <height>21</height>
      </rect>
     </property>
     <property name="font">
@@ -238,7 +238,7 @@ border: none;
 </string>
     </property>
     <property name="text">
-     <string>Nome</string>
+     <string>Jogo</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton">
@@ -293,20 +293,6 @@ QPushButton:hover {
 background-color: transparent;
 
 </string>
-    </property>
-   </widget>
-   <widget class="QComboBox" name="comboBox">
-    <property name="geometry">
-     <rect>
-      <x>270</x>
-      <y>90</y>
-      <width>391</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: transparent;
-border: 1px solid black;</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_4">
@@ -397,6 +383,35 @@ border: none;
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_5">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>90</y>
+      <width>391</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: black;
+background-color: transparent;
+
+</string>
+    </property>
+    <property name="maxLength">
+     <number>2000000000</number>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
     </property>
    </widget>
   </widget>

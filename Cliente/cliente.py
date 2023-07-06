@@ -59,7 +59,7 @@ class Main(QMainWindow, Ui_main):
         self.setupUi(self)
 
 
-        ip = '10.180.46.243'
+        ip = '192.168.1.116'
         port = 8004
         addr = ((ip, port))
         self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -86,11 +86,12 @@ class Main(QMainWindow, Ui_main):
         self.tela_jogos.pushButton_5.clicked.connect(self.dica)
         
 
-        self.tela_dica.pushButton_3.clicked.connect(self.voltar2)
+        self.tela_dica.pushButton_3.clicked.connect(self.voltar)
         self.tela_dica.pushButton.clicked.connect(self.ir_jogos)
         self.tela_dica.pushButton_4.clicked.connect(self.dicas)
         self.tela_dica.voltar.clicked.connect(self.voltar)
-        #self.tela_dica.comboBox.activated.connect(self.add)
+        self.tela_dica.pushButton_2.clicked.connect(self.voltar2)
+
 
 
     def serverCadastro(self, msgCad):
@@ -177,7 +178,7 @@ class Main(QMainWindow, Ui_main):
                 return False
 
     def cadastrar_jogos(self):
-        nome = self.tela_jogos.lineEdit.text()
+        nome = self.tela_jogos.comboBox.currentText()
         data = self.tela_jogos.lineEdit_2.text()
         descricao = self.tela_jogos.lineEdit_3.text()
         dica = self.tela_jogos.lineEdit_4.text()
@@ -203,7 +204,7 @@ class Main(QMainWindow, Ui_main):
             return msg
 
     def dicas(self):
-        nome = self.tela_dica.lineEdit.text()
+        nome = self.tela_dica.comboBox.currentText()
         if not (nome == None or nome == ''):
             if not self.serverDica(nome):
                 msgDica = f'4,{nome}'
@@ -240,9 +241,7 @@ class Main(QMainWindow, Ui_main):
 
     def dica(self):
         self.Qstack.setCurrentIndex(5)
-        self.tela_dica.comboBox.addItem('League of Legends')
-        self.tela_dica.comboBox.addItem('Valorant')
-        self.tela_dica.comboBox.addItem('CS:GO')
+  
   
 
 if __name__ == '__main__':

@@ -174,8 +174,11 @@ class Pesquisa_dica(object):
         self.comboBox = QtWidgets.QComboBox(self.centralwidget)
         self.comboBox.setGeometry(QtCore.QRect(240, 60, 421, 22))
         self.comboBox.setStyleSheet("background-color: transparent;\n"
-"border: 1px solid black;")
+"border: 1px solid black;\n"
+"background: white;")
         self.comboBox.setObjectName("comboBox")
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -194,3 +197,5 @@ class Pesquisa_dica(object):
         self.label_4.setText(_translate("MainWindow", "Dica"))
         self.label_5.setText(_translate("MainWindow", "Data de lançamento"))
         self.label_3.setText(_translate("MainWindow", "Descrição"))
+        self.comboBox.setItemText(0, _translate("MainWindow", "League of Legends"))
+        self.comboBox.setItemText(1, _translate("MainWindow", "Valorant"))
