@@ -94,7 +94,7 @@ class MyThread(threading.Thread):
                 if mensagemStr[0] == '1':
                     email = mensagemStr[1]
                     senha = mensagemStr[2]
-                    print('Conectado 1')
+                    print(f'O usuario {email} está tentando logar')
                     if not metodos.logar(email, senha):
                         enviar = '1'
                     else:
@@ -151,7 +151,9 @@ class MyThread(threading.Thread):
             
 if __name__ == '__main__':
     metodos = Metodos()
-    ip = '192.168.1.116'
+    hostname = socket.gethostname()
+    ip_address = socket.gethostbyname(hostname)
+    ip = ip_address
     port = 8004
     addr = ((ip, port))
     serv_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)

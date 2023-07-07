@@ -89,13 +89,24 @@ class Tela_home(object):
 "}\n"
 "")
         self.pushButton_3.setObjectName("pushButton_3")
+        self.pushButton_6 = QtWidgets.QPushButton(self.frame)
+        self.pushButton_6.setGeometry(QtCore.QRect(20, 160, 81, 23))
+        self.pushButton_6.setStyleSheet("QPushButton {\n"
+"    background-color:  #add8e6;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color:#AABAF2 ;\n"
+"}\n"
+"")
+        self.pushButton_6.setObjectName("pushButton_6")
         self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit.setGeometry(QtCore.QRect(290, 140, 281, 20))
         self.lineEdit.setStyleSheet("color: black;\n"
 "background-color: transparent;\n"
 "\n"
 "")
-        self.lineEdit.setReadOnly(True)
         self.lineEdit.setObjectName("lineEdit")
         self.lineEdit_2 = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit_2.setGeometry(QtCore.QRect(290, 160, 281, 20))
@@ -158,17 +169,8 @@ class Tela_home(object):
         self.voltar.setText(_translate("MainWindow", "Deslogar"))
         self.pushButton_2.setText(_translate("MainWindow", "Perfil"))
         self.pushButton_3.setText(_translate("MainWindow", "Pesquisar Dicas"))
+        self.pushButton_6.setText(_translate("MainWindow", "Cadastrar Jogos"))
         self.label_2.setText(_translate("MainWindow", "Nome"))
         self.label_3.setText(_translate("MainWindow", "User"))
         self.label_4.setText(_translate("MainWindow", "Email"))
         self.label_5.setText(_translate("MainWindow", "Suas Informações: "))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Tela_home()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec_())

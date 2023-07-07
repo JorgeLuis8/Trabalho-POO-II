@@ -198,6 +198,18 @@ class Tela_jogos(object):
 "}\n"
 "")
         self.pushButton_3.setObjectName("pushButton_3")
+        self.pushButton_6 = QtWidgets.QPushButton(self.frame)
+        self.pushButton_6.setGeometry(QtCore.QRect(20, 170, 81, 23))
+        self.pushButton_6.setStyleSheet("QPushButton {\n"
+"    background-color:  #add8e6;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color:#AABAF2 ;\n"
+"}\n"
+"")
+        self.pushButton_6.setObjectName("pushButton_6")
         self.comboBox = QtWidgets.QComboBox(self.centralwidget)
         self.comboBox.setGeometry(QtCore.QRect(270, 120, 391, 22))
         self.comboBox.setStyleSheet("background-color: transparent;\n"
@@ -225,5 +237,6 @@ class Tela_jogos(object):
         self.pushButton_4.setText(_translate("MainWindow", "Perfil"))
         self.pushButton_5.setText(_translate("MainWindow", "Pesquisar Dicas"))
         self.pushButton_3.setText(_translate("MainWindow", "Deslogar"))
+        self.pushButton_6.setText(_translate("MainWindow", "Cadastrar Jogos"))
         self.comboBox.setItemText(0, _translate("MainWindow", "League of Legends"))
         self.comboBox.setItemText(1, _translate("MainWindow", "Valorant"))

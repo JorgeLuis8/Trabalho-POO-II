@@ -48,7 +48,7 @@
      </property>
      <property name="styleSheet">
       <string notr="true">QPushButton {
-    background-color:  #AABAF2;
+    background-color:  #add8e6 ;
     border-radius: 10px;
 }
 
@@ -133,6 +133,30 @@ QPushButton:hover {
       <string>Deslogar</string>
      </property>
     </widget>
+    <widget class="QPushButton" name="pushButton_6">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>160</y>
+       <width>81</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    background-color:  #AABAF2;
+    border-radius: 10px;
+}
+
+QPushButton:hover {
+    background-color:#AABAF2 ;
+}
+</string>
+     </property>
+     <property name="text">
+      <string>Cadastrar Jogos</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QLabel" name="label_5">
     <property name="geometry">
@@ -186,7 +210,7 @@ background-color: transparent;
      <number>2000000000</number>
     </property>
     <property name="readOnly">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QLabel" name="label_3">
@@ -269,7 +293,7 @@ QPushButton:hover {
 </string>
     </property>
     <property name="text">
-     <string>Cadastrar Dica</string>
+     <string>Cadastrar Jogo</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="lineEdit_4">
@@ -350,7 +374,7 @@ background-color: transparent;
      <set>Qt::AlignCenter</set>
     </property>
     <property name="readOnly">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
     <property name="placeholderText">
      <string>ano/mes/dia</string>
@@ -411,7 +435,7 @@ background-color: transparent;
      <number>2000000000</number>
     </property>
     <property name="readOnly">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
    </widget>
   </widget>
