@@ -63,7 +63,7 @@ class Main(QMainWindow, Ui_main):
     def __init__(self, parent=None):
         super(Main, self).__init__(parent)
         self.setupUi(self)
-
+        self.usuario_logado = None
         hostname = socket.gethostname()
         ip_address = socket.gethostbyname(hostname)
         ip = ip_address
@@ -175,6 +175,7 @@ class Main(QMainWindow, Ui_main):
                 self.tela_home.lineEdit.setText(resultado[1].replace("'", " "))
                 self.tela_home.lineEdit_2.setText(resultado[6].replace("'", " "))
                 self.tela_home.lineEdit_3.setText(resultado[2].replace("'", " "))
+                self.usuario_logado = resultado[1].replace("'", " ")
 
             else:
                 QMessageBox.information(None, 'Atenção', 'Email ou senha incorretos')
