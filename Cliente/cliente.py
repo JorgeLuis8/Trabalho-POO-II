@@ -212,7 +212,7 @@ class Main(QMainWindow, Ui_main):
         else:
             QMessageBox.information(None, 'Atenção', 'Preencha todos os campos')
 
-    def serverDica(self,msgDica):
+    def serverDica(self, msgDica):
         if msgDica.split(',')[0] == '4':
             self.client_socket.send(msgDica.encode())
             msg = self.client_socket.recv(1024).decode().split(',')
@@ -221,14 +221,16 @@ class Main(QMainWindow, Ui_main):
     def dicas(self):
         nome = self.tela_dica.comboBox.currentText()
         if not (nome == None or nome == ''):
-            if not self.serverDica(nome):
-                msgDica = f'4,{nome}'
-                self.serverDica(msgDica)
-                novo_resultado = self.serverDica(msgDica)
-                self.tela_dica.plainTextEdit.setPlainText(novo_resultado[1].replace("'", " "))
-                self.tela_dica.plainTextEdit_2.setPlainText(novo_resultado[2].replace("'", " "))
-                self.tela_dica.plainTextEdit_3.setPlainText(novo_resultado[3].replace("'", " "))
-                self.tela_dica.plainTextEdit_4.setPlainText(novo_resultado[4].replace("'", " ",))
+            msg = f'4,{nome}'
+            resultado = self.serverDica(msg) 
+            if resultado is not None:
+                if resultado is not None and len(resultado) >= 5:
+                    self.tela_dica.plainTextEdit.setPlainText(resultado[1].replace("'", " "))
+                    self.tela_dica.plainTextEdit_2.setPlainText(resultado[2].replace("'", " "))
+                    self.tela_dica.plainTextEdit_3.setPlainText(resultado[3].replace("'", " "))
+                    self.tela_dica.plainTextEdit_4.setPlainText(resultado[4].replace("'", " "))
+                else:
+                    QMessageBox.information(None, 'Atenção', 'Dica não cadastrada no sistema')
             else:
                 QMessageBox.information(None, 'Atenção', 'Erro ao buscar')
         else:

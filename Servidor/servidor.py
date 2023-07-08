@@ -67,10 +67,12 @@ class Metodos:
         conexao.commit()
         return True
 
-    def listar_jogos(self,nome):
+    def listar_jogos(self, nome):
         cursor.execute('SELECT * FROM Jogos WHERE nome = %s', (nome,))
         resultado = cursor.fetchall()
-        return resultado
+        sucesso = bool(resultado) 
+        return resultado, sucesso
+    
     def listar_clientes(self,email):
         cursor.execute('SELECT * FROM Usuarios WHERE email = %s', (email,))
         resultado = cursor.fetchone()
@@ -122,11 +124,12 @@ class MyThread(threading.Thread):
                 elif mensagemStr[0] == '4':
                     nome = mensagemStr[1]
                     print('Conectado 4')
-                    resultado = metodos.listar_jogos(nome)
-                    if resultado:
+                    resultado, sucesso = metodos.listar_jogos(nome)
+                    if sucesso:
                         resul = f'{resultado}'
                         print(resul)
                         con.send(resul.encode())
+                        enviar = '1'
                     else:
                         enviar = '0'
                 elif mensagemStr[0] == '5':
