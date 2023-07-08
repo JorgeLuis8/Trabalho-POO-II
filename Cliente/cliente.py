@@ -221,22 +221,23 @@ class Main(QMainWindow, Ui_main):
 
     def dicas(self):
         nome = self.tela_dica.comboBox.currentText()
-        if not (nome == None or nome == ''):
+        if nome:
             msg = f'4,{nome}'
-            resultado = self.serverDica(msg) 
-            if resultado is not None :
-                if resultado is not None and len(resultado) >= 5:
-                    texto = ''
-                    for i in resultado :
-                        texto += i.replace("[", "").replace("'"," ").replace("]", "").replace("(", "").replace(")", "") + '\n'
-                    
-                    self.tela_dica.plainTextEdit.setPlainText(texto)
-                else:
-                    QMessageBox.information(None, 'Atenção', 'Dica não cadastrada no sistema')
+            resultado = self.serverDica(msg)
+            if resultado is not None and len(resultado) > 4:
+                texto = ''
+                descricao = resultado[3]
+                dica = resultado[4]
+                dica = dica.replace("'", "").replace("(", "").replace(")", "").replace("[", "").replace("]", "")
+                descricao = descricao.replace("'", "").replace("(", "").replace(")", "").replace("[", "").replace("]", "")
+                texto += f"Descrição: {descricao}\nDica: {dica}\n\n"
+                self.tela_dica.plainTextEdit.setPlainText(texto)
             else:
-                QMessageBox.information(None, 'Atenção', 'Erro ao buscar')
+                QMessageBox.information(None, 'Atenção', 'Dica não cadastrada no sistema')
         else:
-            QMessageBox.information(None, 'Atenção', 'Preencha todos os campos')
+            QMessageBox.information(None, 'Atenção', 'Selecione um jogo')
+
+
 
         
 

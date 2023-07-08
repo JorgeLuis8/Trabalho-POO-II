@@ -3,7 +3,6 @@ from pessoa import Usuario
 import socket
 import threading
 
-
 conexao = mysql.connector.connect(
     host="localhost",
     user="root",
@@ -12,28 +11,28 @@ conexao = mysql.connector.connect(
 )
 cursor = conexao.cursor()
 
-
 class Metodos:
-    def __init__(self) -> None:
+    def __init__(self):
         cursor.execute("""
         CREATE TABLE IF NOT EXISTS Usuarios (
-        idUsuarios INT AUTO_INCREMENT PRIMARY KEY,
-        nome VARCHAR(45) NOT NULL,
-        email VARCHAR(45) NOT NULL,
-        data_nas DATE NOT NULL NOT NULL,
-        user VARCHAR(45) NOT NULL,
-        senha VARCHAR(45) NOT NULL
-    )   ENGINE=InnoDB
+            idUsuarios INT AUTO_INCREMENT PRIMARY KEY,
+            nome VARCHAR(45) NOT NULL,
+            email VARCHAR(45) NOT NULL,
+            data_nas DATE NOT NULL,
+            user VARCHAR(45) NOT NULL,
+            senha VARCHAR(45) NOT NULL
+        ) ENGINE=InnoDB
         """)
 
-    cursor.execute(""" CREATE TABLE IF NOT EXISTS Jogos (
-        idJogos INT NOT NULL AUTO_INCREMENT,
-        nome VARCHAR(45) NOT NULL,
-        ano_lancamento VARCHAR(100) NOT NULL,
-        descri TEXT NOT NULL,
-        dica TEXT NOT NULL,
-        PRIMARY KEY (idJogos))
-        ENGINE = InnoDB;
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS Jogos (
+            idJogos INT NOT NULL AUTO_INCREMENT,
+            nome VARCHAR(45) NOT NULL,
+            ano_lancamento VARCHAR(100) NOT NULL,
+            descri TEXT NOT NULL,
+            dica TEXT NOT NULL,
+            PRIMARY KEY (idJogos)
+        ) ENGINE=InnoDB;
         """)
 
     def verifica_cadastro(self, user, email):
@@ -62,28 +61,32 @@ class Metodos:
             return True
         else:
             return False
-    def cad_jogo(self,nome,ano,descri,dica):
-        cursor.execute('''INSERT INTO Jogos (nome,ano_lancamento,descri,dica) VALUES (%s, %s, %s, %s)''', (nome, ano, descri, dica))
+
+    def cad_jogo(self, nome, ano, descri, dica):
+        cursor.execute('''INSERT INTO Jogos (nome,ano_lancamento,descri,dica) VALUES (%s, %s, %s, %s)''',
+                       (nome, ano, descri, dica))
         conexao.commit()
         return True
 
     def listar_jogos(self, nome):
         cursor.execute('SELECT * FROM Jogos WHERE nome = %s', (nome,))
         resultado = cursor.fetchall()
-        sucesso = bool(resultado) 
+        sucesso = bool(resultado)
         return resultado, sucesso
-    
-    def listar_clientes(self,email):
+
+    def listar_clientes(self, email):
         cursor.execute('SELECT * FROM Usuarios WHERE email = %s', (email,))
         resultado = cursor.fetchone()
         return resultado
+
+
 class MyThread(threading.Thread):
     def __init__(self, client_address, client_socket):
         threading.Thread.__init__(self)
         self.name = ''
         self.client_socket = client_socket
-        print('Nova conexão, endereço: ', client_address)
-    
+        print('Nova conexão, endereço:', client_address)
+
     def run(self):
         con = self.client_socket
         metodos = Metodos()
@@ -91,12 +94,12 @@ class MyThread(threading.Thread):
             try:
                 msgLogin = con.recv(1024)
                 mensagemStr = msgLogin.decode().split(',')
-                
+
                 enviar = ''
                 if mensagemStr[0] == '1':
                     email = mensagemStr[1]
                     senha = mensagemStr[2]
-                    print(f'O usuario {email} está tentando logar')
+                    print(f'O usuário {email} está tentando logar')
                     if not metodos.logar(email, senha):
                         enviar = '1'
                     else:
@@ -120,7 +123,7 @@ class MyThread(threading.Thread):
                     dica = mensagemStr[4]
                     print('Conectado 3')
                     metodos.cad_jogo(nome, ano_lancamento, descri, dica)
-                    enviar = '1' 
+                    enviar = '1'
                 elif mensagemStr[0] == '4':
                     nome = mensagemStr[1]
                     print('Conectado 4')
@@ -151,7 +154,7 @@ class MyThread(threading.Thread):
                 con.close()
                 break
 
-            
+
 if __name__ == '__main__':
     metodos = Metodos()
     hostname = socket.gethostname()
@@ -168,4 +171,3 @@ if __name__ == '__main__':
         client_socket, addr = serv_socket.accept()
         my_thread = MyThread(addr, client_socket)
         my_thread.start()
-    
