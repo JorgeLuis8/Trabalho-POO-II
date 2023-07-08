@@ -239,3 +239,12 @@ class Cadastro_jogos(object):
         self.label_4.setText(_translate("MainWindow", "Dica"))
         self.lineEdit_2.setPlaceholderText(_translate("MainWindow", "ano/mes/dia"))
         self.label.setText(_translate("MainWindow", "CADASTRE UM JOGO NOVO"))
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    MainWindow = QtWidgets.QMainWindow()
+    ui = Cadastro_jogos()
+    ui.setupUi(MainWindow)
+    MainWindow.show()
+    sys.exit(app.exec_())

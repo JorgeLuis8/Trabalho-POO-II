@@ -212,3 +212,11 @@ class Pesquisa_dica(object):
         self.label_3.setText(_translate("MainWindow", "Descrição"))
         self.comboBox.setItemText(0, _translate("MainWindow", "League of Legends"))
         self.comboBox.setItemText(1, _translate("MainWindow", "Valorant"))
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    MainWindow = QtWidgets.QMainWindow()
+    ui = Pesquisa_dica()
+    ui.setupUi(MainWindow)
+    MainWindow.show()
+    sys.exit(app.exec_())

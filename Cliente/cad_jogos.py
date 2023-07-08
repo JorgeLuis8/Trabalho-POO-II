@@ -240,3 +240,11 @@ class Tela_jogos(object):
         self.pushButton_6.setText(_translate("MainWindow", "Cadastrar Jogos"))
         self.comboBox.setItemText(0, _translate("MainWindow", "League of Legends"))
         self.comboBox.setItemText(1, _translate("MainWindow", "Valorant"))
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    MainWindow = QtWidgets.QMainWindow()
+    ui = Tela_jogos()
+    ui.setupUi(MainWindow)
+    MainWindow.show()
+    sys.exit(app.exec_())

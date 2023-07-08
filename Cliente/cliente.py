@@ -41,8 +41,8 @@ class Ui_main(QtWidgets.QWidget):
         self.tela_home = Tela_home()
         self.tela_home.setupUi(self.stack3)
 
-        self.cadastro_jogos = Tela_jogos()
-        self.cadastro_jogos.setupUi(self.stack4)
+        self.cad_dica = Tela_jogos()
+        self.cad_dica.setupUi(self.stack4)
 
         self.tela_dica = Pesquisa_dica()
         self.tela_dica.setupUi(self.stack5)
@@ -63,7 +63,7 @@ class Main(QMainWindow, Ui_main):
     def __init__(self, parent=None):
         super(Main, self).__init__(parent)
         self.setupUi(self)
-
+        self.usuario_logado = None
         hostname = socket.gethostname()
         ip_address = socket.gethostbyname(hostname)
         ip = ip_address
@@ -88,10 +88,10 @@ class Main(QMainWindow, Ui_main):
         self.tela_home.pushButton_6.clicked.connect(self.cad_jogos)
         
 
-        self.cadastro_jogos.pushButton_3.clicked.connect(self.voltar)
-        self.cadastro_jogos.pushButton_4.clicked.connect(self.voltar2)
-        self.cadastro_jogos.pushButton_5.clicked.connect(self.dica)
-        self.cadastro_jogos.pushButton_6.clicked.connect(self.cad_jogos)
+        self.cad_dica.pushButton_3.clicked.connect(self.voltar)
+        self.cad_dica.pushButton_4.clicked.connect(self.voltar2)
+        self.cad_dica.pushButton_5.clicked.connect(self.dica)
+        self.cad_dica.pushButton_6.clicked.connect(self.cad_jogos)
 
         self.tela_dica.pushButton_3.clicked.connect(self.voltar)
         self.tela_dica.pushButton.clicked.connect(self.ir_jogos)
@@ -174,6 +174,7 @@ class Main(QMainWindow, Ui_main):
                 self.tela_home.lineEdit.setText(resultado[1].replace("'", " "))
                 self.tela_home.lineEdit_2.setText(resultado[6].replace("'", " "))
                 self.tela_home.lineEdit_3.setText(resultado[2].replace("'", " "))
+                self.usuario_logado = resultado[1].replace("'", " ")
 
             else:
                 QMessageBox.information(None, 'Atenção', 'Email ou senha incorretos')
@@ -227,6 +228,8 @@ class Main(QMainWindow, Ui_main):
                 self.tela_dica.plainTextEdit_2.setPlainText(novo_resultado[2].replace("'", " "))
                 self.tela_dica.plainTextEdit_3.setPlainText(novo_resultado[3].replace("'", " "))
                 self.tela_dica.plainTextEdit_4.setPlainText(novo_resultado[4].replace("'", " ",))
+
+                self.tela_dica.label.setText(f'Usuário logado: {self.usuario_logado}')
             else:
                 QMessageBox.information(None, 'Atenção', 'Erro ao buscar')
         else:
