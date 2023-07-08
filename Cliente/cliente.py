@@ -224,12 +224,13 @@ class Main(QMainWindow, Ui_main):
         if not (nome == None or nome == ''):
             msg = f'4,{nome}'
             resultado = self.serverDica(msg) 
-            if resultado is not None:
+            if resultado is not None :
                 if resultado is not None and len(resultado) >= 5:
-                    self.tela_dica.plainTextEdit.setPlainText(resultado[1].replace("'", " "))
-                    self.tela_dica.plainTextEdit_2.setPlainText(resultado[2].replace("'", " "))
-                    self.tela_dica.plainTextEdit_3.setPlainText(resultado[3].replace("'", " "))
-                    self.tela_dica.plainTextEdit_4.setPlainText(resultado[4].replace("'", " "))
+                    texto = ''
+                    for i in resultado :
+                        texto += i.replace("[", "").replace("'"," ").replace("]", "").replace("(", "").replace(")", "") + '\n'
+                    
+                    self.tela_dica.plainTextEdit.setPlainText(texto)
                 else:
                     QMessageBox.information(None, 'Atenção', 'Dica não cadastrada no sistema')
             else:

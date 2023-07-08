@@ -108,7 +108,7 @@ class Pesquisa_dica(object):
 "")
         self.pushButton_4.setObjectName("pushButton_4")
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_2.setGeometry(QtCore.QRect(220, 180, 41, 16))
+        self.label_2.setGeometry(QtCore.QRect(210, 180, 41, 20))
         font = QtGui.QFont()
         font.setPointSize(11)
         font.setBold(False)
@@ -119,38 +119,8 @@ class Pesquisa_dica(object):
 "border: none;\n"
 "")
         self.label_2.setObjectName("label_2")
-        self.label_4 = QtWidgets.QLabel(self.centralwidget)
-        self.label_4.setGeometry(QtCore.QRect(220, 330, 31, 16))
-        font = QtGui.QFont()
-        font.setPointSize(11)
-        font.setBold(False)
-        font.setWeight(50)
-        self.label_4.setFont(font)
-        self.label_4.setStyleSheet("color: black;\n"
-"background-color: transparent;\n"
-"border: none;\n"
-"")
-        self.label_4.setObjectName("label_4")
-        self.label_5 = QtWidgets.QLabel(self.centralwidget)
-        self.label_5.setGeometry(QtCore.QRect(120, 210, 131, 20))
-        font = QtGui.QFont()
-        font.setPointSize(11)
-        font.setBold(False)
-        font.setWeight(50)
-        self.label_5.setFont(font)
-        self.label_5.setStyleSheet("color: black;\n"
-"background-color: transparent;\n"
-"border: none;\n"
-"")
-        self.label_5.setObjectName("label_5")
-        self.label_3 = QtWidgets.QLabel(self.centralwidget)
-        self.label_3.setGeometry(QtCore.QRect(190, 250, 61, 20))
-        font = QtGui.QFont()
-        font.setPointSize(11)
-        self.label_3.setFont(font)
-        self.label_3.setObjectName("label_3")
         self.plainTextEdit = QtWidgets.QPlainTextEdit(self.centralwidget)
-        self.plainTextEdit.setGeometry(QtCore.QRect(260, 170, 401, 31))
+        self.plainTextEdit.setGeometry(QtCore.QRect(260, 170, 401, 341))
         self.plainTextEdit.setStyleSheet("color: black;\n"
 "background-color: transparent;\n"
 "\n"
@@ -158,31 +128,6 @@ class Pesquisa_dica(object):
         self.plainTextEdit.setReadOnly(True)
         self.plainTextEdit.setOverwriteMode(False)
         self.plainTextEdit.setObjectName("plainTextEdit")
-        self.plainTextEdit_2 = QtWidgets.QPlainTextEdit(self.centralwidget)
-        self.plainTextEdit_2.setGeometry(QtCore.QRect(260, 210, 401, 31))
-        self.plainTextEdit_2.setStyleSheet("color: black;\n"
-"background-color: transparent;\n"
-"\n"
-"")
-        self.plainTextEdit_2.setReadOnly(True)
-        self.plainTextEdit_2.setObjectName("plainTextEdit_2")
-        self.plainTextEdit_3 = QtWidgets.QPlainTextEdit(self.centralwidget)
-        self.plainTextEdit_3.setGeometry(QtCore.QRect(260, 250, 401, 61))
-        self.plainTextEdit_3.setStyleSheet("color: black;\n"
-"background-color: transparent;\n"
-"\n"
-"\n"
-"")
-        self.plainTextEdit_3.setReadOnly(True)
-        self.plainTextEdit_3.setObjectName("plainTextEdit_3")
-        self.plainTextEdit_4 = QtWidgets.QPlainTextEdit(self.centralwidget)
-        self.plainTextEdit_4.setGeometry(QtCore.QRect(260, 320, 401, 71))
-        self.plainTextEdit_4.setStyleSheet("color: black;\n"
-"background-color: transparent;\n"
-"\n"
-"")
-        self.plainTextEdit_4.setReadOnly(True)
-        self.plainTextEdit_4.setObjectName("plainTextEdit_4")
         self.comboBox = QtWidgets.QComboBox(self.centralwidget)
         self.comboBox.setGeometry(QtCore.QRect(240, 60, 421, 22))
         self.comboBox.setStyleSheet("background-color: transparent;\n"
@@ -229,10 +174,7 @@ class Pesquisa_dica(object):
         self.pushButton_6.setText(_translate("MainWindow", "Cadastrar Jogos"))
         self.label.setText(_translate("MainWindow", "ENCONTRE A DICA QUE DESEJA"))
         self.pushButton_4.setText(_translate("MainWindow", "Pesquisar"))
-        self.label_2.setText(_translate("MainWindow", "Jogo"))
-        self.label_4.setText(_translate("MainWindow", "Dica"))
-        self.label_5.setText(_translate("MainWindow", "Data de lançamento"))
-        self.label_3.setText(_translate("MainWindow", "Descrição"))
+        self.label_2.setText(_translate("MainWindow", "Dicas"))
         self.comboBox.setItemText(0, _translate("MainWindow", "League of Legends"))
         self.comboBox.setItemText(1, _translate("MainWindow", "Valorant"))
         self.comboBox.setItemText(2, _translate("MainWindow", "The Legend of Zelda: Ocarina of Time (1998)"))
