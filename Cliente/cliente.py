@@ -10,7 +10,7 @@ from telaInicio import Tela_inical
 from tela_cad import Tela_cad
 from telaAbout import About_us
 from home import Tela_home
-from cad_jogos import Tela_jogos
+from cad_dica import Cad_dica
 from pesquisa_dica import Pesquisa_dica
 from cadastro_jogos import Cadastro_jogos
 
@@ -41,8 +41,8 @@ class Ui_main(QtWidgets.QWidget):
         self.tela_home = Tela_home()
         self.tela_home.setupUi(self.stack3)
 
-        self.cadastro_jogos = Tela_jogos()
-        self.cadastro_jogos.setupUi(self.stack4)
+        self.tela_jogos = Cad_dica()
+        self.tela_jogos.setupUi(self.stack4)
 
         self.tela_dica = Pesquisa_dica()
         self.tela_dica.setupUi(self.stack5)
@@ -88,10 +88,11 @@ class Main(QMainWindow, Ui_main):
         self.tela_home.pushButton_6.clicked.connect(self.cad_jogos)
         
 
-        self.cadastro_jogos.pushButton_3.clicked.connect(self.voltar)
-        self.cadastro_jogos.pushButton_4.clicked.connect(self.voltar2)
-        self.cadastro_jogos.pushButton_5.clicked.connect(self.dica)
-        self.cadastro_jogos.pushButton_6.clicked.connect(self.cad_jogos)
+
+        self.tela_jogos.pushButton_3.clicked.connect(self.voltar)
+        self.tela_jogos.pushButton_4.clicked.connect(self.voltar2)
+        self.tela_jogos.pushButton_5.clicked.connect(self.dica)
+        self.tela_jogos.pushButton_6.clicked.connect(self.cad_jogos)
 
         self.tela_dica.pushButton_3.clicked.connect(self.voltar)
         self.tela_dica.pushButton.clicked.connect(self.ir_jogos)
@@ -162,7 +163,7 @@ class Main(QMainWindow, Ui_main):
         senha = self.tela_inical.campoSenha.text()
         msgLogin = f'1,{email},{senha}'
         if not (email == None or senha == None or email == '' or senha == ''):
-            print(f'O usuario {email} está tentando logar')
+            print('entrou aqui')
             if  self.serverLogin(msgLogin):
                 self.tela_inical.campoUsuario.clear()
                 self.tela_inical.campoSenha.clear()
@@ -191,19 +192,20 @@ class Main(QMainWindow, Ui_main):
                 return False
 
     def cadastrar_jogos(self):
-        nome =self.cadastro_jogos.lineEdit_5.text()
+        nome = self.cadastro_jogos.lineEdit_5.text()
         data = self.cadastro_jogos.lineEdit_2.text()
-        descricao =self.cadastro_jogos.lineEdit_3.text()
+        descricao = self.cadastro_jogos.lineEdit_3.text()
         dica = self.cadastro_jogos.lineEdit_4.text()
         msgCad = f'3,{nome},{data},{descricao},{dica}'
         print(msgCad)
         if not (nome == None or data == None or descricao == None or dica == None or nome == '' or data == '' or descricao == '' or dica == ''):
             print('entrou no cad')
             if self.serverCadjogos(msgCad):
-                self.cadastro_jogos.lineEdit.clear()
+                self.cadastro_jogos.lineEdit_5.clear()
                 self.cadastro_jogos.lineEdit_2.clear()
                 self.cadastro_jogos.lineEdit_3.clear()
                 self.cadastro_jogos.lineEdit_4.clear()
+
                 QMessageBox.information(None, 'Sucesso', 'Cadastro realizado com sucesso')
             else:
                 QMessageBox.information(None, 'Atenção', 'Erro ao cadastrar')

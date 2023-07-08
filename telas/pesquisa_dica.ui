@@ -413,6 +413,121 @@ background: white;</string>
       <string>Valorant</string>
      </property>
     </item>
+    <item>
+     <property name="text">
+      <string>The Legend of Zelda: Ocarina of Time (1998)</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Grand Theft Auto V</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>The Last of Us</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>God of War (2018)</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Grand Thef Auto: San  Andreas</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Portal 2 (2011)</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Cuphead</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Dota 2</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Undertale</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Resident Evil 3 (1999)</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Resident Evil 2 (Remake)</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Silent Hill 2</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Shadow of the Colossus</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Elden Ring</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Hades</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Lost Ark</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Legends of Runeterra</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Dead Space</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Overwatch 2</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Hitman 3</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Halo  Infinite</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Call of Duty: Warzone</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Resident Evil 3 (Remake)</string>
+     </property>
+    </item>
    </widget>
   </widget>
  </widget>
