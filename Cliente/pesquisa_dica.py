@@ -119,15 +119,6 @@ class Pesquisa_dica(object):
 "border: none;\n"
 "")
         self.label_2.setObjectName("label_2")
-        self.plainTextEdit = QtWidgets.QPlainTextEdit(self.centralwidget)
-        self.plainTextEdit.setGeometry(QtCore.QRect(260, 170, 401, 341))
-        self.plainTextEdit.setStyleSheet("color: black;\n"
-"background-color: transparent;\n"
-"\n"
-"")
-        self.plainTextEdit.setReadOnly(True)
-        self.plainTextEdit.setOverwriteMode(False)
-        self.plainTextEdit.setObjectName("plainTextEdit")
         self.comboBox = QtWidgets.QComboBox(self.centralwidget)
         self.comboBox.setGeometry(QtCore.QRect(240, 60, 421, 22))
         self.comboBox.setStyleSheet("background-color: transparent;\n"
@@ -160,16 +151,25 @@ class Pesquisa_dica(object):
         self.comboBox.addItem("")
         self.comboBox.addItem("")
         self.scrollArea = QtWidgets.QScrollArea(self.centralwidget)
-        self.scrollArea.setGeometry(QtCore.QRect(259, 169, 401, 341))
+        self.scrollArea.setGeometry(QtCore.QRect(250, 180, 491, 391))
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 399, 339))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 489, 389))
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
         self.verticalScrollBar = QtWidgets.QScrollBar(self.scrollAreaWidgetContents)
-        self.verticalScrollBar.setGeometry(QtCore.QRect(380, 0, 16, 341))
+        self.verticalScrollBar.setGeometry(QtCore.QRect(470, 0, 16, 391))
         self.verticalScrollBar.setOrientation(QtCore.Qt.Vertical)
         self.verticalScrollBar.setObjectName("verticalScrollBar")
+        self.plainTextEdit = QtWidgets.QPlainTextEdit(self.scrollAreaWidgetContents)
+        self.plainTextEdit.setGeometry(QtCore.QRect(0, 0, 471, 391))
+        self.plainTextEdit.setStyleSheet("color: black;\n"
+"background-color: transparent;\n"
+"\n"
+"")
+        self.plainTextEdit.setReadOnly(True)
+        self.plainTextEdit.setOverwriteMode(False)
+        self.plainTextEdit.setObjectName("plainTextEdit")
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
         MainWindow.setCentralWidget(self.centralwidget)
 
