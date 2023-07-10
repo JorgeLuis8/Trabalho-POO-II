@@ -1,7 +1,7 @@
 import sys
 import os
 import socket
-
+import json
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMainWindow, QApplication, QFileDialog, QMessageBox
 from PyQt5.QtCore import QCoreApplication
@@ -202,6 +202,7 @@ class Main(QMainWindow, Ui_main):
         if not (nome == None or data == None or descricao == None or dica == None or nome == '' or data == '' or descricao == '' or dica == ''):
             print('entrou no cad')
             if self.serverCadjogos(msgCad):
+
                 self.cadastro_jogos.lineEdit_5.clear()
                 self.cadastro_jogos.lineEdit_2.clear()
                 self.cadastro_jogos.lineEdit_3.clear()
@@ -212,34 +213,50 @@ class Main(QMainWindow, Ui_main):
                 QMessageBox.information(None, 'Atenção', 'Erro ao cadastrar')
         else:
             QMessageBox.information(None, 'Atenção', 'Preencha todos os campos')
+            
+    def serverDica(self, nome):
+        if nome:
+            while True:
+                msgDica = f'4,{nome}'
+                self.client_socket.send(msgDica.encode())
+                data = self.client_socket.recv(80000).decode()
 
-    def serverDica(self, msgDica):
-        if msgDica.split(',')[0] == '4':
-            self.client_socket.send(msgDica.encode())
-            msg = self.client_socket.recv(1024).decode().split(',')
-            return msg
+                try:
+                    msg = json.loads(data) 
+                    print(msg) # Converter a string JSON em um objeto Python
+                    return msg
+                except json.decoder.JSONDecodeError as e:
+                    print(f"Erro na decodificação JSON: {e}")
+                    return None
+        return None
+
 
     def dicas(self):
         nome = self.tela_dica.comboBox.currentText()
         if nome:
-            msg = f'4,{nome}'
-            resultado = self.serverDica(msg)
-            if resultado is not None and len(resultado) > 4:
-                texto = ''
-                descricao = resultado[3]
-                dica = resultado[4]
-                dica = dica.replace("'", "").replace("(", "").replace(")", "").replace("[", "").replace("]", "")
-                descricao = descricao.replace("'", "").replace("(", "").replace(")", "").replace("[", "").replace("]", "")
-                texto += f"Descrição: {descricao}\nDica: {dica}\n\n"
-                self.tela_dica.plainTextEdit.setPlainText(texto)
+            self.tela_dica.plainTextEdit.clear()  # Limpa o conteúdo anterior
+            resultado = self.serverDica(nome)
+
+            if resultado is not None and isinstance(resultado, list):
+                if resultado and resultado[0] == '0':
+                    QMessageBox.information(None, 'Atenção', 'Dica não cadastrada no sistema')
+                else:
+                    for item in resultado:
+                        if len(item) == 5:  # Verifica se o item tem o número esperado de elementos
+                            id_jogo, nome, data, descricao, dica = item
+                            texto = f"Data de Lançamento: {data}\nDescrição: {descricao}\nDica: {dica}\n\n"
+                            self.tela_dica.plainTextEdit.appendPlainText(texto)
+                        else:
+                            print(f"Item inválido: {item}")
+
+                    if not resultado:
+                        QMessageBox.information(None, 'Atenção', 'Dica não cadastrada no sistema')
             else:
                 QMessageBox.information(None, 'Atenção', 'Dica não cadastrada no sistema')
         else:
             QMessageBox.information(None, 'Atenção', 'Selecione um jogo')
 
 
-
-        
 
     def voltar(self):
         self.Qstack.setCurrentIndex(0)

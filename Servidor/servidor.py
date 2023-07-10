@@ -2,7 +2,7 @@ import mysql.connector
 from pessoa import Usuario
 import socket
 import threading
-
+import json
 conexao = mysql.connector.connect(
     host="localhost",
     user="root",
@@ -92,7 +92,7 @@ class MyThread(threading.Thread):
         metodos = Metodos()
         while True:
             try:
-                msgLogin = con.recv(1024)
+                msgLogin = con.recv(80000)
                 mensagemStr = msgLogin.decode().split(',')
 
                 enviar = ''
@@ -129,12 +129,13 @@ class MyThread(threading.Thread):
                     print('Conectado 4')
                     resultado, sucesso = metodos.listar_jogos(nome)
                     if sucesso:
-                        resul = f'{resultado}'
+                        resul = json.dumps(resultado)  # Converter o objeto Python em uma string JSON
                         print(resul)
                         con.send(resul.encode())
-                        enviar = '1'
+
                     else:
                         enviar = '0'
+
                 elif mensagemStr[0] == '5':
                     email = mensagemStr[1]
                     print('Conectado 5')
