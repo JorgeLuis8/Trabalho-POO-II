@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'novos_jogos.ui'
+# Form implementation generated from reading ui file 'novas_dicas.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.9
 #
@@ -11,7 +11,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Cadastro_jogos(object):
+class Cadastro_dicas(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 600)
@@ -20,26 +20,14 @@ class Cadastro_jogos(object):
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.frame = QtWidgets.QFrame(self.centralwidget)
-        self.frame.setGeometry(QtCore.QRect(0, 0, 120, 601))
+        self.frame.setGeometry(QtCore.QRect(-10, 0, 121, 601))
         self.frame.setStyleSheet("background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 white, stop: 1 #D3D3D3);\n"
 "")
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
-        self.pushButton_2 = QtWidgets.QPushButton(self.frame)
-        self.pushButton_2.setGeometry(QtCore.QRect(20, 120, 81, 23))
-        self.pushButton_2.setStyleSheet("QPushButton {\n"
-"    background-color:  #add8e6 ;\n"
-"    border-radius: 10px;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color:#AABAF2 ;\n"
-"}\n"
-"")
-        self.pushButton_2.setObjectName("pushButton_2")
         self.pushButton_4 = QtWidgets.QPushButton(self.frame)
-        self.pushButton_4.setGeometry(QtCore.QRect(20, 30, 81, 23))
+        self.pushButton_4.setGeometry(QtCore.QRect(20, 20, 81, 23))
         self.pushButton_4.setStyleSheet("QPushButton {\n"
 "    background-color:  #add8e6;\n"
 "    border-radius: 10px;\n"
@@ -51,7 +39,7 @@ class Cadastro_jogos(object):
 "")
         self.pushButton_4.setObjectName("pushButton_4")
         self.pushButton_5 = QtWidgets.QPushButton(self.frame)
-        self.pushButton_5.setGeometry(QtCore.QRect(20, 70, 81, 23))
+        self.pushButton_5.setGeometry(QtCore.QRect(20, 60, 81, 23))
         self.pushButton_5.setStyleSheet("QPushButton {\n"
 "    background-color:  #add8e6 ;\n"
 "    border-radius: 10px;\n"
@@ -75,7 +63,7 @@ class Cadastro_jogos(object):
 "")
         self.pushButton_3.setObjectName("pushButton_3")
         self.pushButton_6 = QtWidgets.QPushButton(self.frame)
-        self.pushButton_6.setGeometry(QtCore.QRect(20, 160, 81, 23))
+        self.pushButton_6.setGeometry(QtCore.QRect(20, 100, 81, 23))
         self.pushButton_6.setStyleSheet("QPushButton {\n"
 "    background-color:  #AABAF2;\n"
 "    border-radius: 10px;\n"
@@ -86,6 +74,18 @@ class Cadastro_jogos(object):
 "}\n"
 "")
         self.pushButton_6.setObjectName("pushButton_6")
+        self.pushButton_2 = QtWidgets.QPushButton(self.frame)
+        self.pushButton_2.setGeometry(QtCore.QRect(10, 140, 111, 21))
+        self.pushButton_2.setStyleSheet("QPushButton {\n"
+"    background-color:  #add8e6;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color:#AABAF2 ;\n"
+"}\n"
+"")
+        self.pushButton_2.setObjectName("pushButton_2")
         self.label_5 = QtWidgets.QLabel(self.centralwidget)
         self.label_5.setGeometry(QtCore.QRect(130, 130, 141, 20))
         font = QtGui.QFont()
@@ -227,24 +227,25 @@ class Cadastro_jogos(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.pushButton_2.setText(_translate("MainWindow", "Cadastrar Dicas"))
         self.pushButton_4.setText(_translate("MainWindow", "Perfil"))
         self.pushButton_5.setText(_translate("MainWindow", "Pesquisar Dicas"))
         self.pushButton_3.setText(_translate("MainWindow", "Deslogar"))
-        self.pushButton_6.setText(_translate("MainWindow", "Cadastrar Jogos"))
+        self.pushButton_6.setText(_translate("MainWindow", "Cadastrar Dicas"))
+        self.pushButton_2.setText(_translate("MainWindow", "Cadastrar novos jogos"))
         self.label_5.setText(_translate("MainWindow", "Data de lançamento"))
         self.label_3.setText(_translate("MainWindow", "Descrição"))
         self.label_2.setText(_translate("MainWindow", "Jogo"))
-        self.pushButton.setText(_translate("MainWindow", "Cadastrar Jogo"))
+        self.pushButton.setText(_translate("MainWindow", "Cadastrar Dica"))
         self.label_4.setText(_translate("MainWindow", "Dica"))
         self.lineEdit_2.setPlaceholderText(_translate("MainWindow", "ano/mes/dia"))
-        self.label.setText(_translate("MainWindow", "CADASTRE UM JOGO NOVO"))
+        self.label.setText(_translate("MainWindow", "CADASTRE UMA DICA"))
+
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
-    ui = Cadastro_jogos()
+    ui = Cadastro_dicas()
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())

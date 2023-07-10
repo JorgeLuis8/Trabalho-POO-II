@@ -41,18 +41,6 @@ class Tela_home(object):
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
-        self.pushButton = QtWidgets.QPushButton(self.frame)
-        self.pushButton.setGeometry(QtCore.QRect(20, 120, 81, 23))
-        self.pushButton.setStyleSheet("QPushButton {\n"
-"    background-color:  #add8e6;\n"
-"    border-radius: 10px;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color:#AABAF2 ;\n"
-"}\n"
-"")
-        self.pushButton.setObjectName("pushButton")
         self.voltar = QtWidgets.QPushButton(self.frame)
         self.voltar.setGeometry(QtCore.QRect(20, 560, 75, 23))
         self.voltar.setStyleSheet("QPushButton {\n"
@@ -90,7 +78,7 @@ class Tela_home(object):
 "")
         self.pushButton_3.setObjectName("pushButton_3")
         self.pushButton_6 = QtWidgets.QPushButton(self.frame)
-        self.pushButton_6.setGeometry(QtCore.QRect(20, 160, 81, 23))
+        self.pushButton_6.setGeometry(QtCore.QRect(20, 120, 81, 23))
         self.pushButton_6.setStyleSheet("QPushButton {\n"
 "    background-color:  #add8e6;\n"
 "    border-radius: 10px;\n"
@@ -101,6 +89,18 @@ class Tela_home(object):
 "}\n"
 "")
         self.pushButton_6.setObjectName("pushButton_6")
+        self.pushButton = QtWidgets.QPushButton(self.frame)
+        self.pushButton.setGeometry(QtCore.QRect(10, 160, 111, 21))
+        self.pushButton.setStyleSheet("QPushButton {\n"
+"    background-color:  #add8e6;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color:#AABAF2 ;\n"
+"}\n"
+"")
+        self.pushButton.setObjectName("pushButton")
         self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit.setGeometry(QtCore.QRect(290, 140, 281, 20))
         self.lineEdit.setStyleSheet("color: black;\n"
@@ -165,11 +165,11 @@ class Tela_home(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.label.setText(_translate("MainWindow", "HOME PAGE"))
-        self.pushButton.setText(_translate("MainWindow", "Cadastrar Dicas"))
         self.voltar.setText(_translate("MainWindow", "Deslogar"))
         self.pushButton_2.setText(_translate("MainWindow", "Perfil"))
         self.pushButton_3.setText(_translate("MainWindow", "Pesquisar Dicas"))
         self.pushButton_6.setText(_translate("MainWindow", "Cadastrar Jogos"))
+        self.pushButton.setText(_translate("MainWindow", "Cadastrar novos jogos"))
         self.label_2.setText(_translate("MainWindow", "Nome"))
         self.label_3.setText(_translate("MainWindow", "User"))
         self.label_4.setText(_translate("MainWindow", "Email"))

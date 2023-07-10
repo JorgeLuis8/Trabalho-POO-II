@@ -26,18 +26,6 @@ class Pesquisa_dica(object):
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
-        self.pushButton = QtWidgets.QPushButton(self.frame)
-        self.pushButton.setGeometry(QtCore.QRect(20, 120, 81, 23))
-        self.pushButton.setStyleSheet("QPushButton {\n"
-"    background-color:  #add8e6;\n"
-"    border-radius: 10px;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color:#AABAF2 ;\n"
-"}\n"
-"")
-        self.pushButton.setObjectName("pushButton")
         self.pushButton_2 = QtWidgets.QPushButton(self.frame)
         self.pushButton_2.setGeometry(QtCore.QRect(20, 30, 81, 23))
         self.pushButton_2.setStyleSheet("QPushButton {\n"
@@ -75,7 +63,7 @@ class Pesquisa_dica(object):
 "")
         self.voltar.setObjectName("voltar")
         self.pushButton_6 = QtWidgets.QPushButton(self.frame)
-        self.pushButton_6.setGeometry(QtCore.QRect(20, 150, 81, 23))
+        self.pushButton_6.setGeometry(QtCore.QRect(20, 120, 81, 23))
         self.pushButton_6.setStyleSheet("QPushButton {\n"
 "    background-color:  #add8e6;\n"
 "    border-radius: 10px;\n"
@@ -86,6 +74,18 @@ class Pesquisa_dica(object):
 "}\n"
 "")
         self.pushButton_6.setObjectName("pushButton_6")
+        self.pushButton = QtWidgets.QPushButton(self.frame)
+        self.pushButton.setGeometry(QtCore.QRect(4, 162, 111, 21))
+        self.pushButton.setStyleSheet("QPushButton {\n"
+"    background-color:  #add8e6;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color:#AABAF2 ;\n"
+"}\n"
+"")
+        self.pushButton.setObjectName("pushButton")
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(220, 10, 441, 31))
         font = QtGui.QFont()
@@ -181,11 +181,11 @@ class Pesquisa_dica(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.pushButton.setText(_translate("MainWindow", "Cadastrar Dicas"))
         self.pushButton_2.setText(_translate("MainWindow", "Perfil"))
         self.pushButton_3.setText(_translate("MainWindow", "Pesquisar Dicas"))
         self.voltar.setText(_translate("MainWindow", "Deslogar"))
-        self.pushButton_6.setText(_translate("MainWindow", "Cadastrar Jogos"))
+        self.pushButton_6.setText(_translate("MainWindow", "Cadastrar Dicas"))
+        self.pushButton.setText(_translate("MainWindow", "Cadastrar novos jogos"))
         self.label.setText(_translate("MainWindow", "ENCONTRE A DICA QUE DESEJA"))
         self.pushButton_4.setText(_translate("MainWindow", "Pesquisar"))
         self.label_2.setText(_translate("MainWindow", "Dicas"))
@@ -214,3 +214,13 @@ class Pesquisa_dica(object):
         self.comboBox.setItemText(22, _translate("MainWindow", "Halo  Infinite"))
         self.comboBox.setItemText(23, _translate("MainWindow", "Call of Duty: Warzone"))
         self.comboBox.setItemText(24, _translate("MainWindow", "Resident Evil 3 (Remake)"))
+
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    MainWindow = QtWidgets.QMainWindow()
+    ui = Pesquisa_dica()
+    ui.setupUi(MainWindow)
+    MainWindow.show()
+    sys.exit(app.exec_())

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>600</height>
+    <height>614</height>
    </rect>
   </property>
   <property name="font">
@@ -28,10 +28,10 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>260</x>
+      <x>140</x>
       <y>10</y>
-      <width>351</width>
-      <height>20</height>
+      <width>611</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="font">
@@ -48,7 +48,7 @@ border: none;
 </string>
     </property>
     <property name="text">
-     <string>CADASTRE SUA DICA</string>
+     <string>Não achou algum jogo na nossa lista? cadastre aqui:</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -57,87 +57,9 @@ border: none;
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>220</x>
+      <x>210</x>
       <y>120</y>
-      <width>51</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>12</pointsize>
-      <weight>50</weight>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: black;
-background-color: transparent;
-border: none;
-</string>
-    </property>
-    <property name="text">
-     <string>Nome</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_3">
-    <property name="geometry">
-     <rect>
-      <x>190</x>
-      <y>190</y>
-      <width>71</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>12</pointsize>
-      <weight>50</weight>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: black;
-background-color: transparent;
-border: none;
-</string>
-    </property>
-    <property name="text">
-     <string>Descrição</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_4">
-    <property name="geometry">
-     <rect>
-      <x>230</x>
-      <y>250</y>
-      <width>31</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>12</pointsize>
-      <weight>50</weight>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: black;
-background-color: transparent;
-border: none;
-</string>
-    </property>
-    <property name="text">
-     <string>Dica</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_5">
-    <property name="geometry">
-     <rect>
-      <x>130</x>
-      <y>150</y>
-      <width>141</width>
+      <width>61</width>
       <height>20</height>
      </rect>
     </property>
@@ -155,14 +77,14 @@ border: none;
 </string>
     </property>
     <property name="text">
-     <string>Data de lançamento</string>
+     <string>Jogo</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>420</x>
-      <y>330</y>
+      <x>410</x>
+      <y>190</y>
       <width>101</width>
       <height>23</height>
      </rect>
@@ -186,94 +108,7 @@ QPushButton:hover {
 </string>
     </property>
     <property name="text">
-     <string>Cadastrar Dica</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="lineEdit_2">
-    <property name="geometry">
-     <rect>
-      <x>270</x>
-      <y>150</y>
-      <width>391</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>8</pointsize>
-      <weight>50</weight>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: black;
-background-color: transparent;
-
-</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-    <property name="readOnly">
-     <bool>true</bool>
-    </property>
-    <property name="placeholderText">
-     <string>ano/mes/dia</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="lineEdit_3">
-    <property name="geometry">
-     <rect>
-      <x>270</x>
-      <y>170</y>
-      <width>391</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>8</pointsize>
-      <weight>50</weight>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: black;
-background-color: transparent;
-
-</string>
-    </property>
-    <property name="maxLength">
-     <number>2000000000</number>
-    </property>
-    <property name="readOnly">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="lineEdit_4">
-    <property name="geometry">
-     <rect>
-      <x>270</x>
-      <y>240</y>
-      <width>391</width>
-      <height>81</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>8</pointsize>
-      <weight>50</weight>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: black;
-background-color: transparent;
-
-</string>
+     <string>Cadastrar Jogo</string>
     </property>
    </widget>
    <widget class="QFrame" name="frame">
@@ -281,7 +116,7 @@ background-color: transparent;
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>120</width>
+      <width>131</width>
       <height>601</height>
      </rect>
     </property>
@@ -299,21 +134,20 @@ background-color: transparent;
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>120</y>
+       <y>90</y>
        <width>81</width>
        <height>23</height>
       </rect>
      </property>
      <property name="styleSheet">
       <string notr="true">QPushButton {
-    background-color:  #AABAF2;
+    background-color:  #add8e6;
     border-radius: 10px;
 }
 
 QPushButton:hover {
     background-color:#AABAF2 ;
-}
-</string>
+}</string>
      </property>
      <property name="text">
       <string>Cadastrar Dicas</string>
@@ -347,7 +181,7 @@ QPushButton:hover {
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>70</y>
+       <y>60</y>
        <width>81</width>
        <height>23</height>
       </rect>
@@ -391,18 +225,21 @@ QPushButton:hover {
       <string>Deslogar</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_6">
+    <widget class="QPushButton" name="pushButton_7">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>170</y>
-       <width>81</width>
-       <height>23</height>
+       <x>10</x>
+       <y>120</y>
+       <width>111</width>
+       <height>21</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">QPushButton {
-    background-color:  #add8e6;
+      <string notr="true">
+
+
+QPushButton {
+    background-color:  #AABAF2;
     border-radius: 10px;
 }
 
@@ -412,149 +249,25 @@ QPushButton:hover {
 </string>
      </property>
      <property name="text">
-      <string>Cadastrar Jogos</string>
+      <string>Cadastrar novos jogos</string>
      </property>
     </widget>
    </widget>
-   <widget class="QComboBox" name="comboBox">
+   <widget class="QLineEdit" name="lineEdit">
     <property name="geometry">
      <rect>
       <x>270</x>
       <y>120</y>
-      <width>391</width>
-      <height>22</height>
+      <width>421</width>
+      <height>20</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: transparent;
-border: 1px solid black;
-background: white;</string>
+     <string notr="true">color: black;
+background-color: transparent;
+
+</string>
     </property>
-    <item>
-     <property name="text">
-      <string>League of Legends</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Valorant</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>The Legend of Zelda: Ocarina of Time (1998)</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Grand Theft Auto V</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>The Last of Us</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>God of War (2018)</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Grand Thef Auto: San  Andreas</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Portal 2 (2011)</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Cuphead</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Dota 2</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Undertale</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Resident Evil 3 (1999)</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Resident Evil 2 (Remake)</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Silent Hill 2</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Shadow of the Colossus</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Elden Ring</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Hades</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Lost Ark</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Legends of Runeterra</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Dead Space</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Overwatch 2</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Hitman 3</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Halo  Infinite</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Call of Duty: Warzone</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Resident Evil 3 (Remake)</string>
-     </property>
-    </item>
    </widget>
   </widget>
  </widget>

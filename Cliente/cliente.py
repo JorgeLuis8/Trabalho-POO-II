@@ -10,9 +10,9 @@ from telaInicio import Tela_inical
 from tela_cad import Tela_cad
 from telaAbout import About_us
 from home import Tela_home
-from cad_dica import Cad_dica
+from novo_jogo import Cadastro_jogos
 from pesquisa_dica import Pesquisa_dica
-from cadastro_jogos import Cadastro_jogos
+from nova_dica import Cadastro_dicas
 
 class Ui_main(QtWidgets.QWidget):
     def setupUi(self, Main):
@@ -41,13 +41,13 @@ class Ui_main(QtWidgets.QWidget):
         self.tela_home = Tela_home()
         self.tela_home.setupUi(self.stack3)
 
-        self.tela_jogos = Cad_dica()
+        self.tela_jogos = Cadastro_jogos()
         self.tela_jogos.setupUi(self.stack4)
 
         self.tela_dica = Pesquisa_dica()
         self.tela_dica.setupUi(self.stack5)
 
-        self.cadastro_jogos = Cadastro_jogos()
+        self.cadastro_jogos = Cadastro_dicas()
         self.cadastro_jogos.setupUi(self.stack6)
 
         self.Qstack.addWidget(self.stack0)
@@ -82,30 +82,35 @@ class Main(QMainWindow, Ui_main):
 
         self.tela_about.pushButton.clicked.connect(self.voltar)
 
-        self.tela_home.pushButton.clicked.connect(self.ir_jogos)
+        
+        self.tela_home.pushButton_6.clicked.connect(self.cad_jogos)
         self.tela_home.pushButton_3.clicked.connect(self.dica)
         self.tela_home.voltar.clicked.connect(self.voltar)
         self.tela_home.pushButton_6.clicked.connect(self.cad_jogos)
+        self.tela_home.pushButton.clicked.connect(self.ir_jogos)
         
 
 
-        self.tela_jogos.pushButton_3.clicked.connect(self.voltar)
-        self.tela_jogos.pushButton_4.clicked.connect(self.voltar2)
-        self.tela_jogos.pushButton_5.clicked.connect(self.dica)
-        self.tela_jogos.pushButton_6.clicked.connect(self.cad_jogos)
-
-        self.tela_dica.pushButton_3.clicked.connect(self.voltar)
-        self.tela_dica.pushButton.clicked.connect(self.ir_jogos)
+        self.tela_jogos.pushButton_3.clicked.connect(self.voltar) #deslogar
+        self.tela_jogos.pushButton_4.clicked.connect(self.voltar2) # volar para tela home
+        self.tela_jogos.pushButton_5.clicked.connect(self.dica) #tela de dicas
+        self.tela_jogos.pushButton_2.clicked.connect(self.cad_jogos) #tela de cadastro de dica
+        self.tela_jogos.pushButton.clicked.connect(self.ir_jogos) #tela de jogos
+   
+        self.tela_dica.pushButton_2.clicked.connect(self.voltar2) 
         self.tela_dica.pushButton_4.clicked.connect(self.dicas)
         self.tela_dica.voltar.clicked.connect(self.voltar)
-        self.tela_dica.pushButton_2.clicked.connect(self.voltar2)
         self.tela_dica.pushButton_6.clicked.connect(self.cad_jogos)
+        self.tela_dica.pushButton.clicked.connect(self.ir_jogos)
+        
+
 
         self.cadastro_jogos.pushButton_4.clicked.connect(self.voltar2)
         self.cadastro_jogos.pushButton_3.clicked.connect(self.voltar)
-        self.cadastro_jogos.pushButton.clicked.connect(self.cadastrar_jogos)
+        #self.cadastro_jogos.pushButton.clicked.connect(self.cadastrar_jogos)
         self.cadastro_jogos.pushButton_5.clicked.connect(self.dica)
-        self.cadastro_jogos.pushButton_2.clicked.connect(self.ir_jogos)
+        self.cadastro_jogos.pushButton.clicked.connect(self.cad_jogos)
+        
 
 
     def serverCadastro(self, msgCad):
@@ -256,7 +261,8 @@ class Main(QMainWindow, Ui_main):
         else:
             QMessageBox.information(None, 'Atenção', 'Selecione um jogo')
 
-
+    def novos_jogos(self):
+        pass
 
     def voltar(self):
         self.Qstack.setCurrentIndex(0)
