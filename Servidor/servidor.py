@@ -161,7 +161,8 @@ if __name__ == '__main__':
     hostname = socket.gethostname()
     ip_address = socket.gethostbyname(hostname)
     ip = ip_address
-    port = 8004
+    #ip = '192.168.18.170'
+    port = 8005
     addr = ((ip, port))
     serv_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     serv_socket.bind(addr)
