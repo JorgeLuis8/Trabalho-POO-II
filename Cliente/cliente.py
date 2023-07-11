@@ -68,7 +68,6 @@ class Main(QMainWindow, Ui_main):
         hostname = socket.gethostname()
         ip_address = socket.gethostbyname(hostname)
         ip = ip_address
-        #ip = '192.168.18.170'
         port = 8005
         addr = ((ip, port))
         self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
