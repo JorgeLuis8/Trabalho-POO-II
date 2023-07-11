@@ -268,7 +268,7 @@ class Main(QMainWindow, Ui_main):
         if nome_jogo:
             self.jogos_cadastrados.append(nome_jogo)  # Adiciona o nome do jogo à lista
             self.tela_dica.comboBox.addItem(nome_jogo)  # Adiciona o nome do jogo ao combo box
-            self.cadastrar_jogos()  # Chama o método para salvar os jogos cadastrados no arquivo
+            self.cadastrar_jogos3()  # Chama o método para salvar os jogos cadastrados no arquivo
             self.cadastro_jogos.lineEdit.clear()  # Limpa o campo de entrada de nome do jogo
             QMessageBox.information(None, 'Sucesso', 'Jogo cadastrado com sucesso')
         else:
@@ -281,6 +281,13 @@ class Main(QMainWindow, Ui_main):
                 self.tela_dica.comboBox.addItems(self.jogos_cadastrados)
         except FileNotFoundError:
             self.jogos_cadastrados = []
+
+    def cadastrar_jogos3(self):
+        try:
+            with open('jogos.txt', 'w') as file:
+                file.write('\n'.join(self.jogos_cadastrados))
+        except IOError:
+            QMessageBox.warning(None, 'Erro', 'Erro ao salvar os jogos cadastrados')
 
     def voltar(self):
         self.Qstack.setCurrentIndex(0)
