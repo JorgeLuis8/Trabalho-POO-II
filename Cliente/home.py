@@ -168,7 +168,7 @@ class Tela_home(object):
         self.voltar.setText(_translate("MainWindow", "Deslogar"))
         self.pushButton_2.setText(_translate("MainWindow", "Perfil"))
         self.pushButton_3.setText(_translate("MainWindow", "Pesquisar Dicas"))
-        self.pushButton_6.setText(_translate("MainWindow", "Cadastrar Jogos"))
+        self.pushButton_6.setText(_translate("MainWindow", "Cadastrar Dicas"))
         self.pushButton.setText(_translate("MainWindow", "Cadastrar novos jogos"))
         self.label_2.setText(_translate("MainWindow", "Nome"))
         self.label_3.setText(_translate("MainWindow", "User"))

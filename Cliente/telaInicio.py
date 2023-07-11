@@ -167,7 +167,7 @@ class Tela_inical(object):
         self.botaoLogin.setText(_translate("MainWindow", "Login"))
         self.botaoCadastro.setText(_translate("MainWindow", "Cadastro"))
         self.Botao_sair.setText(_translate("MainWindow", "Sair!"))
-        self.label.setText(_translate("MainWindow", "Usuário/Email"))
+        self.label.setText(_translate("MainWindow", "Email"))
         self.label_2.setText(_translate("MainWindow", "Senha"))
         self.label_6.setText(_translate("MainWindow", "Deseja saber mais sobre nós? Clique aqui: "))
         self.Botao_sobre.setText(_translate("MainWindow", "Sobre nós"))

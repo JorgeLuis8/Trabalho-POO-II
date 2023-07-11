@@ -41,13 +41,13 @@ class Ui_main(QtWidgets.QWidget):
         self.tela_home = Tela_home()
         self.tela_home.setupUi(self.stack3)
 
-        self.tela_jogos = Cadastro_jogos()
+        self.tela_jogos = Cadastro_dicas()
         self.tela_jogos.setupUi(self.stack4)
 
         self.tela_dica = Pesquisa_dica()
         self.tela_dica.setupUi(self.stack5)
 
-        self.cadastro_jogos = Cadastro_dicas()
+        self.cadastro_jogos = Cadastro_jogos()
         self.cadastro_jogos.setupUi(self.stack6)
 
         self.Qstack.addWidget(self.stack0)
@@ -64,6 +64,7 @@ class Main(QMainWindow, Ui_main):
         super(Main, self).__init__(parent)
         self.setupUi(self)
         self.usuario_logado = None
+        self.jogos_cadastrados = []
         hostname = socket.gethostname()
         ip_address = socket.gethostbyname(hostname)
         ip = ip_address
@@ -83,33 +84,32 @@ class Main(QMainWindow, Ui_main):
         self.tela_about.pushButton.clicked.connect(self.voltar)
 
         
-        self.tela_home.pushButton_6.clicked.connect(self.cad_jogos)
-        self.tela_home.pushButton_3.clicked.connect(self.dica)
+        self.tela_home.pushButton_3.clicked.connect(self.dica) #pesquisa dicas
+        self.tela_home.pushButton_6.clicked.connect(self.ir_jogos) #cadastra novas dicas
         self.tela_home.voltar.clicked.connect(self.voltar)
-        self.tela_home.pushButton_6.clicked.connect(self.cad_jogos)
-        self.tela_home.pushButton.clicked.connect(self.ir_jogos)
+        self.tela_home.pushButton.clicked.connect(self.cad_jogos) #cadastra novos jogos
         
 
 
-        self.tela_jogos.pushButton_3.clicked.connect(self.voltar) #deslogar
         self.tela_jogos.pushButton_4.clicked.connect(self.voltar2) # volar para tela home
-        self.tela_jogos.pushButton_5.clicked.connect(self.dica) #tela de dicas
-        self.tela_jogos.pushButton_2.clicked.connect(self.cad_jogos) #tela de cadastro de dica
-        self.tela_jogos.pushButton.clicked.connect(self.ir_jogos) #tela de jogos
+        self.tela_jogos.pushButton_5.clicked.connect(self.dica) # tela de Pesquisa dicas
+        self.tela_jogos.pushButton_3.clicked.connect(self.voltar) #deslogar
+        self.tela_jogos.pushButton_2.clicked.connect(self.cad_jogos) #Cadastra Novos jogos no sistema
+        self.tela_jogos.pushButton.clicked.connect(self.cadastrar_jogos) #cadastra as dicas
    
-        self.tela_dica.pushButton_2.clicked.connect(self.voltar2) 
-        self.tela_dica.pushButton_4.clicked.connect(self.dicas)
-        self.tela_dica.voltar.clicked.connect(self.voltar)
-        self.tela_dica.pushButton_6.clicked.connect(self.cad_jogos)
-        self.tela_dica.pushButton.clicked.connect(self.ir_jogos)
+        self.tela_dica.pushButton_2.clicked.connect(self.voltar2) #volta para tela home
+        self.tela_dica.pushButton_6.clicked.connect(self.ir_jogos) #cadastra novas dicas
+        self.tela_dica.pushButton.clicked.connect(self.cad_jogos) #cadastra novos jogos
+        self.tela_dica.pushButton_4.clicked.connect(self.dicas) #pesquisa a dica
+        self.tela_dica.voltar.clicked.connect(self.voltar) #desloga
         
 
 
-        self.cadastro_jogos.pushButton_4.clicked.connect(self.voltar2)
+        self.cadastro_jogos.pushButton_4.clicked.connect(self.voltar2) #volta para tela home
+        self.cadastro_jogos.pushButton_5.clicked.connect(self.dica) # tela de Pesquisa dicas
+        self.cadastro_jogos.pushButton_2.clicked.connect(self.ir_jogos) #cadastra novas dicas
         self.cadastro_jogos.pushButton_3.clicked.connect(self.voltar)
-        #self.cadastro_jogos.pushButton.clicked.connect(self.cadastrar_jogos)
-        self.cadastro_jogos.pushButton_5.clicked.connect(self.dica)
-        self.cadastro_jogos.pushButton.clicked.connect(self.cad_jogos)
+        self.cadastro_jogos.pushButton.clicked.connect(self.novos_jogos)
         
 
 
@@ -198,20 +198,20 @@ class Main(QMainWindow, Ui_main):
                 return False
 
     def cadastrar_jogos(self):
-        nome = self.cadastro_jogos.lineEdit_5.text()
-        data = self.cadastro_jogos.lineEdit_2.text()
-        descricao = self.cadastro_jogos.lineEdit_3.text()
-        dica = self.cadastro_jogos.lineEdit_4.text()
+        nome = self.tela_jogos.lineEdit_5.text()
+        data = self.tela_jogos.lineEdit_2.text()
+        descricao = self.tela_jogos.lineEdit_3.text()
+        dica = self.tela_jogos.lineEdit_4.text()
         msgCad = f'3,{nome},{data},{descricao},{dica}'
         print(msgCad)
         if not (nome == None or data == None or descricao == None or dica == None or nome == '' or data == '' or descricao == '' or dica == ''):
             print('entrou no cad')
             if self.serverCadjogos(msgCad):
 
-                self.cadastro_jogos.lineEdit_5.clear()
-                self.cadastro_jogos.lineEdit_2.clear()
-                self.cadastro_jogos.lineEdit_3.clear()
-                self.cadastro_jogos.lineEdit_4.clear()
+                self.tela_jogos.lineEdit_5.clear()
+                self.tela_jogos.lineEdit_2.clear()
+                self.tela_jogos.lineEdit_3.clear()
+                self.tela_jogos.lineEdit_4.clear()
 
                 QMessageBox.information(None, 'Sucesso', 'Cadastro realizado com sucesso')
             else:
@@ -261,8 +261,33 @@ class Main(QMainWindow, Ui_main):
         else:
             QMessageBox.information(None, 'Atenção', 'Selecione um jogo')
 
+
+
     def novos_jogos(self):
-        pass
+        nome_jogo = self.cadastro_jogos.lineEdit.text()
+        if nome_jogo:
+            self.jogos_cadastrados.append(nome_jogo)  # Adiciona o nome do jogo à lista
+            self.tela_dica.comboBox.addItem(nome_jogo)  # Adiciona o nome do jogo ao combo box
+            self.cadastrar_jogos()  # Chama o método para salvar os jogos cadastrados no arquivo
+            self.cadastro_jogos.lineEdit.clear()  # Limpa o campo de entrada de nome do jogo
+            QMessageBox.information(None, 'Sucesso', 'Jogo cadastrado com sucesso')
+        else:
+            QMessageBox.information(None, 'Atenção', 'Preencha o nome do jogo')
+
+    def carregar_jogos_cadastrados(self):
+        try:
+            with open('jogos.txt', 'r') as file:
+                self.jogos_cadastrados = file.read().splitlines()
+                self.tela_dica.comboBox.addItems(self.jogos_cadastrados)
+        except FileNotFoundError:
+            self.jogos_cadastrados = []
+
+    def cadastrar_jogos(self):
+        try:
+            with open('jogos.txt', 'w') as file:
+                file.write('\n'.join(self.jogos_cadastrados))
+        except IOError:
+            QMessageBox.warning(None, 'Erro', 'Erro ao salvar os jogos cadastrados')
 
     def voltar(self):
         self.Qstack.setCurrentIndex(0)

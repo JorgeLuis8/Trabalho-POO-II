@@ -49,7 +49,7 @@
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>30</y>
+       <y>20</y>
        <width>81</width>
        <height>23</height>
       </rect>
@@ -73,7 +73,7 @@ QPushButton:hover {
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>80</y>
+       <y>60</y>
        <width>81</width>
        <height>23</height>
       </rect>
@@ -121,7 +121,7 @@ QPushButton:hover {
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>120</y>
+       <y>90</y>
        <width>81</width>
        <height>23</height>
       </rect>
@@ -144,8 +144,8 @@ QPushButton:hover {
     <widget class="QPushButton" name="pushButton">
      <property name="geometry">
       <rect>
-       <x>4</x>
-       <y>162</y>
+       <x>0</x>
+       <y>120</y>
        <width>111</width>
        <height>21</height>
       </rect>
@@ -376,6 +376,146 @@ background: white;</string>
     <item>
      <property name="text">
       <string>Resident Evil 3 (Remake)</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Castlevania:Symphony Symphony Night</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Star Fox 64</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Fire Emblem</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Crysis</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Metroid</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Shenmue</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Harvest Moon</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Mortal Kombat 9</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Doom 3</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>PES 2006</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Devil May Cry 3</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Lost Ark</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Dead Dead</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Marvel's Spider-Man:Miles Morales</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Monster Hunter Hunter</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Death’s Door</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Ghostwire: Tokyo</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Back 4 Blood</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Vampire: Vampire:- Bloodhunt</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Dead Trigger</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Gatos e Sopa</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Roblox</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Plants vs Zombies 2</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Clash of Clans</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>GTA:Vice City</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>SAS 4: Zombie Assault</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Lineage 2</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Call of Juarez:Gunslinger</string>
      </property>
     </item>
    </widget>
