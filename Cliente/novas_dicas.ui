@@ -265,37 +265,6 @@ border: none;
      <string>Jogo</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
-    <property name="geometry">
-     <rect>
-      <x>400</x>
-      <y>350</y>
-      <width>101</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>8</pointsize>
-      <weight>50</weight>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton {
-    background-color:  #add8e6;
-    border-radius: 10px;
-}
-
-QPushButton:hover {
-    background-color:#AABAF2 ;
-}
-</string>
-    </property>
-    <property name="text">
-     <string>Cadastrar Dica</string>
-    </property>
-   </widget>
    <widget class="QLineEdit" name="lineEdit_4">
     <property name="geometry">
      <rect>
@@ -436,6 +405,30 @@ background-color: transparent;
     </property>
     <property name="readOnly">
      <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="cad">
+    <property name="geometry">
+     <rect>
+      <x>434</x>
+      <y>340</y>
+      <width>81</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color:  #add8e6;
+    border-radius: 10px;
+}
+
+QPushButton:hover {
+    background-color:#AABAF2 ;
+}
+</string>
+    </property>
+    <property name="text">
+     <string>Cadastrar Dica</string>
     </property>
    </widget>
   </widget>

@@ -136,23 +136,6 @@ class Cadastro_dicas(object):
 "border: none;\n"
 "")
         self.label_2.setObjectName("label_2")
-        self.pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton.setGeometry(QtCore.QRect(400, 350, 101, 23))
-        font = QtGui.QFont()
-        font.setPointSize(8)
-        font.setBold(False)
-        font.setWeight(50)
-        self.pushButton.setFont(font)
-        self.pushButton.setStyleSheet("QPushButton {\n"
-"    background-color:  #add8e6;\n"
-"    border-radius: 10px;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color:#AABAF2 ;\n"
-"}\n"
-"")
-        self.pushButton.setObjectName("pushButton")
         self.lineEdit_4 = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit_4.setGeometry(QtCore.QRect(270, 240, 391, 81))
         font = QtGui.QFont()
@@ -219,6 +202,18 @@ class Cadastro_dicas(object):
         self.lineEdit_5.setMaxLength(2000000000)
         self.lineEdit_5.setReadOnly(False)
         self.lineEdit_5.setObjectName("lineEdit_5")
+        self.cad = QtWidgets.QPushButton(self.centralwidget)
+        self.cad.setGeometry(QtCore.QRect(434, 340, 81, 23))
+        self.cad.setStyleSheet("QPushButton {\n"
+"    background-color:  #add8e6;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color:#AABAF2 ;\n"
+"}\n"
+"")
+        self.cad.setObjectName("cad")
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -235,10 +230,10 @@ class Cadastro_dicas(object):
         self.label_5.setText(_translate("MainWindow", "Data de lançamento"))
         self.label_3.setText(_translate("MainWindow", "Descrição"))
         self.label_2.setText(_translate("MainWindow", "Jogo"))
-        self.pushButton.setText(_translate("MainWindow", "Cadastrar Dica"))
         self.label_4.setText(_translate("MainWindow", "Dica"))
         self.lineEdit_2.setPlaceholderText(_translate("MainWindow", "ano/mes/dia"))
         self.label.setText(_translate("MainWindow", "CADASTRE UMA DICA"))
+        self.cad.setText(_translate("MainWindow", "Cadastrar Dica"))
 
 
 if __name__ == "__main__":
