@@ -122,8 +122,10 @@ class MyThread(threading.Thread):
                     descri = mensagemStr[3]
                     dica = mensagemStr[4]
                     print('Conectado 3')
-                    metodos.cad_jogo(nome, ano_lancamento, descri, dica)
-                    enviar = '1'
+                    if metodos.cad_jogo(nome, ano_lancamento, descri, dica):
+                        enviar = '1'
+                    else:
+                        enviar = '0'
                 elif mensagemStr[0] == '4':
                     nome = mensagemStr[1]
                     print('Conectado 4')

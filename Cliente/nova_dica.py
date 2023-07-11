@@ -11,7 +11,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Cadastro_dicas(object):
+class cad(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 600)
@@ -240,7 +240,7 @@ if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
-    ui = Cadastro_dicas()
+    ui = cad()
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())
