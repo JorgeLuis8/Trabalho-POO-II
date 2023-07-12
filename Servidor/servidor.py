@@ -34,20 +34,7 @@ class Metodos:
         AUTO_INCREMENT = 24
         DEFAULT CHARACTER SET = utf8mb4
         COLLATE = utf8mb4_0900_ai_ci;""")
-        cursor.execute("""
-        CREATE TABLE IF NOT EXISTS Dicas(
-        idDicas INT NOT NULL AUTO_INCREMENT,
-        Dica LONGTEXT NOT NULL,
-        jogos_idJogos INT NOT NULL,
-        PRIMARY KEY (idDicas),
-        INDEX fk_Dicas_jogos_idx (jogos_idJogos ASC) VISIBLE,
-        CONSTRAINT fk_Dicas_jogos
-        FOREIGN KEY (jogos_idJogos)
-        REFERENCES cadastro.jogos (idJogos)
-        ON DELETE NO ACTION
-        ON UPDATE NO ACTION)
-        ENGINE = InnoDB;
-        """)
+        conexao.commit()
 
     def verifica_cadastro(self, user, email):
         cursor.execute(
@@ -93,10 +80,12 @@ class Metodos:
         resultado = cursor.fetchone()
         return resultado
 
-    def especifico(self,fase):
-        cursor.execute('SELECT * FROM Jogos WHERE fase = %s', (fase,))
+    def especifico(self, fase, nome):
+        cursor.execute('SELECT * FROM jogos WHERE fase = %s AND nome = %s', (fase, nome))
         resultado = cursor.fetchall()
-        return resultado
+        sucesso = bool(resultado)
+        return resultado, sucesso
+
     
 class MyThread(threading.Thread):
     def __init__(self, client_address, client_socket):
@@ -165,6 +154,21 @@ class MyThread(threading.Thread):
                         con.send(result.encode())
                     else:
                         enviar = '0'
+                elif mensagemStr[0] == '6':
+                    fase = mensagemStr[1]
+                    nome = mensagemStr[2]
+                    print('Conectado 6')
+                    resultado, sucesso = metodos.especifico(fase, nome)
+                    if sucesso:
+                        resposta = {'resultado': resultado, 'sucesso': True}
+                        print(resultado)
+                    else:
+                        resposta = {'sucesso': False}
+                    enviar = json.dumps(resposta)
+                    con.send(enviar.encode())
+
+                        
+
                 con.send(enviar.encode())
             except ConnectionResetError:
                 print('A conexão foi redefinida pelo cliente.')

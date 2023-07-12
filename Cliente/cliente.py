@@ -101,6 +101,7 @@ class Main(QMainWindow, Ui_main):
         self.tela_dica.pushButton_6.clicked.connect(self.ir_jogos) #cadastra novas dicas
         self.tela_dica.pushButton.clicked.connect(self.cad_jogos) #cadastra novos jogos
         self.tela_dica.pushButton_4.clicked.connect(self.dicas) #pesquisa a dica
+        self.tela_dica.pushButton_5.clicked.connect(self.pesquisa_especifica) #pesquisa a dica especifica
         self.tela_dica.voltar.clicked.connect(self.voltar) #desloga
         
 
@@ -288,6 +289,39 @@ class Main(QMainWindow, Ui_main):
                 file.write('\n'.join(self.jogos_cadastrados))
         except IOError:
             QMessageBox.warning(None, 'Erro', 'Erro ao salvar os jogos cadastrados')
+
+ 
+
+    def serverespecifico(self, msg):
+        if msg.split(',')[0] == '6':
+            self.client_socket.send(msg.encode())
+            resposta = self.client_socket.recv(1024).decode()
+
+            if resposta:
+                resposta_json = json.loads(resposta)
+                return resposta_json
+            else:
+                return None
+        else:
+            return None
+
+    def pesquisa_especifica(self):
+        nome = self.tela_dica.comboBox.currentText()
+        fase = self.tela_dica.lineEdit.text()
+        msg = self.serverespecifico(f'6,{fase},{nome}')
+        if not nome == '' or nome == None or fase == '' or fase == None:
+            if msg:
+                resposta = json.loads(msg)
+                sucesso = resposta.get('sucesso', False)
+                if sucesso:
+                    resultado = resposta.get('resultado', '')
+                    self.tela_dica.plainTextEdit_2.appendPlainText(resultado)
+                else:
+                    QMessageBox.information(None, 'Atenção', 'Jogo não cadastrado')
+            else:
+                QMessageBox.information(None, 'Atenção', 'Erro ao realizar a consulta')
+
+
 
     def voltar(self):
         self.Qstack.setCurrentIndex(0)
