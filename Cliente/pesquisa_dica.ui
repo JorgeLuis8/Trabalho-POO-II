@@ -257,265 +257,162 @@ background: white;</string>
      <property name="text">
       <string>League of Legends</string>
      </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../Images/lol_icon.png</normaloff>../Images/lol_icon.png</iconset>
+     </property>
     </item>
     <item>
      <property name="text">
       <string>Valorant</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../Images/valorant_icon.png</normaloff>../Images/valorant_icon.png</iconset>
      </property>
     </item>
     <item>
      <property name="text">
       <string>The Legend of Zelda: Ocarina of Time (1998)</string>
      </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../Images/The_Legend_of_Zelda_-_Ocarina_of_Time_29_icon.webp</normaloff>../Images/The_Legend_of_Zelda_-_Ocarina_of_Time_29_icon.webp</iconset>
+     </property>
     </item>
     <item>
      <property name="text">
       <string>Grand Theft Auto V</string>
      </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>The Last of Us</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>God of War (2018)</string>
+     <property name="icon">
+      <iconset>
+       <normaloff>../Images/GtaV_icon.png</normaloff>../Images/GtaV_icon.png</iconset>
      </property>
     </item>
     <item>
      <property name="text">
       <string>Grand Thef Auto: San  Andreas</string>
      </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../Images/gtasan_icon.jpg</normaloff>../Images/gtasan_icon.jpg</iconset>
+     </property>
     </item>
     <item>
      <property name="text">
       <string>Portal 2 (2011)</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../Images/portal2_icon.png</normaloff>../Images/portal2_icon.png</iconset>
      </property>
     </item>
     <item>
      <property name="text">
       <string>Cuphead</string>
      </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Dota 2</string>
+     <property name="icon">
+      <iconset>
+       <normaloff>../Images/cuphead_icon.png</normaloff>../Images/cuphead_icon.png</iconset>
      </property>
     </item>
     <item>
      <property name="text">
       <string>Undertale</string>
      </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../Images/undertale_icon.png</normaloff>../Images/undertale_icon.png</iconset>
+     </property>
     </item>
     <item>
      <property name="text">
       <string>Resident Evil 3 (1999)</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../Images/re3199_icon.jpg</normaloff>../Images/re3199_icon.jpg</iconset>
      </property>
     </item>
     <item>
      <property name="text">
       <string>Resident Evil 2 (Remake)</string>
      </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../Images/Resident_evil_2_(2018)_logo_(cropped).png</normaloff>../Images/Resident_evil_2_(2018)_logo_(cropped).png</iconset>
+     </property>
     </item>
     <item>
      <property name="text">
       <string>Silent Hill 2</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../Images/SILENT_HILL_2_LOGO_(Alt.).svg.png</normaloff>../Images/SILENT_HILL_2_LOGO_(Alt.).svg.png</iconset>
      </property>
     </item>
     <item>
      <property name="text">
       <string>Shadow of the Colossus</string>
      </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../Images/Shadow_of_the_Colossus_logo.png</normaloff>../Images/Shadow_of_the_Colossus_logo.png</iconset>
+     </property>
     </item>
     <item>
      <property name="text">
       <string>Elden Ring</string>
      </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Hades</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Lost Ark</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Legends of Runeterra</string>
+     <property name="icon">
+      <iconset>
+       <normaloff>../Images/eldenring_logo.png</normaloff>../Images/eldenring_logo.png</iconset>
      </property>
     </item>
     <item>
      <property name="text">
       <string>Dead Space</string>
      </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Overwatch 2</string>
+     <property name="icon">
+      <iconset>
+       <normaloff>../Images/Dead_Space_logo_(2023).svg.png</normaloff>../Images/Dead_Space_logo_(2023).svg.png</iconset>
      </property>
     </item>
     <item>
      <property name="text">
       <string>Hitman 3</string>
      </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Halo  Infinite</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Call of Duty: Warzone</string>
+     <property name="icon">
+      <iconset>
+       <normaloff>../Images/png-transparent-hitman-iii-logo-red-games-hitman.png</normaloff>../Images/png-transparent-hitman-iii-logo-red-games-hitman.png</iconset>
      </property>
     </item>
     <item>
      <property name="text">
       <string>Resident Evil 3 (Remake)</string>
      </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Castlevania:Symphony Symphony Night</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Star Fox 64</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Fire Emblem</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Crysis</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Metroid</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Shenmue</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Harvest Moon</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Mortal Kombat 9</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Doom 3</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>PES 2006</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Devil May Cry 3</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Lost Ark</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Dead Dead</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Marvel's Spider-Man:Miles Morales</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Monster Hunter Hunter</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Death’s Door</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Ghostwire: Tokyo</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Back 4 Blood</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Vampire: Vampire:- Bloodhunt</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Dead Trigger</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Gatos e Sopa</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Roblox</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Plants vs Zombies 2</string>
+     <property name="icon">
+      <iconset>
+       <normaloff>../Images/re3_logo.png</normaloff>../Images/re3_logo.png</iconset>
      </property>
     </item>
     <item>
      <property name="text">
       <string>Clash of Clans</string>
      </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../Images/clashofclans_icon.png</normaloff>../Images/clashofclans_icon.png</iconset>
+     </property>
     </item>
     <item>
      <property name="text">
       <string>GTA:Vice City</string>
      </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>SAS 4: Zombie Assault</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Lineage 2</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Call of Juarez:Gunslinger</string>
+     <property name="icon">
+      <iconset>
+       <normaloff>../Images/png-clipart-grand-theft-auto-vice-city-stories-grand-theft-auto-san-andreas-playstation-2-bully-gta-vice-city-avatar-text-logo-thumbnail.png</normaloff>../Images/png-clipart-grand-theft-auto-vice-city-stories-grand-theft-auto-san-andreas-playstation-2-bully-gta-vice-city-avatar-text-logo-thumbnail.png</iconset>
      </property>
     </item>
    </widget>

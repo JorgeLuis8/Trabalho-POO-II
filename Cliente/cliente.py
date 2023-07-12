@@ -110,7 +110,7 @@ class Main(QMainWindow, Ui_main):
         self.cadastro_jogos.pushButton_5.clicked.connect(self.dica) # tela de Pesquisa dicas
         self.cadastro_jogos.pushButton_2.clicked.connect(self.ir_jogos) #cadastra novas dicas
         self.cadastro_jogos.pushButton_3.clicked.connect(self.voltar)
-        self.cadastro_jogos.pushButton.clicked.connect(self.novos_jogos)
+        #self.cadastro_jogos.pushButton.clicked.connect(self.novos_jogos)
     #Faz a comunicação com o servidor para verficar o cadastro.
     def serverCadastro(self, msgCad):
         if msgCad.split(',')[0] == '2':
@@ -148,7 +148,7 @@ class Main(QMainWindow, Ui_main):
                 QMessageBox.information(None, 'Atenção', 'Preencha todos os campos')
     #faz a comunicação com o servidor, para fazer o login.           
     def serverLogin(self, msgLogin):
-        if msgLogin.split(',')[0] == '1':
+        if  msgLogin.split(',')[0] == '1':
             self.client_socket.send(msgLogin.encode())
             msg = self.client_socket.recv(1024).decode()
             if msg and msg == '1' :
@@ -198,7 +198,7 @@ class Main(QMainWindow, Ui_main):
                 return False
 
     def cadastrar_jogos(self):
-        nome = self.tela_jogos.lineEdit_5.text()
+        nome = self.tela_jogos.comboBox.currentText()
         data = self.tela_jogos.lineEdit_2.text()
         descricao = self.tela_jogos.lineEdit_3.text()
         dica = self.tela_jogos.lineEdit_4.text()
@@ -207,7 +207,6 @@ class Main(QMainWindow, Ui_main):
         if not (nome == None or data == None or descricao == None or dica == None or nome == '' or data == '' or descricao == '' or dica == ''):
             print('entrou no cad')
             if self.serverCadjogos(msgCad):
-                self.tela_jogos.lineEdit_5.clear()
                 self.tela_jogos.lineEdit_2.clear()
                 self.tela_jogos.lineEdit_3.clear()
                 self.tela_jogos.lineEdit_4.clear()
@@ -261,34 +260,6 @@ class Main(QMainWindow, Ui_main):
         else:
             QMessageBox.information(None, 'Atenção', 'Selecione um jogo')
 
-
-
-    def novos_jogos(self):
-        nome_jogo = self.cadastro_jogos.lineEdit.text()
-        if nome_jogo:
-            self.jogos_cadastrados.append(nome_jogo)  # Adiciona o nome do jogo à lista
-            self.tela_dica.comboBox.addItem(nome_jogo)  # Adiciona o nome do jogo ao combo box
-            self.cadastrar_jogos3()  # Chama o método para salvar os jogos cadastrados no arquivo
-            self.cadastro_jogos.lineEdit.clear()  # Limpa o campo de entrada de nome do jogo
-            QMessageBox.information(None, 'Sucesso', 'Jogo cadastrado com sucesso')
-        else:
-            QMessageBox.information(None, 'Atenção', 'Preencha o nome do jogo')
-
-    def carregar_jogos_cadastrados(self):
-        try:
-            with open('jogos.txt', 'r') as file:
-                self.jogos_cadastrados = file.read().splitlines()
-                self.tela_dica.comboBox.addItems(self.jogos_cadastrados)
-        except FileNotFoundError:
-            self.jogos_cadastrados = []
-
-    def cadastrar_jogos3(self):
-        try:
-            with open('jogos.txt', 'w') as file:
-                file.write('\n'.join(self.jogos_cadastrados))
-        except IOError:
-            QMessageBox.warning(None, 'Erro', 'Erro ao salvar os jogos cadastrados')
-
  
 
     def serverEspec(self, fase,nome):
@@ -313,15 +284,16 @@ class Main(QMainWindow, Ui_main):
         self.tela_dica.plainTextEdit_2.clear()  # Limpa o conteúdo anterior
         
         results = self.serverEspec(fase, nome)
-        
-        if results:
-            for result in results:
-                id_jogo, nome, fase, descricao, dica = result
-                texto = f"Fase: {fase}\nDescrição: {descricao}\nDica: {dica}\n\n"
-                self.tela_dica.plainTextEdit_2.appendPlainText(texto)
+        if nome == '' or nome == None or fase == '' or fase == None:
+            if results:
+                for result in results:
+                    id_jogo, nome, fase, descricao, dica = result
+                    texto = f"Fase: {fase}\nDescrição: {descricao}\nDica: {dica}\n\n"
+                    self.tela_dica.plainTextEdit_2.appendPlainText(texto)
+            else:
+                QMessageBox.information(None, 'Atenção', 'Nenhuma dica encontrada para o jogo e fase especificados')
         else:
-            QMessageBox.information(None, 'Atenção', 'Nenhuma dica encontrada para o jogo e fase especificados')
-
+            QMessageBox.information(None, 'Atenção', 'Preencha todos os campos')
 
     def voltar(self):
         self.Qstack.setCurrentIndex(0)
