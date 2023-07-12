@@ -111,9 +111,7 @@ class Main(QMainWindow, Ui_main):
         self.cadastro_jogos.pushButton_2.clicked.connect(self.ir_jogos) #cadastra novas dicas
         self.cadastro_jogos.pushButton_3.clicked.connect(self.voltar)
         self.cadastro_jogos.pushButton.clicked.connect(self.novos_jogos)
-        
-
-
+    #Faz a comunicação com o servidor para verficar o cadastro.
     def serverCadastro(self, msgCad):
         if msgCad.split(',')[0] == '2':
             self.client_socket.send(msgCad.encode())
@@ -123,6 +121,7 @@ class Main(QMainWindow, Ui_main):
                 return True
             else:
                 return False
+    #Cadastro de usuario no sistema, verifica se os campos estão preenchidos e se não existem email e usuarios iguais ja cadastrodos no sistema.
     def cadastro(self):
         nome = self.tela_cadastro.lineEdit_3.text()
         email = self.tela_cadastro.lineEdit_4.text()
@@ -147,7 +146,7 @@ class Main(QMainWindow, Ui_main):
                     self.tela_cadastro.lineEdit_5.clear()
         else:
                 QMessageBox.information(None, 'Atenção', 'Preencha todos os campos')
-                
+    #faz a comunicação com o servidor, para fazer o login.           
     def serverLogin(self, msgLogin):
         if msgLogin.split(',')[0] == '1':
             self.client_socket.send(msgLogin.encode())
@@ -157,7 +156,7 @@ class Main(QMainWindow, Ui_main):
             else:
                 return False
         return msg
-    
+    #Seta as informações dos usuarios logados na tela inical 
     def serverinfo(self,msgInfo):
         if msgInfo.split(',')[0] == '5':
             self.client_socket.send(msgInfo.encode())
