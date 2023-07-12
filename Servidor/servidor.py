@@ -23,16 +23,29 @@ class Metodos:
             senha VARCHAR(45) NOT NULL
         ) ENGINE=InnoDB
         """)
-
+        cursor.execute("""CREATE TABLE IF NOT EXISTS jogos (
+        idJogos INT NOT NULL AUTO_INCREMENT,
+        nome VARCHAR(45) NOT NULL,
+        ano_lancamento VARCHAR(100) NOT NULL,
+        descri TEXT NOT NULL,
+        PRIMARY KEY (idJogos))
+        ENGINE = InnoDB
+        AUTO_INCREMENT = 24
+        DEFAULT CHARACTER SET = utf8mb4
+        COLLATE = utf8mb4_0900_ai_ci;""")
         cursor.execute("""
-        CREATE TABLE IF NOT EXISTS Jogos (
-            idJogos INT NOT NULL AUTO_INCREMENT,
-            nome VARCHAR(45) NOT NULL,
-            ano_lancamento VARCHAR(100) NOT NULL,
-            descri TEXT NOT NULL,
-            dica TEXT NOT NULL,
-            PRIMARY KEY (idJogos)
-        ) ENGINE=InnoDB;
+        CREATE TABLE IF NOT EXISTS Dicas(
+        idDicas INT NOT NULL AUTO_INCREMENT,
+        Dica LONGTEXT NOT NULL,
+        jogos_idJogos INT NOT NULL,
+        PRIMARY KEY (idDicas),
+        INDEX fk_Dicas_jogos_idx (jogos_idJogos ASC) VISIBLE,
+        CONSTRAINT fk_Dicas_jogos
+        FOREIGN KEY (jogos_idJogos)
+        REFERENCES cadastro.jogos (idJogos)
+        ON DELETE NO ACTION
+        ON UPDATE NO ACTION)
+        ENGINE = InnoDB;
         """)
 
     def verifica_cadastro(self, user, email):
@@ -63,8 +76,9 @@ class Metodos:
             return False
 
     def cad_jogo(self, nome, ano, descri, dica):
-        cursor.execute('''INSERT INTO Jogos (nome,ano_lancamento,descri,dica) VALUES (%s, %s, %s, %s)''',
+        cursor.execute('''INSERT INTO Jogos (nome,ano_lancamento,dica) VALUES (%s, %s, %s)''',
                        (nome, ano, descri, dica))
+        cursor.execute("""INSERT INTO dicas (dica) VALUES (%s)""")
         conexao.commit()
         return True
 
@@ -162,8 +176,8 @@ if __name__ == '__main__':
     metodos = Metodos()
     hostname = socket.gethostname()
     ip_address = socket.gethostbyname(hostname)
-    ip = ip_address
-    #ip = '192.168.18.170'
+    #ip = ip_address
+    ip = '10.180.46.88'
     port = 8005
     addr = ((ip, port))
     serv_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
