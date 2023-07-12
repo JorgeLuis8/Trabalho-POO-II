@@ -154,20 +154,20 @@ class MyThread(threading.Thread):
                         con.send(result.encode())
                     else:
                         enviar = '0'
+                
+
                 elif mensagemStr[0] == '6':
                     fase = mensagemStr[1]
                     nome = mensagemStr[2]
                     print('Conectado 6')
                     resultado, sucesso = metodos.especifico(fase, nome)
                     if sucesso:
-                        resposta = {'resultado': resultado, 'sucesso': True}
-                        print(resultado)
-                    else:
-                        resposta = {'sucesso': False}
-                    enviar = json.dumps(resposta)
-                    con.send(enviar.encode())
+                        resul = json.dumps(resultado)  # Converter o objeto Python em uma string JSON
+                        print(resul)
+                        con.send(resul.encode())
 
-                        
+                    else:
+                        enviar = '0'
 
                 con.send(enviar.encode())
             except ConnectionResetError:

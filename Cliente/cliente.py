@@ -292,35 +292,36 @@ class Main(QMainWindow, Ui_main):
 
  
 
-    def serverespecifico(self, msg):
-        if msg.split(',')[0] == '6':
-            self.client_socket.send(msg.encode())
-            resposta = self.client_socket.recv(1024).decode()
+    def serverEspec(self, fase,nome):
+        if nome:
+            while True:
+                msgDica = f'6,{fase},{nome}'
+                self.client_socket.send(msgDica.encode())
+                data = self.client_socket.recv(1024).decode()
+                try:
+                    msg = json.loads(data) 
+                    print(msg) # Converter a string JSON em um objeto Python
+                    return msg
+                except json.decoder.JSONDecodeError as e:
+                    print(f"Erro na decodificação JSON: {e}")
+                    return None
+        return None
 
-            if resposta:
-                resposta_json = json.loads(resposta)
-                return resposta_json
-            else:
-                return None
-        else:
-            return None
 
     def pesquisa_especifica(self):
-        nome = self.tela_dica.comboBox.currentText()
         fase = self.tela_dica.lineEdit.text()
-        msg = self.serverespecifico(f'6,{fase},{nome}')
-        if not nome == '' or nome == None or fase == '' or fase == None:
-            if msg:
-                resposta = json.loads(msg)
-                sucesso = resposta.get('sucesso', False)
-                if sucesso:
-                    resultado = resposta.get('resultado', '')
-                    self.tela_dica.plainTextEdit_2.appendPlainText(resultado)
-                else:
-                    QMessageBox.information(None, 'Atenção', 'Jogo não cadastrado')
-            else:
-                QMessageBox.information(None, 'Atenção', 'Erro ao realizar a consulta')
-
+        nome = self.tela_dica.comboBox.currentText()
+        self.tela_dica.plainTextEdit_2.clear()  # Limpa o conteúdo anterior
+        
+        results = self.serverEspec(fase, nome)
+        
+        if results:
+            for result in results:
+                id_jogo, nome, fase, descricao, dica = result
+                texto = f"Fase: {fase}\nDescrição: {descricao}\nDica: {dica}\n\n"
+                self.tela_dica.plainTextEdit_2.appendPlainText(texto)
+        else:
+            QMessageBox.information(None, 'Atenção', 'Nenhuma dica encontrada para o jogo e fase especificados')
 
 
     def voltar(self):
