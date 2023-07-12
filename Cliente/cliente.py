@@ -67,8 +67,8 @@ class Main(QMainWindow, Ui_main):
         self.jogos_cadastrados = []
         hostname = socket.gethostname()
         ip_address = socket.gethostbyname(hostname)
-        #ip = ip_address
-        ip ='10.180.46.88'
+        ip = ip_address
+        #ip ='10.180.46.88'
         port = 8005
         addr = ((ip, port))
         self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -248,8 +248,8 @@ class Main(QMainWindow, Ui_main):
                 else:
                     for item in resultado:
                         if len(item) == 5:  # Verifica se o item tem o número esperado de elementos
-                            id_jogo, nome, data, descricao, dica = item
-                            texto = f"Data de Lançamento: {data}\nDescrição: {descricao}\nDica: {dica}\n\n"
+                            id_jogo, nome, fase, descricao, dica = item
+                            texto = f"Fase: {fase}\nDescrição: {descricao}\nDica: {dica}\n\n"
                             self.tela_dica.plainTextEdit.appendPlainText(texto)
                         else:
                             print(f"Item inválido: {item}")

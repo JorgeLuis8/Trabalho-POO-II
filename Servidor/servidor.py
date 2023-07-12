@@ -26,8 +26,9 @@ class Metodos:
         cursor.execute("""CREATE TABLE IF NOT EXISTS jogos (
         idJogos INT NOT NULL AUTO_INCREMENT,
         nome VARCHAR(45) NOT NULL,
-        ano_lancamento VARCHAR(100) NOT NULL,
+        fase TEXT NOT NULL,
         descri TEXT NOT NULL,
+        dica TEXT NOT NULL,
         PRIMARY KEY (idJogos))
         ENGINE = InnoDB
         AUTO_INCREMENT = 24
@@ -75,10 +76,9 @@ class Metodos:
         else:
             return False
 
-    def cad_jogo(self, nome, ano, descri, dica):
-        cursor.execute('''INSERT INTO Jogos (nome,ano_lancamento,dica) VALUES (%s, %s, %s)''',
-                       (nome, ano, descri, dica))
-        cursor.execute("""INSERT INTO dicas (dica) VALUES (%s)""")
+    def cad_jogo(self, nome, fase, descri, dica):
+        cursor.execute('''INSERT INTO Jogos (nome,fase,descri,dica) VALUES (%s, %s, %s,%s)''',
+                       (nome, fase, descri, dica))
         conexao.commit()
         return True
 
@@ -93,7 +93,11 @@ class Metodos:
         resultado = cursor.fetchone()
         return resultado
 
-
+    def especifico(self,fase):
+        cursor.execute('SELECT * FROM Jogos WHERE fase = %s', (fase,))
+        resultado = cursor.fetchall()
+        return resultado
+    
 class MyThread(threading.Thread):
     def __init__(self, client_address, client_socket):
         threading.Thread.__init__(self)
@@ -176,8 +180,8 @@ if __name__ == '__main__':
     metodos = Metodos()
     hostname = socket.gethostname()
     ip_address = socket.gethostbyname(hostname)
-    #ip = ip_address
-    ip = '10.180.46.88'
+    ip = ip_address
+    #ip = '10.180.46.88'
     port = 8005
     addr = ((ip, port))
     serv_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)

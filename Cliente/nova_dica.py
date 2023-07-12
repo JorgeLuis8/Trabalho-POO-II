@@ -86,20 +86,8 @@ class cad(object):
 "}\n"
 "")
         self.pushButton_2.setObjectName("pushButton_2")
-        self.label_5 = QtWidgets.QLabel(self.centralwidget)
-        self.label_5.setGeometry(QtCore.QRect(130, 130, 141, 20))
-        font = QtGui.QFont()
-        font.setPointSize(12)
-        font.setBold(False)
-        font.setWeight(50)
-        self.label_5.setFont(font)
-        self.label_5.setStyleSheet("color: black;\n"
-"background-color: transparent;\n"
-"border: none;\n"
-"")
-        self.label_5.setObjectName("label_5")
         self.lineEdit_3 = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_3.setGeometry(QtCore.QRect(270, 170, 391, 61))
+        self.lineEdit_3.setGeometry(QtCore.QRect(270, 100, 391, 61))
         font = QtGui.QFont()
         font.setPointSize(8)
         font.setBold(False)
@@ -113,7 +101,7 @@ class cad(object):
         self.lineEdit_3.setReadOnly(False)
         self.lineEdit_3.setObjectName("lineEdit_3")
         self.label_3 = QtWidgets.QLabel(self.centralwidget)
-        self.label_3.setGeometry(QtCore.QRect(190, 190, 71, 21))
+        self.label_3.setGeometry(QtCore.QRect(190, 110, 71, 21))
         font = QtGui.QFont()
         font.setPointSize(12)
         font.setBold(False)
@@ -125,7 +113,7 @@ class cad(object):
 "")
         self.label_3.setObjectName("label_3")
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_2.setGeometry(QtCore.QRect(220, 90, 51, 21))
+        self.label_2.setGeometry(QtCore.QRect(210, 70, 41, 21))
         font = QtGui.QFont()
         font.setPointSize(12)
         font.setBold(False)
@@ -137,7 +125,7 @@ class cad(object):
 "")
         self.label_2.setObjectName("label_2")
         self.lineEdit_4 = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_4.setGeometry(QtCore.QRect(270, 240, 391, 81))
+        self.lineEdit_4.setGeometry(QtCore.QRect(270, 210, 391, 81))
         font = QtGui.QFont()
         font.setPointSize(8)
         font.setBold(False)
@@ -149,7 +137,7 @@ class cad(object):
 "")
         self.lineEdit_4.setObjectName("lineEdit_4")
         self.label_4 = QtWidgets.QLabel(self.centralwidget)
-        self.label_4.setGeometry(QtCore.QRect(220, 260, 31, 16))
+        self.label_4.setGeometry(QtCore.QRect(220, 230, 31, 16))
         font = QtGui.QFont()
         font.setPointSize(12)
         font.setBold(False)
@@ -160,21 +148,6 @@ class cad(object):
 "border: none;\n"
 "")
         self.label_4.setObjectName("label_4")
-        self.lineEdit_2 = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_2.setGeometry(QtCore.QRect(270, 130, 391, 20))
-        font = QtGui.QFont()
-        font.setPointSize(8)
-        font.setBold(False)
-        font.setWeight(50)
-        self.lineEdit_2.setFont(font)
-        self.lineEdit_2.setStyleSheet("color: black;\n"
-"background-color: transparent;\n"
-"\n"
-"")
-        self.lineEdit_2.setText("")
-        self.lineEdit_2.setAlignment(QtCore.Qt.AlignCenter)
-        self.lineEdit_2.setReadOnly(False)
-        self.lineEdit_2.setObjectName("lineEdit_2")
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(270, 10, 351, 20))
         font = QtGui.QFont()
@@ -189,7 +162,7 @@ class cad(object):
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
         self.lineEdit_5 = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_5.setGeometry(QtCore.QRect(270, 90, 391, 21))
+        self.lineEdit_5.setGeometry(QtCore.QRect(270, 70, 391, 21))
         font = QtGui.QFont()
         font.setPointSize(8)
         font.setBold(False)
@@ -203,7 +176,7 @@ class cad(object):
         self.lineEdit_5.setReadOnly(False)
         self.lineEdit_5.setObjectName("lineEdit_5")
         self.cad = QtWidgets.QPushButton(self.centralwidget)
-        self.cad.setGeometry(QtCore.QRect(434, 340, 81, 23))
+        self.cad.setGeometry(QtCore.QRect(410, 390, 81, 23))
         self.cad.setStyleSheet("QPushButton {\n"
 "    background-color:  #add8e6;\n"
 "    border-radius: 10px;\n"
@@ -214,6 +187,28 @@ class cad(object):
 "}\n"
 "")
         self.cad.setObjectName("cad")
+        self.lineEdit_2 = QtWidgets.QLineEdit(self.centralwidget)
+        self.lineEdit_2.setGeometry(QtCore.QRect(270, 170, 391, 31))
+        font = QtGui.QFont()
+        font.setPointSize(8)
+        font.setBold(False)
+        font.setWeight(50)
+        self.lineEdit_2.setFont(font)
+        self.lineEdit_2.setStyleSheet("color: black;\n"
+"background-color: transparent;\n"
+"\n"
+"")
+        self.lineEdit_2.setObjectName("lineEdit_2")
+        self.label_5 = QtWidgets.QLabel(self.centralwidget)
+        self.label_5.setGeometry(QtCore.QRect(210, 180, 47, 13))
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        self.label_5.setFont(font)
+        self.label_5.setStyleSheet("color: black;\n"
+"background-color: transparent;\n"
+"border: none;\n"
+"")
+        self.label_5.setObjectName("label_5")
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -227,20 +222,9 @@ class cad(object):
         self.pushButton_3.setText(_translate("MainWindow", "Deslogar"))
         self.pushButton_6.setText(_translate("MainWindow", "Cadastrar Dicas"))
         self.pushButton_2.setText(_translate("MainWindow", "Cadastrar novos jogos"))
-        self.label_5.setText(_translate("MainWindow", "Data de lançamento"))
         self.label_3.setText(_translate("MainWindow", "Descrição"))
         self.label_2.setText(_translate("MainWindow", "Jogo"))
         self.label_4.setText(_translate("MainWindow", "Dica"))
-        self.lineEdit_2.setPlaceholderText(_translate("MainWindow", "ano/mes/dia"))
         self.label.setText(_translate("MainWindow", "CADASTRE UMA DICA"))
         self.cad.setText(_translate("MainWindow", "Cadastrar Dica"))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = cad()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec_())
+        self.label_5.setText(_translate("MainWindow", "Fase:"))

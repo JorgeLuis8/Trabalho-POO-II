@@ -108,7 +108,7 @@ class Pesquisa_dica(object):
 "")
         self.pushButton_4.setObjectName("pushButton_4")
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_2.setGeometry(QtCore.QRect(210, 180, 41, 20))
+        self.label_2.setGeometry(QtCore.QRect(160, 140, 41, 20))
         font = QtGui.QFont()
         font.setPointSize(11)
         font.setBold(False)
@@ -179,20 +179,16 @@ class Pesquisa_dica(object):
         self.comboBox.addItem("")
         self.comboBox.addItem("")
         self.scrollArea = QtWidgets.QScrollArea(self.centralwidget)
-        self.scrollArea.setGeometry(QtCore.QRect(250, 180, 491, 391))
+        self.scrollArea.setGeometry(QtCore.QRect(200, 140, 491, 201))
         self.scrollArea.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOn)
         self.scrollArea.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 472, 389))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 472, 199))
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
-        self.verticalScrollBar = QtWidgets.QScrollBar(self.scrollAreaWidgetContents)
-        self.verticalScrollBar.setGeometry(QtCore.QRect(470, 0, 16, 391))
-        self.verticalScrollBar.setOrientation(QtCore.Qt.Vertical)
-        self.verticalScrollBar.setObjectName("verticalScrollBar")
         self.plainTextEdit = QtWidgets.QPlainTextEdit(self.scrollAreaWidgetContents)
-        self.plainTextEdit.setGeometry(QtCore.QRect(0, 0, 471, 391))
+        self.plainTextEdit.setGeometry(QtCore.QRect(0, 0, 471, 201))
         self.plainTextEdit.setStyleSheet("color: black;\n"
 "background-color: transparent;\n"
 "\n"
@@ -201,6 +197,46 @@ class Pesquisa_dica(object):
         self.plainTextEdit.setOverwriteMode(False)
         self.plainTextEdit.setObjectName("plainTextEdit")
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
+        self.pushButton_5 = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_5.setGeometry(QtCore.QRect(560, 380, 75, 23))
+        self.pushButton_5.setStyleSheet("QPushButton {\n"
+"    background-color:  #add8e6;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color:#AABAF2 ;\n"
+"}\n"
+"")
+        self.pushButton_5.setObjectName("pushButton_5")
+        self.label_3 = QtWidgets.QLabel(self.centralwidget)
+        self.label_3.setGeometry(QtCore.QRect(130, 380, 201, 20))
+        self.label_3.setObjectName("label_3")
+        self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
+        self.lineEdit.setGeometry(QtCore.QRect(330, 380, 221, 20))
+        self.lineEdit.setStyleSheet("color: black;\n"
+"background-color: transparent;\n"
+"\n"
+"")
+        self.lineEdit.setObjectName("lineEdit")
+        self.scrollArea_2 = QtWidgets.QScrollArea(self.centralwidget)
+        self.scrollArea_2.setGeometry(QtCore.QRect(230, 419, 451, 171))
+        self.scrollArea_2.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOn)
+        self.scrollArea_2.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        self.scrollArea_2.setWidgetResizable(True)
+        self.scrollArea_2.setObjectName("scrollArea_2")
+        self.scrollAreaWidgetContents_2 = QtWidgets.QWidget()
+        self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, 0, 432, 169))
+        self.scrollAreaWidgetContents_2.setObjectName("scrollAreaWidgetContents_2")
+        self.plainTextEdit_2 = QtWidgets.QPlainTextEdit(self.scrollAreaWidgetContents_2)
+        self.plainTextEdit_2.setGeometry(QtCore.QRect(0, 0, 431, 171))
+        self.plainTextEdit_2.setStyleSheet("color: black;\n"
+"background-color: transparent;\n"
+"\n"
+"")
+        self.plainTextEdit_2.setReadOnly(True)
+        self.plainTextEdit_2.setObjectName("plainTextEdit_2")
+        self.scrollArea_2.setWidget(self.scrollAreaWidgetContents_2)
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -270,13 +306,5 @@ class Pesquisa_dica(object):
         self.comboBox.setItemText(50, _translate("MainWindow", "SAS 4: Zombie Assault"))
         self.comboBox.setItemText(51, _translate("MainWindow", "Lineage 2"))
         self.comboBox.setItemText(52, _translate("MainWindow", "Call of Juarez:Gunslinger"))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Pesquisa_dica()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec_())
+        self.pushButton_5.setText(_translate("MainWindow", "Pesquisar"))
+        self.label_3.setText(_translate("MainWindow", "Deseja uma dica especifica?Digite a fase "))
