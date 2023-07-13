@@ -287,7 +287,7 @@ class Main(QMainWindow, Ui_main):
         self.tela_dica.plainTextEdit_2.clear()  # Limpa o conteúdo anterior
         
         results = self.serverEspec(fase, nome)
-        if nome == '' or nome == None or fase == '' or fase == None:
+        if not nome == '' or nome == None or fase == '' or fase == None:
             if results:
                 for result in results:
                     id_jogo, nome, fase, descricao, dica = result

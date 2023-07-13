@@ -12,7 +12,38 @@ conexao = mysql.connector.connect(
 cursor = conexao.cursor()
 
 class Metodos:
+    """ 
+    Classe usada para criar o banco de dados e realizar as operações de cadastro, login e listagem de clientes
+
+    Attributes
+    ----------
+    conexao : mysql.connector.connect
+        Conexão com o banco de dados
+    cursor : mysql.connector.cursor
+        Cursor para executar as operações no banco de dados
+    
+
+    
+    Methods
+    -------
+    verifica_cadastro(user, email)
+        Verifica se o usuário já está cadastrado no banco de dados
+    cadastrar(p)
+        Cadastra um novo usuário no banco de dados
+    logar(email, senha)
+        Verifica se o usuário está cadastrado no banco de dados
+    listar_clientes(email)
+        Lista os dados de um cliente específico
+    listar_jogos(nome)
+        Lista os dados de um jogo específico
+    
+    """
     def __init__(self):
+        """ 
+        Parameters
+        ----------
+
+        """
         cursor.execute("""
         CREATE TABLE IF NOT EXISTS Usuarios (
             idUsuarios INT AUTO_INCREMENT PRIMARY KEY,
@@ -37,6 +68,22 @@ class Metodos:
         conexao.commit()
 
     def verifica_cadastro(self, user, email):
+        """ 
+        Verifica se o usuário já está cadastrado no banco de dados
+
+        Parameters
+        ----------
+        user : str
+            Nome de usuário
+        email : str
+            Endereço de e-mail
+        
+        Returns
+        -------
+        bool
+            True se o usuário não está cadastrado, False caso contrário
+
+        """
         cursor.execute(
             'SELECT * FROM Usuarios WHERE user = %s OR email = %s', (user, email))
         resultado = cursor.fetchall()
@@ -46,6 +93,22 @@ class Metodos:
             return False
 
     def cadastrar(self, p):
+        """
+        Cadastra um novo usuário no banco de dados
+        
+        Parameters
+        ----------
+        p : Pessoa
+            Objeto da classe Pessoa
+
+        Returns
+        -------
+        bool
+            True se o usuário foi cadastrado com sucesso, False caso contrário
+        
+
+
+        """
         if self.verifica_cadastro(p._user, p._email) == True:
             cursor.execute("INSERT INTO Usuarios (nome, email, data_nas, user, senha) VALUES (%s, %s, %s, %s, %s)",
                            (p._nome, p._email, p._endereco, p._user, p._senha))
@@ -55,6 +118,22 @@ class Metodos:
             return False
 
     def logar(self, email, senha):
+        """ 
+        Verifica se o usuário está cadastrado no banco de dados e se a senha está correta 
+
+        Parameters
+        ----------
+        email : str
+            Endereço de e-mail
+        senha : str
+            Senha do usuário
+        
+        Returns
+        -------
+        bool
+            True se o usuário está cadastrado e a senha está correta, False caso contrário
+        
+        """
         cursor.execute(
             'SELECT * FROM Usuarios WHERE email = %s AND senha = %s', (email, senha))
         resultado = cursor.fetchone()
@@ -64,23 +143,94 @@ class Metodos:
             return False
 
     def cad_jogo(self, nome, fase, descri, dica):
+        """ 
+        Cadastra um novo jogo no banco de dados
+
+        Parameters
+        ----------
+        nome : str
+            Nome do jogo
+        fase : str
+            Fase do jogo
+        descri : str
+            Descrição do jogo
+        dica : str
+            Dica do jogo
+        
+        Returns
+        -------
+        bool
+            True se o jogo foi cadastrado com sucesso, False caso contrário
+        
+        """
         cursor.execute('''INSERT INTO Jogos (nome,fase,descri,dica) VALUES (%s, %s, %s,%s)''',
                        (nome, fase, descri, dica))
         conexao.commit()
         return True
 
     def listar_jogos(self, nome):
+        """
+        Lista os dados de um jogo específico
+
+        Parameters
+        ----------
+        nome : str
+            Nome do jogo
+
+        Returns
+        -------
+        list
+            Lista com os dados do jogo
+        bool
+            True se o jogo foi encontrado, False caso contrário
+            
+        """
         cursor.execute('SELECT * FROM Jogos WHERE nome = %s', (nome,))
         resultado = cursor.fetchall()
         sucesso = bool(resultado)
         return resultado, sucesso
 
     def listar_clientes(self, email):
+        """ 
+        Lista os dados de um cliente específico
+
+        Parameters
+        ----------
+        email : str
+            Endereço de e-mail
+        
+        Returns
+        -------
+        list
+            Lista com os dados do cliente
+        bool
+            True se o cliente foi encontrado, False caso contrário
+        
+        """
         cursor.execute('SELECT * FROM Usuarios WHERE email = %s', (email,))
         resultado = cursor.fetchone()
         return resultado
 
     def especifico(self, fase, nome):
+        """ 
+        Lista os dados de um jogo específico
+
+        Parameters
+        ----------
+        fase : str
+            Fase do jogo
+        nome : str
+            Nome do jogo
+        
+        Returns
+        -------
+        list
+            Lista com os dados do jogo
+        bool
+            True se o jogo foi encontrado, False caso contrário
+        
+            
+        """
         cursor.execute('SELECT * FROM jogos WHERE fase = %s AND nome = %s', (fase, nome))
         resultado = cursor.fetchall()
         sucesso = bool(resultado)
@@ -88,13 +238,32 @@ class Metodos:
 
     
 class MyThread(threading.Thread):
+    """
+    Classe para criar uma thread para cada cliente conectado
+
+    
+    """
     def __init__(self, client_address, client_socket):
+        """ 
+        Parameters
+        ----------
+        client_address : str
+            Endereço do cliente
+        client_socket : socket
+            Socket do cliente
+        
+        """
         threading.Thread.__init__(self)
         self.name = ''
         self.client_socket = client_socket
         print('Nova conexão, endereço:', client_address)
 
     def run(self):
+        """
+        Método que roda a thread
+
+        
+        """
         con = self.client_socket
         metodos = Metodos()
         while True:
