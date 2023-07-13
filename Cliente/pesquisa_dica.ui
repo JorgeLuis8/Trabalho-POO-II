@@ -216,7 +216,7 @@ QPushButton:hover {
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>160</x>
+      <x>130</x>
       <y>140</y>
       <width>41</width>
       <height>20</height>
@@ -419,9 +419,9 @@ background: white;</string>
    <widget class="QScrollArea" name="scrollArea">
     <property name="geometry">
      <rect>
-      <x>200</x>
+      <x>170</x>
       <y>140</y>
-      <width>491</width>
+      <width>521</width>
       <height>201</height>
      </rect>
     </property>
@@ -439,7 +439,7 @@ background: white;</string>
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>472</width>
+       <width>502</width>
        <height>199</height>
       </rect>
      </property>
@@ -448,7 +448,7 @@ background: white;</string>
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>471</width>
+        <width>501</width>
         <height>201</height>
        </rect>
       </property>
@@ -470,8 +470,8 @@ background-color: transparent;
    <widget class="QPushButton" name="pushButton_5">
     <property name="geometry">
      <rect>
-      <x>560</x>
-      <y>380</y>
+      <x>550</x>
+      <y>360</y>
       <width>75</width>
       <height>23</height>
      </rect>
@@ -494,8 +494,8 @@ QPushButton:hover {
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>130</x>
-      <y>380</y>
+      <x>120</x>
+      <y>360</y>
       <width>201</width>
       <height>20</height>
      </rect>
@@ -507,8 +507,8 @@ QPushButton:hover {
    <widget class="QLineEdit" name="lineEdit">
     <property name="geometry">
      <rect>
-      <x>330</x>
-      <y>380</y>
+      <x>320</x>
+      <y>360</y>
       <width>221</width>
       <height>20</height>
      </rect>
@@ -523,10 +523,10 @@ background-color: transparent;
    <widget class="QScrollArea" name="scrollArea_2">
     <property name="geometry">
      <rect>
-      <x>230</x>
-      <y>419</y>
-      <width>451</width>
-      <height>171</height>
+      <x>170</x>
+      <y>409</y>
+      <width>521</width>
+      <height>181</height>
      </rect>
     </property>
     <property name="verticalScrollBarPolicy">
@@ -543,8 +543,8 @@ background-color: transparent;
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>432</width>
-       <height>169</height>
+       <width>502</width>
+       <height>179</height>
       </rect>
      </property>
      <widget class="QPlainTextEdit" name="plainTextEdit_2">
@@ -552,8 +552,8 @@ background-color: transparent;
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>431</width>
-        <height>171</height>
+        <width>501</width>
+        <height>181</height>
        </rect>
       </property>
       <property name="styleSheet">
