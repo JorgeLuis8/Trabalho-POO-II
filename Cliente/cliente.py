@@ -15,6 +15,9 @@ from pesquisa_dica import Pesquisa_dica
 from nova_dica import cad
 
 class Ui_main(QtWidgets.QWidget):
+    """ 
+    
+    """
     def setupUi(self, Main):
         Main.setObjectName('Main')
         Main.resize(640, 480)
