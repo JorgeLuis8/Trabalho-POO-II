@@ -108,7 +108,7 @@ class Pesquisa_dica(object):
 "")
         self.pushButton_4.setObjectName("pushButton_4")
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_2.setGeometry(QtCore.QRect(160, 140, 41, 20))
+        self.label_2.setGeometry(QtCore.QRect(140, 140, 41, 20))
         font = QtGui.QFont()
         font.setPointSize(11)
         font.setBold(False)
@@ -179,27 +179,8 @@ class Pesquisa_dica(object):
         icon17 = QtGui.QIcon()
         icon17.addPixmap(QtGui.QPixmap("../Images/png-clipart-grand-theft-auto-vice-city-stories-grand-theft-auto-san-andreas-playstation-2-bully-gta-vice-city-avatar-text-logo-thumbnail.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.comboBox.addItem(icon17, "")
-        self.scrollArea = QtWidgets.QScrollArea(self.centralwidget)
-        self.scrollArea.setGeometry(QtCore.QRect(200, 140, 491, 201))
-        self.scrollArea.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOn)
-        self.scrollArea.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
-        self.scrollArea.setWidgetResizable(True)
-        self.scrollArea.setObjectName("scrollArea")
-        self.scrollAreaWidgetContents = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 472, 199))
-        self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
-        self.plainTextEdit = QtWidgets.QPlainTextEdit(self.scrollAreaWidgetContents)
-        self.plainTextEdit.setGeometry(QtCore.QRect(0, 0, 471, 201))
-        self.plainTextEdit.setStyleSheet("color: black;\n"
-"background-color: transparent;\n"
-"\n"
-"")
-        self.plainTextEdit.setReadOnly(True)
-        self.plainTextEdit.setOverwriteMode(False)
-        self.plainTextEdit.setObjectName("plainTextEdit")
-        self.scrollArea.setWidget(self.scrollAreaWidgetContents)
         self.pushButton_5 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_5.setGeometry(QtCore.QRect(560, 380, 75, 23))
+        self.pushButton_5.setGeometry(QtCore.QRect(550, 360, 75, 23))
         self.pushButton_5.setStyleSheet("QPushButton {\n"
 "    background-color:  #add8e6;\n"
 "    border-radius: 10px;\n"
@@ -211,26 +192,26 @@ class Pesquisa_dica(object):
 "")
         self.pushButton_5.setObjectName("pushButton_5")
         self.label_3 = QtWidgets.QLabel(self.centralwidget)
-        self.label_3.setGeometry(QtCore.QRect(130, 380, 201, 20))
+        self.label_3.setGeometry(QtCore.QRect(120, 360, 201, 20))
         self.label_3.setObjectName("label_3")
         self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit.setGeometry(QtCore.QRect(330, 380, 221, 20))
+        self.lineEdit.setGeometry(QtCore.QRect(320, 360, 221, 20))
         self.lineEdit.setStyleSheet("color: black;\n"
 "background-color: transparent;\n"
 "\n"
 "")
         self.lineEdit.setObjectName("lineEdit")
         self.scrollArea_2 = QtWidgets.QScrollArea(self.centralwidget)
-        self.scrollArea_2.setGeometry(QtCore.QRect(230, 419, 451, 171))
+        self.scrollArea_2.setGeometry(QtCore.QRect(170, 389, 521, 201))
         self.scrollArea_2.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOn)
         self.scrollArea_2.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollArea_2.setObjectName("scrollArea_2")
         self.scrollAreaWidgetContents_2 = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, 0, 432, 169))
+        self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, 0, 502, 199))
         self.scrollAreaWidgetContents_2.setObjectName("scrollAreaWidgetContents_2")
         self.plainTextEdit_2 = QtWidgets.QPlainTextEdit(self.scrollAreaWidgetContents_2)
-        self.plainTextEdit_2.setGeometry(QtCore.QRect(0, 0, 431, 171))
+        self.plainTextEdit_2.setGeometry(QtCore.QRect(0, 0, 501, 201))
         self.plainTextEdit_2.setStyleSheet("color: black;\n"
 "background-color: transparent;\n"
 "\n"
@@ -238,6 +219,15 @@ class Pesquisa_dica(object):
         self.plainTextEdit_2.setReadOnly(True)
         self.plainTextEdit_2.setObjectName("plainTextEdit_2")
         self.scrollArea_2.setWidget(self.scrollAreaWidgetContents_2)
+        self.plainTextEdit = QtWidgets.QPlainTextEdit(self.centralwidget)
+        self.plainTextEdit.setGeometry(QtCore.QRect(190, 140, 511, 201))
+        self.plainTextEdit.setStyleSheet("color: black;\n"
+"background-color: transparent;\n"
+"\n"
+"")
+        self.plainTextEdit.setReadOnly(True)
+        self.plainTextEdit.setOverwriteMode(False)
+        self.plainTextEdit.setObjectName("plainTextEdit")
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)

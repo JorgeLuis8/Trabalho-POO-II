@@ -2,6 +2,7 @@ import sys
 import os
 import socket
 import json
+
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMainWindow, QApplication, QFileDialog, QMessageBox
 from PyQt5.QtCore import QCoreApplication
@@ -297,6 +298,9 @@ class Main(QMainWindow, Ui_main):
                 QMessageBox.information(None, 'Atenção', 'Nenhuma dica encontrada para o jogo e fase especificados')
         else:
             QMessageBox.information(None, 'Atenção', 'Preencha todos os campos')
+    
+    def new_game(self):
+        nome = self.cadastro_jogos.lineEdit.text()
 
     def voltar(self):
         self.Qstack.setCurrentIndex(0)

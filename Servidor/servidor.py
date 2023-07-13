@@ -36,12 +36,22 @@ class Metodos:
         Lista os dados de um cliente específico
     listar_jogos(nome)
         Lista os dados de um jogo específico
-    
+    especifico(fase, nome)
+        Lista os dados de um jogo específico
+
     """
     def __init__(self):
         """ 
         Parameters
         ----------
+        conexao : mysql.connector.connect
+            Conexão com o banco de dados
+        cursor : mysql.connector.cursor
+            Cursor para executar as operações no banco de dados
+
+    Returns
+    -------
+    None
 
         """
         cursor.execute("""
@@ -83,6 +93,12 @@ class Metodos:
         bool
             True se o usuário não está cadastrado, False caso contrário
 
+        Returns
+        -------
+        bool
+            True se o usuário não está cadastrado, False caso contrário
+        
+        
         """
         cursor.execute(
             'SELECT * FROM Usuarios WHERE user = %s OR email = %s', (user, email))
@@ -106,7 +122,7 @@ class Metodos:
         bool
             True se o usuário foi cadastrado com sucesso, False caso contrário
         
-
+        
 
         """
         if self.verifica_cadastro(p._user, p._email) == True:
@@ -251,6 +267,8 @@ class MyThread(threading.Thread):
             Endereço do cliente
         client_socket : socket
             Socket do cliente
+
+        
         
         """
         threading.Thread.__init__(self)
@@ -260,7 +278,24 @@ class MyThread(threading.Thread):
 
     def run(self):
         """
-        Método que roda a thread
+        Método para rodar a thread
+
+        Methods
+        -------
+        logar()
+            Verifica se o usuário está cadastrado no banco de dados e se a senha está correta
+        cadastrar()
+            Cadastra um novo usuário no banco de dados
+        cad_jogo()
+            Cadastra um novo jogo no banco de dados
+        listar_jogos()
+            Lista os dados de um jogo específico
+        listar_clientes()
+            Lista os dados de um cliente específico
+        especifico()
+            Lista os dados de um jogo específico
+
+
 
         
         """
@@ -350,6 +385,8 @@ class MyThread(threading.Thread):
 
 
 if __name__ == '__main__':
+    """ 
+    """
     metodos = Metodos()
     hostname = socket.gethostname()
     ip_address = socket.gethostbyname(hostname)
