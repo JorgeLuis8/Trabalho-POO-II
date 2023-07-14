@@ -12,6 +12,18 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class cad(object):
+    """
+        Classe que cria a tela de cadastro do cliente
+
+        Methods
+        -------
+        setupUi(MainWindow)
+                Cria todos os elementos da tela de cadastro
+        
+        retranslateUi(MainWindow)
+                Coloca textos nos elementos da tela de cadastro
+        
+        """
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 596)

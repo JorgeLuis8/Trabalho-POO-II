@@ -17,9 +17,49 @@ from nova_dica import cad
 
 class Ui_main(QtWidgets.QWidget):
     """ 
+    Classe que define a interface gráfica da tela principal do programa.
+
+    Methods
+    -------
+    setupUi(Main)
+            Cria todos os elementos da tela principal
+
+    retranslateUi(Main)
+            Coloca textos nos elementos da tela principal
+    
+    
+    Parameters
+    ----------
+    QMainWindow
+            Classe que cria a tela principal do programa
+
+    
+
+
+
     
     """
     def setupUi(self, Main):
+
+        """
+        Cria todos os elementos da tela principal
+
+        Parameters
+        ----------
+        Main
+                Classe que cria a tela principal do programa
+
+        Methods
+        -------
+        setupUi(Main)
+                Cria todos os elementos da tela principal
+
+        retranslateUi(Main)
+                Coloca textos nos elementos da tela principal
+
+        
+
+        """
         Main.setObjectName('Main')
         Main.resize(640, 480)
 
@@ -114,7 +154,7 @@ class Main(QMainWindow, Ui_main):
         self.cadastro_jogos.pushButton_5.clicked.connect(self.dica) # tela de Pesquisa dicas
         self.cadastro_jogos.pushButton_2.clicked.connect(self.ir_jogos) #cadastra novas dicas
         self.cadastro_jogos.pushButton_3.clicked.connect(self.voltar)
-        #self.cadastro_jogos.pushButton.clicked.connect(self.novos_jogos)
+        self.cadastro_jogos.pushButton.clicked.connect(self.new_joos) #cadastra novos jogos
     #Faz a comunicação com o servidor para verficar o cadastro.
     def serverCadastro(self, msgCad):
         if msgCad.split(',')[0] == '2':
@@ -299,8 +339,32 @@ class Main(QMainWindow, Ui_main):
         else:
             QMessageBox.information(None, 'Atenção', 'Preencha todos os campos')
     
-    def new_game(self):
+    def serverNJogos(self,msg):
+        if msg.split(',')[0] == '7':
+            self.client_socket.send(msg.encode())
+            msg = self.client_socket.recv(1024).decode()
+
+            if msg and msg == '1':
+                return True
+            else:
+                return False
+
+    def new_joos(self):
         nome = self.cadastro_jogos.lineEdit.text()
+        msgCad = f'7,{nome}'
+        if not (nome == None or nome == ''):
+            if self.serverNJogos(msgCad):
+                self.cadastro_jogos.lineEdit.clear()
+                QMessageBox.information(None, 'Sucesso', 'Cadastro realizado com sucesso')
+            else:
+                QMessageBox.information(None, 'Atenção', 'Erro ao cadastrar')
+        else:
+            QMessageBox.information(None, 'Atenção', 'Preencha todos os campos')
+        
+        # Adicionar nome ao QComboBox
+        if nome:
+            self.tela_dica.comboBox.addItem(nome)
+
 
     def voltar(self):
         self.Qstack.setCurrentIndex(0)

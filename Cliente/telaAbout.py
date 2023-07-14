@@ -12,6 +12,19 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class About_us(object):
+    """
+        Classe que cria a tela de cadastro de jogos
+
+        Methods
+        -------
+        setupUi(MainWindow)
+                Cria todos os elementos da tela de cadastro de jogos
+
+        retranslateUi(MainWindow)
+                Coloca textos nos elementos da tela de cadastro de jogos
+
+                
+    """
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(803, 530)

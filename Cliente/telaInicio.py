@@ -12,6 +12,19 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Tela_inical(object):
+    """
+        Classe que cria a tela inicial
+
+        Methods
+        -------
+        setupUi(MainWindow)
+                Cria todos os elementos da tela inicial
+
+        retranslateUi(MainWindow)
+                Coloca textos nos elementos da tela inicial
+
+                
+    """
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.setEnabled(True)

@@ -76,6 +76,16 @@ class Metodos:
         DEFAULT CHARACTER SET = utf8mb4
         COLLATE = utf8mb4_0900_ai_ci;""")
         conexao.commit()
+        cursor.execute("""CREATE TABLE IF NOT EXISTS novos_jogos (
+        idnovos_jogos INT NOT NULL AUTO_INCREMENT,
+        nome VARCHAR(45) NOT NULL,
+        PRIMARY KEY (idnovos_jogos) -- Modify the primary key column name
+    ) ENGINE = InnoDB
+    AUTO_INCREMENT = 24
+    DEFAULT CHARACTER SET = utf8mb4
+    COLLATE = utf8mb4_0900_ai_ci;""")
+
+        conexao.commit()
 
     def verifica_cadastro(self, user, email):
         """ 
@@ -252,21 +262,60 @@ class Metodos:
         sucesso = bool(resultado)
         return resultado, sucesso
 
+    def new_jogos(self,nome):
+        cursor.execute('INSERT INTO novos_jogos (nome) VALUES (%s)',(nome,))
+        conexao.commit()
+        return True
+
     
 class MyThread(threading.Thread):
     """
     Classe para criar uma thread para cada cliente conectado
+     Parameters
+    ----------
+    threading : Thread
+        Classe para criar uma thread
+
+    Methods
+    -------
+    run()
+        Método para rodar a thread
+    logar()
+        Verifica se o usuário está cadastrado no banco de dados e se a senha está correta
+    cadastrar()
+        Cadastra um novo usuário no banco de dados
+    cad_jogo()
+        Cadastra um novo jogo no banco de dados
+    listar_jogos()
+        Lista os dados de um jogo específico
+    listar_clientes()
+        Lista os dados de um cliente específico
+    especifico()
+        Lista os dados de um jogo específico
+
+    Returns
+    -------
+    None
+        None
 
     
     """
     def __init__(self, client_address, client_socket):
         """ 
+        Construtor da classe MyThread 
+
         Parameters
         ----------
         client_address : str
             Endereço do cliente
         client_socket : socket
             Socket do cliente
+        
+            
+        Returns
+        -------
+        None
+            None
 
         
         
@@ -296,7 +345,11 @@ class MyThread(threading.Thread):
             Lista os dados de um jogo específico
 
 
-
+        Returns
+        -------
+        None
+            None
+            
         
         """
         con = self.client_socket
@@ -373,6 +426,13 @@ class MyThread(threading.Thread):
                     else:
                         enviar = '0'
 
+                elif mensagemStr[0] == '7':
+                    nome = mensagemStr[1]
+                    print('Conectado 7')
+                    if metodos.new_jogos(nome):
+                        enviar = '1'
+                    else:
+                        enviar = '0'
                 con.send(enviar.encode())
             except ConnectionResetError:
                 print('A conexão foi redefinida pelo cliente.')
@@ -386,6 +446,25 @@ class MyThread(threading.Thread):
 
 if __name__ == '__main__':
     """ 
+    Função principal do servidor
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    None
+        None
+
+    Exepction
+    ---------
+    Exception
+        Erro ao processar a mensagem
+    ConnectionResetError
+        A conexão foi redefinida pelo cliente
+
+
     """
     metodos = Metodos()
     hostname = socket.gethostname()
