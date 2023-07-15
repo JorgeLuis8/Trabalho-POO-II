@@ -364,7 +364,7 @@ class Main(QMainWindow, Ui_main):
         # Adicionar nome ao QComboBox
         if nome:
             self.tela_dica.comboBox.addItem(nome)
-
+            self.tela_jogos.comboBox.addItem(nome)
 
     def voltar(self):
         self.Qstack.setCurrentIndex(0)

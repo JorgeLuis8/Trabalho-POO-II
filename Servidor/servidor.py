@@ -76,17 +76,8 @@ class Metodos:
         DEFAULT CHARACTER SET = utf8mb4
         COLLATE = utf8mb4_0900_ai_ci;""")
         conexao.commit()
-        cursor.execute("""CREATE TABLE IF NOT EXISTS novos_jogos (
-        idnovos_jogos INT NOT NULL AUTO_INCREMENT,
-        nome VARCHAR(45) NOT NULL,
-        PRIMARY KEY (idnovos_jogos) -- Modify the primary key column name
-    ) ENGINE = InnoDB
-    AUTO_INCREMENT = 24
-    DEFAULT CHARACTER SET = utf8mb4
-    COLLATE = utf8mb4_0900_ai_ci;""")
 
-        conexao.commit()
-
+  
     def verifica_cadastro(self, user, email):
         """ 
         Verifica se o usuário já está cadastrado no banco de dados
@@ -263,9 +254,8 @@ class Metodos:
         return resultado, sucesso
 
     def new_jogos(self,nome):
-        cursor.execute('INSERT INTO novos_jogos (nome) VALUES (%s)',(nome,))
-        conexao.commit()
-        return True
+        cursor.execute('INSERT INTO jogos (nome) VALUES (%s)',(nome,))
+    
 
     
 class MyThread(threading.Thread):
