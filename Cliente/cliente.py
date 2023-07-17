@@ -281,6 +281,9 @@ class Main(QMainWindow, Ui_main):
 
     def dicas(self):
         nome = self.tela_dica.comboBox.currentText()
+        self.tela_dica.plainTextEdit.clear()  # Limpa o conteúdo anterior
+        self.tela_dica.plainTextEdit_2.clear()  # Limpa o conteúdo anterior
+        self.tela_dica.lineEdit.clear()  # Limpa o conteúdo anterior
         if nome:
             self.tela_dica.plainTextEdit.clear()  # Limpa o conteúdo anterior
             resultado = self.serverDica(nome)
@@ -325,7 +328,7 @@ class Main(QMainWindow, Ui_main):
     def pesquisa_especifica(self):
         fase = self.tela_dica.lineEdit.text()
         nome = self.tela_dica.comboBox.currentText()
-        self.tela_dica.plainTextEdit_2.clear()  # Limpa o conteúdo anterior
+        self.tela_dica.plainTextEdit_2.clear()  
         
         results = self.serverEspec(fase, nome)
         if not nome == '' or nome == None or fase == '' or fase == None:
@@ -348,24 +351,45 @@ class Main(QMainWindow, Ui_main):
                 return True
             else:
                 return False
-
+            
     def new_joos(self):
         nome = self.cadastro_jogos.lineEdit.text()
         msgCad = f'7,{nome}'
+     
         if not (nome == None or nome == ''):
             if self.serverNJogos(msgCad):
                 self.cadastro_jogos.lineEdit.clear()
                 QMessageBox.information(None, 'Sucesso', 'Cadastro realizado com sucesso')
+                self.preencher_combobox_jogos()
             else:
                 QMessageBox.information(None, 'Atenção', 'Erro ao cadastrar')
         else:
             QMessageBox.information(None, 'Atenção', 'Preencha todos os campos')
-        
-        # Adicionar nome ao QComboBox
-        if nome:
-            self.tela_dica.comboBox.addItem(nome)
-            self.tela_jogos.comboBox.addItem(nome)
 
+
+    def recebeJogos(self, msg):
+        if msg.split(',')[0] == '8':
+            self.client_socket.send(msg.encode())
+            msg = self.client_socket.recv(1024).decode()
+
+            # Verifica se a mensagem não está vazia
+            if msg:
+                # Desserializa a string JSON para obter a lista de jogos
+                lista_jogos = json.loads(msg)
+                return lista_jogos
+            else:
+                return []  # Retorna uma lista vazia caso a mensagem esteja vazia ou não seja um JSON válido
+    def preencher_combobox_jogos(self):
+        nome = self.cadastro_jogos.lineEdit.text()
+        msgInfo = f'8,{nome}'
+        lista_jogos = self.recebeJogos(msgInfo)
+
+        if lista_jogos:
+            self.tela_dica.comboBox.addItems(lista_jogos)
+            self.tela_jogos.comboBox.addItems(lista_jogos)
+        else:
+            QMessageBox.information(None, 'Atenção', 'Nenhum jogo encontrado.')
+            
     def voltar(self):
         self.Qstack.setCurrentIndex(0)
 

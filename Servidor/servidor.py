@@ -65,16 +65,22 @@ class Metodos:
         ) ENGINE=InnoDB
         """)
         cursor.execute("""CREATE TABLE IF NOT EXISTS jogos (
-        idJogos INT NOT NULL AUTO_INCREMENT,
-        nome VARCHAR(45) NOT NULL,
-        fase TEXT NOT NULL,
-        descri TEXT NOT NULL,
-        dica TEXT NOT NULL,
-        PRIMARY KEY (idJogos))
-        ENGINE = InnoDB
-        AUTO_INCREMENT = 24
-        DEFAULT CHARACTER SET = utf8mb4
-        COLLATE = utf8mb4_0900_ai_ci;""")
+            idJogos INT NOT NULL AUTO_INCREMENT,
+            nome VARCHAR(45) NOT NULL,
+            fase TEXT NOT NULL,
+            descri TEXT NOT NULL,
+            dica TEXT NOT NULL,
+            PRIMARY KEY (idJogos))
+            ENGINE = InnoDB
+            AUTO_INCREMENT = 24
+            DEFAULT CHARACTER SET = utf8mb4
+            COLLATE = utf8mb4_0900_ai_ci;""")
+        
+        cursor.execute("""CREATE TABLE IF NOT EXISTS novosJogos (
+            id INT NOT NULL AUTO_INCREMENT,
+            nome_do_jogo VARCHAR(255) NOT NULL,
+            PRIMARY KEY (id))""")
+        
         conexao.commit()
 
   
@@ -253,8 +259,46 @@ class Metodos:
         sucesso = bool(resultado)
         return resultado, sucesso
 
-    def new_jogos(self,nome):
-        cursor.execute('INSERT INTO jogos (nome) VALUES (%s)',(nome,))
+    def novos_jogos(self, nome):
+        """ 
+        Cadastra um novo jogo no banco de dados
+
+        Parameters
+        ----------
+        nome : str
+            Nome do jogo
+        
+        Returns
+        -------
+        None
+            None
+        
+        """
+        cursor.execute('INSERT INTO novosJogos (nome_do_jogo) VALUES (%s)', (nome,))
+        conexao.commit()
+        return True
+    
+    def listar_novos_jogos(self):
+        """ 
+        Lista os nomes dos jogos novos adcionados pelos usuarios
+
+        Parameters
+        ----------
+        None
+        
+        Returns
+        -------
+        list
+            Lista com os dados do jogo
+        bool
+            True se o jogo foi encontrado, False caso contrário
+        
+            
+        """
+        cursor.execute('SELECT * FROM novosJogos')
+        resultado = cursor.fetchall()
+        sucesso = bool(resultado)
+        return resultado, sucesso
     
 
     
@@ -416,13 +460,28 @@ class MyThread(threading.Thread):
                     else:
                         enviar = '0'
 
+        
                 elif mensagemStr[0] == '7':
                     nome = mensagemStr[1]
                     print('Conectado 7')
-                    if metodos.new_jogos(nome):
+
+                    if metodos.novos_jogos(nome):
                         enviar = '1'
                     else:
                         enviar = '0'
+
+                elif mensagemStr[0] == '8':
+                    nome = mensagemStr[1]
+                    print('Conectado 8')
+                    resultado = metodos.listar_novos_jogos(nome)
+
+                    # Envia a lista de jogos em formato JSON
+                    result_json = json.dumps(resultado) if resultado else "[]"
+                    con.send(result_json.encode())
+
+
+
+
                 con.send(enviar.encode())
             except ConnectionResetError:
                 print('A conexão foi redefinida pelo cliente.')
