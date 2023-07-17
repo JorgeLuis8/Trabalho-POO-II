@@ -478,9 +478,6 @@ class MyThread(threading.Thread):
                     else:
                         enviar = '0'
 
-
-
-
                 con.send(enviar.encode())
             except ConnectionResetError:
                 print('A conexão foi redefinida pelo cliente.')

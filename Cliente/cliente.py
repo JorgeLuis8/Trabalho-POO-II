@@ -229,6 +229,7 @@ class Main(QMainWindow, Ui_main):
         self.cadastro_jogos.pushButton_2.clicked.connect(self.ir_jogos) #cadastra novas dicas
         self.cadastro_jogos.pushButton_3.clicked.connect(self.voltar)
         self.cadastro_jogos.pushButton.clicked.connect(self.new_joos) #cadastra novos jogos
+        self.preencher_combobox_jogos()
     #Faz a comunicação com o servidor para verficar o cadastro.
     def serverCadastro(self, msgCad):
         """
@@ -624,6 +625,7 @@ class Main(QMainWindow, Ui_main):
             if self.serverNJogos(msgCad):
                 self.cadastro_jogos.lineEdit.clear()
                 QMessageBox.information(None, 'Sucesso', 'Cadastro realizado com sucesso')
+                self.preencher_combobox_jogos()
             else:
                 QMessageBox.information(None, 'Atenção', 'Erro ao cadastrar')
         else:
@@ -654,7 +656,7 @@ class Main(QMainWindow, Ui_main):
         
     def preencher_combobox_jogos(self):
         """
-        Preenche o combobox com os jogos cadastrados no sistema
+        Preenche o combobox de jogos, com os jogos cadastrados no sistema
 
         Parameters
         ----------
@@ -669,18 +671,20 @@ class Main(QMainWindow, Ui_main):
         nome = self.cadastro_jogos.lineEdit.text()
         msgInfo = f'8,{nome}'
         lista_jogos = self.recebeJogos(msgInfo)
-        print(lista_jogos)
+
         if lista_jogos:
-            # Remover colchetes e aspas de cada elemento da lista
-            lista_jogos_limpa = [item.replace("[", "").replace("]", "").replace("'", "").strip() for item in lista_jogos]
-    
-            
-            # Adicionar cada nome de jogo limpo ao combobox
-            for jogo in lista_jogos_limpa:
-                self.tela_dica.comboBox.addItem(jogo)
-                self.tela_jogos.comboBox.addItem(jogo)
+                # Remover colchetes e aspas de cada elemento da lista
+                lista_jogos_limpa = [item.replace("[", "").replace("]", "").replace("'", "").strip() for item in lista_jogos]
+
+                # Adicionar cada nome de jogo limpo ao combobox, apenas se ainda não estiver na lista
+                for jogo in lista_jogos_limpa:
+                        if self.tela_dica.comboBox.findText(jogo) == -1:
+                                self.tela_dica.comboBox.addItem(jogo)
+                        if self.tela_jogos.comboBox.findText(jogo) == -1:
+                                self.tela_jogos.comboBox.addItem(jogo)
         else:
-            QMessageBox.information(None, 'Atenção', 'Nenhum jogo encontrado.')
+                QMessageBox.information(None, 'Atenção', 'Nenhum jogo encontrado.')
+    
 
     def voltar(self):
         """
