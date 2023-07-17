@@ -83,8 +83,8 @@ border: none;
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>410</x>
-      <y>190</y>
+      <x>420</x>
+      <y>230</y>
       <width>101</width>
       <height>23</height>
      </rect>
@@ -267,6 +267,46 @@ QPushButton:hover {
 background-color: transparent;
 
 </string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_2">
+    <property name="geometry">
+     <rect>
+      <x>272</x>
+      <y>150</y>
+      <width>421</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: black;
+background-color: transparent;
+
+</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>150</y>
+      <width>101</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: black;
+background-color: transparent;
+border: none;
+</string>
+    </property>
+    <property name="text">
+     <string>Logo do jogo</string>
     </property>
    </widget>
   </widget>

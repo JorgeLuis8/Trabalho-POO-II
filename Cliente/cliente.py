@@ -230,7 +230,6 @@ class Main(QMainWindow, Ui_main):
         self.cadastro_jogos.pushButton_3.clicked.connect(self.voltar)
         self.cadastro_jogos.pushButton.clicked.connect(self.new_joos) #cadastra novos jogos
     #Faz a comunicação com o servidor para verficar o cadastro.
-        self.preencher_combobox_jogos()
     def serverCadastro(self, msgCad):
         """
         Faz a comunicação com o servidor para verficar o cadastro.
@@ -632,12 +631,41 @@ class Main(QMainWindow, Ui_main):
 
 
     def recebeJogos(self, msgj):
+       """
+         Faz a comunicação com o servidor, para receber os jogos cadastrados.
+
+        Parameters
+        ----------
+        msgj : str
+                String que contém o nome do jogo que está sendo pesquisado
+
+
+        Returns
+        -------
+        list
+                Retorna uma lista com os jogos cadastrados no sistema
+
+
+       """
        if msgj.split(',')[0] == '8':
             self.client_socket.send(msgj.encode())
             msg = self.client_socket.recv(1024).decode().split(',')
             return msg
         
     def preencher_combobox_jogos(self):
+        """
+        Preenche o combobox com os jogos cadastrados no sistema
+
+        Parameters
+        ----------
+        None
+
+        Returns
+        -------
+        None
+                A função não retorna nada, apenas executa as ações necessárias
+
+        """
         nome = self.cadastro_jogos.lineEdit.text()
         msgInfo = f'8,{nome}'
         lista_jogos = self.recebeJogos(msgInfo)
@@ -655,27 +683,132 @@ class Main(QMainWindow, Ui_main):
             QMessageBox.information(None, 'Atenção', 'Nenhum jogo encontrado.')
 
     def voltar(self):
+        """
+        Volta para a tela inicial
+
+        Parameters
+        ----------
+        None
+
+        Returns
+        -------
+        None
+                A função não retorna nada, apenas executa as ações necessárias
+        """
         self.Qstack.setCurrentIndex(0)
 
     def Tela_cad(self):
+        """
+        Vai para a tela de cadastro
+
+        Parameters
+        ----------
+        None
+
+        Returns
+        -------
+        None
+                A função não retorna nada, apenas executa as ações necessárias
+        """
         self.Qstack.setCurrentIndex(1)
 
     def Tela_sobre(self):
+        """
+        Vai para a tela de sobre
+
+        Parameters
+        ----------
+        None
+
+        Returns
+        -------
+        None
+                A função não retorna nada, apenas executa as ações necessárias
+
+
+
+        """
         self.Qstack.setCurrentIndex(2)
 
     def sair(self):
+        """
+        Sai do programa
+
+        Parameters
+        ----------
+        None
+
+        Returns
+        -------
+        None
+                A função não retorna nada, apenas executa as ações necessárias
+
+
+        """
         exit()
 
     def ir_jogos(self):
+        """
+        Vai para a tela de jogos
+
+        Parameters
+        ----------
+        None
+
+        Returns
+        -------
+        None
+                A função não retorna nada, apenas executa as ações necessárias
+
+        """
         self.Qstack.setCurrentIndex(4)
 
     def voltar2(self):
+        """
+        Volta para a tela inicial
+
+        Parameters
+        ----------
+        None
+
+        Returns
+        -------
+        None
+                A função não retorna nada, apenas executa as ações necessárias
+        """
         self.Qstack.setCurrentIndex(3)
 
     def dica(self):
+        """
+        Vai para a tela de dicas
+
+        Parameters
+        ----------
+        None
+
+        Returns
+        -------
+        None
+                A função não retorna nada, apenas executa as ações necessárias
+
+
+        """
         self.Qstack.setCurrentIndex(5)
 
     def cad_jogos(self):
+        """
+        Vai para a tela de cadastro de jogos
+
+        Parameters
+        ----------
+        None
+
+        Returns
+        -------
+        None
+                A função não retorna nada, apenas executa as ações necessárias
+
+        """
         self.Qstack.setCurrentIndex(6)
   
   
