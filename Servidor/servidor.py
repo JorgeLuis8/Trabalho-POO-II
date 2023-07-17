@@ -280,25 +280,23 @@ class Metodos:
     
     def listar_novos_jogos(self):
         """ 
-        Lista os nomes dos jogos novos adcionados pelos usuarios
+        Lista os nomes dos jogos novos adicionados pelos usuários
 
         Parameters
         ----------
         None
-        
+            
         Returns
         -------
         list
-            Lista com os dados do jogo
-        bool
-            True se o jogo foi encontrado, False caso contrário
-        
-            
+            Lista com os nomes dos jogos novos
         """
-        cursor.execute('SELECT * FROM novosJogos')
-        resultado = cursor.fetchall()
-        sucesso = bool(resultado)
-        return resultado, sucesso
+        cursor.execute('SELECT nome_do_jogo  FROM novosJogos')
+        resultados = cursor.fetchall()
+        nomes_jogos = [resultado[0] for resultado in resultados]
+        return nomes_jogos
+
+
     
 
     
@@ -472,12 +470,13 @@ class MyThread(threading.Thread):
 
                 elif mensagemStr[0] == '8':
                     nome = mensagemStr[1]
-                    print('Conectado 8')
-                    resultado = metodos.listar_novos_jogos(nome)
-
-                    # Envia a lista de jogos em formato JSON
-                    result_json = json.dumps(resultado) if resultado else "[]"
-                    con.send(result_json.encode())
+                    print('Conectado 5')
+                    resultado = metodos.listar_novos_jogos()
+                    if resultado:
+                        result = f'{resultado}'
+                        con.send(result.encode())
+                    else:
+                        enviar = '0'
 
 
 

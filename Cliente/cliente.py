@@ -104,7 +104,81 @@ class Ui_main(QtWidgets.QWidget):
 
 
 class Main(QMainWindow, Ui_main):
+    """
+    Cria a tela principal do programa e define as funções de cada botão.
+
+    Methods
+    -------
+    sair()
+            Fecha o programa
+
+    Tela_sobre()
+            Vai para a tela sobre
+
+    Tela_cad()
+            Vai para a tela de cadastro
+
+    login()
+            Faz o login do usuário
+
+    voltar()
+            Volta para a tela inicial
+
+    cadastro()
+            Cadastra um novo usuário
+
+    dica()
+            Vai para a tela de pesquisa de dicas
+
+    ir_jogos()
+            Vai para a tela de cadastro de jogos
+
+    cad_jogos()
+            Vai para a tela de cadastro de jogos
+            
+    cadastrar_jogos()
+            Cadastra um novo jogo
+        
+    voltar2()
+            Volta para a tela home
+
+    Parameters
+    ----------
+    QMainWindow
+            Classe que cria a tela principal do programa
+
+    Ui_main
+            Classe que define a interface gráfica da tela principal do programa
+
+
+    Returns
+    -------
+    None
+            A função não retorna nada, apenas executa as ações necessárias
+
+
+        
+    """
     def __init__(self, parent=None):
+        """
+        Cria a tela principal do programa e define as funções de cada botão.
+
+        Parameters
+        ----------
+        QMainWindow
+                Classe que cria a tela principal do programa
+
+        Ui_main
+                Classe que define a interface gráfica da tela principal do programa
+
+            
+        Returns
+        -------
+        None
+                A função não retorna nada, apenas executa as ações necessárias
+
+
+        """
         super(Main, self).__init__(parent)
         self.setupUi(self)
         self.usuario_logado = None
@@ -156,7 +230,24 @@ class Main(QMainWindow, Ui_main):
         self.cadastro_jogos.pushButton_3.clicked.connect(self.voltar)
         self.cadastro_jogos.pushButton.clicked.connect(self.new_joos) #cadastra novos jogos
     #Faz a comunicação com o servidor para verficar o cadastro.
+        self.preencher_combobox_jogos()
     def serverCadastro(self, msgCad):
+        """
+        Faz a comunicação com o servidor para verficar o cadastro.
+
+        Parameters
+        ----------
+        msgCad : str
+                String que contém os dados do usuário que está sendo cadastrado
+
+
+        Returns
+        -------
+        bool
+                Retorna True se o cadastro foi realizado com sucesso e False caso contrário
+
+
+        """
         if msgCad.split(',')[0] == '2':
             self.client_socket.send(msgCad.encode())
             msg = self.client_socket.recv(1024).decode()
@@ -167,6 +258,18 @@ class Main(QMainWindow, Ui_main):
                 return False
     #Cadastro de usuario no sistema, verifica se os campos estão preenchidos e se não existem email e usuarios iguais ja cadastrodos no sistema.
     def cadastro(self):
+        """
+        Cadastro de usuario no sistema, verifica se os campos estão preenchidos e se não existem email e usuarios iguais ja cadastrodos no sistema.
+
+        Parameters
+        ----------
+        None
+
+        Returns
+        -------
+        None
+                A função não retorna nada, apenas executa as ações necessárias
+        """
         nome = self.tela_cadastro.lineEdit_3.text()
         email = self.tela_cadastro.lineEdit_4.text()
         endereco = self.tela_cadastro.lineEdit.text()
@@ -192,6 +295,20 @@ class Main(QMainWindow, Ui_main):
                 QMessageBox.information(None, 'Atenção', 'Preencha todos os campos')
     #faz a comunicação com o servidor, para fazer o login.           
     def serverLogin(self, msgLogin):
+        """
+        Faz a comunicação com o servidor, para fazer o login.
+
+        Parameters
+        ----------
+        msgLogin : str
+                String que contém os dados do usuário que está fazendo o login
+
+
+        Returns
+        -------
+        bool
+                Retorna True se o login foi realizado com sucesso e False caso contrário
+        """
         if  msgLogin.split(',')[0] == '1':
             self.client_socket.send(msgLogin.encode())
             msg = self.client_socket.recv(1024).decode()
@@ -202,12 +319,40 @@ class Main(QMainWindow, Ui_main):
         return msg
     #Seta as informações dos usuarios logados na tela inical 
     def serverinfo(self,msgInfo):
+        """
+        Seta as informações dos usuarios logados na tela inical
+
+        Parameters
+        ----------
+        msgInfo : str
+                String que contém os dados do usuário que está fazendo o login
+
+
+        Returns
+        -------
+        list
+                Retorna uma lista com os dados do usuário que está fazendo o login
+
+
+        """
         if msgInfo.split(',')[0] == '5':
             self.client_socket.send(msgInfo.encode())
             msg = self.client_socket.recv(1024).decode().split(',')
             return msg
         
     def login(self):
+        """
+        Faz o login do usuário no sistema, verificando se os campos estão preenchidos e se o usuário existe no sistema
+
+        Parameters
+        ----------
+        None
+
+        Returns
+        -------
+        None
+                A função não retorna nada, apenas executa as ações necessárias
+        """
         email = self.tela_inical.campoUsuario.text()  
         senha = self.tela_inical.campoSenha.text()
         msgLogin = f'1,{email},{senha}'
@@ -232,6 +377,21 @@ class Main(QMainWindow, Ui_main):
             QMessageBox.information(None, 'Atenção', 'Preencha todos os campos')
           
     def serverCadjogos(self, msgCadJogos):
+        """
+        Faz a comunicação com o servidor, para cadastrar os jogos.
+
+        Parameters
+        ----------
+        msgCadJogos : str
+                String que contém os dados do jogo que está sendo cadastrado
+
+
+        Returns
+        -------
+        bool
+                Retorna True se o cadastro foi realizado com sucesso e False caso contrário
+
+        """
         if msgCadJogos.split(',')[0] == '3':
             self.client_socket.send(msgCadJogos.encode())
             msg = self.client_socket.recv(1024).decode()
@@ -242,6 +402,20 @@ class Main(QMainWindow, Ui_main):
                 return False
 
     def cadastrar_jogos(self):
+        """
+        Cadastra os jogos no sistema, verificando se os campos estão preenchidos e se o jogo já existe no sistema
+
+        Parameters
+        ----------
+        None
+
+        Returns
+        -------
+        None
+                A função não retorna nada, apenas executa as ações necessárias
+
+                
+        """
         nome = self.tela_jogos.comboBox.currentText()
         data = self.tela_jogos.lineEdit_2.text()
         descricao = self.tela_jogos.lineEdit_3.text()
@@ -263,6 +437,22 @@ class Main(QMainWindow, Ui_main):
 
             
     def serverDica(self, nome):
+        """
+        Faz a comunicação com o servidor, para pegar as dicas.
+
+        Parameters
+        ----------
+        nome : str
+                String que contém o nome do jogo que está sendo pesquisado
+
+
+        Returns
+        -------
+        list
+                Retorna uma lista com as dicas do jogo que está sendo pesquisado    
+
+
+        """
         if nome:
             while True:
                 msgDica = f'4,{nome}'
@@ -280,6 +470,19 @@ class Main(QMainWindow, Ui_main):
 
 
     def dicas(self):
+        """
+        Pega as dicas do jogo selecionado, verificando se o jogo foi selecionado
+
+        Parameters
+        ----------
+        None
+
+        Returns
+        -------
+        None
+                A função não retorna nada, apenas executa as ações necessárias
+
+        """
         nome = self.tela_dica.comboBox.currentText()
         self.tela_dica.plainTextEdit.clear()  # Limpa o conteúdo anterior
         self.tela_dica.plainTextEdit_2.clear()  # Limpa o conteúdo anterior
@@ -310,6 +513,24 @@ class Main(QMainWindow, Ui_main):
  
 
     def serverEspec(self, fase,nome):
+        """
+        Faz a comunicação com o servidor, para pegar as dicas de um jogo em especifico.
+
+        Parameters
+        ----------
+        fase : str
+                String que contém a fase do jogo que está sendo pesquisado
+        nome : str
+                String que contém o nome do jogo que está sendo pesquisado
+
+                
+        Returns
+        -------
+        list
+                Retorna uma lista com as dicas do jogo que está sendo pesquisado
+
+
+        """
         if nome:
             while True:
                 msgDica = f'6,{fase},{nome}'
@@ -326,6 +547,20 @@ class Main(QMainWindow, Ui_main):
 
 
     def pesquisa_especifica(self):
+        """
+        Pega as dicas do jogo selecionado, verificando se o jogo foi selecionado
+
+        Parameters
+        ----------
+        None
+
+        Returns
+        -------
+        None
+                A função não retorna nada, apenas executa as ações necessárias
+
+
+        """
         fase = self.tela_dica.lineEdit.text()
         nome = self.tela_dica.comboBox.currentText()
         self.tela_dica.plainTextEdit_2.clear()  
@@ -343,6 +578,22 @@ class Main(QMainWindow, Ui_main):
             QMessageBox.information(None, 'Atenção', 'Preencha todos os campos')
     
     def serverNJogos(self,msg):
+        """
+        Faz a comunicação com o servidor, para cadastrar um novo jogo.
+
+        Parameters
+        ----------
+        msg : str
+                String que contém o nome do jogo que está sendo cadastrado
+
+
+        Returns
+        -------
+        bool
+                Retorna True se o cadastro foi realizado com sucesso, e False caso contrário
+                
+
+        """
         if msg.split(',')[0] == '7':
             self.client_socket.send(msg.encode())
             msg = self.client_socket.recv(1024).decode()
@@ -353,6 +604,20 @@ class Main(QMainWindow, Ui_main):
                 return False
             
     def new_joos(self):
+        """
+        Cadastra um novo jogo, verificando se o nome do jogo foi preenchido
+
+        Parameters
+        ----------
+        None
+
+        Returns
+        -------
+        None
+                A função não retorna nada, apenas executa as ações necessárias
+
+
+        """
         nome = self.cadastro_jogos.lineEdit.text()
         msgCad = f'7,{nome}'
      
@@ -360,36 +625,35 @@ class Main(QMainWindow, Ui_main):
             if self.serverNJogos(msgCad):
                 self.cadastro_jogos.lineEdit.clear()
                 QMessageBox.information(None, 'Sucesso', 'Cadastro realizado com sucesso')
-                self.preencher_combobox_jogos()
             else:
                 QMessageBox.information(None, 'Atenção', 'Erro ao cadastrar')
         else:
             QMessageBox.information(None, 'Atenção', 'Preencha todos os campos')
 
 
-    def recebeJogos(self, msg):
-        if msg.split(',')[0] == '8':
-            self.client_socket.send(msg.encode())
-            msg = self.client_socket.recv(1024).decode()
-
-            # Verifica se a mensagem não está vazia
-            if msg:
-                # Desserializa a string JSON para obter a lista de jogos
-                lista_jogos = json.loads(msg)
-                return lista_jogos
-            else:
-                return []  # Retorna uma lista vazia caso a mensagem esteja vazia ou não seja um JSON válido
+    def recebeJogos(self, msgj):
+       if msgj.split(',')[0] == '8':
+            self.client_socket.send(msgj.encode())
+            msg = self.client_socket.recv(1024).decode().split(',')
+            return msg
+        
     def preencher_combobox_jogos(self):
         nome = self.cadastro_jogos.lineEdit.text()
         msgInfo = f'8,{nome}'
         lista_jogos = self.recebeJogos(msgInfo)
-
+        print(lista_jogos)
         if lista_jogos:
-            self.tela_dica.comboBox.addItems(lista_jogos)
-            self.tela_jogos.comboBox.addItems(lista_jogos)
+            # Remover colchetes e aspas de cada elemento da lista
+            lista_jogos_limpa = [item.replace("[", "").replace("]", "").replace("'", "").strip() for item in lista_jogos]
+    
+            
+            # Adicionar cada nome de jogo limpo ao combobox
+            for jogo in lista_jogos_limpa:
+                self.tela_dica.comboBox.addItem(jogo)
+                self.tela_jogos.comboBox.addItem(jogo)
         else:
             QMessageBox.information(None, 'Atenção', 'Nenhum jogo encontrado.')
-            
+
     def voltar(self):
         self.Qstack.setCurrentIndex(0)
 
@@ -417,6 +681,18 @@ class Main(QMainWindow, Ui_main):
   
 
 if __name__ == '__main__':
+    """
+    Função principal que inicia o programa
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    None
+            A função não retorna nada, apenas executa as ações necessárias
+    """
     app = QApplication(sys.argv)
     show_main = Main()
     sys.exit(app.exec_())
