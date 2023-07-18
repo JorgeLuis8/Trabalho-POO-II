@@ -65,10 +65,10 @@ class Main(QMainWindow, Ui_main):
         self.setupUi(self)
         self.usuario_logado = None
         self.jogos_cadastrados = []
-        hostname = socket.gethostname()
-        ip_address = socket.gethostbyname(hostname)
-        ip = ip_address
-        #ip ='192.168.18.170'
+        # hostname = socket.gethostname()
+        # ip_address = socket.gethostbyname(hostname)
+        # ip = ip_address
+        ip ='10.180.46.88'
         port = 8005
         addr = ((ip, port))
         self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
