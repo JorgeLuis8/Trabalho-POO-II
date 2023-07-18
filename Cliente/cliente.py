@@ -249,6 +249,8 @@ class Main(QMainWindow, Ui_main):
 
 
         """
+        help(self.serverCadastro)
+
         if msgCad.split(',')[0] == '2':
             self.client_socket.send(msgCad.encode())
             msg = self.client_socket.recv(1024).decode()
@@ -271,6 +273,7 @@ class Main(QMainWindow, Ui_main):
         None
                 A função não retorna nada, apenas executa as ações necessárias
         """
+        help(self.cadastro)
         nome = self.tela_cadastro.lineEdit_3.text()
         email = self.tela_cadastro.lineEdit_4.text()
         endereco = self.tela_cadastro.lineEdit.text()
@@ -674,10 +677,8 @@ class Main(QMainWindow, Ui_main):
         lista_jogos = self.recebeJogos(msgInfo)
 
         if lista_jogos != 0:
-                # Remover colchetes e aspas de cada elemento da lista
                 lista_jogos_limpa = [item.replace("[", "").replace("]", "").replace("'", "").strip() for item in lista_jogos]
 
-                # Adicionar cada nome de jogo limpo ao combobox, apenas se ainda não estiver na lista
                 for jogo in lista_jogos_limpa:
                         if self.tela_dica.comboBox.findText(jogo) == -1:
                                 self.tela_dica.comboBox.addItem(jogo)

@@ -22,8 +22,6 @@ class Metodos:
     cursor : mysql.connector.cursor
         Cursor para executar as operações no banco de dados
     
-
-    
     Methods
     -------
     verifica_cadastro(user, email)
