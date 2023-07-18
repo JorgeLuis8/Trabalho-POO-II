@@ -22,7 +22,8 @@ class Cadastro_jogos(object):
 
         retranslateUi(MainWindow)
                 Coloca textos nos elementos da tela de cadastro de jogos
-        """
+                
+    """
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 614)
@@ -61,7 +62,7 @@ class Cadastro_jogos(object):
 "")
         self.label_2.setObjectName("label_2")
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton.setGeometry(QtCore.QRect(410, 190, 101, 23))
+        self.pushButton.setGeometry(QtCore.QRect(420, 230, 101, 23))
         font = QtGui.QFont()
         font.setPointSize(8)
         font.setBold(False)
@@ -153,6 +154,28 @@ class Cadastro_jogos(object):
 "\n"
 "")
         self.lineEdit.setObjectName("lineEdit")
+        self.label_3 = QtWidgets.QLabel(self.centralwidget)
+        self.label_3.setGeometry(QtCore.QRect(170, 150, 101, 20))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.label_3.setFont(font)
+        self.label_3.setStyleSheet("color: black;\n"
+"background-color: transparent;\n"
+"border: none;\n"
+"")
+        self.label_3.setObjectName("label_3")
+        self.pushButton_6 = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_6.setGeometry(QtCore.QRect(350, 150, 241, 23))
+        self.pushButton_6.setStyleSheet("QPushButton {\n"
+"    background-color:  #add8e6;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color:#AABAF2 ;\n"
+"}\n"
+"")
+        self.pushButton_6.setObjectName("pushButton_6")
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -169,15 +192,5 @@ class Cadastro_jogos(object):
         self.pushButton_5.setText(_translate("MainWindow", "Pesquisar Dicas"))
         self.pushButton_3.setText(_translate("MainWindow", "Deslogar"))
         self.pushButton_7.setText(_translate("MainWindow", "Cadastrar novos jogos"))
-
-
-if __name__ == "__main__":
-    """
-    """
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Cadastro_jogos()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec_())
+        self.label_3.setText(_translate("MainWindow", "Logo do jogo"))
+        self.pushButton_6.setText(_translate("MainWindow", "Logo do Jogo"))

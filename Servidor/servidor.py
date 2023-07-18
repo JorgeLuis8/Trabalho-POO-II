@@ -507,7 +507,6 @@ if __name__ == '__main__':
     ConnectionResetError
         A conexão foi redefinida pelo cliente
 
-
     """
     metodos = Metodos()
     hostname = socket.gethostname()

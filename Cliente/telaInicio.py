@@ -23,7 +23,6 @@ class Tela_inical(object):
         retranslateUi(MainWindow)
                 Coloca textos nos elementos da tela inicial
 
-                
     """
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
