@@ -6,6 +6,7 @@ import json
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMainWindow, QApplication, QFileDialog, QMessageBox
 from PyQt5.QtCore import QCoreApplication
+from PyQt5.QtGui import QIcon
 
 from telaInicio import Tela_inical
 from tela_cad import Tela_cad
@@ -672,7 +673,7 @@ class Main(QMainWindow, Ui_main):
         msgInfo = f'8,{nome}'
         lista_jogos = self.recebeJogos(msgInfo)
 
-        if lista_jogos:
+        if lista_jogos != 0:
                 # Remover colchetes e aspas de cada elemento da lista
                 lista_jogos_limpa = [item.replace("[", "").replace("]", "").replace("'", "").strip() for item in lista_jogos]
 
@@ -683,7 +684,8 @@ class Main(QMainWindow, Ui_main):
                         if self.tela_jogos.comboBox.findText(jogo) == -1:
                                 self.tela_jogos.comboBox.addItem(jogo)
         else:
-                QMessageBox.information(None, 'Atenção', 'Nenhum jogo encontrado.')
+            return 0
+
     
 
     def voltar(self):
