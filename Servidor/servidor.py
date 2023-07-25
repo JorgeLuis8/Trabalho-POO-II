@@ -7,8 +7,9 @@ conexao = mysql.connector.connect(
     host="localhost",
     user="root",
     password="1234",
-    database="cadastro"
+    database="usuarios"
 )
+
 cursor = conexao.cursor()
 
 class Metodos:
@@ -61,6 +62,7 @@ class Metodos:
             user VARCHAR(45) NOT NULL,
             senha VARCHAR(45) NOT NULL
         ) ENGINE=InnoDB
+
         """)
         cursor.execute("""CREATE TABLE IF NOT EXISTS jogos (
             idJogos INT NOT NULL AUTO_INCREMENT,

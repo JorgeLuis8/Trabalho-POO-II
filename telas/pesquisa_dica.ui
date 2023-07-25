@@ -406,15 +406,6 @@ background: white;</string>
        <normaloff>../Images/clashofclans_icon.png</normaloff>../Images/clashofclans_icon.png</iconset>
      </property>
     </item>
-    <item>
-     <property name="text">
-      <string>GTA:Vice City</string>
-     </property>
-     <property name="icon">
-      <iconset>
-       <normaloff>../Images/png-clipart-grand-theft-auto-vice-city-stories-grand-theft-auto-san-andreas-playstation-2-bully-gta-vice-city-avatar-text-logo-thumbnail.png</normaloff>../Images/png-clipart-grand-theft-auto-vice-city-stories-grand-theft-auto-san-andreas-playstation-2-bully-gta-vice-city-avatar-text-logo-thumbnail.png</iconset>
-     </property>
-    </item>
    </widget>
    <widget class="QPushButton" name="pushButton_5">
     <property name="geometry">

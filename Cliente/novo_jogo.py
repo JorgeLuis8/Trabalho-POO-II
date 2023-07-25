@@ -12,18 +12,6 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Cadastro_jogos(object):
-    """
-        Classe que cria a tela de cadastro de jogos
-
-        Methods
-        -------
-        setupUi(MainWindow)
-                Cria todos os elementos da tela de cadastro de jogos
-
-        retranslateUi(MainWindow)
-                Coloca textos nos elementos da tela de cadastro de jogos
-                
-    """
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 614)
@@ -149,33 +137,30 @@ class Cadastro_jogos(object):
         self.pushButton_7.setObjectName("pushButton_7")
         self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit.setGeometry(QtCore.QRect(270, 120, 421, 20))
-        self.lineEdit.setStyleSheet("color: black;\n"
+        self.lineEdit.setStyleSheet("border-radius: 10px;\n"
 "background-color: transparent;\n"
+"border: 2px solid black;\n"
 "\n"
 "")
         self.lineEdit.setObjectName("lineEdit")
         self.label_3 = QtWidgets.QLabel(self.centralwidget)
-        self.label_3.setGeometry(QtCore.QRect(170, 150, 101, 20))
+        self.label_3.setGeometry(QtCore.QRect(150, 150, 131, 20))
         font = QtGui.QFont()
-        font.setPointSize(12)
+        font.setPointSize(10)
         self.label_3.setFont(font)
         self.label_3.setStyleSheet("color: black;\n"
 "background-color: transparent;\n"
 "border: none;\n"
 "")
         self.label_3.setObjectName("label_3")
-        self.pushButton_6 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_6.setGeometry(QtCore.QRect(350, 150, 241, 23))
-        self.pushButton_6.setStyleSheet("QPushButton {\n"
-"    background-color:  #add8e6;\n"
-"    border-radius: 10px;\n"
-"}\n"
+        self.lineEdit_2 = QtWidgets.QLineEdit(self.centralwidget)
+        self.lineEdit_2.setGeometry(QtCore.QRect(280, 150, 421, 20))
+        self.lineEdit_2.setStyleSheet("border-radius: 10px;\n"
+"background-color: transparent;\n"
+"border: 2px solid black;\n"
 "\n"
-"QPushButton:hover {\n"
-"    background-color:#AABAF2 ;\n"
-"}\n"
 "")
-        self.pushButton_6.setObjectName("pushButton_6")
+        self.lineEdit_2.setObjectName("lineEdit_2")
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -192,5 +177,4 @@ class Cadastro_jogos(object):
         self.pushButton_5.setText(_translate("MainWindow", "Pesquisar Dicas"))
         self.pushButton_3.setText(_translate("MainWindow", "Deslogar"))
         self.pushButton_7.setText(_translate("MainWindow", "Cadastrar novos jogos"))
-        self.label_3.setText(_translate("MainWindow", "Logo do jogo"))
-        self.pushButton_6.setText(_translate("MainWindow", "Logo do Jogo"))
+        self.label_3.setText(_translate("MainWindow", "Caminho para imagem"))

@@ -15,6 +15,8 @@ from home import Tela_home
 from novo_jogo import Cadastro_jogos
 from pesquisa_dica import Pesquisa_dica
 from nova_dica import cad
+import configparser
+
 
 class Ui_main(QtWidgets.QWidget):
     """ 
@@ -230,7 +232,7 @@ class Main(QMainWindow, Ui_main):
         self.cadastro_jogos.pushButton_2.clicked.connect(self.ir_jogos) #cadastra novas dicas
         self.cadastro_jogos.pushButton_3.clicked.connect(self.voltar)
         self.cadastro_jogos.pushButton.clicked.connect(self.new_joos) #cadastra novos jogos
-        self.cadastro_jogos.pushButton_6.clicked.connect(self.on_pushButton_clicked) #cadastra novos jogos
+        #self.cadastro_jogos.pushButton_6.clicked.connect(self.img)
         self.preencher_combobox_jogos()
     #Faz a comunicação com o servidor para verficar o cadastro.
     def serverCadastro(self, msgCad):
@@ -676,11 +678,13 @@ class Main(QMainWindow, Ui_main):
         nome = self.cadastro_jogos.lineEdit.text()
         msgInfo = f'8,{nome}'
         lista_jogos = self.recebeJogos(msgInfo)
+        image_path = self.cadastro_jogos.lineEdit_2.text()
+        icon = QIcon(image_path)
+        index = self.tela_dica.comboBox.count() - 1
 
         if lista_jogos[0] != 0:
                 lista_jogos_limpa = [item.replace("[", "").replace("]", "").replace("'", "").strip() for item in lista_jogos]
-                icon = QIcon('PESICON.png')
-                index = 18
+
                 for jogo in lista_jogos_limpa:
                         if self.tela_dica.comboBox.findText(jogo) == -1:
                                 self.tela_dica.comboBox.addItem(jogo)
@@ -689,54 +693,7 @@ class Main(QMainWindow, Ui_main):
                                 self.tela_jogos.comboBox.addItem(jogo)
                                 self.tela_jogos.comboBox.setItemIcon(index,icon)
         else:
-            return 0
-
-    def on_pushButton_clicked(self):
-        """
-        Obtém a imagem do QPushButton clicado e adiciona-a ao ComboBox juntamente com o nome do jogo.
-        """
-        options = QFileDialog.Options()
-        fileName, _ = QFileDialog.getOpenFileName(self, "Selecione uma imagem", "", "Imagens (*.png *.jpg *.bmp);;Todos os arquivos (*)", options=options)
-        
-        if fileName:
-            pixmap = QPixmap(fileName)
-            nome_jogo = self.cadastro_jogos.lineEdit.text()
-
-            # Verifica se o nome do jogo já existe na lista
-            if not self.jogos_cadastrados or nome_jogo not in [jogo[0] for jogo in self.jogos_cadastrados]:
-                # Adiciona o nome do jogo e o caminho da imagem à lista
-                self.jogos_cadastrados.append((nome_jogo, fileName))
-
-                # Adiciona o nome do jogo ao ComboBox
-                self.tela_dica.comboBox.addItem(nome_jogo)
-
-                # Obtém o índice do item adicionado ao ComboBox
-                index = self.tela_dica.comboBox.count() - 1
-
-                # Define a imagem como ícone do item adicionado ao ComboBox
-                icon = QIcon(pixmap)
-                self.tela_dica.comboBox.setItemIcon(index, icon)
-
-                # Limpa o campo de nome do jogo
-                self.cadastro_jogos.lineEdit.clear()
-            else:
-                QMessageBox.information(None, 'Atenção', 'Nome do jogo já cadastrado')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                return 0
 
     def voltar(self):
         """
