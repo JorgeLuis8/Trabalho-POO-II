@@ -12,18 +12,6 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Tela_cad(object):
-    """
-        Classe que cria a tela de cadastro de jogos
-
-        Methods
-        -------
-        setupUi(MainWindow)
-                Cria todos os elementos da tela de cadastro de jogos
-
-        retranslateUi(MainWindow)
-                Coloca textos nos elementos da tela de cadastro de jogos
-
-    """
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(803, 557)
@@ -73,8 +61,9 @@ class Tela_cad(object):
         self.Botao_cadastrar.setObjectName("Botao_cadastrar")
         self.lineEdit_3 = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit_3.setGeometry(QtCore.QRect(200, 90, 400, 20))
-        self.lineEdit_3.setStyleSheet("color: black;\n"
+        self.lineEdit_3.setStyleSheet("border-radius: 10px;\n"
 "background-color: transparent;\n"
+"border: 2px solid black;\n"
 "\n"
 "")
         self.lineEdit_3.setObjectName("lineEdit_3")
@@ -87,8 +76,10 @@ class Tela_cad(object):
         self.label_2.setObjectName("label_2")
         self.lineEdit_4 = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit_4.setGeometry(QtCore.QRect(200, 110, 400, 20))
-        self.lineEdit_4.setStyleSheet("color: black;\n"
+        self.lineEdit_4.setStyleSheet("border-radius: 10px;\n"
 "background-color: transparent;\n"
+"border: 2px solid black;\n"
+"\n"
 "")
         self.lineEdit_4.setObjectName("lineEdit_4")
         self.label_6 = QtWidgets.QLabel(self.centralwidget)
@@ -100,8 +91,10 @@ class Tela_cad(object):
         self.label_6.setObjectName("label_6")
         self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit.setGeometry(QtCore.QRect(200, 130, 401, 20))
-        self.lineEdit.setStyleSheet("color: black;\n"
+        self.lineEdit.setStyleSheet("border-radius: 10px;\n"
 "background-color: transparent;\n"
+"border: 2px solid black;\n"
+"\n"
 "")
         self.lineEdit.setAlignment(QtCore.Qt.AlignCenter)
         self.lineEdit.setObjectName("lineEdit")
@@ -114,13 +107,14 @@ class Tela_cad(object):
         self.label_4.setObjectName("label_4")
         self.lineEdit_2 = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit_2.setGeometry(QtCore.QRect(200, 150, 401, 20))
-        self.lineEdit_2.setStyleSheet("color: black;\n"
+        self.lineEdit_2.setStyleSheet("border-radius: 10px;\n"
 "background-color: transparent;\n"
+"border: 2px solid black;\n"
 "\n"
 "")
         self.lineEdit_2.setObjectName("lineEdit_2")
         self.label_3 = QtWidgets.QLabel(self.centralwidget)
-        self.label_3.setGeometry(QtCore.QRect(180, 150, 21, 20))
+        self.label_3.setGeometry(QtCore.QRect(170, 150, 31, 20))
         self.label_3.setStyleSheet("color: black;\n"
 "background-color: transparent;\n"
 "border: none;\n"
@@ -135,8 +129,10 @@ class Tela_cad(object):
         self.label_5.setObjectName("label_5")
         self.lineEdit_5 = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit_5.setGeometry(QtCore.QRect(200, 170, 401, 20))
-        self.lineEdit_5.setStyleSheet("color: black;\n"
+        self.lineEdit_5.setStyleSheet("border-radius: 10px;\n"
 "background-color: transparent;\n"
+"border: 2px solid black;\n"
+"\n"
 "")
         self.lineEdit_5.setEchoMode(QtWidgets.QLineEdit.Password)
         self.lineEdit_5.setObjectName("lineEdit_5")
@@ -157,13 +153,3 @@ class Tela_cad(object):
         self.label_4.setText(_translate("MainWindow", "Data de nascimento"))
         self.label_3.setText(_translate("MainWindow", "User"))
         self.label_5.setText(_translate("MainWindow", "Senha"))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Tela_cad()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec_())

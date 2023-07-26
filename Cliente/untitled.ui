@@ -209,8 +209,9 @@ QPushButton:hover {
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: black;
+     <string notr="true">border-radius: 10px;
 background-color: transparent;
+border: 2px solid black;
 
 </string>
     </property>
@@ -225,8 +226,9 @@ background-color: transparent;
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: black;
+     <string notr="true">border-radius: 10px;
 background-color: transparent;
+border: 2px solid black;
 
 </string>
     </property>
@@ -244,8 +246,9 @@ background-color: transparent;
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: black;
+     <string notr="true">border-radius: 10px;
 background-color: transparent;
+border: 2px solid black;
 
 </string>
     </property>

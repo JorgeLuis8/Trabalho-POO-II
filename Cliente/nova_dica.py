@@ -12,18 +12,6 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class cad(object):
-    """
-        Classe que cria a tela de cadastro do cliente
-
-        Methods
-        -------
-        setupUi(MainWindow)
-                Cria todos os elementos da tela de cadastro
-        
-        retranslateUi(MainWindow)
-                Coloca textos nos elementos da tela de cadastro
-        
-        """
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 596)
@@ -105,8 +93,9 @@ class cad(object):
         font.setBold(False)
         font.setWeight(50)
         self.lineEdit_3.setFont(font)
-        self.lineEdit_3.setStyleSheet("color: black;\n"
+        self.lineEdit_3.setStyleSheet("border-radius: 10px;\n"
 "background-color: transparent;\n"
+"border: 2px solid black;\n"
 "\n"
 "")
         self.lineEdit_3.setMaxLength(2000000000)
@@ -143,8 +132,9 @@ class cad(object):
         font.setBold(False)
         font.setWeight(50)
         self.lineEdit_4.setFont(font)
-        self.lineEdit_4.setStyleSheet("color: black;\n"
+        self.lineEdit_4.setStyleSheet("border-radius: 10px;\n"
 "background-color: transparent;\n"
+"border: 2px solid black;\n"
 "\n"
 "")
         self.lineEdit_4.setObjectName("lineEdit_4")
@@ -192,8 +182,9 @@ class cad(object):
         font.setBold(False)
         font.setWeight(50)
         self.lineEdit_2.setFont(font)
-        self.lineEdit_2.setStyleSheet("color: black;\n"
+        self.lineEdit_2.setStyleSheet("border-radius: 10px;\n"
 "background-color: transparent;\n"
+"border: 2px solid black;\n"
 "\n"
 "")
         self.lineEdit_2.setObjectName("lineEdit_2")
@@ -209,9 +200,10 @@ class cad(object):
         self.label_5.setObjectName("label_5")
         self.comboBox = QtWidgets.QComboBox(self.centralwidget)
         self.comboBox.setGeometry(QtCore.QRect(270, 70, 391, 22))
-        self.comboBox.setStyleSheet("background-color: transparent;\n"
-"border: 1px solid black;\n"
-"background: white;")
+        self.comboBox.setStyleSheet("border-radius: 10px;\n"
+"border: 2px solid black;\n"
+"background: transparent,white;\n"
+"")
         self.comboBox.setObjectName("comboBox")
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("../Images/lol_icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)

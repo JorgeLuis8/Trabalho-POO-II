@@ -12,18 +12,6 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Tela_inical(object):
-    """
-        Classe que cria a tela inicial
-
-        Methods
-        -------
-        setupUi(MainWindow)
-                Cria todos os elementos da tela inicial
-
-        retranslateUi(MainWindow)
-                Coloca textos nos elementos da tela inicial
-
-    """
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.setEnabled(True)
@@ -126,8 +114,9 @@ class Tela_inical(object):
         self.label.setObjectName("label")
         self.campoUsuario = QtWidgets.QLineEdit(self.centralwidget)
         self.campoUsuario.setGeometry(QtCore.QRect(170, 120, 459, 20))
-        self.campoUsuario.setStyleSheet("color: black;\n"
+        self.campoUsuario.setStyleSheet("border-radius: 10px;\n"
 "background-color: transparent;\n"
+"border: 2px solid black;\n"
 "\n"
 "")
         self.campoUsuario.setObjectName("campoUsuario")
@@ -141,8 +130,9 @@ class Tela_inical(object):
         self.label_2.setObjectName("label_2")
         self.campoSenha = QtWidgets.QLineEdit(self.centralwidget)
         self.campoSenha.setGeometry(QtCore.QRect(170, 160, 459, 20))
-        self.campoSenha.setStyleSheet("color: black;\n"
+        self.campoSenha.setStyleSheet("border-radius: 10px;\n"
 "background-color: transparent;\n"
+"border: 2px solid black;\n"
 "\n"
 "")
         self.campoSenha.setEchoMode(QtWidgets.QLineEdit.Password)
@@ -179,17 +169,7 @@ class Tela_inical(object):
         self.botaoLogin.setText(_translate("MainWindow", "Login"))
         self.botaoCadastro.setText(_translate("MainWindow", "Cadastro"))
         self.Botao_sair.setText(_translate("MainWindow", "Sair!"))
-        self.label.setText(_translate("MainWindow", "Email"))
+        self.label.setText(_translate("MainWindow", "Usuário/Email"))
         self.label_2.setText(_translate("MainWindow", "Senha"))
         self.label_6.setText(_translate("MainWindow", "Deseja saber mais sobre nós? Clique aqui: "))
         self.Botao_sobre.setText(_translate("MainWindow", "Sobre nós"))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Tela_inical()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec_())

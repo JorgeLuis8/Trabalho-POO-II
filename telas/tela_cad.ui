@@ -118,8 +118,9 @@ QPushButton:hover {
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: black;
+     <string notr="true">border-radius: 10px;
 background-color: transparent;
+border: 2px solid black;
 
 </string>
     </property>
@@ -153,8 +154,10 @@ border: none;
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: black;
+     <string notr="true">border-radius: 10px;
 background-color: transparent;
+border: 2px solid black;
+
 </string>
     </property>
    </widget>
@@ -187,8 +190,10 @@ border: none;
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: black;
+     <string notr="true">border-radius: 10px;
 background-color: transparent;
+border: 2px solid black;
+
 </string>
     </property>
     <property name="alignment">
@@ -227,8 +232,9 @@ border: none;
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: black;
+     <string notr="true">border-radius: 10px;
 background-color: transparent;
+border: 2px solid black;
 
 </string>
     </property>
@@ -281,8 +287,10 @@ border: none;
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: black;
+     <string notr="true">border-radius: 10px;
 background-color: transparent;
+border: 2px solid black;
+
 </string>
     </property>
     <property name="echoMode">

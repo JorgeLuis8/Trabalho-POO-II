@@ -12,19 +12,6 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Pesquisa_dica(object):
-    """
-        Classe que cria a tela de pesquisa de dicas
-
-        Methods
-        -------
-        setupUi(MainWindow)
-                Cria todos os elementos da tela de pesquisa de dicas
-
-        retranslateUi(MainWindow)
-                Coloca textos nos elementos da tela de pesquisa de dicas
-
-                
-        """
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 600)
@@ -134,9 +121,10 @@ class Pesquisa_dica(object):
         self.label_2.setObjectName("label_2")
         self.comboBox = QtWidgets.QComboBox(self.centralwidget)
         self.comboBox.setGeometry(QtCore.QRect(240, 60, 421, 22))
-        self.comboBox.setStyleSheet("background-color: transparent;\n"
-"border: 1px solid black;\n"
-"background: white;")
+        self.comboBox.setStyleSheet("border-radius: 10px;\n"
+"border: 2px solid black;\n"
+"background: transparent,white;\n"
+"")
         self.comboBox.setObjectName("comboBox")
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("../Images/lol_icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -189,9 +177,6 @@ class Pesquisa_dica(object):
         icon16 = QtGui.QIcon()
         icon16.addPixmap(QtGui.QPixmap("../Images/clashofclans_icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.comboBox.addItem(icon16, "")
-        icon17 = QtGui.QIcon()
-        icon17.addPixmap(QtGui.QPixmap("../Images/png-clipart-grand-theft-auto-vice-city-stories-grand-theft-auto-san-andreas-playstation-2-bully-gta-vice-city-avatar-text-logo-thumbnail.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.comboBox.addItem(icon17, "")
         self.pushButton_5 = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_5.setGeometry(QtCore.QRect(550, 360, 75, 23))
         self.pushButton_5.setStyleSheet("QPushButton {\n"
@@ -209,38 +194,31 @@ class Pesquisa_dica(object):
         self.label_3.setObjectName("label_3")
         self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit.setGeometry(QtCore.QRect(320, 360, 221, 20))
-        self.lineEdit.setStyleSheet("color: black;\n"
+        self.lineEdit.setStyleSheet("border-radius: 10px;\n"
 "background-color: transparent;\n"
+"border: 2px solid black;\n"
 "\n"
 "")
         self.lineEdit.setObjectName("lineEdit")
-        self.scrollArea_2 = QtWidgets.QScrollArea(self.centralwidget)
-        self.scrollArea_2.setGeometry(QtCore.QRect(170, 389, 521, 201))
-        self.scrollArea_2.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOn)
-        self.scrollArea_2.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
-        self.scrollArea_2.setWidgetResizable(True)
-        self.scrollArea_2.setObjectName("scrollArea_2")
-        self.scrollAreaWidgetContents_2 = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, 0, 502, 199))
-        self.scrollAreaWidgetContents_2.setObjectName("scrollAreaWidgetContents_2")
-        self.plainTextEdit_2 = QtWidgets.QPlainTextEdit(self.scrollAreaWidgetContents_2)
-        self.plainTextEdit_2.setGeometry(QtCore.QRect(0, 0, 501, 201))
-        self.plainTextEdit_2.setStyleSheet("color: black;\n"
-"background-color: transparent;\n"
-"\n"
-"")
-        self.plainTextEdit_2.setReadOnly(True)
-        self.plainTextEdit_2.setObjectName("plainTextEdit_2")
-        self.scrollArea_2.setWidget(self.scrollAreaWidgetContents_2)
         self.plainTextEdit = QtWidgets.QPlainTextEdit(self.centralwidget)
         self.plainTextEdit.setGeometry(QtCore.QRect(190, 140, 511, 201))
-        self.plainTextEdit.setStyleSheet("color: black;\n"
+        self.plainTextEdit.setStyleSheet("border-radius: 15px;\n"
 "background-color: transparent;\n"
+"border: 2px solid black;\n"
 "\n"
 "")
         self.plainTextEdit.setReadOnly(True)
         self.plainTextEdit.setOverwriteMode(False)
         self.plainTextEdit.setObjectName("plainTextEdit")
+        self.plainTextEdit_2 = QtWidgets.QPlainTextEdit(self.centralwidget)
+        self.plainTextEdit_2.setGeometry(QtCore.QRect(190, 390, 521, 201))
+        self.plainTextEdit_2.setStyleSheet("border-radius: 15px;\n"
+"background-color: transparent;\n"
+"border: 2px solid black;\n"
+"\n"
+"")
+        self.plainTextEdit_2.setReadOnly(True)
+        self.plainTextEdit_2.setObjectName("plainTextEdit_2")
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -274,6 +252,5 @@ class Pesquisa_dica(object):
         self.comboBox.setItemText(14, _translate("MainWindow", "Hitman 3"))
         self.comboBox.setItemText(15, _translate("MainWindow", "Resident Evil 3 (Remake)"))
         self.comboBox.setItemText(16, _translate("MainWindow", "Clash of Clans"))
-        self.comboBox.setItemText(17, _translate("MainWindow", "GTA:Vice City"))
         self.pushButton_5.setText(_translate("MainWindow", "Pesquisar"))
         self.label_3.setText(_translate("MainWindow", "Deseja uma dica especifica?Digite a fase "))

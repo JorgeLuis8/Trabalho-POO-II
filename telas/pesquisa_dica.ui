@@ -249,9 +249,10 @@ border: none;
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: transparent;
-border: 1px solid black;
-background: white;</string>
+     <string notr="true">border-radius: 10px;
+border: 2px solid black;
+background: transparent,white;
+</string>
     </property>
     <item>
      <property name="text">
@@ -454,8 +455,9 @@ QPushButton:hover {
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: black;
+     <string notr="true">border-radius: 10px;
 background-color: transparent;
+border: 2px solid black;
 
 </string>
     </property>
@@ -470,8 +472,9 @@ background-color: transparent;
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: black;
+     <string notr="true">border-radius: 15px;
 background-color: transparent;
+border: 2px solid black;
 
 </string>
     </property>
@@ -492,8 +495,9 @@ background-color: transparent;
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: black;
+     <string notr="true">border-radius: 15px;
 background-color: transparent;
+border: 2px solid black;
 
 </string>
     </property>

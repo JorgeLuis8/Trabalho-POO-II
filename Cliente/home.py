@@ -12,17 +12,6 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Tela_home(object):
-    """
-        Classe que cria a tela home do cliente
-
-        Methods
-        -------
-        setupUi(MainWindow)
-                Cria todos os elementos da tela home
-
-        retranslateUi(MainWindow)
-                Coloca textos nos elementos da tela home
-"""
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 600)
@@ -114,23 +103,26 @@ class Tela_home(object):
         self.pushButton.setObjectName("pushButton")
         self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit.setGeometry(QtCore.QRect(290, 140, 281, 20))
-        self.lineEdit.setStyleSheet("color: black;\n"
+        self.lineEdit.setStyleSheet("border-radius: 10px;\n"
 "background-color: transparent;\n"
+"border: 2px solid black;\n"
 "\n"
 "")
         self.lineEdit.setObjectName("lineEdit")
         self.lineEdit_2 = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit_2.setGeometry(QtCore.QRect(290, 160, 281, 20))
-        self.lineEdit_2.setStyleSheet("color: black;\n"
+        self.lineEdit_2.setStyleSheet("border-radius: 10px;\n"
 "background-color: transparent;\n"
+"border: 2px solid black;\n"
 "\n"
 "")
         self.lineEdit_2.setReadOnly(True)
         self.lineEdit_2.setObjectName("lineEdit_2")
         self.lineEdit_3 = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit_3.setGeometry(QtCore.QRect(290, 180, 281, 20))
-        self.lineEdit_3.setStyleSheet("color: black;\n"
+        self.lineEdit_3.setStyleSheet("border-radius: 10px;\n"
 "background-color: transparent;\n"
+"border: 2px solid black;\n"
 "\n"
 "")
         self.lineEdit_3.setAlignment(QtCore.Qt.AlignJustify|QtCore.Qt.AlignVCenter)
@@ -179,7 +171,7 @@ class Tela_home(object):
         self.voltar.setText(_translate("MainWindow", "Deslogar"))
         self.pushButton_2.setText(_translate("MainWindow", "Perfil"))
         self.pushButton_3.setText(_translate("MainWindow", "Pesquisar Dicas"))
-        self.pushButton_6.setText(_translate("MainWindow", "Cadastrar Dicas"))
+        self.pushButton_6.setText(_translate("MainWindow", "Cadastrar Jogos"))
         self.pushButton.setText(_translate("MainWindow", "Cadastrar novos jogos"))
         self.label_2.setText(_translate("MainWindow", "Nome"))
         self.label_3.setText(_translate("MainWindow", "User"))
