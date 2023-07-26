@@ -698,51 +698,10 @@ class Main(QMainWindow, Ui_main):
                 return 0
         
     def set_img(self):
-        """
-        Obtém a imagem do QPushButton clicado e adiciona-a ao ComboBox juntamente com o nome do jogo.
-        """
-        options = QFileDialog.Options()
-        fileName, _ = QFileDialog.getOpenFileName(self, "Selecione uma imagem", "", "Imagens (*.png *.jpg *.bmp);;Todos os arquivos (*)", options=options)
-        
-        if fileName:
-            pixmap = QPixmap(fileName)
-            nome_jogo = self.cadastro_jogos.lineEdit.text()
+        caminho = 'gatosesopa_icon.png'
+        index = 18
+        self.tela_dicas.comboBox.setItemIcon(index, QIcon(caminho))
 
-            # Verifica se o nome do jogo já existe na lista
-            if not self.jogos_cadastrados or nome_jogo not in [jogo[0] for jogo in self.jogos_cadastrados]:
-                # Adiciona o nome do jogo à lista
-                self.jogos_cadastrados.append((nome_jogo, fileName))
-
-                # Adiciona o nome do jogo ao ComboBox
-                self.cadastro_jogos.comboBox.addItem(nome_jogo)
-
-                # Obtém o índice do item adicionado ao ComboBox
-                index = self.cadastro_jogos.comboBox.count() - 1
-
-                # Define a imagem como ícone do item adicionado ao ComboBox
-                icon = QIcon(pixmap)
-                self.cadastro_jogos.comboBox.setItemData(index, icon, QtCore.Qt.DecorationRole)
-
-                # Atualiza a variável last_added_item para o item atual
-                self.last_added_item = self.cadastro_jogos.comboBox.model().item(index)
-
-                # Limpa o campo de nome do jogo
-                self.cadastro_jogos.lineEdit.clear()
-            else:
-                QMessageBox.information(None, 'Atenção', 'Nome do jogo já cadastrado')
-
-    def on_pushButton_2_clicked(self):
-        """
-        Obtém a imagem do QPushButton clicado e associa-a ao último item adicionado no ComboBox.
-        """
-        if self.last_added_item is not None:
-            options = QFileDialog.Options()
-            fileName, _ = QFileDialog.getOpenFileName(self, "Selecione uma imagem", "", "Imagens (*.png *.jpg *.bmp);;Todos os arquivos (*)", options=options)
-
-            if fileName:
-                pixmap = QPixmap(fileName)
-                icon = QIcon(pixmap)
-                self.last_added_item.setIcon(icon)
     def voltar(self):
         """
         Volta para a tela inicial
