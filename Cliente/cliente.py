@@ -219,7 +219,7 @@ class Main(QMainWindow, Ui_main):
         self.tela_jogos.cad.clicked.connect(self.cadastrar_jogos) #cadastra novos jogos
         self.tela_jogos.pushButton_3.clicked.connect(self.voltar)# desloga
         
-
+        
         self.tela_dica.pushButton_2.clicked.connect(self.voltar2) #volta para tela home
         self.tela_dica.pushButton_6.clicked.connect(self.ir_jogos) #cadastra novas dicas
         self.tela_dica.pushButton.clicked.connect(self.cad_jogos) #cadastra novos jogos
@@ -234,7 +234,6 @@ class Main(QMainWindow, Ui_main):
         self.cadastro_jogos.pushButton_2.clicked.connect(self.ir_jogos) #cadastra novas dicas
         self.cadastro_jogos.pushButton_3.clicked.connect(self.voltar)
         self.cadastro_jogos.pushButton.clicked.connect(self.new_joos) #cadastra novos jogos
-        #self.cadastro_jogos.pushButton_6.clicked.connect(self.img)
         self.preencher_combobox_jogos()
     #Faz a comunicação com o servidor para verficar o cadastro.
     def serverCadastro(self, msgCad):
@@ -254,7 +253,7 @@ class Main(QMainWindow, Ui_main):
 
 
         """
-        help(self.serverCadastro)
+ 
 
         if msgCad.split(',')[0] == '2':
             self.client_socket.send(msgCad.encode())
@@ -278,7 +277,6 @@ class Main(QMainWindow, Ui_main):
         None
                 A função não retorna nada, apenas executa as ações necessárias
         """
-        help(self.cadastro)
         nome = self.tela_cadastro.lineEdit_3.text()
         email = self.tela_cadastro.lineEdit_4.text()
         endereco = self.tela_cadastro.lineEdit.text()
@@ -812,20 +810,7 @@ class Main(QMainWindow, Ui_main):
         self.Qstack.setCurrentIndex(5)
 
     def cad_jogos(self):
-        """
-        Vai para a tela de cadastro de jogos
-
-        Parameters
-        ----------
-        None
-
-        Returns
-        -------
-        None
-                A função não retorna nada, apenas executa as ações necessárias
-
-        """
-        self.Qstack.setCurrentIndex(6)
+        QMessageBox.information(None, 'Atenção', 'Funcionalidade não implementada')
 
 
 if __name__ == '__main__':

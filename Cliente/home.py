@@ -66,7 +66,7 @@ class Tela_home(object):
 "")
         self.pushButton_2.setObjectName("pushButton_2")
         self.pushButton_3 = QtWidgets.QPushButton(self.frame)
-        self.pushButton_3.setGeometry(QtCore.QRect(20, 80, 81, 23))
+        self.pushButton_3.setGeometry(QtCore.QRect(20, 70, 81, 23))
         self.pushButton_3.setStyleSheet("QPushButton {\n"
 "    background-color:  #add8e6 ;\n"
 "    border-radius: 10px;\n"
@@ -78,7 +78,7 @@ class Tela_home(object):
 "")
         self.pushButton_3.setObjectName("pushButton_3")
         self.pushButton_6 = QtWidgets.QPushButton(self.frame)
-        self.pushButton_6.setGeometry(QtCore.QRect(20, 120, 81, 23))
+        self.pushButton_6.setGeometry(QtCore.QRect(20, 100, 81, 23))
         self.pushButton_6.setStyleSheet("QPushButton {\n"
 "    background-color:  #add8e6;\n"
 "    border-radius: 10px;\n"
@@ -90,7 +90,7 @@ class Tela_home(object):
 "")
         self.pushButton_6.setObjectName("pushButton_6")
         self.pushButton = QtWidgets.QPushButton(self.frame)
-        self.pushButton.setGeometry(QtCore.QRect(10, 160, 111, 21))
+        self.pushButton.setGeometry(QtCore.QRect(20, 130, 75, 23))
         self.pushButton.setStyleSheet("QPushButton {\n"
 "    background-color:  #add8e6;\n"
 "    border-radius: 10px;\n"
@@ -172,7 +172,7 @@ class Tela_home(object):
         self.pushButton_2.setText(_translate("MainWindow", "Perfil"))
         self.pushButton_3.setText(_translate("MainWindow", "Pesquisar Dicas"))
         self.pushButton_6.setText(_translate("MainWindow", "Cadastrar Jogos"))
-        self.pushButton.setText(_translate("MainWindow", "Cadastrar novos jogos"))
+        self.pushButton.setText(_translate("MainWindow", "Novos Jogos"))
         self.label_2.setText(_translate("MainWindow", "Nome"))
         self.label_3.setText(_translate("MainWindow", "User"))
         self.label_4.setText(_translate("MainWindow", "Email"))

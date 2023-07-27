@@ -74,6 +74,18 @@ class Pesquisa_dica(object):
 "}\n"
 "")
         self.pushButton_6.setObjectName("pushButton_6")
+        self.pushButton = QtWidgets.QPushButton(self.frame)
+        self.pushButton.setGeometry(QtCore.QRect(10, 110, 101, 23))
+        self.pushButton.setStyleSheet("QPushButton {\n"
+"    background-color:  #add8e6;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color:#AABAF2 ;\n"
+"}\n"
+"")
+        self.pushButton.setObjectName("pushButton")
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(220, 10, 441, 31))
         font = QtGui.QFont()
@@ -219,6 +231,7 @@ class Pesquisa_dica(object):
         self.pushButton_3.setText(_translate("MainWindow", "Pesquisar Dicas"))
         self.voltar.setText(_translate("MainWindow", "Deslogar"))
         self.pushButton_6.setText(_translate("MainWindow", "Cadastrar Dicas"))
+        self.pushButton.setText(_translate("MainWindow", "Novos Jogos"))
         self.label.setText(_translate("MainWindow", "ENCONTRE A DICA QUE DESEJA"))
         self.pushButton_4.setText(_translate("MainWindow", "Pesquisar"))
         self.label_2.setText(_translate("MainWindow", "Dicas"))

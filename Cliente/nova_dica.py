@@ -11,7 +11,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Cadastro_jogos(object):
+class cad(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 596)
@@ -63,7 +63,7 @@ class Cadastro_jogos(object):
 "")
         self.pushButton_3.setObjectName("pushButton_3")
         self.pushButton_2 = QtWidgets.QPushButton(self.frame)
-        self.pushButton_2.setGeometry(QtCore.QRect(10, 90, 111, 21))
+        self.pushButton_2.setGeometry(QtCore.QRect(10, 120, 91, 21))
         self.pushButton_2.setStyleSheet("QPushButton {\n"
 "    background-color:  #add8e6;\n"
 "    border-radius: 10px;\n"
@@ -74,6 +74,18 @@ class Cadastro_jogos(object):
 "}\n"
 "")
         self.pushButton_2.setObjectName("pushButton_2")
+        self.pushButton_18 = QtWidgets.QPushButton(self.frame)
+        self.pushButton_18.setGeometry(QtCore.QRect(20, 90, 75, 23))
+        self.pushButton_18.setStyleSheet("QPushButton {\n"
+"    background-color:  #AABAF2 ;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color:#AABAF2 ;\n"
+"}\n"
+"")
+        self.pushButton_18.setObjectName("pushButton_18")
         self.lineEdit_3 = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit_3.setGeometry(QtCore.QRect(270, 100, 391, 61))
         font = QtGui.QFont()
@@ -258,7 +270,8 @@ class Cadastro_jogos(object):
         self.pushButton_4.setText(_translate("MainWindow", "Perfil"))
         self.pushButton_5.setText(_translate("MainWindow", "Pesquisar Dicas"))
         self.pushButton_3.setText(_translate("MainWindow", "Deslogar"))
-        self.pushButton_2.setText(_translate("MainWindow", "Cadastrar novos jogos"))
+        self.pushButton_2.setText(_translate("MainWindow", "Novos Jogos"))
+        self.pushButton_18.setText(_translate("MainWindow", "Cadastar Dicas"))
         self.label_3.setText(_translate("MainWindow", "Descrição"))
         self.label_2.setText(_translate("MainWindow", "Jogo"))
         self.label_4.setText(_translate("MainWindow", "Dica"))
