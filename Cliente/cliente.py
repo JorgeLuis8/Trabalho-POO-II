@@ -697,10 +697,6 @@ class Main(QMainWindow, Ui_main):
         else:
                 return 0
         
-    def set_img(self):
-        caminho = 'gatosesopa_icon.png'
-        index = 18
-        self.tela_dicas.comboBox.setItemIcon(index, QIcon(caminho))
 
     def voltar(self):
         """

@@ -73,7 +73,7 @@ QPushButton:hover {
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>60</y>
+       <y>50</y>
        <width>81</width>
        <height>23</height>
       </rect>
@@ -121,7 +121,7 @@ QPushButton:hover {
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>90</y>
+       <y>80</y>
        <width>81</width>
        <height>23</height>
       </rect>
@@ -139,30 +139,6 @@ QPushButton:hover {
      </property>
      <property name="text">
       <string>Cadastrar Dicas</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="pushButton">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>120</y>
-       <width>111</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton {
-    background-color:  #add8e6;
-    border-radius: 10px;
-}
-
-QPushButton:hover {
-    background-color:#AABAF2 ;
-}
-</string>
-     </property>
-     <property name="text">
-      <string>Cadastrar novos jogos</string>
      </property>
     </widget>
    </widget>
