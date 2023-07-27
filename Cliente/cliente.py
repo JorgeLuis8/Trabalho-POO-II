@@ -234,7 +234,7 @@ class Main(QMainWindow, Ui_main):
         self.cadastro_jogos.pushButton_2.clicked.connect(self.ir_jogos) #cadastra novas dicas
         self.cadastro_jogos.pushButton_3.clicked.connect(self.voltar)
         self.cadastro_jogos.pushButton.clicked.connect(self.new_joos) #cadastra novos jogos
-        self.preencher_combobox_jogos()
+        #self.preencher_combobox_jogos()
     #Faz a comunicação com o servidor para verficar o cadastro.
     def serverCadastro(self, msgCad):
         """
@@ -688,10 +688,9 @@ class Main(QMainWindow, Ui_main):
                 for jogo in lista_jogos_limpa:
                         if self.tela_dica.comboBox.findText(jogo) == -1:
                                 self.tela_dica.comboBox.addItem(jogo)
-                                self.tela_dica.comboBox.setItemIcon(index,icon)
                         if self.tela_jogos.comboBox.findText(jogo) == -1:
                                 self.tela_jogos.comboBox.addItem(jogo)
-                                self.tela_jogos.comboBox.setItemIcon(index,icon)
+
         else:
                 return 0
         

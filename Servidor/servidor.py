@@ -415,6 +415,7 @@ class MyThread(threading.Thread):
                 elif mensagemStr[0] == '3':
                     nome = mensagemStr[1]
                     ano_lancamento = mensagemStr[2]
+                    
                     descri = mensagemStr[3]
                     dica = mensagemStr[4]
                     print('Conectado 3')
